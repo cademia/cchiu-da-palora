@@ -1,0 +1,36 @@
+
+fetch_info_2018-04-10.txt
+counts of parts of speech and missing parts of speech in Dieli dictionary
+-------------------------------------------------------------------------
+
+        12061  -- total words
+        19091  -- total entries
+
+         4591  -- {v}
+         4421  -- {m}
+         3992  -- {f}
+         3108  -- {adj}
+         1776  -- {}
+          487  -- {adv}
+          164  -- {prep}
+          158  -- {pron}
+           87  -- {n}
+           81  -- {mpl}
+           79  -- {fpl}
+           65  -- {conj}
+           37  -- {m/f}
+           16  -- {p}
+           10  -- {pl}
+            6  -- {intj}
+            2  -- {vi}
+            2  -- {excl}
+            1  -- {f}p}
+            1  -- {nm}
+            1  -- {m
+            1  -- {r}
+            1  -- n{}
+            1  -- {vt}
+            1  -- {art}
+            1  -- {npl}
+            1  -- {pro}
+
