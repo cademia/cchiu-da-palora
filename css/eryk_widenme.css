@@ -1,0 +1,62 @@
+/*  ========================================================================  */
+/*                                                                            */  
+/*  "eryk_widenme.css" -- CSS to keep a page wide and make a mini column      */
+/*  Copyright (C) 2018 Eryk Wdowiak                                           */
+/*                                                                            */
+/*  This program is free software: you can redistribute it and/or modify      */
+/*  it under the terms of the GNU General Public License as published by      */
+/*  the Free Software Foundation, either version 3 of the License, or         */
+/*  (at your option) any later version.                                       */
+/*                                                                            */
+/*  This program is distributed in the hope that it will be useful,           */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of            */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             */
+/*  GNU General Public License for more details.                              */
+/*                                                                            */
+/*  You should have received a copy of the GNU General Public License         */
+/*  along with this program.  If not, see <https://www.gnu.org/licenses/>.    */
+/*                                                                            */
+/*  ========================================================================  */  
+
+/*  last updated:  08 April 2018  */
+/*  ============================  */
+
+/*  create a mini column  */ 
+@media only screen and (min-width: 600px) { 
+    div.minicol {float: left; width: 3.5%; padding: 0.5%;}
+}
+
+/*  keep the page at full-width  */
+@media only screen and (min-width: 600px) { 
+    div.widenme {min-width: 550px;}
+}
+@media only screen and (min-width: 625px) { 
+    div.widenme {min-width: 575px;}
+}
+@media only screen and (min-width: 650px) { 
+    div.widenme {min-width: 600px;}
+}
+@media only screen and (min-width: 675px) { 
+    div.widenme {min-width: 625px;}
+}
+@media only screen and (min-width: 700px) { 
+    div.widenme {min-width: 650px;}
+}
+@media only screen and (min-width: 725px) { 
+    div.widenme {min-width: 675px;}
+}
+@media only screen and (min-width: 750px) { 
+    div.widenme {min-width: 700px;}
+}
+@media only screen and (min-width: 775px) { 
+    div.widenme {min-width: 725px;}
+}
+@media only screen and (min-width: 800px) { 
+    div.widenme {min-width: 750px;}
+}
+@media only screen and (min-width: 825px) { 
+    div.widenme {min-width: 775px;}
+}
+@media only screen and (min-width: 836px) { 
+    div.widenme {min-width: 786px;}
+}

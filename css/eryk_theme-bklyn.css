@@ -1,0 +1,73 @@
+/*  ========================================================================  */
+/*                                                                            */  
+/*  "eryk_theme-bklyn.css" -- CSS for Eryk's "B'klyn" theme                   */
+/*  Copyright (C) 2018 Eryk Wdowiak                                           */
+/*                                                                            */
+/*  This program is free software: you can redistribute it and/or modify      */
+/*  it under the terms of the GNU General Public License as published by      */
+/*  the Free Software Foundation, either version 3 of the License, or         */
+/*  (at your option) any later version.                                       */
+/*                                                                            */
+/*  This program is distributed in the hope that it will be useful,           */
+/*  but WITHOUT ANY WARRANTY; without even the implied warranty of            */
+/*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             */
+/*  GNU General Public License for more details.                              */
+/*                                                                            */
+/*  You should have received a copy of the GNU General Public License         */
+/*  along with this program.  If not, see <https://www.gnu.org/licenses/>.    */
+/*                                                                            */
+/*  ========================================================================  */  
+
+/*  last updated:  14 March 2018  */
+/*  ============================  */
+
+/*  font color  */
+body,h1,h2,h3,h4,h5,h6,p,em{ color: rgb(106, 2, 2); }
+
+/*  link color  */
+a:link, a:visited{ color: rgb(204, 7, 39); }
+
+/*  navigation color  */
+tr.navbar, td.navbar, ul.topnav, ul.navbar {
+    background-color: rgb(127,7,39); 
+}
+a.navbar, a.dropbtn { color: yellow; }
+a.topnav { color: rgb(106, 2, 2); }
+
+li.navbar a:hover, li.dropdown:hover .dropbtn, li.dropdown a:hover, .dropdown-content a:hover {
+    background-color: rgb(255,36,36);
+    color: white;
+}
+.dropdown-content { 
+    background-color: rgb(255, 255, 204); 
+    border: 1px solid rgb(5, 91, 28); 
+}
+
+/*  ====================  */
+
+/*  disappearing "eryk" on top menu of large screen  */
+@media only screen and (min-width: 626px) {
+    span.vanisheryk {display: none;}
+}
+/*  appearing "eryk" on top menu of large screen  */
+@media only screen and (max-width: 625px) {
+    span.appeareryk {display: none;}
+}
+
+/*  =========================================  */
+
+/*  social media buttons in bottom navigation  */
+
+@media only screen and (max-width: 599px) {
+    div.socialvanish { display: none; }
+    p.socialappear { margin-top: 0.5em; 
+		     margin-bottom: 0.2em; 
+		     margin-left: 7px;
+    }
+}
+@media only screen and (min-width: 600px) {
+    div.socialappear { display: none; }
+    p.socialvanish { margin-top:    4em; 
+		     margin-bottom: 0em;
+    }
+}
