@@ -43,8 +43,8 @@ my %vbconj ;
 ##  same throughout -ARI
 my %allari = (
     inf => "ari",
-    pim => {                  ds => "a"      ,  ## us => ""  , ts => "" ,
-	     up => "amu"    , dp => "ati"    }, ## tp => "" },
+    pim => {                  ds => "a"      , ts => "assi"    ,
+	     up => "amu"    , dp => "ati"    }, ## tp => "àssiru" },
     pai => { us => "avi"    , ds => "asti"   , ts => "au"      ,
 	     up => "amu"    , dp => "àstivu" , tp => "aru"    },
     imi => { us => "ava"    , ds => "avi"    , ts => "ava"     ,
@@ -55,8 +55,8 @@ my %allari = (
     pap => "atu"  ,
 
     ##  imperative -- for use with reflexive pronouns
-    pimr => {                 ds => "a"      ,  ## us => ""  , ts => "" ,
-	     up => "àmu"    , dp => "àti"    }, ## tp => "" },
+    pimr => {                 ds => "a"      , ts => "assi"   ,
+	     up => "àmu"    , dp => "àti"    }, ## tp => "àssiru" },
     ); 
 %{ $vbconj{xxari} } = %allari ;
 %{ $vbconj{xcari} } = %allari ;
@@ -68,8 +68,8 @@ my %allari = (
 ##  same throughout -IRI
 my %alliri = (
     inf => "iri",
-    pim => {                  ds => "i"      ,  ## us => ""  , ts => "" ,
-	     up => "emu"    , dp => "iti"    }, ## tp => "" },
+    pim => {                  ds => "i"      , ts => "issi"    ,
+	     up => "emu"    , dp => "iti"    }, ## tp => "ìssiru" },
     pai => { us => "ivi"    , ds => "isti"   , ts => "ìu"      ,
 	     up => "emu"    , dp => "ìstivu" , tp => "eru"    },
     imi => { us => "eva"    , ds => "evi"    , ts => "eva"     ,
@@ -80,8 +80,8 @@ my %alliri = (
     pap => "utu"  ,
 
     ##  imperative -- for use with reflexive pronouns
-    pimr => {                 ds => "i"      ,  ## us => ""  , ts => "" ,
-	     up => "èmu"    , dp => "ìti"    }, ## tp => "" },
+    pimr => {                 ds => "i"      , ts => "issi"    ,
+	     up => "èmu"    , dp => "ìti"    }, ## tp => "ìssiru" },
     );
 %{ $vbconj{xxiri} } = %alliri ;
 %{ $vbconj{sciri} } = %alliri ;
@@ -237,7 +237,7 @@ sub conjreflex {
     ##  boot will not be penultimate with reflex pronoun, so keep accents
     my $pimconj = $boot . $vbconj{$conj}{pimr}{ds} ;
     $conjug{pim}{ds} = ( ! defined $nonreflex{verb}{irrg}{pim}{ds} ) ? $pimconj : $prep . $nonreflex{verb}{irrg}{pim}{ds} ; 
-    foreach my $person ("up","dp") { 
+    foreach my $person ("ts","up","dp") { 
 	##  accent on unstressed stem
 	my $pimconj = $stem . $vbconj{$conj}{pimr}{$person} ;
 	$conjug{pim}{$person} = ( ! defined $nonreflex{verb}{irrg}{pim}{$person} ) ? $pimconj : $prep . $nonreflex{verb}{irrg}{pim}{$person} ; 
@@ -245,6 +245,11 @@ sub conjreflex {
     ##  add the reflexive pronoun to the end
     foreach my $person ("ds","dp") { 
 	$conjug{pim}{$person} = $conjug{pim}{$person} . $rprons{$person} ; 
+    }
+    ##  add the reflexive pronoun to the beginning -- polite form
+    foreach my $person ("ts") { 
+	my $abbrevORnot = ( $conjug{pim}{$person} =~ /^[aeiouàèìòù]/ ) ? "s'" : $rprons{$person} ;
+	$conjug{pim}{$person} = $abbrevORnot . " " . $conjug{pim}{$person} ; 
     }
     ##  "double n" in 1st pl.  -- "nzignamunni lu sicilianu!"
     $conjug{pim}{up} = $conjug{pim}{up} ."n". $rprons{up} ; 
@@ -320,7 +325,7 @@ sub conjnonreflex {
 	$conjug{pim}{$person} = ( ! defined $palora{verb}{irrg}{pim}{$person} ) ? $pimconj : 
 	    $prep . $palora{verb}{irrg}{pim}{$person} ; 	
     }
-    foreach my $person ("up","dp") {
+    foreach my $person ("ts","up","dp") {
 	##  accent on unstressed stem
 	my $pimconj = $stem . $vbconj{$conj}{pim}{$person} ;
 	$conjug{pim}{$person} = ( ! defined $palora{verb}{irrg}{pim}{$person} ) ? $pimconj : 

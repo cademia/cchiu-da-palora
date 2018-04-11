@@ -392,7 +392,7 @@ sub mk_conjhtml {
     $ot .= '<div class="col-m-6 col-6">' . "\n" ;
     $ot .= '<p class="zero">' . '--' . '</p>' . "\n" ;
     $ot .= '<p class="zero">' . $othash{pim}{"ds"} . '</p>' . "\n" ;
-    $ot .= '<p class="zero">' . '--' . '</p>' . "\n" ;
+    $ot .= '<p class="zero">' . $othash{pim}{"ts"} . '</p>' . "\n" ;
     $ot .= '</div>' . "\n" ; 
     $ot .= '<div class="col-m-6 col-6">' . "\n" ;
     $ot .= '<p class="zero">' . $othash{pim}{"up"} . '</p>' . "\n" ;
