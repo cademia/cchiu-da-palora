@@ -248,7 +248,8 @@ sub conjreflex {
     }
     ##  add the reflexive pronoun to the beginning -- polite form
     foreach my $person ("ts") { 
-	my $abbrevORnot = ( $conjug{pim}{$person} =~ /^[aeiouàèìòù]/ ) ? "s'" : $rprons{$person} ;
+	##  my $abbrevORnot = ( $conjug{pim}{$person} =~ /^[aeiouàèìòù]/ ) ? "s'" : $rprons{$person} ;
+	my $abbrevORnot = $rprons{$person} ;
 	$conjug{pim}{$person} = $abbrevORnot . " " . $conjug{pim}{$person} ; 
     }
     ##  "double n" in 1st pl.  -- "nzignamunni lu sicilianu!"
