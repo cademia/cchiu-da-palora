@@ -1,5 +1,5 @@
 
-fetch_info_2018-04-10.txt
+fetch_info_2018-04-11.txt
 counts of parts of speech and missing parts of speech in Dieli dictionary
 -------------------------------------------------------------------------
 
