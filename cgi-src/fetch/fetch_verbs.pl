@@ -154,6 +154,7 @@ sub mk_proto {
     $ottxt .= '##      dieli_it => ['; 
     foreach my $listing (@dieli_it) { $ottxt .= '"' . $listing . '",';};
     $ottxt .= '],' . "\n";
+    $ottxt .= '##      notex => ["","",],' . "\n";
     $ottxt .= '##      part_speech => "verb",' . "\n";
     $ottxt .= '##      verb => {' . "\n";
     $ottxt .= '##  	conj => "' . $conj . '",' . "\n";
