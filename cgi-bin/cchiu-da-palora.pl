@@ -19,13 +19,13 @@
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 use strict;
-#use warnings;
+use warnings;
 use CGI qw(:standard);
 use Storable qw( retrieve ) ;
-#{   no warnings;             
-#    ## $Storable::Deparse = 1;  
+{   no warnings;             
+    ## $Storable::Deparse = 1;  
     $Storable::Eval    = 1;  
-#}
+}
 
 ##  retrieve hashes and subroutines
 my $vthash = retrieve('../cgi-lib/verb-tools' );
@@ -50,14 +50,29 @@ if ( ! defined $inword ) {
     print mk_showall(  \%vnotes , \%vbconj , \%vbsubs ) ;
 } else { 
 
-    ##  if it is not a verb, do nothing 
-    ##  otherwise conjugate it
-    if ( ! defined $vnotes{ $inword }{verb}     && 
-	 ! defined $vnotes{ $inword }{reflex}   && 
-	 ! defined $vnotes{ $inword }{prepend} ) {
-	my $othtml ; 
+    ##  print translations and notes
+    print mk_dielitrans( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
+    print mk_notex( $inword , \%vnotes ) ;
 
+    ##  are we working with a verb, noun or adjective?
+    my $isverb = ( ! defined $vnotes{ $inword }{verb}     && 
+		   ! defined $vnotes{ $inword }{reflex}   && 
+		   ! defined $vnotes{ $inword }{prepend}            ) ? "false" : "true" ;
+    my $isnoun = ( ! defined $vnotes{ $inword }{noun}               ) ? "false" : "true" ;
+    my $isadj  = ( $vnotes{ $inword }{part_speech} ne "adj" ) ? "false" : "true" ;
+    
+    if ( $isverb eq "true" ) {
+	print mk_conjhtml( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
+	
+    } elsif ( $isnoun eq "true" ) {
+	print mk_nounhtml( $inword , \%vnotes , \%vbsubs ) ;
+	
+    } elsif ( $isadj  eq "true" ) {
+	print mk_adjhtml( $inword , \%vnotes , \%vbsubs ) ;
+	
+    } else {
 	##  outer DIV to limit width
+	my $othtml ; 
 	$othtml .= '<div class="transconj">' . "\n" ; 
 	$othtml .= '<div class="row">' . "\n" ; 
 	$othtml .= '<p>' . "nun c'è" . ' na annotazzioni dâ palora: &nbsp; <b>' . $inword . '</b></p>' . "\n" ;
@@ -65,12 +80,6 @@ if ( ! defined $inword ) {
 	$othtml .= '</div>' . "\n" ; 
 	print $othtml ; 
 	print mk_showall(  \%vnotes , \%vbconj , \%vbsubs ) ;
-
-    } else {
-	##  print translations
-	print mk_dielitrans( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
-	print mk_notex( $inword , \%vnotes ) ;
-	print mk_conjhtml( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
     }
 }
 print mk_foothtm("../config/navbar-footer.html");
@@ -102,7 +111,7 @@ sub mk_showall {
     my $vnkqtr = int( $#vnkeys / 4 ) ; 
     
     ##  scalar to adjust length of first and second columns (for appearances)
-    my $adjustment = 2 ;
+    my $adjustment = 0 ;
     
     ##  first column
     my $vnstart = 0 ; 
@@ -208,13 +217,27 @@ sub mk_vnkcontent {
 		$othtml .= '<p style="margin-left: 10px"><b><i>' . uc($hold_letter) . '</i></b></p>' . "\n" ;
 	    }
 	    
-	    my %othash = fetch_othash( $palora , \%vnotes , $vbcref , $vbsubs ) ; 
-	    
-	    ##  which word do we display?
+
+	    ## initialize the word to display
 	    my $display ;
-	    $display = ( ! defined $othash{inf} ) ? $palora : $othash{inf} ;
-	    $display = ( ! defined $vnotes{$palora}{display_as} ) ? $display : $vnotes{$palora}{display_as} ;
-	    
+	    if ( ! defined $vnotes{ $palora }{verb}     || 
+		 ! defined $vnotes{ $palora }{reflex}   || 
+		 ! defined $vnotes{ $palora }{prepend}  ) { 
+		
+		##  not a verb, so ...
+		##  first choice is "display_as",  second choice is hash key
+		$display = ( ! defined $vnotes{$palora}{display_as} ) ? $palora : $vnotes{$palora}{display_as} ;		
+		
+	    } else { 
+		##  fetching to get conjugated infinitive
+		my %othash = fetch_othash( $palora , \%vnotes , $vbcref , $vbsubs ) ; 
+
+		##  is a verb, so ...
+		##  first choice is "display_as",  second choice is conjugated infinitive,  third choice is hash key
+		$display = ( ! defined $othash{inf} ) ? $palora : $othash{inf} ;
+		$display = ( ! defined $vnotes{$palora}{display_as} ) ? $display : $vnotes{$palora}{display_as} ;
+	    }
+
 	    ##  create link
 	    my $link = '<a href="/cgi-bin/cchiu-da-palora.pl?palora=' . $palora . '">' . $display . '</a>' ;
 	    
@@ -225,8 +248,6 @@ sub mk_vnkcontent {
     
     return $othtml ; 
 }
-
-
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
@@ -272,15 +293,22 @@ sub mk_dielitrans {
     my $vbsubs =    $_[3]   ;  ##  hash reference
     
     ##  prepare output
-    my $ot ;
-    
-    my %othash = fetch_othash( $palora , \%vnotes , $vbcref , $vbsubs ) ; 
+    my $ot ;    
+    my %othash ;
+
+    ##  are we working with a verb?
+    my $isverb = ( ! defined $vnotes{ $inword }{verb}     && 
+		   ! defined $vnotes{ $inword }{reflex}   && 
+		   ! defined $vnotes{ $inword }{prepend}            ) ? "false" : "true" ;
+    if ( $isverb eq "true" ) {
+	%othash = fetch_othash( $palora , \%vnotes , $vbcref , $vbsubs ) ; 
+    }
     
     ##  which word do we display?
     my $display ;
     $display = ( ! defined $othash{inf} ) ? $palora : $othash{inf} ;
     $display = ( ! defined $vnotes{$palora}{display_as} ) ? $display : $vnotes{$palora}{display_as} ;
-
+    
     ##  which word do we redirect to? 
     my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $display : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
     
@@ -328,7 +356,7 @@ sub mk_notex {
 	my @notex  = @{ $vnotes{$palora}{notex} };
 
 	$othtml .= '<div class="transconj">' . "\n" ; 
-	$othtml .= '<p style="margin-bottom: 0.25em;"><i>esempii:</i></p>' . "\n" ;
+	$othtml .= '<p style="margin-bottom: 0.25em;"><i>pi esempiu:</i></p>' . "\n" ;
 	$othtml .= '<ul style="margin-top: 0.25em;">' . "\n" ;
 	foreach my $line (@notex) {
 	    $othtml .= "<li>" . $line . "</li>" . "\n" ;
@@ -341,18 +369,105 @@ sub mk_notex {
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
+sub mk_nounhtml { 
+    my $palora =    $_[0]   ;
+    my %vnotes = %{ $_[1] } ;
+    my $vbsubs =    $_[2]   ;  ##  hash reference 
+    
+    ##  first choice is "display_as",  second choice is hash key
+    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $palora : $vnotes{$palora}{display_as} ;		
+
+    ##  prepare output
+    my $ot ;
+
+    ##  which word do we redirect to? 
+    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $palora : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
+    
+    ##  outer DIV to limit width
+    $ot .= '<div class="transconj">' . "\n" ;
+    $ot .= '<p style="margin-bottom: 0.5em;"><b><a href="/cgi-bin/sicilian.pl?' . 'search=' . $redirect . '&langs=' . $lgparm . '">' ; 
+    $ot .= $display . '</a></b></p>' . "\n" ;
+    
+
+    ##  $vbsubs{mk_noun_plural}() assumes "mas" or "fem" noun, some nouns are "both"
+    ##  such "both" nouns end in "-a" in singular and "-i" in plural
+    ##  the sub is written in such a way that it should be able to handle "both"
+    my $gender = $vnotes{$palora}{noun}{gender} ; 
+    my $plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
+	$vbsubs{mk_noun_plural}( $palora , $gender ) : $vnotes{$palora}{noun}{plural} ;
+
+    ##  singular and plural forms
+    if ( $gender eq "mas" || $gender eq "both" ) {
+	my $defart = ( $palora =~ /^[aeiou]/i ) ? "l'" : "lu " ; 
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $defart . $palora . "</p>" . "\n";
+    }
+    if ( $gender eq "fem" || $gender eq "both" ) {
+	my $defart = ( $palora =~ /^[aeiou]/i ) ? "l'" : "la " ; 
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $defart . $palora . "</p>" . "\n";
+    }
+    { my $defart = ( $plural =~ /^[aeiou]/i ) ? "l'" : "li " ; 
+      $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>pl.:</i> &nbsp; &nbsp; ' . $defart . $plural . "</p>" . "\n";
+    }
+
+    
+    ##  close DIV that limits width
+    $ot .= '</div>' . "\n" ; 
+    return $ot ; 
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
+sub mk_adjhtml { 
+    my $palora =    $_[0]   ;
+    my %vnotes = %{ $_[1] } ;
+    my $vbsubs =    $_[2]   ;  ##  hash reference
+
+    ##  first choice is "display_as",  second choice is hash key
+    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $palora : $vnotes{$palora}{display_as} ;	
+    
+    ##  prepare output
+    my $ot ;
+    ##  which word do we redirect to? 
+    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $palora : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
+    
+    ##  outer DIV to limit width
+    $ot .= '<div class="transconj">' . "\n" ;
+    $ot .= '<p style="margin-bottom: 0.5em;"><b><a href="/cgi-bin/sicilian.pl?' . 'search=' . $redirect . '&langs=' . $lgparm . '">' ; 
+    $ot .= $display . '</a></b></p>' . "\n" ;
+    
+    ##  fetch singular and plural forms
+    my ($massi , $femsi , $maspl , $fempl) = $vbsubs{mk_adjectives}($palora) ;
+
+    ##  singular and plural forms
+    $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $massi . "</p>" . "\n";
+    $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $femsi . "</p>" . "\n";
+    if ( $maspl ne $fempl ) {
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>mp.:</i> &nbsp; '        . $maspl . "</p>" . "\n";
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fp.:</i> &nbsp; &nbsp; ' . $fempl . "</p>" . "\n";
+    } else {
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>pl.:</i> &nbsp; &nbsp; ' . $maspl . "</p>" . "\n";
+    }
+
+    
+    ##  close DIV that limits width
+    $ot .= '</div>' . "\n" ; 
+    return $ot ; 
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
 sub mk_conjhtml {
-
-    my %forms = $vbsubs{mk_forms}() ; 
-    my @tenses = @{ $forms{tenses} } ; 
-    my %tnhash = %{ $forms{tnhash} } ; 
-    my @people = @{ $forms{people} } ; 
-
+    
     my $palora =    $_[0]   ;
     my %vnotes = %{ $_[1] } ;
     my $vbcref =    $_[2]   ;  ##  hash reference
     my $vbsubs =    $_[3]   ;  ##  hash reference
     
+    my %forms  = $vbsubs{mk_forms}() ; 
+    my @tenses = @{ $forms{tenses} } ; 
+    my %tnhash = %{ $forms{tnhash} } ; 
+    my @people = @{ $forms{people} } ; 
+
     ##  conjugate the verb
     my %othash = fetch_othash( $palora , \%vnotes , $vbcref , $vbsubs ) ; 
 

@@ -277,8 +277,6 @@ sub mk_tophtml {
     $ottxt .= '    <link rel="stylesheet" type="text/css" href="/css/eryk_theme-bklyn.css">' . "\n" ;
     $ottxt .= '    <link rel="stylesheet" type="text/css" href="/css/eryk_widenme.css">' . "\n" ;
     $ottxt .= '    <link rel="icon" type="image/png" href="/config/eryk-icon.png">' . "\n" ;
-    $ottxt .= '    <meta http-equiv="Pragma" content="no-cache">' . "\n" ;
-    $ottxt .= '    <meta http-equiv="Expires" content="0"> ' . "\n" ;
     $ottxt .= '    <meta name="viewport" content="width=device-width, initial-scale=1">' . "\n" ;
     $ottxt .= '    <style>' . "\n" ;
     $ottxt .= '    p.zero { margin-top: 0em; margin-bottom: 0em; }' . "\n" ;

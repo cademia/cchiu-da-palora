@@ -241,6 +241,20 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"cummattiri"} } = (
+    dieli => ["cummattiri",],
+    dieli_en => ["annoy","assault","battle","be busy","combat","compete","deal","fight","struggle",],
+    dieli_it => ["combattere","avere a che fare","competere",],
+    ## notex => ["","",],
+    part_speech => "verb",
+    verb => {
+	conj => "xxiri",
+	stem => "cummatt",
+	boot => "cummàtt",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"cumunicari"} } = (
     dieli => ["cumunicari",],
     dieli_en => ["communicate","inform","participate",],
@@ -249,12 +263,12 @@ my %vnotes ;
     verb => {
 	conj => "xcari",
 	stem => "cumunic",
-	boot => "cumùnic", 
+	boot => "cumunìc", 
     },);
 %{ $vnotes{"cumunicarisi"} } = (
-    dieli => ["cumunicarisi"],
+    dieli => ["cumunicarisi","cuminicarisi",],
     dieli_en => ["receive communion",],
-    dieli_it => [],
+    dieli_it => ["comunicarsi",],
     part_speech => "verb",
     reflex => "cumunicari",
     );
@@ -1325,8 +1339,8 @@ foreach my $key (keys %vnotes) {
 }
 
 ##  make ENglish and ITalian dictionaries
-my %dieli_en = make_en_dict( \%dieli_sc ) ;
-my %dieli_it = make_it_dict( \%dieli_sc ) ;
+# my %dieli_en = make_en_dict( \%dieli_sc ) ;
+# my %dieli_it = make_it_dict( \%dieli_sc ) ;
 
 ##  ##  ##  ##
 
@@ -1335,8 +1349,8 @@ nstore( \%vnotes , $vnotesfile ) ;
 
 ##  store the dictionaries
 nstore( \%dieli_sc , $dieli_sc_dict );
-nstore( \%dieli_en , $dieli_en_dict );
-nstore( \%dieli_it , $dieli_it_dict );
+# nstore( \%dieli_en , $dieli_en_dict );
+# nstore( \%dieli_it , $dieli_it_dict );
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##

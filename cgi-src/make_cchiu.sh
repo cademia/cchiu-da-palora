@@ -18,7 +18,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  make Dieli dictionary and edit it
 ./mk_dieli-dicts.pl
 ./mk_dieli-edits.pl
-./mk_verb-tools.pl
+
+##  make part of speech tools
+./mk_pos-tools.pl
+
+##  make verb notes 
+##  must do verbs before other parts of speech
 ./mk_verb-notes.pl
+
+##  make adjective notes and noun notes
+./mk_adj-notes.pl
+./mk_noun-notes.pl
