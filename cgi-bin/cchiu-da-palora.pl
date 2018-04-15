@@ -19,13 +19,13 @@
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 use strict;
-use warnings;
+#use warnings;
 use CGI qw(:standard);
 use Storable qw( retrieve ) ;
-{   no warnings;             
-    ## $Storable::Deparse = 1;  
+#{   no warnings;             
+#    ## $Storable::Deparse = 1;  
     $Storable::Eval    = 1;  
-}
+#}
 
 ##  retrieve hashes and subroutines
 my $vthash = retrieve('../cgi-lib/verb-tools' );
