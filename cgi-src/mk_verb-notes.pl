@@ -762,6 +762,7 @@ my %vnotes ;
     dieli => ["parrari"],
     dieli_en => ["discuss","speak",],
     dieli_it => ["discutere","parlare",],
+    notex => ["Parru cu tia, to è la curpa.",],
     part_speech => "verb", 
     verb => {
 	conj => "xxari", 

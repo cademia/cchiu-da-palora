@@ -98,7 +98,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["cu"],
     dieli_en => ["with","by means of",],
     dieli_it => ["con",],
-    notex => ["Parru cu tia, to è la curpa.",],
+    notex => ["Li so patri sunnu ginirusi cu iddu.",],
     part_speech => "prep", 
     );
 
