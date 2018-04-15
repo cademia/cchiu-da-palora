@@ -93,7 +93,7 @@ foreach my $key (keys %vnotes) {
 		##  only replace the linkto if its a noun
 		##  because that's what we're working with here
 		my $scpart = ${$dieli_sc{$dieli}[$index]}{"sc_part"} ;
-		if ( $scpart eq '{m}' || $scpart eq '{f}' || $scpart eq '{m/f}' ) {
+		if ( ( $scpart eq '{m}' || $scpart eq '{f}' || $scpart eq '{m/f}' ) && $vnotes{$key}{part_speech} eq 'noun' ) {
 		    ${$dieli_sc{$dieli}[$index]}{"linkto"} = $key ;
 		}
 	    }

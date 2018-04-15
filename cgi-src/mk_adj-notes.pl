@@ -74,7 +74,7 @@ foreach my $key (keys %vnotes) {
 	    if ( ! defined ${$dieli_sc{$dieli}[$index]}{"linkto"} ) {
 		##  only replace the linkto if its an adjective
 		##  because that's what we're working with here
-		if ( ${$dieli_sc{$dieli}[$index]}{"sc_part"} eq '{adj}') {
+		if ( ${$dieli_sc{$dieli}[$index]}{"sc_part"} eq '{adj}'  &&  $vnotes{$key}{part_speech} eq 'adj' ) {
 		    ${$dieli_sc{$dieli}[$index]}{"linkto"} = $key ;
 		}
 	    }

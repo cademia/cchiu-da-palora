@@ -1331,7 +1331,7 @@ foreach my $key (keys %vnotes) {
 	    if ( ! defined ${$dieli_sc{$dieli}[$index]}{"linkto"} ) {
 		##  only replace the linkto if its a verb
 		##  because that's what we're working with here
-		if ( ${$dieli_sc{$dieli}[$index]}{"sc_part"} eq '{v}') {
+		if ( ${$dieli_sc{$dieli}[$index]}{"sc_part"} eq '{v}'  &&  $vnotes{$key}{part_speech} eq 'verb' ) {
 		    ${$dieli_sc{$dieli}[$index]}{"linkto"} = $key ;
 		}
 	    }

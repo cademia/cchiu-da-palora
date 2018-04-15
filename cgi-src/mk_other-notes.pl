@@ -136,7 +136,9 @@ foreach my $key (keys %vnotes) {
 		##  {adv} {prep} {pron}
 		##  because that's what we're working with here
 		my $scpart = ${$dieli_sc{$dieli}[$index]}{"sc_part"} ;
-		if ( $scpart eq '{adv}' || $scpart eq '{prep}' || $scpart eq '{pron}' ) {
+		if ( ( $scpart eq '{adv}'   &&  $vnotes{$key}{part_speech} eq 'adv'  ) || 
+		     ( $scpart eq '{prep}'  &&  $vnotes{$key}{part_speech} eq 'prep' ) || 
+		     ( $scpart eq '{pron}'  &&  $vnotes{$key}{part_speech} eq 'pron' ) ) {
 		    ${$dieli_sc{$dieli}[$index]}{"linkto"} = $key ;
 		}
 	    }
