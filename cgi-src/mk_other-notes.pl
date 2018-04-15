@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-##  "mk_noun-notes.pl" -- makes hash of nouns and adds "linkto"s to the Dieli dictionary
+##  "mk_other-notes.pl" -- makes hash of other parts of speech and adds "linkto"s to the Dieli dictionary
 ##  Copyright (C) 2018 Eryk Wdowiak
 ##
 ##  This program is free software: you can redistribute it and/or modify
@@ -41,43 +41,85 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ADD NOUNS to HASH of VERBS
-##  === ===== == ==== == =====
+##  ADD OTHER PARTS OF SPEECH to HASH of VERBS
+##  === ===== ===== == ====== == ==== == =====
+##  adding:  {adv} {prep} {pron}
+##  -------  ----- ------ ------
+##  to add more parts of speech, must also include them 
+##  when updating "linktos" at bottom
 
-%{ $vnotes{"dizziunariu"} } = (
-    dieli => ["dizziunariu"],
-    dieli_en => ["dictionary",],
-    dieli_it => ["dizionario",],
-    ## notex => ["",],
-    part_speech => "noun", 
-    noun => { 
-	gender => "mas",
-	## plural => "",
-    },);
+##  CAUTION:  be careful not to duplicate hash keys!
+##  For example, "dintra" is both an adverb and a preposition.
+##  To avoid duplication, give a unique hash key to both:
+##    *  "dintra_adv"
+##    *  "dintra_prep"
 
-%{ $vnotes{"prufissuri"} } = (
-    dieli => ["prufissuri"],
-    dieli_en => ["professor","teacher",],
-    dieli_it => ["professore",],
-    ## notex => ["",],
-    part_speech => "noun", 
-    noun => { 
-	gender => "mas",
-	plural => "prufissura",
-    },);
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-%{ $vnotes{"socialista"} } = (
-    dieli => ["socialista"],
-    dieli_en => ["socialist",],
-    dieli_it => ["socialista",],
-    ## notex => ["",],
-    part_speech => "noun", 
-    noun => { 
-	gender => "both",
-	## plural => "",
-    },);
+%{ $vnotes{"a pedi"} } = (
+    dieli => ["a pedi"],
+    dieli_en => ["on foot",],
+    dieli_it => ["a piedi",],
+    notex => ["Avemu a jiri a pedi.",],
+    part_speech => "adv", 
+    );
 
+%{ $vnotes{"abbastanza_adv"} } = (
+    display_as => "abbastanza",
+    dieli => ["abbastanza"],
+    dieli_en => ["enough","fairly","rather","sufficient",],
+    dieli_it => ["abbastanza","alquanto","bastante",],
+    notex => ["Parri sicilianu abbastanza beni.",],
+    part_speech => "adv", 
+    );
 
+%{ $vnotes{"dintra_adv"} } = (
+    display_as => "dintra",
+    dieli => ["dintra"],
+    dieli_en => ["in","indoors","inside",],
+    dieli_it => ["dentro",],
+    notex => ["Grapi la casedda e talia dintra!",],
+    part_speech => "adv", 
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"dintra_prep"} } = (
+    display_as => "dintra",
+    dieli => ["dintra"],
+    dieli_en => ["inside","into","within",],
+    dieli_it => ["dentro","dentro a","in",],
+    notex => ["Dintra nu biccheri d'acqua t'anniasti",],
+    part_speech => "prep", 
+    );
+
+%{ $vnotes{"cu_prep"} } = (
+    display_as => "cu",
+    dieli => ["cu"],
+    dieli_en => ["with","by means of",],
+    dieli_it => ["con",],
+    notex => ["Parru cu tia, to è la curpa.",],
+    part_speech => "prep", 
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"cui_pron"} } = (
+    display_as => "cui",
+    dieli => ["cue",],
+    dieli_en => ["whoever",],
+    dieli_it => ["chi",],
+    notex => ["Cu mi voli voli parrari, pò telefunarmi",],
+    part_speech => "pron", 
+    );
+
+%{ $vnotes{"zoccu"} } = (
+    dieli => ["zoccu"],
+    dieli_en => ["that which","what",],
+    dieli_it => ["ciò che","quello che",],
+    notex => ["Zoccu mi dici dici, nun è veru mai.",],
+    part_speech => "pron", 
+    );
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -90,10 +132,11 @@ foreach my $key (keys %vnotes) {
 	    ##  only replace the linkto if not already defined "above"
 	    ##  "above" should ONLY mean defined in the "mk_dieli-edits.pl" script
 	    if ( ! defined ${$dieli_sc{$dieli}[$index]}{"linkto"} ) {
-		##  only replace the linkto if its a noun
+		##  only replace the linkto if its a adverb, preposition or pronoun
+		##  {adv} {prep} {pron}
 		##  because that's what we're working with here
 		my $scpart = ${$dieli_sc{$dieli}[$index]}{"sc_part"} ;
-		if ( $scpart eq '{m}' || $scpart eq '{f}' || $scpart eq '{m/f}' ) {
+		if ( $scpart eq '{adv}' || $scpart eq '{prep}' || $scpart eq '{pron}' ) {
 		    ${$dieli_sc{$dieli}[$index]}{"linkto"} = $key ;
 		}
 	    }
@@ -102,8 +145,8 @@ foreach my $key (keys %vnotes) {
 }
 
 ##  make ENglish and ITalian dictionaries
-# my %dieli_en = make_en_dict( \%dieli_sc ) ;
-# my %dieli_it = make_it_dict( \%dieli_sc ) ;
+my %dieli_en = make_en_dict( \%dieli_sc ) ;
+my %dieli_it = make_it_dict( \%dieli_sc ) ;
 
 ##  ##  ##  ##
 
@@ -112,8 +155,8 @@ nstore( \%vnotes , $vnotesfile ) ;
 
 ##  store the dictionaries
 nstore( \%dieli_sc , $dieli_sc_dict );
-# nstore( \%dieli_en , $dieli_en_dict );
-# nstore( \%dieli_it , $dieli_it_dict );
+nstore( \%dieli_en , $dieli_en_dict );
+nstore( \%dieli_it , $dieli_it_dict );
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##

@@ -60,6 +60,9 @@ if ( ! defined $inword ) {
 		   ! defined $vnotes{ $inword }{prepend}            ) ? "false" : "true" ;
     my $isnoun = ( ! defined $vnotes{ $inword }{noun}               ) ? "false" : "true" ;
     my $isadj  = ( $vnotes{ $inword }{part_speech} ne "adj" ) ? "false" : "true" ;
+
+    ##  "other" parts of speech currently include:  {adv} {prep} {pron}
+    my $isother  = ( ! defined $vnotes{ $inword }{part_speech} ) ? "false" : "true" ;
     
     if ( $isverb eq "true" ) {
 	print mk_conjhtml( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
@@ -69,6 +72,9 @@ if ( ! defined $inword ) {
 	
     } elsif ( $isadj  eq "true" ) {
 	print mk_adjhtml( $inword , \%vnotes , \%vbsubs ) ;
+
+    } elsif ( $isother  eq "true" ) {
+	my $blah = "do nothing here.  we just want to avoid error message below." ; 
 	
     } else {
 	##  outer DIV to limit width
@@ -315,7 +321,21 @@ sub mk_dielitrans {
     ##  outer DIV to limit width
     $ot .= '<div class="transconj">' . "\n" ; 
     $ot .= '<p><b><a href="/cgi-bin/sicilian.pl?' . 'search=' . $redirect . '&langs=' . $lgparm . '">' ; 
-    $ot .= $display . '</a></b></p>' . "\n" ;
+    $ot .= $display . '</a></b>' ;
+
+    ##  parti di discursu 
+    my $part_speech = $vnotes{ $palora }{part_speech} ;
+
+    ##  translate to Sicilian
+    $part_speech =~ s/^verb$/verbu/ ;
+    $part_speech =~ s/^noun$/sust./ ;
+    $part_speech =~ s/^adj$/agg./ ;
+    $part_speech =~ s/^adv$/avv./ ;
+    $part_speech =~ s/^prep$/prip./ ;
+    $part_speech =~ s/^pron$/prun./ ;
+    
+    $ot .= '&nbsp;&nbsp;{' . $part_speech . '}</p>' . "\n" ;
+    
     $ot .= '<div class="row">' . "\n" ; 
 
     ##  what does the word translate to?
@@ -366,6 +386,7 @@ sub mk_notex {
     } 
     return $othtml ;
 }
+
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 

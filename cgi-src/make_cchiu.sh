@@ -25,10 +25,11 @@
 ##  make part of speech tools
 ./mk_pos-tools.pl
 
-##  make verb notes 
-##  must do verbs before other parts of speech
+##  make verb notes, adjective notes and noun notes
 ./mk_verb-notes.pl
-
-##  make adjective notes and noun notes
 ./mk_adj-notes.pl
 ./mk_noun-notes.pl
+
+##  make notes on other parts of speech
+##  English and Italian dictionaries generated here, so must do this last
+./mk_other-notes.pl
