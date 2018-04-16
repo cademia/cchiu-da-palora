@@ -1,0 +1,1733 @@
+
+##  DO  NOT  EDIT  THIS  FILE
+##  Just copy-paste what you need into:  "/cgi-src/mk_other-notes.pl"
+##  ================================================================
+
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  _SQUOTE_nnavanti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"_SQUOTE_nnavanti_adv"} } = (
+##      display_as => "_SQUOTE_nnavanti",
+##      dieli => ["_SQUOTE_nnavanti",],
+##      dieli_en => ["forward","beforehand","onward",],
+##      dieli_it => ["in avanti",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  _SQUOTE_nnumani -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"_SQUOTE_nnumani_adv"} } = (
+##      display_as => "_SQUOTE_nnumani",
+##      dieli => ["_SQUOTE_nnumani",],
+##      dieli_en => ["next day","day after",],
+##      dieli_it => ["indomani",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  a -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"a_prep"} } = (
+##      display_as => "a",
+##      dieli => ["a",],
+##      dieli_en => ["at","by means of","for","in","on","to",],
+##      dieli_it => ["a","per","in",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  a causa di -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"a causa di_prep"} } = (
+##      display_as => "a causa di",
+##      dieli => ["a causa di",],
+##      dieli_en => ["because of","for","out of",],
+##      dieli_it => ["a causa di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  a mia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"a mia_pron"} } = (
+##      display_as => "a mia",
+##      dieli => ["a mia",],
+##      dieli_en => ["me","mine",],
+##      dieli_it => ["il mio",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  abbastanza -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"abbastanza_adv"} } = (
+##      display_as => "abbastanza",
+##      dieli => ["abbastanza",],
+##      dieli_en => ["enough","fairly","rather",],
+##      dieli_it => ["abbastanza","alquanto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  accantu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"accantu_prep"} } = (
+##      display_as => "accantu",
+##      dieli => ["accantu",],
+##      dieli_en => ["beside","near","next to",],
+##      dieli_it => ["vicino a",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  accussì -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"accussì_adv"} } = (
+##      display_as => "accussì",
+##      dieli => ["accussì",],
+##      dieli_en => ["as","so","such","thus",],
+##      dieli_it => ["cosÃ¬",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  adaciu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"adaciu_adv"} } = (
+##      display_as => "adaciu",
+##      dieli => ["adaciu",],
+##      dieli_en => ["gently","gradually","quietly","slowly","softly",],
+##      dieli_it => ["adagio","lentamente","piano piano","sottovoce",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  allatu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"allatu_prep"} } = (
+##      display_as => "allatu",
+##      dieli => ["allatu",],
+##      dieli_en => ["at the side of","beside",],
+##      dieli_it => ["allato",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ammàtula -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ammàtula_adv"} } = (
+##      display_as => "ammàtula",
+##      dieli => ["ammàtula",],
+##      dieli_en => ["in vain","useless",],
+##      dieli_it => ["invano","inutilmente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ancora -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ancora_adv"} } = (
+##      display_as => "ancora",
+##      dieli => ["ancora",],
+##      dieli_en => ["still","yet",],
+##      dieli_it => ["ancora",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  appena -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"appena_adv"} } = (
+##      display_as => "appena",
+##      dieli => ["appena",],
+##      dieli_en => ["barely","hardly","scarcely",],
+##      dieli_it => ["appena","scarsamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  arreri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"arreri_adv"} } = (
+##      display_as => "arreri",
+##      dieli => ["arreri",],
+##      dieli_en => ["again","anew","backwards","behind",],
+##      dieli_it => ["ancora","all' indietro","indietro",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  attornu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"attornu_prep"} } = (
+##      display_as => "attornu",
+##      dieli => ["attornu",],
+##      dieli_en => ["around","round",],
+##      dieli_it => ["attorno a",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  avanti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"avanti_adv"} } = (
+##      display_as => "avanti",
+##      dieli => ["avanti",],
+##      dieli_en => ["before","on",],
+##      dieli_it => ["prima",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cchiuttostu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cchiuttostu_adv"} } = (
+##      display_as => "cchiuttostu",
+##      dieli => ["cchiuttostu",],
+##      dieli_en => ["rather","somewhat","better yet",],
+##      dieli_it => ["piuttosto","meglio",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cchiù -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cchiù_adv"} } = (
+##      display_as => "cchiù",
+##      dieli => ["cchiù",],
+##      dieli_en => ["any more","more","plus",],
+##      dieli_it => ["piÃ¹",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ccà -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ccà_adv"} } = (
+##      display_as => "ccà",
+##      dieli => ["ccà",],
+##      dieli_en => ["here",],
+##      dieli_it => ["qua","qui",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  chi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"chi_pron"} } = (
+##      display_as => "chi",
+##      dieli => ["chi",],
+##      dieli_en => ["what","who",],
+##      dieli_it => ["che cosa","che",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  chianu chianu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"chianu chianu_adv"} } = (
+##      display_as => "chianu chianu",
+##      dieli => ["chianu chianu",],
+##      dieli_en => ["gently","gradually",],
+##      dieli_it => ["piano piano",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  chiddu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"chiddu_pron"} } = (
+##      display_as => "chiddu",
+##      dieli => ["chiddu",],
+##      dieli_en => ["he","that one",],
+##      dieli_it => ["egli","quello",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  circa -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"circa_prep"} } = (
+##      display_as => "circa",
+##      dieli => ["circa",],
+##      dieli_en => ["about","approximately","around","concerning",],
+##      dieli_it => ["circa","intorno a",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  comu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"comu_adv"} } = (
+##      display_as => "comu",
+##      dieli => ["comu",],
+##      dieli_en => ["as","how",],
+##      dieli_it => ["come",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  contra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"contra_prep"} } = (
+##      display_as => "contra",
+##      dieli => ["contra",],
+##      dieli_en => ["against","opposite","versus",],
+##      dieli_it => ["di fronte","contro",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cu_prep"} } = (
+##      display_as => "cu",
+##      dieli => ["cu",],
+##      dieli_en => ["by means of","with",],
+##      dieli_it => ["con",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cui -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cui_pron"} } = (
+##      display_as => "cui",
+##      dieli => ["cui",],
+##      dieli_en => ["who",],
+##      dieli_it => ["chi","colui","il quale",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cussì -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cussì_adv"} } = (
+##      display_as => "cussì",
+##      dieli => ["cussì",],
+##      dieli_en => ["so","thus",],
+##      dieli_it => ["cosÃ¬",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cutulinu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cutulinu_adv"} } = (
+##      display_as => "cutulinu",
+##      dieli => ["cutulinu",],
+##      dieli_en => ["quietly","silently","stealthily",],
+##      dieli_it => ["quatto quatto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  cà -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cà_adv"} } = (
+##      display_as => "cà",
+##      dieli => ["cà",],
+##      dieli_en => ["here",],
+##      dieli_it => ["qua","qui",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  da -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"da_prep"} } = (
+##      display_as => "da",
+##      dieli => ["da",],
+##      dieli_en => ["from","since",],
+##      dieli_it => ["da",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  da ura -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"da ura_adv"} } = (
+##      display_as => "da ura",
+##      dieli => ["da ura",],
+##      dieli_en => ["early",],
+##      dieli_it => ["per tempo","di buon_SQUOTE_ora",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  daura -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"daura_adv"} } = (
+##      display_as => "daura",
+##      dieli => ["daura",],
+##      dieli_en => ["early",],
+##      dieli_it => ["per tempo","di buon_SQUOTE_ora",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  davanti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"davanti_adv"} } = (
+##      display_as => "davanti",
+##      dieli => ["davanti",],
+##      dieli_en => ["before","in front of",],
+##      dieli_it => ["precedentemente","davanti",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  davanti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"davanti_prep"} } = (
+##      display_as => "davanti",
+##      dieli => ["davanti",],
+##      dieli_en => ["before","in front of",],
+##      dieli_it => ["davanti","prima di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  daveru -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"daveru_adv"} } = (
+##      display_as => "daveru",
+##      dieli => ["daveru",],
+##      dieli_en => ["indeed","really",],
+##      dieli_it => ["davvero",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ddà -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ddà_adv"} } = (
+##      display_as => "ddà",
+##      dieli => ["ddà",],
+##      dieli_en => ["there",],
+##      dieli_it => ["colÃ ","ivi",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  di -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"di_prep"} } = (
+##      display_as => "di",
+##      dieli => ["di",],
+##      dieli_en => ["about","at","from","of","out of",],
+##      dieli_it => ["di","da",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  di novu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"di novu_adv"} } = (
+##      display_as => "di novu",
+##      dieli => ["di novu",],
+##      dieli_en => ["again","anew",],
+##      dieli_it => ["di nuovo",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  di supra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"di supra_adv"} } = (
+##      display_as => "di supra",
+##      dieli => ["di supra",],
+##      dieli_en => ["over","overhead","upstairs",],
+##      dieli_it => ["al di sopra","in su","disopra",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  di sutta -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"di sutta_adv"} } = (
+##      display_as => "di sutta",
+##      dieli => ["di sutta",],
+##      dieli_en => ["below","beneath",],
+##      dieli_it => ["di sotto","giÃ¹",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  dintra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"dintra_adv"} } = (
+##      display_as => "dintra",
+##      dieli => ["dintra",],
+##      dieli_en => ["in","indoors","inside",],
+##      dieli_it => ["dentro",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  dintra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"dintra_prep"} } = (
+##      display_as => "dintra",
+##      dieli => ["dintra",],
+##      dieli_en => ["inside","into","within",],
+##      dieli_it => ["dentro a","in","dentro",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  dipoi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"dipoi_adv"} } = (
+##      display_as => "dipoi",
+##      dieli => ["dipoi",],
+##      dieli_en => ["since","then",],
+##      dieli_it => ["allora (dopo)",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  doppu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"doppu_adv"} } = (
+##      display_as => "doppu",
+##      dieli => ["doppu",],
+##      dieli_en => ["after","since","then",],
+##      dieli_it => ["dopo","allora (dopo)",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  duranti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"duranti_prep"} } = (
+##      display_as => "duranti",
+##      dieli => ["duranti",],
+##      dieli_en => ["during","for",],
+##      dieli_it => ["durante",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  eccettu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"eccettu_prep"} } = (
+##      display_as => "eccettu",
+##      dieli => ["eccettu",],
+##      dieli_en => ["but for","except","except for",],
+##      dieli_it => ["eccetto",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  esclusivamenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"esclusivamenti_adv"} } = (
+##      display_as => "esclusivamenti",
+##      dieli => ["esclusivamenti",],
+##      dieli_en => ["exclusively","solely",],
+##      dieli_it => ["esclusivamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  fora -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"fora_adv"} } = (
+##      display_as => "fora",
+##      dieli => ["fora",],
+##      dieli_en => ["away","out","outside",],
+##      dieli_it => ["via","fuori",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  fora di -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"fora di_prep"} } = (
+##      display_as => "fora di",
+##      dieli => ["fora di",],
+##      dieli_en => ["off","outside",],
+##      dieli_it => ["fuori di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  fra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"fra_prep"} } = (
+##      display_as => "fra",
+##      dieli => ["fra",],
+##      dieli_en => ["between","out of",],
+##      dieli_it => ["fuori di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  frequentementi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"frequentementi_adv"} } = (
+##      display_as => "frequentementi",
+##      dieli => ["frequentementi",],
+##      dieli_en => ["frequently","often",],
+##      dieli_it => ["frequentemente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  gratis -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"gratis_adv"} } = (
+##      display_as => "gratis",
+##      dieli => ["gratis",],
+##      dieli_en => ["free of charge","gratis",],
+##      dieli_it => ["gratis",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  idda -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"idda_pron"} } = (
+##      display_as => "idda",
+##      dieli => ["idda",],
+##      dieli_en => ["her","herself","it","she",],
+##      dieli_it => ["ella","lei","si","essa",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  iddi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"iddi_pron"} } = (
+##      display_as => "iddi",
+##      dieli => ["iddi",],
+##      dieli_en => ["it","them","they",],
+##      dieli_it => ["esse","loro",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  iddu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"iddu_pron"} } = (
+##      display_as => "iddu",
+##      dieli => ["iddu",],
+##      dieli_en => ["he","him","it",],
+##      dieli_it => ["egli","gli","esso",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  iddu stissu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"iddu stissu_pron"} } = (
+##      display_as => "iddu stissu",
+##      dieli => ["iddu stissu",],
+##      dieli_en => ["himself","oneself",],
+##      dieli_it => ["egli stesso",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  immediatamenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"immediatamenti_adv"} } = (
+##      display_as => "immediatamenti",
+##      dieli => ["immediatamenti",],
+##      dieli_en => ["immediately","instantly",],
+##      dieli_it => ["immediatamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  imprescia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"imprescia_adv"} } = (
+##      display_as => "imprescia",
+##      dieli => ["imprescia",],
+##      dieli_en => ["hastily","hurriedly","quickly","suddenly",],
+##      dieli_it => ["in fretta",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  in -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"in_prep"} } = (
+##      display_as => "in",
+##      dieli => ["in",],
+##      dieli_en => ["at","into",],
+##      dieli_it => ["in",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  in autu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"in autu_adv"} } = (
+##      display_as => "in autu",
+##      dieli => ["in autu",],
+##      dieli_en => ["overhead","up",],
+##      dieli_it => ["in su","verso l' alto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  in conseguenza di -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"in conseguenza di_prep"} } = (
+##      display_as => "in conseguenza di",
+##      dieli => ["in conseguenza di",],
+##      dieli_en => ["because of","for",],
+##      dieli_it => ["in conseguenza di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  in realtà -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"in realtà_adv"} } = (
+##      display_as => "in realtà",
+##      dieli => ["in realtà",],
+##      dieli_en => ["indeed","really",],
+##      dieli_it => ["in realtÃ ",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  inoltri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"inoltri_adv"} } = (
+##      display_as => "inoltri",
+##      dieli => ["inoltri",],
+##      dieli_en => ["besides","moreover",],
+##      dieli_it => ["inoltre",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  intieramenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"intieramenti_adv"} } = (
+##      display_as => "intieramenti",
+##      dieli => ["intieramenti",],
+##      dieli_en => ["entirely","wholly",],
+##      dieli_it => ["interamente","completamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  iùsu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"iùsu_adv"} } = (
+##      display_as => "iùsu",
+##      dieli => ["iùsu",],
+##      dieli_en => ["down",],
+##      dieli_it => ["giÃ¹","in basso","in giÃ¹",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  lentamenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"lentamenti_adv"} } = (
+##      display_as => "lentamenti",
+##      dieli => ["lentamenti",],
+##      dieli_en => ["gently","gradually","slowly",],
+##      dieli_it => ["lentamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  lu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"lu_pron"} } = (
+##      display_as => "lu",
+##      dieli => ["lu",],
+##      dieli_en => ["him","it",],
+##      dieli_it => ["lo",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  lui -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"lui_pron"} } = (
+##      display_as => "lui",
+##      dieli => ["lui",],
+##      dieli_en => ["he","him",],
+##      dieli_it => ["lui",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ma -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ma_conj"} } = (
+##      display_as => "ma",
+##      dieli => ["ma",],
+##      dieli_en => ["but","yet",],
+##      dieli_it => ["ma",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  macari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"macari_adv"} } = (
+##      display_as => "macari",
+##      dieli => ["macari",],
+##      dieli_en => ["also","even","perhaps",],
+##      dieli_it => ["anche","forse",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mai -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mai_adv"} } = (
+##      display_as => "mai",
+##      dieli => ["mai",],
+##      dieli_en => ["ever","never",],
+##      dieli_it => ["mai",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mai cchiù -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mai cchiù_adv"} } = (
+##      display_as => "mai cchiù",
+##      dieli => ["mai cchiù",],
+##      dieli_en => ["never","never again",],
+##      dieli_it => ["giammai",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mancu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mancu_adv"} } = (
+##      display_as => "mancu",
+##      dieli => ["mancu",],
+##      dieli_en => ["any more","not even",],
+##      dieli_it => ["manco","nemmeno",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  masinnò -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"masinnò_adv"} } = (
+##      display_as => "masinnò",
+##      dieli => ["masinnò",],
+##      dieli_en => ["or else","otherwise",],
+##      dieli_it => ["altrimenti",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mentri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mentri_conj"} } = (
+##      display_as => "mentri",
+##      dieli => ["mentri",],
+##      dieli_en => ["while","whilst",],
+##      dieli_it => ["mentre",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  menu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"menu_adv"} } = (
+##      display_as => "menu",
+##      dieli => ["menu",],
+##      dieli_en => ["less","minus",],
+##      dieli_it => ["meno",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mia_pron"} } = (
+##      display_as => "mia",
+##      dieli => ["mia",],
+##      dieli_en => ["me","myself",],
+##      dieli_it => ["me","mi",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  midemma -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"midemma_adv"} } = (
+##      display_as => "midemma",
+##      dieli => ["midemma",],
+##      dieli_en => ["likewise","also",],
+##      dieli_it => ["medesimamente","anche",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mirè -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mirè_adv"} } = (
+##      display_as => "mirè",
+##      dieli => ["mirè",],
+##      dieli_en => ["likewise","also",],
+##      dieli_it => ["medesimamente","anche",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mmiremma -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmiremma_adv"} } = (
+##      display_as => "mmiremma",
+##      dieli => ["mmiremma",],
+##      dieli_en => ["likewise","also",],
+##      dieli_it => ["medesimamente","anche",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mprescia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mprescia_adv"} } = (
+##      display_as => "mprescia",
+##      dieli => ["mprescia",],
+##      dieli_en => ["hastily","hurriedly",],
+##      dieli_it => ["in fretta",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  multu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"multu_adv"} } = (
+##      display_as => "multu",
+##      dieli => ["multu",],
+##      dieli_en => ["much","plenty","very",],
+##      dieli_it => ["molto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nessunu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nessunu_pron"} } = (
+##      display_as => "nessunu",
+##      dieli => ["nessunu",],
+##      dieli_en => ["nobody","none",],
+##      dieli_it => ["nessuno",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ni_pron"} } = (
+##      display_as => "ni",
+##      dieli => ["ni",],
+##      dieli_en => ["ourselves","us",],
+##      dieli_it => ["ci","noi",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nna -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nna_prep"} } = (
+##      display_as => "nna",
+##      dieli => ["nna",],
+##      dieli_en => ["at","in",],
+##      dieli_it => ["a","in",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nni_prep"} } = (
+##      display_as => "nni",
+##      dieli => ["nni",],
+##      dieli_en => ["at","in",],
+##      dieli_it => ["a","in",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nta -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nta_prep"} } = (
+##      display_as => "nta",
+##      dieli => ["nta",],
+##      dieli_en => ["in","within",],
+##      dieli_it => ["in","dentro",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nui -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nui_pron"} } = (
+##      display_as => "nui",
+##      dieli => ["nui",],
+##      dieli_en => ["us","we",],
+##      dieli_it => ["noi",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nzèmmula -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nzèmmula_adv"} } = (
+##      display_as => "nzèmmula",
+##      dieli => ["nzèmmula",],
+##      dieli_en => ["concurrently",],
+##      dieli_it => ["insieme","nello stesso momento",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  o  -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"o _conj"} } = (
+##      display_as => "o ",
+##      dieli => ["o ",],
+##      dieli_en => ["either","or",],
+##      dieli_it => ["o",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ogni vota ca -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ogni vota ca_conj"} } = (
+##      display_as => "ogni vota ca",
+##      dieli => ["ogni vota ca",],
+##      dieli_en => ["If","whenever",],
+##      dieli_it => ["se","ogniqualvolta",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  parzialmenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"parzialmenti_adv"} } = (
+##      display_as => "parzialmenti",
+##      dieli => ["parzialmenti",],
+##      dieli_en => ["partially","partly",],
+##      dieli_it => ["parzialmente","in parte",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  pi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"pi_prep"} } = (
+##      display_as => "pi",
+##      dieli => ["pi",],
+##      dieli_en => ["for","for the sake of","through","to",],
+##      dieli_it => ["per",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  pressu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"pressu_prep"} } = (
+##      display_as => "pressu",
+##      dieli => ["pressu",],
+##      dieli_en => ["near","with",],
+##      dieli_it => ["vicino a","presso",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  prestu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"prestu_adv"} } = (
+##      display_as => "prestu",
+##      dieli => ["prestu",],
+##      dieli_en => ["early","hastily","shortly","soon",],
+##      dieli_it => ["presto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  pri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"pri_prep"} } = (
+##      display_as => "pri",
+##      dieli => ["pri",],
+##      dieli_en => ["by","for","for the sake of","out of","through","to","with",],
+##      dieli_it => ["per",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  propiu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"propiu_adv"} } = (
+##      display_as => "propiu",
+##      dieli => ["propiu",],
+##      dieli_en => ["exactly","just","plenty","really","right",],
+##      dieli_it => [],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  propriu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"propriu_adv"} } = (
+##      display_as => "propriu",
+##      dieli => ["propriu",],
+##      dieli_en => ["exactly","just","right",],
+##      dieli_it => [],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  pui (per poi di alcune parlate) -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"pui (per poi di alcune parlate)_adv"} } = (
+##      display_as => "pui (per poi di alcune parlate)",
+##      dieli => ["pui (per poi di alcune parlate)",],
+##      dieli_en => ["then","later",],
+##      dieli_it => ["poi",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  puru -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"puru_adv"} } = (
+##      display_as => "puru",
+##      dieli => ["puru",],
+##      dieli_en => ["even","still",],
+##      dieli_it => ["anche",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  qualchi vota -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"qualchi vota_adv"} } = (
+##      display_as => "qualchi vota",
+##      dieli => ["qualchi vota",],
+##      dieli_en => ["occasionally","sometime","sometimes","when",],
+##      dieli_it => ["ogni tanto","a volte","qualche volta",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  qualcunu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"qualcunu_pron"} } = (
+##      display_as => "qualcunu",
+##      dieli => ["qualcunu",],
+##      dieli_en => ["somebody","someone",],
+##      dieli_it => ["qualcuno",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  quali -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"quali_pron"} } = (
+##      display_as => "quali",
+##      dieli => ["quali",],
+##      dieli_en => ["what","which",],
+##      dieli_it => ["quello che","quale",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  quannu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"quannu_adv"} } = (
+##      display_as => "quannu",
+##      dieli => ["quannu",],
+##      dieli_en => ["sometimes","when",],
+##      dieli_it => ["quando",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  quannu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"quannu_conj"} } = (
+##      display_as => "quannu",
+##      dieli => ["quannu",],
+##      dieli_en => ["If","when",],
+##      dieli_it => ["se","quando",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  quasi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"quasi_adv"} } = (
+##      display_as => "quasi",
+##      dieli => ["quasi",],
+##      dieli_en => ["hardly","nearly",],
+##      dieli_it => ["appena","quasi",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  raramenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"raramenti_adv"} } = (
+##      display_as => "raramenti",
+##      dieli => ["raramenti",],
+##      dieli_en => ["rarely","seldom",],
+##      dieli_it => ["raramente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ri_prep"} } = (
+##      display_as => "ri",
+##      dieli => ["ri",],
+##      dieli_en => ["at","of",],
+##      dieli_it => ["da","di",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  riguardu a -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"riguardu a_prep"} } = (
+##      display_as => "riguardu a",
+##      dieli => ["riguardu a",],
+##      dieli_en => ["concerning","regarding",],
+##      dieli_it => ["riguardo a",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  se -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"se_pron"} } = (
+##      display_as => "se",
+##      dieli => ["se",],
+##      dieli_en => ["himself","oneself",],
+##      dieli_it => ["sÃ¬",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  se stissu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"se stissu_pron"} } = (
+##      display_as => "se stissu",
+##      dieli => ["se stissu",],
+##      dieli_en => ["himself","oneself",],
+##      dieli_it => ["sÃ© stesso",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sempri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sempri_adv"} } = (
+##      display_as => "sempri",
+##      dieli => ["sempri",],
+##      dieli_en => ["always","ever","still",],
+##      dieli_it => ["sempre",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  senza -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"senza_prep"} } = (
+##      display_as => "senza",
+##      dieli => ["senza",],
+##      dieli_en => ["out of","without",],
+##      dieli_it => ["senza",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  senza dubbiu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"senza dubbiu_adv"} } = (
+##      display_as => "senza dubbiu",
+##      dieli => ["senza dubbiu",],
+##      dieli_en => ["surely","undoubtedly",],
+##      dieli_it => ["indubbiamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  si -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"si_pron"} } = (
+##      display_as => "si",
+##      dieli => ["si",],
+##      dieli_en => ["himself","oneself",],
+##      dieli_it => ["si","sÃ¬",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  si -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"si_conj"} } = (
+##      display_as => "si",
+##      dieli => ["si",],
+##      dieli_en => ["If","whether",],
+##      dieli_it => ["se",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  siddu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"siddu_conj"} } = (
+##      display_as => "siddu",
+##      dieli => ["siddu",],
+##      dieli_en => ["if","if ever","if he",],
+##      dieli_it => ["se","se mai","se egli",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  silunziusamenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"silunziusamenti_adv"} } = (
+##      display_as => "silunziusamenti",
+##      dieli => ["silunziusamenti",],
+##      dieli_en => ["quietly","silently","stealthily",],
+##      dieli_it => ["silenziamente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sparti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sparti_adv"} } = (
+##      display_as => "sparti",
+##      dieli => ["sparti",],
+##      dieli_en => ["besides","furthermore","moreover","not including",],
+##      dieli_it => ["inoltre",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sparti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sparti_prep"} } = (
+##      display_as => "sparti",
+##      dieli => ["sparti",],
+##      dieli_en => ["besides","not including","over",],
+##      dieli_it => ["oltre a","oltre",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  su -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"su_adv"} } = (
+##      display_as => "su",
+##      dieli => ["su",],
+##      dieli_en => ["on","up",],
+##      dieli_it => ["in su",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  su -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"su_prep"} } = (
+##      display_as => "su",
+##      dieli => ["su",],
+##      dieli_en => ["on","upon",],
+##      dieli_it => ["su",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  subbitu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"subbitu_adv"} } = (
+##      display_as => "subbitu",
+##      dieli => ["subbitu",],
+##      dieli_en => ["immediately","instantly","soon",],
+##      dieli_it => ["subito","presto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sultantu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sultantu_adv"} } = (
+##      display_as => "sultantu",
+##      dieli => ["sultantu",],
+##      dieli_en => ["merely","only",],
+##      dieli_it => ["soltanto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  supra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"supra_adv"} } = (
+##      display_as => "supra",
+##      dieli => ["supra",],
+##      dieli_en => ["on","up","upstairs",],
+##      dieli_it => ["su",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  supra -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"supra_prep"} } = (
+##      display_as => "supra",
+##      dieli => ["supra",],
+##      dieli_en => ["on","on top","over","upon",],
+##      dieli_it => ["sopra",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  supratuttu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"supratuttu_adv"} } = (
+##      display_as => "supratuttu",
+##      dieli => ["supratuttu",],
+##      dieli_en => ["in particular","most of all",],
+##      dieli_it => ["soprattutto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sutta -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sutta_adv"} } = (
+##      display_as => "sutta",
+##      dieli => ["sutta",],
+##      dieli_en => ["down","downstairs","underneath",],
+##      dieli_it => ["giÃ¹ da","sotto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sutta -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sutta_prep"} } = (
+##      display_as => "sutta",
+##      dieli => ["sutta",],
+##      dieli_en => ["below","beneath","down","under",],
+##      dieli_it => ["sotto",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  tannu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"tannu_adv"} } = (
+##      display_as => "tannu",
+##      dieli => ["tannu",],
+##      dieli_en => ["at that moment","just then","then","when",],
+##      dieli_it => ["allora","giust'allora",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ti stissu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ti stissu_pron"} } = (
+##      display_as => "ti stissu",
+##      dieli => ["ti stissu",],
+##      dieli_en => ["yourself",],
+##      dieli_it => ["lei stesso","tu stesso",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  tranni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"tranni_prep"} } = (
+##      display_as => "tranni",
+##      dieli => ["tranni",],
+##      dieli_en => ["but","but for","except for","save for",],
+##      dieli_it => ["tranne",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  tuo -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"tuo_pron"} } = (
+##      display_as => "tuo",
+##      dieli => ["tuo",],
+##      dieli_en => ["your","yours",],
+##      dieli_it => ["tuo",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  tuttavia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"tuttavia_adv"} } = (
+##      display_as => "tuttavia",
+##      dieli => ["tuttavia",],
+##      dieli_en => ["nevertheless","still","yet",],
+##      dieli_it => ["tuttavia",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  tuttavia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"tuttavia_conj"} } = (
+##      display_as => "tuttavia",
+##      dieli => ["tuttavia",],
+##      dieli_en => ["however","nevertheless",],
+##      dieli_it => ["tuttavia",],
+##      notex => ["","",],
+##      part_speech => "conj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ugnunu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ugnunu_pron"} } = (
+##      display_as => "ugnunu",
+##      dieli => ["ugnunu",],
+##      dieli_en => ["each","every",],
+##      dieli_it => ["ciascuno",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  veramenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"veramenti_adv"} } = (
+##      display_as => "veramenti",
+##      dieli => ["veramenti",],
+##      dieli_en => ["indeed","really","truly","very",],
+##      dieli_it => ["veramente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  via -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"via_prep"} } = (
+##      display_as => "via",
+##      dieli => ["via",],
+##      dieli_en => ["by","via",],
+##      dieli_it => ["via",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  vicinu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"vicinu_adv"} } = (
+##      display_as => "vicinu",
+##      dieli => ["vicinu",],
+##      dieli_en => ["close","next door",],
+##      dieli_it => ["vicino","accanto",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  vicinu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"vicinu_prep"} } = (
+##      display_as => "vicinu",
+##      dieli => ["vicinu",],
+##      dieli_en => ["beside","by","near",],
+##      dieli_it => ["vicino a",],
+##      notex => ["","",],
+##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  viramenti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"viramenti_adv"} } = (
+##      display_as => "viramenti",
+##      dieli => ["viramenti",],
+##      dieli_en => ["truly","very",],
+##      dieli_it => ["veramente",],
+##      notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  vui -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"vui_pron"} } = (
+##      display_as => "vui",
+##      dieli => ["vui",],
+##      dieli_en => ["you (pl)","yourselves",],
+##      dieli_it => ["voi",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  zoccu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"zoccu_pron"} } = (
+##      display_as => "zoccu",
+##      dieli => ["zoccu",],
+##      dieli_en => ["that which","what",],
+##      dieli_it => ["ciÃ² che","quello che",],
+##      notex => ["","",],
+##      part_speech => "pron",
+##      );
