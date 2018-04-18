@@ -25,7 +25,7 @@ use Storable qw( retrieve nstore ) ;
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 ##  input and output files
-my $vnotesfile = '../cgi-lib/verb-notes' ; 
+my $vnotesfile = '../cgi-lib/vocab-notes' ; 
 my $dieli_sc_dict = '../cgi-lib/dieli-sc-dict' ; 
 my $dieli_en_dict = '../cgi-lib/dieli-en-dict' ; 
 my $dieli_it_dict = '../cgi-lib/dieli-it-dict' ; 

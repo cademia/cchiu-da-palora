@@ -103,7 +103,7 @@ sub mk_proto {
     $ottxt .= '##      dieli_it => ['; 
     foreach my $listing (@dieli_it) { $ottxt .= '"' . $listing . '",';};
     $ottxt .= '],' . "\n";
-    $ottxt .= '##      notex => ["","",],' . "\n";
+    $ottxt .= '##      ## notex => ["","",],' . "\n";
     $ottxt .= '##      part_speech => "noun",' . "\n";
     $ottxt .= '##      noun => {' . "\n";
     $ottxt .= '##  	gender => "'    . $gender . '",' . "\n";

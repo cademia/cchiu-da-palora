@@ -32,7 +32,7 @@ my $vthash = retrieve('../cgi-lib/verb-tools' );
 my %vbconj = %{ $vthash->{vbconj} } ;
 my %vbsubs = %{ $vthash->{vbsubs} } ;
 
-my $vnhash = retrieve('../cgi-lib/verb-notes' );
+my $vnhash = retrieve('../cgi-lib/vocab-notes' );
 my %vnotes = %{ $vnhash } ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
@@ -116,12 +116,14 @@ sub mk_showall {
     my @vnkeys = sort( {$vbsubs{rid_accents}($a) cmp $vbsubs{rid_accents}($b)} keys(%vnotes) );
     my $vnkqtr = int( $#vnkeys / 4 ) ; 
     
-    ##  scalar to adjust length of first and second columns (for appearances)
-    my $adjustment = 0 ;
+    ##  scalars to adjust length of columns (for appearances)
+    my $adjustone =  0 ;
+    my $adjusttwo = -2 ;
+    my $adjusttre =  0 ;
     
     ##  first column
     my $vnstart = 0 ; 
-    my $vnkidx = $vnkqtr + $adjustment ; 
+    my $vnkidx = $vnkqtr + $adjustone ; 
     my @vnkone = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
@@ -135,7 +137,7 @@ sub mk_showall {
 
     ##  second column
     $vnstart = $vnkidx+1 ; 
-    $vnkidx += $vnkqtr - $adjustment ; 
+    $vnkidx += $vnkqtr + $adjusttwo ; 
     my @vnktwo = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
@@ -149,7 +151,7 @@ sub mk_showall {
 
     ##  third column
     $vnstart = $vnkidx+1 ; 
-    $vnkidx += $vnkqtr ; 
+    $vnkidx += $vnkqtr + $adjusttre ; 
     my @vnktre = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
@@ -391,18 +393,18 @@ sub mk_notex {
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 sub mk_nounhtml { 
-    my $palora =    $_[0]   ;
+    my $palora =    $_[0]   ;  ( my $singular = $palora ) =~ s/_noun$// ; 
     my %vnotes = %{ $_[1] } ;
     my $vbsubs =    $_[2]   ;  ##  hash reference 
     
-    ##  first choice is "display_as",  second choice is hash key
-    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $palora : $vnotes{$palora}{display_as} ;		
+    ##  first choice is "display_as",  second choice is hash key (less noun marker)
+    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $singular : $vnotes{$palora}{display_as} ; 
 
     ##  prepare output
     my $ot ;
 
     ##  which word do we redirect to? 
-    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $palora : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
+    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $display : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
     
     ##  outer DIV to limit width
     $ot .= '<div class="transconj">' . "\n" ;
@@ -415,21 +417,20 @@ sub mk_nounhtml {
     ##  the sub is written in such a way that it should be able to handle "both"
     my $gender = $vnotes{$palora}{noun}{gender} ; 
     my $plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
-	$vbsubs{mk_noun_plural}( $palora , $gender ) : $vnotes{$palora}{noun}{plural} ;
+	$vbsubs{mk_noun_plural}( $display , $gender ) : $vnotes{$palora}{noun}{plural} ;
 
     ##  singular and plural forms
     if ( $gender eq "mas" || $gender eq "both" ) {
-	my $defart = ( $palora =~ /^[aeiou]/i ) ? "l'" : "lu " ; 
-	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $defart . $palora . "</p>" . "\n";
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeou]/i ) ? "l' " : "lu " ; 
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
     if ( $gender eq "fem" || $gender eq "both" ) {
-	my $defart = ( $palora =~ /^[aeiou]/i ) ? "l'" : "la " ; 
-	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $defart . $palora . "</p>" . "\n";
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeou]/i ) ? "l' " : "la " ; 
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
-    { my $defart = ( $plural =~ /^[aeiou]/i ) ? "l'" : "li " ; 
+    { my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeou]/i ) ? "l' " : "li " ; 
       $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>pl.:</i> &nbsp; &nbsp; ' . $defart . $plural . "</p>" . "\n";
     }
-
     
     ##  close DIV that limits width
     $ot .= '</div>' . "\n" ; 
@@ -439,17 +440,17 @@ sub mk_nounhtml {
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 sub mk_adjhtml { 
-    my $palora =    $_[0]   ;
+    my $palora =    $_[0]   ;  ( my $singular = $palora ) =~ s/_adj$// ; 
     my %vnotes = %{ $_[1] } ;
     my $vbsubs =    $_[2]   ;  ##  hash reference
 
-    ##  first choice is "display_as",  second choice is hash key
-    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $palora : $vnotes{$palora}{display_as} ;	
+    ##  first choice is "display_as",  second choice is hash key (less adj marker)
+    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $singular : $vnotes{$palora}{display_as} ;	
     
     ##  prepare output
     my $ot ;
     ##  which word do we redirect to? 
-    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $palora : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
+    my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $display : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
     
     ##  outer DIV to limit width
     $ot .= '<div class="transconj">' . "\n" ;
@@ -457,7 +458,7 @@ sub mk_adjhtml {
     $ot .= $display . '</a></b></p>' . "\n" ;
     
     ##  fetch singular and plural forms
-    my ($massi , $femsi , $maspl , $fempl) = $vbsubs{mk_adjectives}($palora) ;
+    my ($massi , $femsi , $maspl , $fempl) = $vbsubs{mk_adjectives}($display) ;
 
     ##  singular and plural forms
     $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $massi . "</p>" . "\n";
@@ -468,7 +469,6 @@ sub mk_adjhtml {
     } else {
 	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>pl.:</i> &nbsp; &nbsp; ' . $maspl . "</p>" . "\n";
     }
-
     
     ##  close DIV that limits width
     $ot .= '</div>' . "\n" ; 

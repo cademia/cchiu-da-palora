@@ -46,6 +46,76 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 ${$dieli_sc{"viviri"}[0]}{"linkto"} = "viviri_drink";
 ${$dieli_sc{"viviri"}[1]}{"linkto"} = "viviri_live";
 
+
+##  $ ./query-dieli.pl sc strittu corpu 
+##  
+##  	0  ==  corpu {m} --> colpo {m} --> blow {n}
+##  	1  ==  corpu {m} --> corpo {m} --> body {n}
+##  	2  ==  corpu {m} --> colpo {m} --> bump {n}
+##  	3  ==  corpu {} --> <br> {} --> corpus {}
+##  	4  ==  corpu {} --> colpo {} --> hit {}
+##  	5  ==  corpu {m} --> <br> {m} --> shot {n}
+##  	6  ==  corpu {m} --> colpo {m} --> stroke {n}
+${$dieli_sc{"corpu"}[0]}{"linkto"} = "corpu_blow";
+${$dieli_sc{"corpu"}[1]}{"linkto"} = "corpu_body";
+${$dieli_sc{"corpu"}[2]}{"linkto"} = "corpu_blow";
+${$dieli_sc{"corpu"}[3]}{"linkto"} = "corpu_body";
+${$dieli_sc{"corpu"}[4]}{"linkto"} = "corpu_blow";
+${$dieli_sc{"corpu"}[5]}{"linkto"} = "corpu_blow";
+${$dieli_sc{"corpu"}[6]}{"linkto"} = "corpu_blow";
+
+${$dieli_sc{"corpu"}[3]}{"sc_part"} = '{m}';
+${$dieli_sc{"corpu"}[3]}{"en_part"} = '{n}';
+${$dieli_sc{"corpu"}[4]}{"sc_part"} = '{m}';
+${$dieli_sc{"corpu"}[4]}{"it_part"} = '{m}';
+${$dieli_sc{"corpu"}[4]}{"en_part"} = '{n}';
+${$dieli_sc{"corpu"}[5]}{"it_part"} = '{}';
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
+##  NOUNS
+##  =====
+
+##  $ ./query-dieli.pl sc strittu jardinu 
+##  	0  ==  jardinu {} --> giardino {} --> garden {}
+${$dieli_sc{"jardinu"}[0]}{"sc_part"} = '{m}';
+${$dieli_sc{"jardinu"}[0]}{"it_part"} = '{m}';
+${$dieli_sc{"jardinu"}[0]}{"en_part"} = '{n}';
+
+## $ ./query-dieli.pl sc strittu pizzu
+## 	0  ==  pizzu {m} --> becco {m} --> beak {n}
+## 	1  ==  pizzu {m} --> bustarella {f} --> bribe {n}
+## 	2  ==  pizzu {f} --> vetta {f} --> peak {n}
+${$dieli_sc{"pizzu"}[2]}{"sc_part"} = '{m}';
+
+## $ ./query-dieli.pl sc strittu beccu
+## 	0  ==  beccu {} --> <br> {} --> beak {}
+## 	1  ==  beccu {m} --> becco {m} --> beak {n}
+## 	2  ==  beccu {n} --> corna {n} --> cuckold {n}
+## 	3  ==  beccu {m} --> becco {m} --> nozzle {n}
+## 	4  ==  beccu {m} --> <br> {m} --> spout {n}
+${$dieli_sc{"beccu"}[0]}{"sc_part"} = '{m}';
+${$dieli_sc{"beccu"}[0]}{"en_part"} = '{n}';
+${$dieli_sc{"beccu"}[2]}{"sc_part"} = '{m}';
+
+## $ ./query-dieli.pl sc strittu tabbaccaru
+## 	0  ==  tabbaccaru {f} --> tabaccheria {f} --> cigar shop {n}
+${$dieli_sc{"tabbaccaru"}[0]}{"sc_part"} = '{m}';
+
+## $ ./query-dieli.pl sc strittu vasuni
+## 	0  ==  vasuni {m} --> bacio {m} --> kiss {n}
+## 	1  ==  vasuni {f} --> <br> {f} --> smack (kiss) {n}
+${$dieli_sc{"vasuni"}[1]}{"sc_part"} = '{m}';
+
+## $ ./query-dieli.pl sc strittu voscu
+## 	0  ==  voscu {m} --> bosco {m} --> forest {n}
+## 	1  ==  voscu {m} --> parco {m} --> park {n}
+## 	2  ==  voscu {m} --> bosco {m} --> wood {n}
+## 	3  ==  voscu {p} --> <br> {} --> woods {n}
+${$dieli_sc{"voscu"}[3]}{"sc_part"} = '{m}';
+
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 ##  EXAMPLES of VERBS
