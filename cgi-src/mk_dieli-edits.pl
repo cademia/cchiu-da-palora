@@ -75,6 +75,44 @@ ${$dieli_sc{"corpu"}[5]}{"it_part"} = '{}';
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
+##  ADJECTIVES
+##  ==========
+
+##  $ ./query-dieli.pl sc strittu giuvina
+##  	0  ==  giuvina {adj} --> giovanotta {adj} --> young boy {adj}
+${$dieli_sc{"giuvina"}[0]}{"en_word"} = 'young girl';
+${$dieli_sc{"giuvina"}[0]}{"en_part"} = '{n}';
+
+##  $ ./query-dieli.pl sc strittu giuvini 
+##  	0  ==  giuvini {adj} --> giovanotto {adj} --> young boy {adj}
+${$dieli_sc{"giuvini"}[0]}{"en_part"} = '{n}';
+
+##  $ ./query-dieli.pl sc strittu pèggiu
+## 	0  ==  pèggiu {adj} --> <br> {adj} --> bad {adj}
+## 	1  ==  pèggiu {} --> <br> {} --> worse {}
+## 	2  ==  pèggiu {adj} --> peggio {adj} --> worse {adj}
+## 	3  ==  pèggiu {adv} --> peggio {adv} --> worse {adv}
+${$dieli_sc{"pèggiu"}[0]}{"it_part"} = '{}';
+${$dieli_sc{"pèggiu"}[1]}{"sc_part"} = '{adj}';
+${$dieli_sc{"pèggiu"}[1]}{"en_part"} = '{adj}';
+
+##  $ ./query-dieli.pl sc strittu 'u pèggiu'
+## 	0  ==  u pèggiu {} --> <br> {} --> worse {n}
+## 	1  ==  u pèggiu {adj} --> <br> {adj} --> worst {adj}
+## 	2  ==  u pèggiu {} --> <br> {} --> worst {n}
+${$dieli_sc{"u pèggiu"}[0]}{"sc_part"} = '{adj}';
+${$dieli_sc{"u pèggiu"}[1]}{"it_word"} = 'il peggiore';
+${$dieli_sc{"u pèggiu"}[2]}{"sc_part"} = '{adj}';
+
+##  $ ./query-dieli.pl sc strittu 'u peggiu'
+##  	0  ==  u peggiu {} --> <br> {} --> the worst {}
+##  	1  ==  u peggiu {adj} --> pessimo {adj} --> worst {adj}
+${$dieli_sc{"u peggiu"}[0]}{"sc_part"} = '{adj}';
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
 ##  NOUNS
 ##  =====
 
@@ -116,6 +154,8 @@ ${$dieli_sc{"vasuni"}[1]}{"sc_part"} = '{m}';
 ## 	3  ==  voscu {p} --> <br> {} --> woods {n}
 ${$dieli_sc{"voscu"}[3]}{"sc_part"} = '{m}';
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 ##  EXAMPLES of VERBS

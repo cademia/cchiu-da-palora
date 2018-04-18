@@ -27,6 +27,11 @@ use Storable qw( retrieve ) ;
     $Storable::Eval    = 1;  
 #}
 
+##  scalars to adjust length of columns (for appearances)
+my $adjustone =   0 ;
+my $adjusttwo =  -5 ;
+my $adjusttre =   0 ;
+
 ##  retrieve hashes and subroutines
 my $vthash = retrieve('../cgi-lib/verb-tools' );
 my %vbconj = %{ $vthash->{vbconj} } ;
@@ -47,7 +52,7 @@ my $lgparm = ( ! defined param('langs') ) ? "SCEN" : param('langs') ;
 print mk_tophtml( "../config/topnav.html");
 print mk_newform( $lgparm );
 if ( ! defined $inword ) {
-    print mk_showall(  \%vnotes , \%vbconj , \%vbsubs ) ;
+    print mk_showall(  \%vnotes , \%vbconj , \%vbsubs , $adjustone , $adjusttwo , $adjusttre ) ;
 } else { 
 
     ##  print translations and notes
@@ -85,7 +90,7 @@ if ( ! defined $inword ) {
 	$othtml .= '</div>' . "\n" ; 
 	$othtml .= '</div>' . "\n" ; 
 	print $othtml ; 
-	print mk_showall(  \%vnotes , \%vbconj , \%vbsubs ) ;
+	print mk_showall(  \%vnotes , \%vbconj , \%vbsubs , $adjustone , $adjusttwo , $adjusttre ) ;
     }
 }
 print mk_foothtm("../config/navbar-footer.html");
@@ -111,16 +116,16 @@ sub mk_showall {
     my $vbcref =    $_[1]   ;  ##  hash reference
     my $vbsubs =    $_[2]   ;  ##  hash reference
     
+    ##  scalars to adjust length of columns (for appearances)
+    my $adjustone =  $_[3] ;
+    my $adjusttwo =  $_[4] ;
+    my $adjusttre =  $_[5] ;
+    
     ##  let's split the print over four columns
     ##  keep words together by first letter
     my @vnkeys = sort( {$vbsubs{rid_accents}($a) cmp $vbsubs{rid_accents}($b)} keys(%vnotes) );
     my $vnkqtr = int( $#vnkeys / 4 ) ; 
-    
-    ##  scalars to adjust length of columns (for appearances)
-    my $adjustone =  0 ;
-    my $adjusttwo = -2 ;
-    my $adjusttre =  0 ;
-    
+        
     ##  first column
     my $vnstart = 0 ; 
     my $vnkidx = $vnkqtr + $adjustone ; 
@@ -458,7 +463,17 @@ sub mk_adjhtml {
     $ot .= $display . '</a></b></p>' . "\n" ;
     
     ##  fetch singular and plural forms
-    my ($massi , $femsi , $maspl , $fempl) = $vbsubs{mk_adjectives}($display) ;
+    my $massi ; my $femsi ; my $maspl ; my $fempl  ;
+
+    ##  check to see if adjective is invariant (e.g. "la megghiu cosa") or only feminine changes (e.g. "giuvini, giuvina")
+    if ( ! defined $vnotes{$palora}{adj}{invariant} && ! defined $vnotes{$palora}{adj}{femsi} ) {
+	($massi , $femsi , $maspl , $fempl) = $vbsubs{mk_adjectives}($display) ;
+    } else {
+	$massi = $display  ;  
+	$femsi = ( ! defined $vnotes{$palora}{adj}{femsi} ) ? $display : $vnotes{$palora}{adj}{femsi} ;
+	$maspl = $display  ;  
+	$fempl = $display  ;
+    }
 
     ##  singular and plural forms
     $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $massi . "</p>" . "\n";

@@ -41,8 +41,51 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ADD ADJECTIVES to HASH of VERBS
-##  === ========== == ==== == =====
+##  ADD ADJECTIVES to VOCABULARY HASH
+##  === ========== == ========== ====
+
+%{ $vnotes{"àutru_adj"} } = (
+    display_as => "àutru",
+    dieli => ["autru",],
+    dieli_en => ["different","else",],
+    dieli_it => ["altro",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"azzolu_adj"} } = (
+    display_as => "azzolu",
+    dieli => ["azzolu",],
+    dieli_en => ["blue",],
+    dieli_it => ["azzurro",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"azzurru_adj"} } = (
+    display_as => "azzurru",
+    dieli => ["azzurru",],
+    dieli_en => ["azure","blue",],
+    dieli_it => ["azzurro",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"beddu"} } = (
+    dieli => ["beddu","bellu"],
+    dieli_en => ["beautiful","fair","fine","good-looking","good","handsome","nice","pleasing","pretty",],
+    dieli_it => ["avvenente","bello","di bell' aspetto",],
+    notex => ["Chista è na bedda cosa!",],
+    part_speech => "adj", 
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"bonu"} } = (
     dieli => ["bonu"],
@@ -52,12 +95,219 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "adj", 
     );
 
-%{ $vnotes{"beddu"} } = (
-    dieli => ["beddu","bellu"],
-    dieli_en => ["beautiful","fair","fine","good-looking","good","handsome","nice","pleasing","pretty",],
-    dieli_it => ["avvenente","bello","di bell' aspetto",],
-    notex => ["Chista è na bedda cosa!",],
-    part_speech => "adj", 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"bruttu_adj"} } = (
+    display_as => "bruttu",
+    dieli => ["bruttu",],
+    dieli_en => ["bad","bad weather","deformed","nasty","ugly",],
+    dieli_it => ["brutto","deforme","sgradevole",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"catolicu_adj"} } = (
+    display_as => "catolicu",
+    dieli => ["catolicu",],
+    dieli_en => ["Catholic",],
+    dieli_it => ["cattolico",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"cuntenti_adj"} } = (
+    display_as => "cuntenti",
+    dieli => ["cuntenti",],
+    dieli_en => ["content","happy","satisfied",],
+    dieli_it => ["contento",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"giùvini_adj"} } = (
+    display_as => "giùvini",
+    dieli => ["giuvini","giuvina",],
+    dieli_en => ["young boy","young girl",],
+    dieli_it => ["giovanotto","giovanotta",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    adj => {
+	femsi => "giùvina",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"granni_adj"} } = (
+    display_as => "granni",
+    dieli => ["granni",],
+    dieli_en => ["adult","grand","great","heavy","large","older","very",],
+    dieli_it => ["adulto","grande","grave",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"grossu_adj"} } = (
+    display_as => "grossu",
+    dieli => ["grossu",],
+    dieli_en => ["big","big (stout)","grand","gross","large",],
+    dieli_it => ["grosso","grasso",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"ladiu_adj"} } = (
+    display_as => "ladiu",
+    dieli => ["ladiu",],
+    dieli_en => ["ugly",],
+    dieli_it => ["brutto",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"malu_adj"} } = (
+    display_as => "malu",
+    dieli => ["malu",],
+    dieli_en => ["bad","evil","ill","wicked",],
+    dieli_it => ["male","cattivo","malvagio",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"megghiu_adj"} } = (
+    display_as => "megghiu",
+    dieli => ["megghiu","u megghiu",],
+    dieli_en => ["better","superior",],
+    dieli_it => ["migliore","meglio","maggiore",],
+    notex => ["La megghiu cosa è di lassari tuttu com'è.",],
+    part_speech => "adj",
+    adj => { 
+	invariant => 1 ,
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"nicu_adj"} } = (
+    display_as => "nicu",
+    dieli => ["nicu",],
+    dieli_en => ["child","little","petty","small","toddler","young boy",],
+    dieli_it => ["giovane","piccolo","giovanotto",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"nìuru_adj"} } = (
+    display_as => "nìuru",
+    dieli => ["niuru",],
+    dieli_en => ["black","dark","gloomy","negro",],
+    dieli_it => ["nero","scuro","cupo","negro",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"peggiu_adj"} } = (
+    display_as => "peggiu",
+    dieli => ["peggiu","pèggiu","u peggiu","u pèggiu","peiu","piggiuri","pijuri",],
+    dieli_en => ["worse",],
+    dieli_it => ["peggio",],
+    notex => ["Ora si truva nni na peggiu situazzioni.",],
+    part_speech => "adj",
+    adj => { 
+	invariant => 1 ,
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"pìcciulu_adj"} } = (
+    display_as => "pìcciulu",
+    dieli => ["picciulu",],
+    dieli_en => ["minor","small",],
+    dieli_it => ["piccolo",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"pòviru_adj"} } = (
+    display_as => "pòviru",
+    dieli => ["poviru",],
+    dieli_en => ["poor","unfortunate",],
+    dieli_it => ["povero","sfortunato",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"pricisu_adj"} } = (
+    display_as => "pricisu",
+    dieli => ["pricisu",],
+    dieli_en => ["exact","precise",],
+    dieli_it => [],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"socialista_adj"} } = (
+    display_as => "socialista",
+    dieli => ["socialista",],
+    dieli_en => ["socialist",],
+    dieli_it => ["socialista",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"stissu_adj"} } = (
+    display_as => "stissu",
+    dieli => ["stissu",],
+    dieli_en => ["own","same","very",],
+    dieli_it => ["proprio","stesso",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"vecchiu_adj"} } = (
+    display_as => "vecchiu",
+    dieli => ["vecchiu",],
+    dieli_en => ["old","venerable",],
+    dieli_it => ["vecchio",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"virdi_adj"} } = (
+    display_as => "virdi",
+    dieli => ["virdi",],
+    dieli_en => ["green",],
+    dieli_it => ["verde",],
+    ## notex => ["","",],
+    part_speech => "adj",
     );
 
 
