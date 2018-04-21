@@ -77,70 +77,155 @@ sub mk_adjectives {
 ##  NOUNS
 ##  =====
 
+##  hash of noun plurals
+my %nounpls = (
+    xi => "i",      ##  xi   -- most noun plurals are "xi"
+    xixa => "a",    ##  xixa -- some dialects "xi", others "xa" ... here "xa"
+    xa => "a",      ##  xa   -- some masculine nouns are plural in "xa"
+    xura => "ura",  ##  xura -- some dialects "xura", others "xi" ... here "xura"
+    xx => "",       ##  xx   -- no change
+    eddu => "edda", ##  eddu -- "eddu" to "edda"
+    aru => "ara",   ##  aru  --  "aru" to  "ara"
+    uni => "una",   ##  uni  --  "uni" to  "una"
+    uri => "ura",   ##  uri  --  "uri" to  "ura"
+) ;
+
+##  ##  ##  ##  ##  ##  ##  ##  
+
 sub mk_noun_plural {
 
-    my $palora = $_[0] ;
-    my $gender = $_[1] ;
+    my $palora  =    $_[0] ;
+    my $gender  =    $_[1] ;
+    my $plend   =    $_[2] ;
+    my %nounpls = %{ $_[3] } ; 
+
+    ##  plurals in "xi" need to be carefully paired
+    ##  all others simple substitution
     
+    ##  make plural
     my $plural ;
-    
-    if ( $palora =~ /gghi[ua]$|cchi[ua]$/ ) {
-	##  lu figghiu --> li figghi
-	##  la figghia --> li figghi
-	##  l'oricchia --> l'oricchi
-	( $plural = $palora ) =~ s/hi[ua]$/hi/ ;
 
-    } elsif ( $palora =~ /i[ua]$/ ) {
-	##  lu studiu  --> li studii
-	##  la grazzia --> la grazzii 
-	( $plural = $palora ) =~ s/i[ua]$/ii/ ;
+    if ( $gender eq "fem" || $gender eq "both" ) {
+	##  if feminine or both
+	##  all feminine nouns are plural in either "xi" or "xx"
 
-    } elsif ( ( $palora =~ /cu$/ && $gender eq "mas" ) || ( $palora =~ /ca$/ && $gender eq "fem" ) ) {
-	##  lu parcu --> li parchi
-	##  l'amica --> li amichi
-	( $plural = $palora ) =~ s/c[ua]$/chi/ ;
-	##  note:  important exceptions to this rule:
-	##  l'amicu -> l'amici
+	if ( $nounpls{$plend} =~ /^i/ ) {
+	    ##  case where:   xi => "i", 
+	        
+	    if ( $palora =~ /gghia$|cchia$/ ) {
+		##  lu figghiu --> li figghi
+		##  la figghia --> li figghi
+		##  l'oricchia --> l'oricchi
+		##  lu stinnicchiu --> li stinicchi
+		( $plural = $palora ) =~ s/hia$/hi/ ;
+		
+	    } elsif ( $palora =~ /ia$/ ) {
+		##  lu studiu  --> li studii
+		##  la grazzia --> la grazzii 
+		( $plural = $palora ) =~ s/ia$/ii/ ;
+		
+	    } elsif ( $palora =~ /ca$/ ) {
+		##  lu parcu --> li parchi
+		##  l'amica --> li amichi
+		( $plural = $palora ) =~ s/ca$/chi/ ;
+		##  note:  important exceptions to this rule:
+		##  l'amicu -> l'amici
+		
+	    } elsif ( $palora =~ /nga$/ ) {
+		##  la janga  --> li jagni 
+		##  lu sgangu --> li sgagni 
+		( $plural = $palora ) =~ s/nga$/gni/ ; 
 
-    } elsif ( ( $palora =~ /eddu$/ || $palora =~ /aru$/ ) && $gender eq "mas" ) {
-	##  lu marteddu --> li martedda 
-	##  lu firraru --> li firrara
-	( $plural = $palora ) =~ s/u$/a/ ;
+	    } elsif ( $palora =~ /a$/ ) {
+		##  otherwise:  "-a" to "-i"
+		( $plural = $palora ) =~ s/a$/i/ ; 
+	    } else {		
+		##  case where:  ( $palora =~ /[ui]$/ ) 
+		$plural = $palora ;
+	    }
 
-    } elsif ( $palora =~ /uni$/ && $gender eq "mas" ) {
-	##  lu baruni  --> li baruna 
-	( $plural = $palora ) =~ s/uni$/una/ ;
-	
-    ##  
-    ##  } elsif ( $palora =~ /uri$/ && $gender eq "mas" ) {
-    ##  ##  lu dutturi --> li duttura
-    ##  ( $plural = $palora ) =~ s/uri$/ura/ ;
-    ##  ##  PERICULUSU !!!  plurals generally end in "i"
-    ##  ##  so just mark these as irregular
-    ##  
+	} else {
+	    ##  case where:  ( $nounpls{$plend} eq "" ) 
+	    ##  case where:   xx => "", 
+		
+	    ##  la ficu   --> li ficu
+	    ##  la facci  --> li facci
+	    ##  l'azzioni --> l'azzioni
+	    ##  lu cafè   --> li cafè
+	    ##  lu sport -- > li sport
+	    $plural = $palora ;	    
+	}
 
-    } elsif ( $palora =~ /ng[ua]$/ ) {
-	##  lu sgangu --> li sgagni 
-	##  la janga  --> li jagni 
-	( $plural = $palora ) =~ s/ng[ua]$/gni/ ; 
-	
-    } elsif ( ( $palora =~ /cu$/ && $gender eq "fem" ) || ( $palora =~ /[iàèìòù]$/ ) ) {
-	##  la ficu   --> li ficu
-	##  la facci  --> li facci
-	##  l'azzioni --> l'azzioni
-	##  lu cafè   --> li cafè
-	$plural = $palora ;
+    } elsif  ( $gender eq "mas" ) {
+	##  if masculine 
 
-    } elsif ( ( $palora =~ /u$/ && $gender eq "mas" ) || $palora =~ /a$/ ) {
-	##  otherwise:  "-u/-a" to "-i"
-	( $plural = $palora ) =~ s/[ua]$/i/ ; 
-	
-    } else {
-	##  otherwise, probably foreign word
-	##  lu sport -- > li sport
-	$plural = $palora ;
+	if ( $nounpls{$plend} =~ /^i/ ) {
+	    ##  case where:   xi => "i", 
+
+	    if ( $palora =~ /gghi[ua]$|cchi[ua]$/ ) {
+		##  lu figghiu --> li figghi
+		##  la figghia --> li figghi
+		##  l'oricchia --> l'oricchi
+		##  lu stinnicchiu --> li stinicchi
+		( $plural = $palora ) =~ s/hi[ua]$/hi/ ;
+		
+	    } elsif ( $palora =~ /i[ua]$/ ) {
+		##  lu studiu  --> li studii
+		##  la grazzia --> la grazzii 
+		( $plural = $palora ) =~ s/i[ua]$/ii/ ;
+		
+	    } elsif ( $palora =~ /c[ua]$/ ) {
+		##  lu parcu --> li parchi
+		##  lu duca --> li duchi
+		( $plural = $palora ) =~ s/c[ua]$/chi/ ;
+		##  note:  important exceptions to this rule:
+		##  l'amicu -> l'amici
+
+	    } elsif ( $palora =~ /ng[ua]$/ ) {
+		##  la janga  --> li jagni 
+		##  lu sgangu --> li sgagni 
+		( $plural = $palora ) =~ s/ng[ua]$/gni/ ; 
+
+	    } elsif ( $palora =~ /[au]$/ ) {
+		##  lu capu --> li capi 
+		( $plural = $palora ) =~ s/[au]$/i/ ; 
+
+	    } else {		
+		##  case where:  ( $palora =~ /i$/ ) 
+		$plural = $palora ;
+	    }
+
+	} elsif ( $nounpls{$plend} =~ /a$/ ) {
+	    ##  case where:   xa => "a",      
+	    ##              eddu => "edda", 
+	    ##               aru => "ara",   
+	    ##               uni => "una",   
+	    ##               uri => "ura",   
+	    ##              xura => "ura",  
+
+	    if ( $plend eq "xura" && $nounpls{$plend} =~ /^ura$/ ) {
+		( $plural = $palora ) =~ s/u$/ura/ ;
+
+	    } else {
+		##  lu marteddu --> li martedda 
+		##  lu firraru --> li firrara
+		##  lu baruni  --> li baruna 
+		##  lu dutturi --> li duttura
+		( $plural = $palora ) =~ s/[aiu]$/a/ ;
+	    }
+
+	} else {
+	    ##  case where:  ( $nounpls{$plend} eq "" ) 
+	    ##  case where:   xx => "", 
+		
+	    ##  la ficu   --> li ficu
+	    ##  la facci  --> li facci
+	    ##  l'azzioni --> l'azzioni
+	    ##  lu cafè   --> li cafè
+	    ##  lu sport -- > li sport
+	    $plural = $palora ;
+	}
     }
-
     return $plural ;
 }
 
@@ -564,7 +649,8 @@ $vbsubs{mk_noun_plural} = \&mk_noun_plural ;
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 ##  store it all
-nstore( { vbconj   => \%vbconj   , 
+nstore( { nounpls  => \%nounpls  , 
+	  vbconj   => \%vbconj   , 
 	  vbsubs   => \%vbsubs   } , $otfile ); 
 
 

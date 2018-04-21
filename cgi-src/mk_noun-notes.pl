@@ -53,6 +53,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -66,6 +67,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -79,6 +81,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "amici",
     },);
 
@@ -93,6 +96,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -106,6 +110,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -119,6 +124,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "both",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -132,6 +138,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -145,6 +152,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -158,6 +166,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -171,6 +180,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -184,6 +194,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -197,7 +208,8 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	## plural => "cannola",  ##  CANNOLI  !!!
+	plend => "xixa",
+	plural => "cannoli",  ##  CANNOLI  !!!
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -211,6 +223,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -224,6 +237,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -237,7 +251,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "cela",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -251,7 +265,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "chiova",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -265,6 +279,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xa",
 	plural => "cìnima",
     },);
 
@@ -279,6 +294,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -292,7 +308,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "coccia",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -306,7 +322,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "corna",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -320,7 +336,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "corpura",
+	plend => "xura",
     },);
 
 %{ $vnotes{"corpu_blow"} } = (
@@ -332,7 +348,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "corpa",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -346,7 +362,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "cumpusitura",
+	plend => "uri",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -360,6 +376,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "both",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -373,6 +390,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -386,6 +404,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun", 
     noun => { 
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -399,6 +418,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -412,7 +432,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	## plural => "duca",
+	plend => "xi",
     },);
 
 %{ $vnotes{"duchissa_noun"} } = (
@@ -424,6 +444,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -437,7 +458,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "duttura",
+	plend => "uri",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -451,6 +472,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -464,6 +486,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -477,6 +500,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -490,6 +514,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -503,7 +528,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
-	## plural => "ficu",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -517,6 +542,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -530,6 +556,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -543,7 +570,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "fila",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -557,6 +584,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -570,6 +598,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "fisici",
     },);
 
@@ -584,7 +613,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "foca",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -598,6 +627,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -611,7 +641,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "frutta",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -625,6 +655,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -638,6 +669,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -651,6 +683,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -664,6 +697,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -677,7 +711,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "ìdita",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -691,7 +725,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "jardina",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -705,7 +739,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "jocura",
+	plend => "xura",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -719,7 +753,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "jorna",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -733,7 +767,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "libbra",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -747,7 +781,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "ligna",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -761,7 +795,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "linzola",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -775,6 +809,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -788,6 +823,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -801,6 +837,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -814,6 +851,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -827,6 +865,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -840,6 +879,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "mèdici",
     },);
 
@@ -854,7 +894,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "migghia",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -868,6 +908,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -881,6 +922,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "mònaci",
     },);
 
@@ -895,7 +937,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "mura",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -909,6 +951,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "nimici",
     },);
 
@@ -923,7 +966,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "ogghia",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -937,6 +980,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -950,6 +994,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "omini",
     },);
 
@@ -964,6 +1009,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -977,7 +1023,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "ossa",
+	plend => "xa",
+	## plural => "ossa",## "ossi",
+	## ##  Bonner:   "l'ossa" (articulated) vs. "l'ossi" (disarticulated)
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -991,7 +1039,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "ova",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1005,6 +1053,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1018,6 +1067,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "eddu",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1031,6 +1081,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1044,6 +1095,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1057,6 +1109,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1070,6 +1123,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1083,6 +1137,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1096,6 +1151,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1109,6 +1165,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1122,7 +1179,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "piatta",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1136,7 +1193,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "pila",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1150,6 +1207,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1162,8 +1220,8 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     ## notex => ["","",],
     part_speech => "noun",
     noun => {
-	gender => "fem",
-	plural => "pira",
+	gender => "mas",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1177,7 +1235,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "pizza",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1191,6 +1249,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
 	plural => "porci",
     },);
 
@@ -1205,6 +1264,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1218,7 +1278,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun", 
     noun => { 
 	gender => "mas",
-	plural => "prufissura",
+	plend => "uri",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1232,6 +1292,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1245,7 +1306,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "pruna",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1259,6 +1320,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1272,7 +1334,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "pugna",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1286,7 +1348,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "puma",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1300,6 +1362,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1313,6 +1376,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1326,6 +1390,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1339,6 +1404,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1352,6 +1418,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1365,6 +1432,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun", 
     noun => { 
 	gender => "both",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1378,7 +1446,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "sola",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1392,6 +1460,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1405,7 +1474,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "spicchia",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1419,6 +1488,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1432,6 +1502,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1445,6 +1516,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1458,6 +1530,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1471,6 +1544,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "aru",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1484,7 +1558,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "tempura",
+	plend => "xura",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1498,6 +1572,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "fem",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1511,6 +1586,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1524,6 +1600,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "uni",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1537,6 +1614,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
+	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1550,7 +1628,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "vòscura",
+	plend => "xura",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1564,7 +1642,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plural => "vrazza",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##

@@ -60,7 +60,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["a pedi"],
     dieli_en => ["on foot",],
     dieli_it => ["a piedi",],
-    notex => ["Avemu a jiri a pedi.",],
+    notex => ["Avemu a jiri a pedi.","Amâ jiri a pedi.",],
     part_speech => "adv", 
     );
 
@@ -89,7 +89,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["dintra"],
     dieli_en => ["inside","into","within",],
     dieli_it => ["dentro","dentro a","in",],
-    notex => ["Dintra nu biccheri d'acqua t'anniasti",],
+    notex => ["Dintra nu biccheri d'acqua t'anniasti. (pruverbiu sicilianu)",],
     part_speech => "prep", 
     );
 

@@ -89,6 +89,25 @@ sub mk_proto {
     my @dieli_it = @{ $_[2] } ;
     my $gender   =    $_[3]   ;
     
+    ##  guess  "plend"
+    my $plend ;
+    if ( $dieli =~ /eddu$/ && $gender eq "mas" ) {
+	$plend = "eddu" ;
+    } elsif ( $dieli =~ /aru$/ && $gender eq "mas" ) {
+	$plend = "aru" ;
+    } elsif ( $dieli =~ /uni$/ && $gender eq "mas" ) {	
+	$plend = "uni" ;
+    } elsif ( $dieli =~ /uri$/ && $gender eq "mas" ) {
+	$plend = "uri" ;
+    } elsif ( $dieli =~ /u$/ && $gender eq "fem" ) {
+	$plend = "xx" ;
+    } elsif ( $dieli =~ /[bcdfghjklmnpqrstvwxyz]$/ ) {
+	##  probably foreign word
+	$plend = "xx" ;
+    } else {
+	$plend = "xi" ;
+    }
+
     my $ottxt ;
     $ottxt .= "\n";
     $ottxt .= '##  ##  ##  ##  ##  ##  ##  ##  ##' . "\n";
@@ -107,7 +126,8 @@ sub mk_proto {
     $ottxt .= '##      part_speech => "noun",' . "\n";
     $ottxt .= '##      noun => {' . "\n";
     $ottxt .= '##  	gender => "'    . $gender . '",' . "\n";
-    $ottxt .= '##  	## plural => "' . $dieli  . '",' . "\n";
+    $ottxt .= '##  	plend => "' . $plend  . '",' . "\n";
+    $ottxt .= '##  	## plural => "",' . "\n";
     $ottxt .= '##      },);' . "\n";
     
     return $ottxt ; 

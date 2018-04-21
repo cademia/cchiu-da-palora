@@ -36,6 +36,7 @@ my $adjusttre =   0 ;
 my $vthash = retrieve('../cgi-lib/verb-tools' );
 my %vbconj = %{ $vthash->{vbconj} } ;
 my %vbsubs = %{ $vthash->{vbsubs} } ;
+my %nounpls = %{ $vthash->{nounpls} } ;
 
 my $vnhash = retrieve('../cgi-lib/vocab-notes' );
 my %vnotes = %{ $vnhash } ;
@@ -73,7 +74,7 @@ if ( ! defined $inword ) {
 	print mk_conjhtml( $inword , \%vnotes , \%vbconj , \%vbsubs ) ;
 	
     } elsif ( $isnoun eq "true" ) {
-	print mk_nounhtml( $inword , \%vnotes , \%vbsubs ) ;
+	print mk_nounhtml( $inword , \%vnotes , \%nounpls , \%vbsubs ) ;
 	
     } elsif ( $isadj  eq "true" ) {
 	print mk_adjhtml( $inword , \%vnotes , \%vbsubs ) ;
@@ -398,10 +399,11 @@ sub mk_notex {
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
 sub mk_nounhtml { 
-    my $palora =    $_[0]   ;  ( my $singular = $palora ) =~ s/_noun$// ; 
-    my %vnotes = %{ $_[1] } ;
-    my $vbsubs =    $_[2]   ;  ##  hash reference 
-    
+    my $palora  =    $_[0]   ;  ( my $singular = $palora ) =~ s/_noun$// ; 
+    my %vnotes  = %{ $_[1] } ;
+    my %nounpls = %{ $_[2] } ;  
+    my $vbsubs  =    $_[3]   ;  ##  hash reference 
+
     ##  first choice is "display_as",  second choice is hash key (less noun marker)
     my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $singular : $vnotes{$palora}{display_as} ; 
 
@@ -421,8 +423,9 @@ sub mk_nounhtml {
     ##  such "both" nouns end in "-a" in singular and "-i" in plural
     ##  the sub is written in such a way that it should be able to handle "both"
     my $gender = $vnotes{$palora}{noun}{gender} ; 
+    my $plend = $vnotes{$palora}{noun}{plend} ; 
     my $plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
-	$vbsubs{mk_noun_plural}( $display , $gender ) : $vnotes{$palora}{noun}{plural} ;
+	$vbsubs{mk_noun_plural}( $display , $gender , $plend  , \%nounpls ) : $vnotes{$palora}{noun}{plural} ;
 
     ##  singular and plural forms
     if ( $gender eq "mas" || $gender eq "both" ) {

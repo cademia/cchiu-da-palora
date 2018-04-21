@@ -437,6 +437,7 @@ my %vnotes ;
     dieli => ["manciari"],
     dieli_en => ["corrode","eat","itch","overwhelm","squander",],
     dieli_it => ["mangiare","avere il prurito","prudere",],
+    notex => ["Diventa poviru e servu, quannu i paroli non figghianu paroli e si mancianu tra d'iddi. (Gnazziu Buttitta)",],
     part_speech => "verb",
     verb => {
 	conj => "ciari", 
@@ -762,7 +763,7 @@ my %vnotes ;
     dieli => ["parrari"],
     dieli_en => ["discuss","speak",],
     dieli_it => ["discutere","parlare",],
-    notex => ["Parru cu tia, to è la curpa.",],
+    notex => ["Parru cu tia, to è la curpa. (Gnazziu Buttitta)",],
     part_speech => "verb", 
     verb => {
 	conj => "xxari", 
