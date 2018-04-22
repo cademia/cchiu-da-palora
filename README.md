@@ -128,7 +128,7 @@ and then identifying the verb _intromèttirisi_ as a reflexive form of _intromè
 
 The tables below list the information that I am collecting in the hashes. The first lists information that may be included for all parts of speech. The tables below it list additional information required for verbs, nouns and adjectives.
 
-all hashes 
+#### all hashes
 
 ```
 dieli  -- array  -- list of forms found in Dr. Dieli's dictionary
@@ -145,7 +145,7 @@ prepend  -- hash  -- information to conjugate by adding a prefix to another verb
 reflex  -- scalar  -- hash key of the non-reflexive verb
 ```
 
-Parts of speech: `verb`, `noun`, `adj`, `adv`, `prep`, `pron`, `conj`
+parts of speech:  `verb`, `noun`, `adj`, `adv`, `prep`, `pron`, `conj`
 
 The verbs  [vìviri](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_drink) and [vìviri](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_live) need different hash keys.  But they both `display_as` "vìviri".
 
@@ -172,9 +172,9 @@ adj  -- scalar  -- irregular adjective
 inf  -- scalar  -- irregular infinitive
 ```
 
-Sicilian has two verb conjugations ("-ari" and "-iri"), which I have split into eight subconjugations, so that the verb stems pair properly with the verb endings.
-
 conjugations:  `xxiri`, `sciri`, `xxari`, `xcari`, `xgari`, `xiari`, `ciari`, `giari`
+
+Sicilian has two verb conjugations ("-ari" and "-iri"), which I have split into eight subconjugations, so that the verb stems pair properly with the verb endings.
 
 For example:
 
@@ -200,12 +200,14 @@ For example:
 #### noun hashes
 
 ```
-gender  -- scalar  -- gender of the noun -- mas, fem, both
-plend  -- scalar  -- noun pattern -- xi, xixa, xa, xura, xx, eddu, aru, uni, uri
+gender  -- scalar  -- gender of the noun
+plend  -- scalar  -- noun pattern
 plural  -- scalar  -- irregular plural form
 ```
 
-Most Sicilian nouns are either masculine or feminine, but some nouns (e.g. "atleta" and "dentista") are both masculine and feminine. Use the noun patterns below to form the plural.
+gender of the noun:  `mas`, `fem`, `both`
+
+Most Sicilian nouns are either masculine or feminine, but some nouns (e.g. "atleta" and "dentista") are both masculine and feminine.  Use the noun patterns below to form the plural.
 
 #### noun patterns
 
@@ -238,10 +240,10 @@ For example:
 
 #### adjective hashes 
 
-``
+```
 invariant  -- scalar  -- indicator that the adjective is invariant
 femsi  -- scalar  -- feminine singular form
-``
+```
 
 Most Sicilian adjectives must agree in gender and number with the noun that they are modifying, but some are invariant (e.g. "megghiu"). Others only change in the feminine singular form (e.g. "giùvini").
 
