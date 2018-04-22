@@ -510,7 +510,7 @@ sub conjnonreflex {
     ##  PRI -- present indicative
     foreach my $person ("us","ds","ts") { 
 	##  accent on boot, but boot has penultimate, so rid accents
-	my $priconj = $vbsubs{rid_penult_accent}( $boot ) . $vbconj{$conj}{pri}{$person} ;
+	my $priconj = $vbsubs{rid_accents}( $boot ) . $vbconj{$conj}{pri}{$person} ;
 	$conjug{pri}{$person} = ( ! defined $palora{verb}{irrg}{pri}{$person} ) ? $priconj : 
 	    $prep . $palora{verb}{irrg}{pri}{$person} ; 
     } 
@@ -550,7 +550,7 @@ sub conjnonreflex {
     ##  PIM -- imperative
     foreach my $person ("ds") {
 	##  accent on boot, but boot has penultimate, so rid accents
-	my $pimconj = $vbsubs{rid_penult_accent}( $boot ) . $vbconj{$conj}{pim}{$person} ;
+	my $pimconj = $vbsubs{rid_accents}( $boot ) . $vbconj{$conj}{pim}{$person} ;
 	$conjug{pim}{$person} = ( ! defined $palora{verb}{irrg}{pim}{$person} ) ? $pimconj : 
 	    $prep . $palora{verb}{irrg}{pim}{$person} ; 	
     }
@@ -575,7 +575,7 @@ sub conjnonreflex {
 
 	##  quadcjs replaces regular conjugation -- rid accents
 	my $quadcjs = ( ! defined $palora{verb}{irrg}{pai}{quad} ) ? $regconj : 
-	    $prep . $vbsubs{rid_penult_accent}( $palora{verb}{irrg}{pai}{quad} ) . $vbconj{quad}{pai}{$person} ;
+	    $prep . $vbsubs{rid_accents}( $palora{verb}{irrg}{pai}{quad} ) . $vbconj{quad}{pai}{$person} ;
 	
 	##  irregular conjugation replaces quadcjs -- pass the final choice
 	$conjug{pai}{$person} = ( ! defined $palora{verb}{irrg}{pai}{$person} ) ? $quadcjs : 
@@ -588,7 +588,7 @@ sub conjnonreflex {
 
 	##  quadcjs replaces regular conjugation
 	my $quadcjs = ( ! defined $palora{verb}{irrg}{pai}{quad} ) ? $regconj : 
-	    $prep . $vbsubs{rid_penult_accent}( $palora{verb}{irrg}{pai}{quad} ) . $vbconj{quad}{pai}{$person} ;
+	    $prep . $vbsubs{rid_accents}( $palora{verb}{irrg}{pai}{quad} ) . $vbconj{quad}{pai}{$person} ;
 
 	##  irregular conjugation replaces quadcjs -- pass the final choice
 	$conjug{pai}{$person} = ( ! defined $palora{verb}{irrg}{pai}{$person} ) ? $quadcjs : 
