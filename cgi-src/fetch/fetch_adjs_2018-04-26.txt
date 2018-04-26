@@ -9250,7 +9250,7 @@
 ##  %{ $vnotes{"giuvina_adj"} } = (
 ##      display_as => "giuvina",
 ##      dieli => ["giuvina",],
-##      dieli_en => ["young boy",],
+##      dieli_en => ["young girl",],
 ##      dieli_it => ["giovanotta",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -23591,7 +23591,7 @@
 ##      display_as => "u pèggiu",
 ##      dieli => ["u pèggiu",],
 ##      dieli_en => ["worse","worst",],
-##      dieli_it => [],
+##      dieli_it => ["il peggiore",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );

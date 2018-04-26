@@ -109,7 +109,7 @@ sub mk_noun_plural {
 	##  if feminine or both
 	##  all feminine nouns are plural in either "xi" or "xx"
 
-	if ( $nounpls{$plend} =~ /^i/ ) {
+	if ( $nounpls{$plend} eq "i" ) {
 	    ##  case where:   xi => "i", 
 	        
 	    if ( $palora =~ /gghia$|cchia$/ ) {
@@ -159,7 +159,7 @@ sub mk_noun_plural {
     } elsif  ( $gender eq "mas" ) {
 	##  if masculine 
 
-	if ( $nounpls{$plend} =~ /^i/ ) {
+	if ( $nounpls{$plend} eq "i" ) {
 	    ##  case where:   xi => "i", 
 
 	    if ( $palora =~ /gghi[ua]$|cchi[ua]$/ ) {
@@ -244,8 +244,8 @@ my %allari = (
     inf => "ari",
     pim => {                  ds => "a"      , ts => "assi"    ,
 	     up => "amu"    , dp => "ati"    }, ## tp => "àssiru" },
-    pai => { us => "avi"    , ds => "asti"   , ts => "au"      ,
-	     up => "amu"    , dp => "àstivu" , tp => "aru"    },
+    pai => { us => "ai"     , ds => "asti"   , ts => "au"      ,   ## us => "avi" , 
+	     up => "ammu"   , dp => "àstivu" , tp => "aru"    },   ## up => "amu" , 
     imi => { us => "ava"    , ds => "avi"    , ts => "ava"     ,
 	     up => "àvamu"  , dp => "àvavu"  , tp => "àvanu"  },
     ims => { us => "assi"   , ds => "assi"   , ts => "assi"    ,
@@ -269,8 +269,8 @@ my %alliri = (
     inf => "iri",
     pim => {                  ds => "i"      , ts => "issi"    ,
 	     up => "emu"    , dp => "iti"    }, ## tp => "ìssiru" },
-    pai => { us => "ivi"    , ds => "isti"   , ts => "ìu"      ,
-	     up => "emu"    , dp => "ìstivu" , tp => "eru"    },
+    pai => { us => "ìi"     , ds => "isti"   , ts => "ìu"      ,   ## us => "ivi" , 
+	     up => "emmu"   , dp => "ìstivu" , tp => "eru"    },   ## up => "emu" , 
     imi => { us => "eva"    , ds => "evi"    , ts => "eva"     ,
 	     up => "èvamu"  , dp => "èvavu"  , tp => "èvanu"   },
     ims => { us => "issi"   , ds => "issi"   , ts => "issi"    ,
@@ -355,8 +355,8 @@ my %coixxr = ( us => "rìa"   , ds => "rivi"  , ts => "rìa"   ,
 %{ $vbconj{restem}{coi} } = %coixxr ;
 
 ##  restemmed PAI  -- only for us,up,ts,tp
-%{ $vbconj{quad}{pai} } = ( us => "ivi" , ts => "ìu"  ,
-			    up => "emu" , tp => "eru" );
+%{ $vbconj{quad}{pai} } = ( us => "i"   , ts => "i"  , 
+			    up => "imu" , tp => "iru" );
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##

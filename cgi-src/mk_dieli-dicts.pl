@@ -62,6 +62,23 @@ nstore( \%dieli_it , '../cgi-lib/dieli-it-dict' );
 ##  SUBROUTINES
 ##  ===========
 
+##  remove diaresis from vowels
+sub rm_diaeresis {
+    my $char = $_[0] ;
+    $char =~ s/\303\244/a/g;
+    $char =~ s/\303\253/e/g;
+    $char =~ s/\303\257/i/g;
+    $char =~ s/\303\266/o/g;
+    $char =~ s/\303\274/u/g;
+    $char =~ s/\303\204/A/g;
+    $char =~ s/\303\213/E/g;
+    $char =~ s/\303\217/I/g;
+    $char =~ s/\303\226/O/g;
+    $char =~ s/\303\234/U/g;
+    return $char ;
+}
+
+
 sub make_en_dict {
 
     my %dieli_sc = %{ $_[0] } ;
@@ -108,23 +125,38 @@ sub read_sc_dict {
 	chomp;
 	my $line = $_ ; 
 	$line =~ s/&#821[67];/_SQUOTE_/g ;
+	$line =~ s/'/_SQUOTE_/g ;
 
 	if ($line =~ /<tr align|<\/tr>/) {
 
 	    ##  new or end of entry, so complete the previous entry
 	    ##  hash to hold translation
-	    my $sc_word = $holdarray[0] ;
-	    my %transhash ;  
-	    $transhash{"sc_word"} = $holdarray[0] ;  $transhash{"sc_part"} = $holdarray[1] ;
-	    $transhash{"it_word"} = $holdarray[2] ;  $transhash{"it_part"} = $holdarray[3] ;
-	    $transhash{"en_word"} = $holdarray[4] ;  $transhash{"en_part"} = $holdarray[5] ;
-	    undef( @holdarray );
-
-	    ##  push translation onto the dictionary hash
-	    if ( ! defined $sc_word ) {
-		my $blah = "do nothing";
+	    if ( ! defined $holdarray[0] ) {
+		my $blah = "not defined, do nothing";
 	    } else {
+
+		my $sc_word = $holdarray[0] ; 
+		my $it_word = $holdarray[2] ; 
+		my $en_word = $holdarray[4] ; 
+
+		$sc_word =~ s/^\s+// ; $sc_word =~ s/\s+$// ; $sc_word =~ s/^_SQUOTE_// ; 
+		$it_word =~ s/^\s+// ; $it_word =~ s/\s+$// ;
+		$en_word =~ s/^\s+// ; $en_word =~ s/\s+$// ;
+
+		$sc_word = rm_diaeresis( $sc_word ) ; 
+		$it_word = rm_diaeresis( $it_word ) ; 
+		$en_word = rm_diaeresis( $en_word ) ; 
+
+		my %transhash ;  
+		$transhash{"sc_word"} = $sc_word ;  $transhash{"sc_part"} = $holdarray[1] ;
+		$transhash{"it_word"} = $it_word ;  $transhash{"it_part"} = $holdarray[3] ;
+		$transhash{"en_word"} = $en_word ;  $transhash{"en_part"} = $holdarray[5] ;
+
+		##  push translation onto the dictionary hash
 		push( @{ $dict{$sc_word} } , \%transhash ) ;
+
+		##  clear out the hold array
+		undef( @holdarray );
 	    }
 
 	} elsif ( $line !~ /<td>/ ) {

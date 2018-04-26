@@ -35,6 +35,14 @@ my $lgparm = ( ! defined param('langs') ) ? "SCEN" : param('langs') ;
 my $rquest = param('langs') ;
 my $insearch = param('search') ;
 
+##  which dictionary to retrieve?
+my %dieli ; 
+if ( $rquest =~ /SCEN|SCIT/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-sc-dict') };
+} elsif ( $rquest =~ /ENSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-en-dict') };
+} elsif ( $rquest =~ /ITSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-it-dict') };
+} else {  my $blah = "retrieve nothing -- no language requested" ;
+} 
+
 ##  searches split by vertical bar
 my @searches = split( "_OR_" , $insearch ) ; 
 s/^\s*// for @searches ; 
@@ -61,6 +69,8 @@ $otline .= "\n" ;
 
 ##  translate and pass output to HTML
 foreach my $search (@searches) {
+
+    ##  if "collection" ...
     if ( $search =~ /^COLL_/ ) {
 	my %collections = mk_collections() ;
 	my @whichcolls = grep( /$search/ , keys( %collections ) ); 
@@ -71,12 +81,12 @@ foreach my $search (@searches) {
 	    my $slang = ${${$cref}[0]}[0] ;
 	    
 	    ##  if more then one collection requested, then dictionaries load more than once
-	    ##  nonetheless, I don't think that will be a problem
-	    my %dieli ; 
+	    ##  but I'm not providing any links that we make more than one collection request
+	    my %dieli_slang ; 
 
-	    if ( $slang =~ /SCEN|SCIT/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-sc-dict') };
-	    } elsif ( $slang =~ /ENSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-en-dict') };
-	    } elsif ( $slang =~ /ITSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-it-dict') };
+	    if ( $slang =~ /SCEN|SCIT/ ) {  %dieli_slang = %{ retrieve('../cgi-lib/dieli-sc-dict') };
+	    } elsif ( $slang =~ /ENSC/ ) {  %dieli_slang = %{ retrieve('../cgi-lib/dieli-en-dict') };
+	    } elsif ( $slang =~ /ITSC/ ) {  %dieli_slang = %{ retrieve('../cgi-lib/dieli-it-dict') };
 	    } else {  my $blah = "retrieve nothing -- no language requested" ;
 	    }
 
@@ -85,24 +95,90 @@ foreach my $search (@searches) {
 		my $pclass = ' class="zero"' ;
 		$otline .= '<div align="center">' . "\n" ; 
 		for my $j (0..$#{${$cref}[$i]}) {
-		    $otline .= mk_search( $slang , ${${$cref}[$i]}[$j] , \%dieli , $pclass ) ;
+		    $otline .= mk_search( $slang , ${${$cref}[$i]}[$j] , \%dieli_slang , $pclass ) ;
 		}
 		$otline .= '</div>' . "\n" ; 	
 	    }
 	}
-    } else {
-	if ( $rquest =~ /SCEN|SCIT|ENSC|ITSC/ ) { 
-	    my %dieli ; 
-	    if ( $rquest =~ /SCEN|SCIT/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-sc-dict') };
-	    } elsif ( $rquest =~ /ENSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-en-dict') };
-	    } elsif ( $rquest =~ /ITSC/ ) {  %dieli = %{ retrieve('../cgi-lib/dieli-it-dict') };
-	    } else {  my $blah = "retrieve nothing -- no language requested" ;
-	    } 
+
+
+    } elsif ( $rquest =~ /SCEN|SCIT|ENSC|ITSC/ ) { 	
+	##  no collection was requested, so 
+	##  check if language specified in request
+	##  if language not specified, then there is no request
+
+	if ( $insearch =~ /_OR_/ ) { 
+	    ##  _OR_ was specified, so limit results
 	    my $pclass = "" ; 
 	    $otline .= '<div align="center">' . "\n" ; 
 	    $otline .= mk_search( $rquest, $search , \%dieli , $pclass ) ; 
-	    $otline .= '</div>' . "\n" ; 	
-	}
+	    $otline .= '</div>' . "\n" ; 
+
+	} elsif ( length($insearch) < 5 ) {
+	    ###  ( $rquest =~ /SCEN|SCIT/ && 
+	    ###    ( length($insearch) < 2 || 
+	    ###      $search =~ /lu|la|li|ca|cu|di|nna|nni|nta|ntra|pi|pri/ ) )  
+	    ##  
+	    ##  search string less than five
+	    ##  search string small, but broaden results by dropping accents
+
+	    my @subsearches ; 
+	    foreach my $key (sort keys(%dieli) ) {
+		my $sch_noa = drop_accents( $search ) ;
+		my $key_noa = drop_accents( $key ) ;  
+		$key_noa =~ s/[\(\)]//g;  $key_noa =~ s/_SQUOTE_/ /g;
+		$sch_noa =~ s/[\(\)]//g;  $sch_noa =~ s/_SQUOTE_/ /g;
+		if ( $key_noa eq $sch_noa ) {
+		    push( @subsearches , $key ) ;
+		}
+	    }
+	    if ( $#subsearches > -1 ) {
+		foreach my $subsearch (uniq(@subsearches)) {
+		    my $pclass = ' style="margin-top: 0em; margin-bottom: 0.35em;"' ; 
+		    $otline .= '<div align="center" style="margin-bottom: 0.5em; margin-top: 1.0em;">' . "\n" ; 
+		    $otline .= mk_search( $rquest, $subsearch , \%dieli , $pclass , "BeNice" ) ; 
+		    $otline .= '</div>' . "\n" ; 
+		}
+	    } else {
+		$otline .= '<div align="center">' . "\n" ; 
+		$otline .= "<p>nun c'è na traduzzioni dâ palora: " . '&nbsp; <b>' . $search . '</b></p>';
+		$otline .= '</div>' . "\n" ; 
+	    }
+	    
+	} else {
+	    ##  search string five characters or more, so let's broaden search further
+	    ##  drop accents and check for matching word within key
+	    my @subsearches ; 
+	    foreach my $key (sort keys(%dieli) ) {
+		my $sch_noa = drop_accents( $search ) ;
+		my $key_noa = drop_accents( $key ) ;  
+		$key_noa =~ s/[\(\)]//g;
+		$key_noa =~ s/_SQUOTE_/ /g;
+
+		if ( $key_noa =~ /$sch_noa/ ) {
+		    ##  found search term in key
+		    ##  does search term match a word in key?
+		    my @key_wds = split( / /, $key_noa ) ;
+		    foreach my $keyword (@key_wds) {
+			if ( $sch_noa =~ /$keyword/ ) {
+			    push( @subsearches , $key ) ;
+			}
+		    }
+		}
+	    }
+	    if ( $#subsearches > -1 ) {
+		foreach my $subsearch (uniq(@subsearches)) {
+		    my $pclass = ' style="margin-top: 0em; margin-bottom: 0.35em;"' ; 
+		    $otline .= '<div align="center" style="margin-bottom: 0.5em; margin-top: 1.0em;">' . "\n" ; 
+		    $otline .= mk_search( $rquest, $subsearch , \%dieli , $pclass , "BeNice" ) ; 
+		    $otline .= '</div>' . "\n" ; 
+		}
+	    } else {
+		$otline .= '<div align="center">' . "\n" ; 
+		$otline .= "<p>nun c'è na traduzzioni dâ palora: " . '&nbsp; <b>' . $search . '</b></p>';
+		$otline .= '</div>' . "\n" ; 
+	    }
+	} 
     }
 }
 
@@ -134,6 +210,7 @@ sub mk_search {
     my $rsrch  = $_[1] ; 
     my $dlirf  = $_[2] ; 
     my $pclass = $_[3] ; 
+    my $benice = ( ! defined $_[4] || $_[4] ne "BeNice" ) ? "BeMean" : "BeNice";
 
     my @translation = translate( $rlang , $rsrch , $dlirf ) ;
     my @inpart = @{ $translation[0] } ;
@@ -141,12 +218,17 @@ sub mk_search {
     my @otword = @{ $translation[2] } ;
     my @linkto = @{ $translation[3] } ;
 	
+    $rsrch =~ s/_SQUOTE_/'/g ;
+
     my $othtml ;
-    if ($#inpart == -1 && $rsrch ne "") {
-	$rsrch =~ s/_SQUOTE_/'/g ;
-	$othtml .= "<p>nun c'è na traduzzioni dâ palora: " . '&nbsp; <b>' . $rsrch . '</b></p>';
-    } else {
-	    
+    if ($#inpart == -1 && $rsrch ne "") { 
+	if ( $benice eq "BeMean" ) {
+	    $othtml .= "<p>nun c'è na traduzzioni dâ palora: " . '&nbsp; <b>' . $rsrch . '</b></p>';
+	} else {
+	    $othtml .= '<p' . $pclass . '><b>' . $rsrch . '</b> {} &nbsp; &rarr; &nbsp; {}</p>';
+	}
+	
+    } else {	    
 	my @otplines ;
 	if ( $rlang =~ /SCEN|SCIT/ ) {
 	    ##  Sicilian is "IN" language
@@ -161,7 +243,6 @@ sub mk_search {
 		}
 		##  create the output
 		my $otpline ;
-		$linkifany =~ s/_SQUOTE_/'/g ;
 		$otpline .= '<p' . $pclass . '><b>' . $linkifany . '</b> ' . $inpart[$i] . ' &nbsp; &rarr; &nbsp; ' ;
 		$otpline .= '<b>' . $otword[$i] . '</b> ' . $otpart[$i] . '</p>' . "\n" ;
 		push( @otplines , $otpline ) ;
@@ -181,7 +262,6 @@ sub mk_search {
 		}
 		##  create the output
 		my $otpline ;
-		$linkifany =~ s/_SQUOTE_/'/g ;
 		$otpline .= '<p' . $pclass . '><b>' . $rsrch . '</b> ' . $inpart[$i] . ' &nbsp; &rarr; &nbsp; ' ;
 		$otpline .= '<b>' . $linkifany . '</b> ' . $otpart[$i] . '</p>' . "\n" ;
 		push( @otplines , $otpline ) ;
@@ -194,7 +274,24 @@ sub mk_search {
     }
     return $othtml ; 
 }
-    
+
+##  drop all accents
+sub drop_accents {
+    my $char = $_[0] ;
+    $char =~ s/\240/a/g; $char =~ s/\241/a/g;
+    $char =~ s/\250/e/g; $char =~ s/\251/e/g;
+    $char =~ s/\254/i/g; $char =~ s/\255/i/g;
+    $char =~ s/\262/o/g; $char =~ s/\263/o/g;
+    $char =~ s/\271/u/g; $char =~ s/\272/u/g;
+    $char =~ s/\200/A/g; $char =~ s/\201/A/g;
+    $char =~ s/\210/E/g; $char =~ s/\211/E/g;
+    $char =~ s/\214/I/g; $char =~ s/\215/I/g;
+    $char =~ s/\222/O/g; $char =~ s/\223/O/g;
+    $char =~ s/\231/U/g; $char =~ s/\232/U/g;
+    $char =~ s/\303//g;
+    return $char ;
+}
+
 sub translate {
 
     my $rlang =    $_[0]   ; 
@@ -209,7 +306,7 @@ sub translate {
 
     ##  how many entries are there?
     my $nu_entry = $#{ $dict{$rsrch} } ;
-
+    
     if ( $rlang =~ /SCEN/ ) {  
 	for my $i (0..$nu_entry) {
 	    if ( ${ ${ $dict{$rsrch} }[$i] }{"en_word"} ne '<br>') {
@@ -247,15 +344,16 @@ sub translate {
 		push( @otpart , ${ ${ $dict{$rsrch} }[$i] }{"sc_part"} );
 		push( @otword , ${ ${ $dict{$rsrch} }[$i] }{"sc_word"} );
 		my $link = ( ! defined ${ ${ $dict{$rsrch} }[$i] }{"linkto"} ) ? "" : ${ ${ $dict{$rsrch} }[$i] }{"linkto"} ;
-		push( @linkto , $link );
+		    push( @linkto , $link );
 	    }
 	}
     }
-
+    
+    
     s/_SQUOTE_/'/g for @inpart ; 
     s/_SQUOTE_/'/g for @otpart ; 
     s/_SQUOTE_/'/g for @otword ; 
-    s/_SQUOTE_/'/g for @linkto ; 
+    ## s/_SQUOTE_/'/g for @linkto ; 
     return( \@inpart , \@otpart , \@otword , \@linkto ) ; 
 }
 
@@ -325,17 +423,17 @@ sub mk_foothtm {
     $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_aviri"    . '">' . "aviri"    . '</a> &amp; ' . "\n" ; 
     $ot .=     '<a href="/cgi-bin/sicilian.pl?search=' . "COLL_have"     . '">' . "to have"  . '</a></li>'   . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_essiri"   . '">' . "essiri"    . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_fari"     . '">' . "fari"      . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_timerel"  . '">' . "tempu"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_essiri"   . '">' . "essiri"   . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_fari"     . '">' . "fari"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_timerel"  . '">' . "lu tempu" . '</a></li>'  . "\n" ; 
     $ot .= '</ul>' . "\n" ;
     $ot .= '</div>' . "\n" ;
     $ot .= '<div class="col-m-6 col-6">' . "\n" ; 
     $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_daysweek" . '">' . "iorni"     . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_months"   . '">' . "misi"      . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_holidays" . '">' . "festi"     . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_seasons"  . '">' . "staggiuni" . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_daysweek" . '">' . "li jorna"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_months"   . '">' . "li misi"      . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_holidays" . '">' . "li festi"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_seasons"  . '">' . "li staggiuni" . '</a></li>'  . "\n" ; 
     $ot .= '</ul>' . "\n" ;
     $ot .= '</div>' . "\n" ;
     $ot .= '</div>' . "\n" ;
@@ -550,7 +648,7 @@ sub mk_collections {
 	["cutidianu"],
 	["antura","avantìeri","dopporumani"],
 	["vigghia"],
-	["_SQUOTE_nnumani"],
+	["nnumani"],
 	["agghiurnari"],
 	["arburi","livata","luci du iornu","menziornu","nnoccu","notti"],
 	["iornu","a lu iornu","iurnata","iurnata di travagghiu","jurnateri"],

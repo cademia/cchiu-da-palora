@@ -87,11 +87,23 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
-%{ $vnotes{"amuri_noun"} } = (
+%{ $vnotes{"amuri_blackberry"} } = (
     display_as => "amuri",
     dieli => ["amuri",],
-    dieli_en => ["blackberry","love ",],
-    dieli_it => ["mora","amore ",],
+    dieli_en => ["blackberry",],
+    dieli_it => ["mora",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+    },);
+
+%{ $vnotes{"amuri_love"} } = (
+    display_as => "amuri",
+    dieli => ["amuri",],
+    dieli_en => ["love",],
+    dieli_it => ["amore",],
     ## notex => ["","",],
     part_speech => "noun",
     noun => {
@@ -218,7 +230,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     display_as => "capu",
     dieli => ["capu",],
     dieli_en => ["boss","cape (geog)","chief","chieftain","head",],
-    dieli_it => ["capo ","capo",],
+    dieli_it => ["capo",],
     ## notex => ["","",],
     part_speech => "noun",
     noun => {

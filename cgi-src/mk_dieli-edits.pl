@@ -71,6 +71,12 @@ ${$dieli_sc{"corpu"}[4]}{"it_part"} = '{m}';
 ${$dieli_sc{"corpu"}[4]}{"en_part"} = '{n}';
 ${$dieli_sc{"corpu"}[5]}{"it_part"} = '{}';
 
+##  $ ./query-dieli.pl sc strittu amuri
+##  	0  ==  amuri {f} --> mora {f} --> blackberry {n}
+##  	1  ==  amuri {m} --> amore {m} --> love {n}
+${$dieli_sc{"amuri"}[0]}{"linkto"} = "amuri_blackberry";
+${$dieli_sc{"amuri"}[1]}{"linkto"} = "amuri_love";
+
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  

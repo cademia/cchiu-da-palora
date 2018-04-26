@@ -1,0 +1,13 @@
+test of subroutine to remove unicode accents:
+à = a  ::  á = a  ::  â = a  ::  ä = a  ::  À = A  ::  Á = A  ::  Â = A  ::  Ä = A
+è = e  ::  é = e  ::  ê = e  ::  ë = e  ::  È = E  ::  É = E  ::  Ê = E  ::  Ë = E
+ì = i  ::  í = i  ::  î = i  ::  ï = i  ::  Ì = I  ::  Í = I  ::  Î = I  ::  Ï = I
+ò = o  ::  ó = o  ::  ô = o  ::  ö = o  ::  Ò = O  ::  Ó = O  ::  Ô = O  ::  Ö = O
+ù = u  ::  ú = u  ::  û = u  ::  ü = u  ::  Ù = U  ::  Ú = U  ::  Û = U  ::  Ü = U
+
+test of subroutine to add unicode accents:
+a = à  ::  a = á  ::  a = â  ::  a = ä  ::  a = À  ::  a = Á  ::  a = Â  ::  a = Ä
+e = è  ::  e = é  ::  e = ê  ::  e = ë  ::  e = È  ::  e = É  ::  e = Ê  ::  e = Ë
+i = ì  ::  i = í  ::  i = î  ::  i = ï  ::  i = Ì  ::  i = Í  ::  i = Î  ::  i = Ï
+o = ò  ::  o = ó  ::  o = ô  ::  o = ö  ::  o = Ò  ::  o = Ó  ::  o = Ô  ::  o = Ö
+u = ù  ::  u = ú  ::  u = û  ::  u = ü  ::  u = Ù  ::  u = Ú  ::  u = Û  ::  u = Ü
