@@ -198,126 +198,6 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  _SQUOTE_mmaturu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmaturu_adj"} } = (
-##      display_as => "_SQUOTE_mmaturu",
-##      dieli => ["_SQUOTE_mmaturu",],
-##      dieli_en => ["immature",],
-##      dieli_it => ["immaturo",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmenzu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmenzu_adj"} } = (
-##      display_as => "_SQUOTE_mmenzu",
-##      dieli => ["_SQUOTE_mmenzu",],
-##      dieli_en => ["in between","middle",],
-##      dieli_it => ["in mezzo",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpijatu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpijatu_adj"} } = (
-##      display_as => "_SQUOTE_mpijatu",
-##      dieli => ["_SQUOTE_mpijatu",],
-##      dieli_en => ["employed",],
-##      dieli_it => ["impiegato",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpïatu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpïatu_adj"} } = (
-##      display_as => "_SQUOTE_mpïatu",
-##      dieli => ["_SQUOTE_mpïatu",],
-##      dieli_en => ["employed",],
-##      dieli_it => ["impiegato",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nciacatu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nciacatu_adj"} } = (
-##      display_as => "_SQUOTE_nciacatu",
-##      dieli => ["_SQUOTE_nciacatu",],
-##      dieli_en => ["pavement","paved",],
-##      dieli_it => ["selciato",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ncuttu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ncuttu_adj"} } = (
-##      display_as => "_SQUOTE_ncuttu",
-##      dieli => ["_SQUOTE_ncuttu",],
-##      dieli_en => ["too close","clinging",],
-##      dieli_it => ["vicino troppo","appiccicoso",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nnignu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnignu_adj"} } = (
-##      display_as => "_SQUOTE_nnignu",
-##      dieli => ["_SQUOTE_nnignu",],
-##      dieli_en => ["unworthy",],
-##      dieli_it => ["indegno",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nnustriusu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnustriusu_adj"} } = (
-##      display_as => "_SQUOTE_nnustriusu",
-##      dieli => ["_SQUOTE_nnustriusu",],
-##      dieli_en => ["industrious",],
-##      dieli_it => ["industrioso",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntollu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntollu_adj"} } = (
-##      display_as => "_SQUOTE_ntollu",
-##      dieli => ["_SQUOTE_ntollu",],
-##      dieli_en => ["bungling","vulgar","dupe",],
-##      dieli_it => ["pasticcione","grossolano","minchione",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nvintusu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nvintusu_adj"} } = (
-##      display_as => "_SQUOTE_nvintusu",
-##      dieli => ["_SQUOTE_nvintusu",],
-##      dieli_en => ["good","capable of inventing","inventive",],
-##      dieli_it => ["buono","abile ad inventare","ricco d_SQUOTE_invenzione",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 ##  ##  a bon mircatu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"a bon mircatu_adj"} } = (
 ##      display_as => "a bon mircatu",
@@ -971,7 +851,7 @@
 ##      display_as => "all_SQUOTE_ apertu",
 ##      dieli => ["all_SQUOTE_ apertu",],
 ##      dieli_en => ["open-air",],
-##      dieli_it => ["all' aperto",],
+##      dieli_it => ["all_SQUOTE_ aperto",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -2123,7 +2003,7 @@
 ##      display_as => "avannu",
 ##      dieli => ["avannu",],
 ##      dieli_en => ["this year",],
-##      dieli_it => ["quest'anno",],
+##      dieli_it => ["quest_SQUOTE_anno",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -2339,7 +2219,7 @@
 ##      display_as => "beddu",
 ##      dieli => ["beddu",],
 ##      dieli_en => ["beautiful","fair","fine","good","good-looking","handsome","nice","pleasing","pretty",],
-##      dieli_it => ["bello","di bell' aspetto","avvenente",],
+##      dieli_it => ["bello","di bell_SQUOTE_ aspetto","avvenente",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -2363,7 +2243,7 @@
 ##      display_as => "bellu",
 ##      dieli => ["bellu",],
 ##      dieli_en => ["beautiful","good-looking","handsome","pretty","tasty",],
-##      dieli_it => ["bello","di bell' aspetto","buono (di cibo)",],
+##      dieli_it => ["bello","di bell_SQUOTE_ aspetto","buono (di cibo)",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -2458,8 +2338,8 @@
 ##  %{ $vnotes{"biddìssimu_adj"} } = (
 ##      display_as => "biddìssimu",
 ##      dieli => ["biddìssimu",],
-##      dieli_en => ["very beautiful ",],
-##      dieli_it => ["bellissimo ",],
+##      dieli_en => ["very beautiful",],
+##      dieli_it => ["bellissimo",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -3047,7 +2927,7 @@
 ##      display_as => "capu",
 ##      dieli => ["capu",],
 ##      dieli_en => ["boss","cape (geog)","chief","chieftain","head",],
-##      dieli_it => ["capo ","capo",],
+##      dieli_it => ["capo",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -3203,7 +3083,7 @@
 ##      display_as => "caudulinu",
 ##      dieli => ["caudulinu",],
 ##      dieli_en => ["easily made irate","rash","impulsive",],
-##      dieli_it => ["facile all'ira","impulsivo",],
+##      dieli_it => ["facile all_SQUOTE_ira","impulsivo",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -5303,7 +5183,7 @@
 ##      display_as => "d_SQUOTE_argentu",
 ##      dieli => ["d_SQUOTE_argentu",],
 ##      dieli_en => ["silver",],
-##      dieli_it => ["d' argento",],
+##      dieli_it => ["d_SQUOTE_ argento",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -5855,7 +5735,7 @@
 ##      display_as => "di prima ordini (ital)",
 ##      dieli => ["di prima ordini (ital)",],
 ##      dieli_en => ["first-rate",],
-##      dieli_it => ["di prim' ordine",],
+##      dieli_it => ["di prim_SQUOTE_ ordine",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -6970,7 +6850,7 @@
 ##  %{ $vnotes{"educatu_adj"} } = (
 ##      display_as => "educatu",
 ##      dieli => ["educatu",],
-##      dieli_en => ["polite ",],
+##      dieli_en => ["polite",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -8218,19 +8098,7 @@
 ##  %{ $vnotes{"finali_adj"} } = (
 ##      display_as => "finali",
 ##      dieli => ["finali",],
-##      dieli_en => ["eventual",],
-##      dieli_it => ["finale",],
-##      ## notex => ["","",],
-##      part_speech => "adj",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  finali  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"finali _adj"} } = (
-##      display_as => "finali ",
-##      dieli => ["finali ",],
-##      dieli_en => ["final",],
+##      dieli_en => ["eventual","final",],
 ##      dieli_it => ["finale",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -8854,8 +8722,8 @@
 ##  %{ $vnotes{"furtunatu_adj"} } = (
 ##      display_as => "furtunatu",
 ##      dieli => ["furtunatu",],
-##      dieli_en => ["fortunate","lucky ",],
-##      dieli_it => ["fortunato","fortunato ",],
+##      dieli_en => ["fortunate","lucky",],
+##      dieli_it => ["fortunato",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -8950,7 +8818,7 @@
 ##  %{ $vnotes{"garbatu_adj"} } = (
 ##      display_as => "garbatu",
 ##      dieli => ["garbatu",],
-##      dieli_en => ["polite ",],
+##      dieli_en => ["polite",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -9010,8 +8878,8 @@
 ##  %{ $vnotes{"generali_adj"} } = (
 ##      display_as => "generali",
 ##      dieli => ["generali",],
-##      dieli_en => ["broad","general","general ","public","universal",],
-##      dieli_it => ["generale","generale ",],
+##      dieli_en => ["broad","general","public","universal",],
+##      dieli_it => ["generale",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -9862,7 +9730,7 @@
 ##  %{ $vnotes{"illustri_adj"} } = (
 ##      display_as => "illustri",
 ##      dieli => ["illustri",],
-##      dieli_en => ["famous ","noted",],
+##      dieli_en => ["famous","noted",],
 ##      dieli_it => ["illustre",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -11566,8 +11434,8 @@
 ##  %{ $vnotes{"intensu_adj"} } = (
 ##      display_as => "intensu",
 ##      dieli => ["intensu",],
-##      dieli_en => ["intense","intensive","profound ",],
-##      dieli_it => ["intenso","profondo ",],
+##      dieli_en => ["intense","intensive","profound",],
+##      dieli_it => ["intenso","profondo",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -12910,8 +12778,8 @@
 ##  %{ $vnotes{"manciàbbili_adj"} } = (
 ##      display_as => "manciàbbili",
 ##      dieli => ["manciàbbili",],
-##      dieli_en => ["eatable ","edible ",],
-##      dieli_it => ["mangiabile ",],
+##      dieli_en => ["eatable","edible",],
+##      dieli_it => ["mangiabile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -12982,7 +12850,7 @@
 ##  %{ $vnotes{"mariolu_adj"} } = (
 ##      display_as => "mariolu",
 ##      dieli => ["mariolu",],
-##      dieli_en => ["crafty","jew's harp","rogue","roguish","shrewd","astute","scoundrel","sly",],
+##      dieli_en => ["crafty","jew_SQUOTE_s harp","rogue","roguish","shrewd","astute","scoundrel","sly",],
 ##      dieli_it => ["scaltro","scacciapensieri","mariuolo","furbo","sagace",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -13546,8 +13414,8 @@
 ##  %{ $vnotes{"millinariu_adj"} } = (
 ##      display_as => "millinariu",
 ##      dieli => ["millinariu",],
-##      dieli_en => ["millennial ",],
-##      dieli_it => ["millenario ",],
+##      dieli_en => ["millennial",],
+##      dieli_it => ["millenario",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -13558,8 +13426,8 @@
 ##  %{ $vnotes{"mimuràbbili_adj"} } = (
 ##      display_as => "mimuràbbili",
 ##      dieli => ["mimuràbbili",],
-##      dieli_en => ["memorable ",],
-##      dieli_it => ["memorabile ",],
+##      dieli_en => ["memorable",],
+##      dieli_it => ["memorabile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -13854,6 +13722,30 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mmaturu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmaturu_adj"} } = (
+##      display_as => "mmaturu",
+##      dieli => ["mmaturu",],
+##      dieli_en => ["immature",],
+##      dieli_it => ["immaturo",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mmenzu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmenzu_adj"} } = (
+##      display_as => "mmenzu",
+##      dieli => ["mmenzu",],
+##      dieli_en => ["in between","middle",],
+##      dieli_it => ["in mezzo",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mmriacu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mmriacu_adj"} } = (
 ##      display_as => "mmriacu",
@@ -14058,12 +13950,36 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mpiatu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpiatu_adj"} } = (
+##      display_as => "mpiatu",
+##      dieli => ["mpiatu",],
+##      dieli_en => ["employed",],
+##      dieli_it => ["impiegato",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mpiccicusu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mpiccicusu_adj"} } = (
 ##      display_as => "mpiccicusu",
 ##      dieli => ["mpiccicusu",],
 ##      dieli_en => ["sticky",],
 ##      dieli_it => ["appiccicaticcio",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mpijatu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpijatu_adj"} } = (
+##      display_as => "mpijatu",
+##      dieli => ["mpijatu",],
+##      dieli_en => ["employed",],
+##      dieli_it => ["impiegato",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -14410,8 +14326,8 @@
 ##  %{ $vnotes{"nazziunali_adj"} } = (
 ##      display_as => "nazziunali",
 ##      dieli => ["nazziunali",],
-##      dieli_en => ["national ",],
-##      dieli_it => ["nazionale ",],
+##      dieli_en => ["national",],
+##      dieli_it => ["nazionale",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -14442,6 +14358,18 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nciacatu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nciacatu_adj"} } = (
+##      display_as => "nciacatu",
+##      dieli => ["nciacatu",],
+##      dieli_en => ["pavement","paved",],
+##      dieli_it => ["selciato",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  ncrisciusu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ncrisciusu_adj"} } = (
 ##      display_as => "ncrisciusu",
@@ -14458,8 +14386,8 @@
 ##  %{ $vnotes{"ncuttu_adj"} } = (
 ##      display_as => "ncuttu",
 ##      dieli => ["ncuttu",],
-##      dieli_en => ["thick","very close",],
-##      dieli_it => ["molto vicino",],
+##      dieli_en => ["thick","very close","too close","clinging",],
+##      dieli_it => ["molto vicino","vicino troppo","appiccicoso",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -14814,6 +14742,18 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nnignu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnignu_adj"} } = (
+##      display_as => "nnignu",
+##      dieli => ["nnignu",],
+##      dieli_en => ["unworthy",],
+##      dieli_it => ["indegno",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nnimicu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nnimicu_adj"} } = (
 ##      display_as => "nnimicu",
@@ -14844,6 +14784,18 @@
 ##      dieli => ["nnuccenti",],
 ##      dieli_en => ["innocent",],
 ##      dieli_it => ["innocente",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nnustriusu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnustriusu_adj"} } = (
+##      display_as => "nnustriusu",
+##      dieli => ["nnustriusu",],
+##      dieli_en => ["industrious",],
+##      dieli_it => ["industrioso",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -15096,6 +15048,18 @@
 ##      dieli => ["ntisu",],
 ##      dieli_en => ["listened to","aware",],
 ##      dieli_it => ["avvisato","consapevole",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ntollu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntollu_adj"} } = (
+##      display_as => "ntollu",
+##      dieli => ["ntollu",],
+##      dieli_en => ["bungling","vulgar","dupe",],
+##      dieli_it => ["pasticcione","grossolano","minchione",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -15426,6 +15390,18 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nvintusu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nvintusu_adj"} } = (
+##      display_as => "nvintusu",
+##      dieli => ["nvintusu",],
+##      dieli_en => ["good","capable of inventing","inventive",],
+##      dieli_it => ["buono","abile ad inventare","ricco d_SQUOTE_invenzione",],
+##      ## notex => ["","",],
+##      part_speech => "adj",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nìvuru -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nìvuru_adj"} } = (
 ##      display_as => "nìvuru",
@@ -15635,7 +15611,7 @@
 ##      display_as => "oltramari",
 ##      dieli => ["oltramari",],
 ##      dieli_en => ["overseas",],
-##      dieli_it => ["d' oltremare",],
+##      dieli_it => ["d_SQUOTE_ oltremare",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -15730,8 +15706,8 @@
 ##  %{ $vnotes{"onurabbili_adj"} } = (
 ##      display_as => "onurabbili",
 ##      dieli => ["onurabbili",],
-##      dieli_en => ["honorable ",],
-##      dieli_it => ["onorevole ",],
+##      dieli_en => ["honorable",],
+##      dieli_it => ["onorevole",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -16115,7 +16091,7 @@
 ##      display_as => "ovannu",
 ##      dieli => ["ovannu",],
 ##      dieli_en => ["this year",],
-##      dieli_it => ["quest'anno",],
+##      dieli_it => ["quest_SQUOTE_anno",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -16330,8 +16306,8 @@
 ##  %{ $vnotes{"particulari_adj"} } = (
 ##      display_as => "particulari",
 ##      dieli => ["particulari",],
-##      dieli_en => ["own","particular","particular ","peculiar","respect","special",],
-##      dieli_it => ["particolare","particolare ",],
+##      dieli_en => ["own","particular","peculiar","respect","special",],
+##      dieli_it => ["particolare",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -16642,8 +16618,8 @@
 ##  %{ $vnotes{"piacèvuli_adj"} } = (
 ##      display_as => "piacèvuli",
 ##      dieli => ["piacèvuli",],
-##      dieli_en => ["pleasing ",],
-##      dieli_it => ["piacevole ",],
+##      dieli_en => ["pleasing",],
+##      dieli_it => ["piacevole",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -17950,7 +17926,7 @@
 ##  %{ $vnotes{"puru_adj"} } = (
 ##      display_as => "puru",
 ##      dieli => ["puru",],
-##      dieli_en => ["clean","even","however","mere","neat","pure","sheer","still",],
+##      dieli_en => ["clean","even","however","mere","neat","pure","sheer","still","also",],
 ##      dieli_it => ["puro","anche","eppure",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
@@ -17986,8 +17962,8 @@
 ##  %{ $vnotes{"pussìbbili_adj"} } = (
 ##      display_as => "pussìbbili",
 ##      dieli => ["pussìbbili",],
-##      dieli_en => ["possible ",],
-##      dieli_it => ["possibile ",],
+##      dieli_en => ["possible",],
+##      dieli_it => ["possibile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -17998,8 +17974,8 @@
 ##  %{ $vnotes{"pussìbbuli_adj"} } = (
 ##      display_as => "pussìbbuli",
 ##      dieli => ["pussìbbuli",],
-##      dieli_en => ["possible ",],
-##      dieli_it => ["possibile ",],
+##      dieli_en => ["possible",],
+##      dieli_it => ["possibile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -18622,8 +18598,8 @@
 ##  %{ $vnotes{"riali_adj"} } = (
 ##      display_as => "riali",
 ##      dieli => ["riali",],
-##      dieli_en => ["real ",],
-##      dieli_it => ["reale ",],
+##      dieli_en => ["real",],
+##      dieli_it => ["reale",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -19439,7 +19415,7 @@
 ##      display_as => "sbadatu",
 ##      dieli => ["sbadatu",],
 ##      dieli_en => ["careless","neglectful",],
-##      dieli_it => ["noncurante ",],
+##      dieli_it => ["noncurante",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -20194,8 +20170,8 @@
 ##  %{ $vnotes{"secunnu_adj"} } = (
 ##      display_as => "secunnu",
 ##      dieli => ["secunnu",],
-##      dieli_en => ["according to ","as","second",],
-##      dieli_it => ["secondo ","siccome","secondo",],
+##      dieli_en => ["according to","as","second",],
+##      dieli_it => ["secondo","siccome",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -21814,8 +21790,8 @@
 ##  %{ $vnotes{"spudiratu_adj"} } = (
 ##      display_as => "spudiratu",
 ##      dieli => ["spudiratu",],
-##      dieli_en => ["immodest ","insolent ","shameless ",],
-##      dieli_it => ["spudorato ",],
+##      dieli_en => ["immodest","insolent","shameless",],
+##      dieli_it => ["spudorato",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -22414,8 +22390,8 @@
 ##  %{ $vnotes{"sulari_adj"} } = (
 ##      display_as => "sulari",
 ##      dieli => ["sulari",],
-##      dieli_en => ["solar ",],
-##      dieli_it => ["solare ",],
+##      dieli_en => ["solar",],
+##      dieli_it => ["solare",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -22510,8 +22486,8 @@
 ##  %{ $vnotes{"suntuusu_adj"} } = (
 ##      display_as => "suntuusu",
 ##      dieli => ["suntuusu",],
-##      dieli_en => ["gorgeous","sumptuous ",],
-##      dieli_it => ["magnifico","sontuoso ",],
+##      dieli_en => ["gorgeous","sumptuous",],
+##      dieli_it => ["magnifico","sontuoso",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -23146,8 +23122,8 @@
 ##  %{ $vnotes{"tirrìbbili_adj"} } = (
 ##      display_as => "tirrìbbili",
 ##      dieli => ["tirrìbbili",],
-##      dieli_en => ["terrible ",],
-##      dieli_it => ["terribile ",],
+##      dieli_en => ["terrible",],
+##      dieli_it => ["terribile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -23914,8 +23890,8 @@
 ##  %{ $vnotes{"unurèvuli_adj"} } = (
 ##      display_as => "unurèvuli",
 ##      dieli => ["unurèvuli",],
-##      dieli_en => ["honorable ",],
-##      dieli_it => ["onorevole ",],
+##      dieli_en => ["honorable",],
+##      dieli_it => ["onorevole",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -24011,7 +23987,7 @@
 ##      display_as => "usatu",
 ##      dieli => ["usatu",],
 ##      dieli_en => ["second-hand",],
-##      dieli_it => ["d'occasione",],
+##      dieli_it => ["d_SQUOTE_occasione",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -24046,8 +24022,8 @@
 ##  %{ $vnotes{"utilizzàbbili_adj"} } = (
 ##      display_as => "utilizzàbbili",
 ##      dieli => ["utilizzàbbili",],
-##      dieli_en => ["usable ",],
-##      dieli_it => ["utilizzabile ",],
+##      dieli_en => ["usable",],
+##      dieli_it => ["utilizzabile",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );
@@ -24622,8 +24598,8 @@
 ##  %{ $vnotes{"virtuusu_adj"} } = (
 ##      display_as => "virtuusu",
 ##      dieli => ["virtuusu",],
-##      dieli_en => ["good","virtuous ",],
-##      dieli_it => ["virtuoso","virtuoso ",],
+##      dieli_en => ["good","virtuous",],
+##      dieli_it => ["virtuoso",],
 ##      ## notex => ["","",],
 ##      part_speech => "adj",
 ##      );

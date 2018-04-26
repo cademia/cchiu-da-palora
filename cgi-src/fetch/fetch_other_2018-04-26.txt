@@ -6,30 +6,6 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  _SQUOTE_nnavanti -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnavanti_adv"} } = (
-##      display_as => "_SQUOTE_nnavanti",
-##      dieli => ["_SQUOTE_nnavanti",],
-##      dieli_en => ["forward","beforehand","onward",],
-##      dieli_it => ["in avanti",],
-##      ## notex => ["","",],
-##      part_speech => "adv",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nnumani -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnumani_adv"} } = (
-##      display_as => "_SQUOTE_nnumani",
-##      dieli => ["_SQUOTE_nnumani",],
-##      dieli_en => ["next day","day after",],
-##      dieli_it => ["indomani",],
-##      ## notex => ["","",],
-##      part_speech => "adv",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 ##  ##  a -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"a_prep"} } = (
 ##      display_as => "a",
@@ -167,7 +143,7 @@
 ##      display_as => "arreri",
 ##      dieli => ["arreri",],
 ##      dieli_en => ["again","anew","backwards","behind",],
-##      dieli_it => ["ancora","all' indietro","indietro",],
+##      dieli_it => ["ancora","all_SQUOTE_ indietro","indietro",],
 ##      ## notex => ["","",],
 ##      part_speech => "adv",
 ##      );
@@ -731,7 +707,7 @@
 ##      display_as => "in autu",
 ##      dieli => ["in autu",],
 ##      dieli_en => ["overhead","up",],
-##      dieli_it => ["in su","verso l' alto",],
+##      dieli_it => ["in su","verso l_SQUOTE_ alto",],
 ##      ## notex => ["","",],
 ##      part_speech => "adv",
 ##      );
@@ -1038,6 +1014,18 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nnavanti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnavanti_adv"} } = (
+##      display_as => "nnavanti",
+##      dieli => ["nnavanti",],
+##      dieli_en => ["forward","beforehand","onward",],
+##      dieli_it => ["in avanti",],
+##      ## notex => ["","",],
+##      part_speech => "adv",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nni -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nni_prep"} } = (
 ##      display_as => "nni",
@@ -1046,6 +1034,18 @@
 ##      dieli_it => ["a","in",],
 ##      ## notex => ["","",],
 ##      part_speech => "prep",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nnumani -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnumani_adv"} } = (
+##      display_as => "nnumani",
+##      dieli => ["nnumani",],
+##      dieli_en => ["next day","day after",],
+##      dieli_it => ["indomani",],
+##      ## notex => ["","",],
+##      part_speech => "adv",
 ##      );
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1086,10 +1086,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  o  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"o _conj"} } = (
-##      display_as => "o ",
-##      dieli => ["o ",],
+##  ##  o -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"o_conj"} } = (
+##      display_as => "o",
+##      dieli => ["o",],
 ##      dieli_en => ["either","or",],
 ##      dieli_it => ["o",],
 ##      ## notex => ["","",],
@@ -1210,7 +1210,7 @@
 ##  %{ $vnotes{"puru_adv"} } = (
 ##      display_as => "puru",
 ##      dieli => ["puru",],
-##      dieli_en => ["even","still",],
+##      dieli_en => ["even","still","also",],
 ##      dieli_it => ["anche",],
 ##      ## notex => ["","",],
 ##      part_speech => "adv",
@@ -1571,7 +1571,7 @@
 ##      display_as => "tannu",
 ##      dieli => ["tannu",],
 ##      dieli_en => ["at that moment","just then","then","when",],
-##      dieli_it => ["allora","giust'allora",],
+##      dieli_it => ["allora","giust_SQUOTE_allora",],
 ##      ## notex => ["","",],
 ##      part_speech => "adv",
 ##      );

@@ -6,752 +6,6 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  _SQUOTE_mbiscari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mbiscari"} } = (
-##      dieli => ["_SQUOTE_mbiscari",],
-##      dieli_en => ["inveigle",],
-##      dieli_it => ["invischiare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xcari",
-##  	stem => "_SQUOTE_mbisc",
-##  	boot => "_SQUOTE_mbìsc", ## "_SQUOTE_mbèsc",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmiscari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmiscari"} } = (
-##      dieli => ["_SQUOTE_mmiscari",],
-##      dieli_en => ["mix","put together","confuse",],
-##      dieli_it => ["mescolare","mettere insieme","confondere",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xcari",
-##  	stem => "_SQUOTE_mmisc",
-##  	boot => "_SQUOTE_mmìsc", ## "_SQUOTE_mmèsc",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmurdiri -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmurdiri"} } = (
-##      dieli => ["_SQUOTE_mmurdiri",],
-##      dieli_en => ["fasten securely",],
-##      dieli_it => ["legar fortemente",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxiri",
-##  	stem => "_SQUOTE_mmurd",
-##  	boot => "_SQUOTE_mmùrd", ## "_SQUOTE_mmòrd",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmuscarisi -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmuscarisi"} } = (
-##      dieli => ["_SQUOTE_mmuscarisi"],
-##      dieli_en => ["dodge","skulk",],
-##      dieli_it => ["imboscarsi",],
-##      part_speech => "verb",
-##      reflex => "_SQUOTE_mmuscari",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpasturari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpasturari"} } = (
-##      dieli => ["_SQUOTE_mpasturari",],
-##      dieli_en => ["hobble","tie",],
-##      dieli_it => ["impastoiare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_mpastur",
-##  	boot => "_SQUOTE_mpastùr", ## "_SQUOTE_mpastòr",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpicari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpicari"} } = (
-##      dieli => ["_SQUOTE_mpicari",],
-##      dieli_en => ["hang",],
-##      dieli_it => ["impiccare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xcari",
-##  	stem => "_SQUOTE_mpic",
-##  	boot => "_SQUOTE_mpìc", ## "_SQUOTE_mpèc",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpidugghiari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpidugghiari"} } = (
-##      dieli => ["_SQUOTE_mpidugghiari",],
-##      dieli_en => ["entangle","catch","snag",],
-##      dieli_it => ["impigliare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xiari",
-##  	stem => "_SQUOTE_mpidugghi",
-##  	boot => "_SQUOTE_mpidugghì", ## "_SQUOTE_mpidugghè",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpignari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpignari"} } = (
-##      dieli => ["_SQUOTE_mpignari",],
-##      dieli_en => ["pawn","promise",],
-##      dieli_it => ["impegnare","promettere",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_mpign",
-##  	boot => "_SQUOTE_mpìgn", ## "_SQUOTE_mpègn",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mprinari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mprinari"} } = (
-##      dieli => ["_SQUOTE_mprinari",],
-##      dieli_en => ["impregnate",],
-##      dieli_it => ["lasciare incinta",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_mprin",
-##  	boot => "_SQUOTE_mprìn", ## "_SQUOTE_mprèn",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mprintari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mprintari"} } = (
-##      dieli => ["_SQUOTE_mprintari",],
-##      dieli_en => ["lend",],
-##      dieli_it => ["prestare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_mprint",
-##  	boot => "_SQUOTE_mprìnt", ## "_SQUOTE_mprènt",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mprucchiari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mprucchiari"} } = (
-##      dieli => ["_SQUOTE_mprucchiari",],
-##      dieli_en => ["grow vigorously",],
-##      dieli_it => ["venir su rigoglioso",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xiari",
-##  	stem => "_SQUOTE_mprucchi",
-##  	boot => "_SQUOTE_mprucchì", ## "_SQUOTE_mprucchè",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ncagnarisi -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ncagnarisi"} } = (
-##      dieli => ["_SQUOTE_ncagnarisi"],
-##      dieli_en => ["sulk",],
-##      dieli_it => ["imbrunciare",],
-##      part_speech => "verb",
-##      reflex => "_SQUOTE_ncagnari",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ncarcari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ncarcari"} } = (
-##      dieli => ["_SQUOTE_ncarcari",],
-##      dieli_en => ["tread","press","aggravate",],
-##      dieli_it => ["calcare","premere","aggravare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xcari",
-##  	stem => "_SQUOTE_ncarc",
-##  	boot => "_SQUOTE_ncàrc",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ncimiddari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ncimiddari"} } = (
-##      dieli => ["_SQUOTE_ncimiddari",],
-##      dieli_en => ["tie near the top",],
-##      dieli_it => ["legare verso la cima",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ncimidd",
-##  	boot => "_SQUOTE_ncimìdd", ## "_SQUOTE_ncimèdd",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nfittari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nfittari"} } = (
-##      dieli => ["_SQUOTE_nfittari",],
-##      dieli_en => ["stink out","infect","poison",],
-##      dieli_it => ["ammorbare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_nfitt",
-##  	boot => "_SQUOTE_nfìtt", ## "_SQUOTE_nfètt",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ngagghiari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ngagghiari"} } = (
-##      dieli => ["_SQUOTE_ngagghiari",],
-##      dieli_en => ["gather","catch","run up against",],
-##      dieli_it => ["cogliere","acchiappare","incappare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xiari",
-##  	stem => "_SQUOTE_ngagghi",
-##  	boot => "_SQUOTE_ngagghì", ## "_SQUOTE_ngagghè",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nghilari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nghilari"} } = (
-##      dieli => ["_SQUOTE_nghilari",],
-##      dieli_en => ["freeze",],
-##      dieli_it => ["gelare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_nghil",
-##  	boot => "_SQUOTE_nghìl", ## "_SQUOTE_nghèl",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ngrizzari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ngrizzari"} } = (
-##      dieli => ["_SQUOTE_ngrizzari",],
-##      dieli_en => ["direct",],
-##      dieli_it => ["indirizzare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ngrizz",
-##  	boot => "_SQUOTE_ngrìzz", ## "_SQUOTE_ngrèzz",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ngrupparisi -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ngrupparisi"} } = (
-##      dieli => ["_SQUOTE_ngrupparisi"],
-##      dieli_en => ["kink","become knotted",],
-##      dieli_it => ["annodarsi",],
-##      part_speech => "verb",
-##      reflex => "_SQUOTE_ngruppari",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nguaggiarisi -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nguaggiarisi"} } = (
-##      dieli => ["_SQUOTE_nguaggiarisi"],
-##      dieli_en => ["marry",],
-##      dieli_it => ["sposarsi",],
-##      part_speech => "verb",
-##      reflex => "_SQUOTE_nguaggiari",
-##      );
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ngurfari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ngurfari"} } = (
-##      dieli => ["_SQUOTE_ngurfari",],
-##      dieli_en => ["engulf","apply oneself intensely",],
-##      dieli_it => ["ingolfare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ngurf",
-##  	boot => "_SQUOTE_ngùrf", ## "_SQUOTE_ngòrf",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nningari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nningari"} } = (
-##      dieli => ["_SQUOTE_nningari",],
-##      dieli_en => ["ask a favor","seek","try what others offer",],
-##      dieli_it => ["domandar per favore","ricercare","assagiare che altri offra",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xgari",
-##  	stem => "_SQUOTE_nning",
-##  	boot => "_SQUOTE_nnìng", ## "_SQUOTE_nnèng",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nnirizzari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnirizzari"} } = (
-##      dieli => ["_SQUOTE_nnirizzari",],
-##      dieli_en => ["direct","orient","address",],
-##      dieli_it => ["indirizzare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_nnirizz",
-##  	boot => "_SQUOTE_nnirìzz", ## "_SQUOTE_nnirèzz",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nsimmulari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nsimmulari"} } = (
-##      dieli => ["_SQUOTE_nsimmulari",],
-##      dieli_en => ["put together","gather",],
-##      dieli_it => ["mettere insieme","raccogliere",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_nsimmul",
-##  	boot => "_SQUOTE_nsimmùl", ## "_SQUOTE_nsimmòl",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntramojari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntramojari"} } = (
-##      dieli => ["_SQUOTE_ntramojari",],
-##      dieli_en => ["fill the grain hopper",],
-##      dieli_it => ["riempir la tramoggia di grano",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ntramoj",
-##  	boot => "_SQUOTE_ntramòj",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntramujari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntramujari"} } = (
-##      dieli => ["_SQUOTE_ntramujari",],
-##      dieli_en => ["fill the grain hopper","begin milling","begin speaking","chatter endlessly",],
-##      dieli_it => ["riempir la tramoggia di grano","cominciar a macinare","cominciare a parlare","chiacchierare lungamente",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ntramuj",
-##  	boot => "_SQUOTE_ntramùj", ## "_SQUOTE_ntramòj",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntuppari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntuppari"} } = (
-##      dieli => ["_SQUOTE_ntuppari",],
-##      dieli_en => ["happen",],
-##      dieli_it => ["capitare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_ntupp",
-##  	boot => "_SQUOTE_ntùpp", ## "_SQUOTE_ntòpp",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nvicchiri -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nvicchiri"} } = (
-##      dieli => ["_SQUOTE_nvicchiri",],
-##      dieli_en => ["become old",],
-##      dieli_it => ["invecchiare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxiri",
-##  	stem => "_SQUOTE_nvicch",
-##  	boot => "_SQUOTE_nvìcch", ## "_SQUOTE_nvècch",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nzirtari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nzirtari"} } = (
-##      dieli => ["_SQUOTE_nzirtari",],
-##      dieli_en => ["guess","graft (agr)",],
-##      dieli_it => ["indovinare","innestare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "_SQUOTE_nzirt",
-##  	boot => "_SQUOTE_nzìrt", ## "_SQUOTE_nzèrt",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_rrinèsciri -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_rrinèsciri"} } = (
-##      dieli => ["_SQUOTE_rrinèsciri",],
-##      dieli_en => ["be able","get ahead","manage","succeed",],
-##      dieli_it => ["riuscire",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxiri",
-##  	stem => "_SQUOTE_rrinesc", ## "_SQUOTE_rrinisc",
-##  	boot => "_SQUOTE_rrinèsc",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 ##  ##  abbacari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"abbacari"} } = (
 ##      dieli => ["abbacari",],
@@ -1749,8 +1003,8 @@
 ##  ##  abbèniri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"abbèniri"} } = (
 ##      dieli => ["abbèniri",],
-##      dieli_en => ["happen ","happen","occur","reach","achieve",],
-##      dieli_it => ["avvenire ","accadere","succedere","raggiungere",],
+##      dieli_en => ["happen","occur","reach","achieve",],
+##      dieli_it => ["avvenire","accadere","succedere","raggiungere",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -4996,7 +4250,7 @@
 ##  ##  allìnchiri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"allìnchiri"} } = (
 ##      dieli => ["allìnchiri",],
-##      dieli_en => ["fill",],
+##      dieli_en => ["fill","fill up",],
 ##      dieli_it => ["riempire",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -5531,7 +4785,7 @@
 ##  ##  ammuccarisi -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ammuccarisi"} } = (
 ##      dieli => ["ammuccarisi"],
-##      dieli_en => ["eat one's words","mumble",],
+##      dieli_en => ["eat one_SQUOTE_s words","mumble",],
 ##      dieli_it => ["mangiarsi",],
 ##      part_speech => "verb",
 ##      reflex => "ammuccari",
@@ -6050,7 +5304,7 @@
 ##  ##  annacari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"annacari"} } = (
 ##      dieli => ["annacari",],
-##      dieli_en => ["dangle","rock","rock ","shake","sway","swing",],
+##      dieli_en => ["dangle","rock","shake","sway","swing",],
 ##      dieli_it => ["dondolare","cullare","scuotere",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -7233,7 +6487,7 @@
 ##  ##  armari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"armari"} } = (
 ##      dieli => ["armari",],
-##      dieli_en => ["arm","furnish","set up ",],
+##      dieli_en => ["arm","furnish","set up",],
 ##      dieli_it => ["armare","fornire",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -9897,7 +9151,7 @@
 ##  ##  attènniri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"attènniri"} } = (
 ##      dieli => ["attènniri",],
-##      dieli_en => ["concentrate","focus on one's studies",],
+##      dieli_en => ["concentrate","focus on one_SQUOTE_s studies",],
 ##      dieli_it => ["dedicarsi allo studio",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -13560,7 +12814,7 @@
 ##  ##  condiri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"condiri"} } = (
 ##      dieli => ["condiri",],
-##      dieli_en => ["flavor ",],
+##      dieli_en => ["flavor",],
 ##      dieli_it => ["condire",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -15429,8 +14683,8 @@
 ##  ##  cundùciri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"cundùciri"} } = (
 ##      dieli => ["cundùciri",],
-##      dieli_en => ["drive ",],
-##      dieli_it => ["condurre ",],
+##      dieli_en => ["drive",],
+##      dieli_it => ["condurre",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -15721,8 +14975,8 @@
 ##  ##  cunnùciri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"cunnùciri"} } = (
 ##      dieli => ["cunnùciri",],
-##      dieli_en => ["carry","conduct","drive ","lead",],
-##      dieli_it => ["condurre","condurre ",],
+##      dieli_en => ["carry","conduct","drive","lead",],
+##      dieli_it => ["condurre",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -21717,7 +20971,7 @@
 ##  ##  festeggiari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"festeggiari"} } = (
 ##      dieli => ["festeggiari",],
-##      dieli_en => ["honor ",],
+##      dieli_en => ["honor",],
 ##      dieli_it => ["onorare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -21828,6 +21082,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  filiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"filiari"} } = (
+##      dieli => ["filiari",],
+##      dieli_en => ["make circles (as a hawk)","air",],
+##      dieli_it => ["far ruota","asolare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xiari",
+##  	stem => "fili",
+##  	boot => "filì", ## "filè",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  filmari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"filmari"} } = (
 ##      dieli => ["filmari",],
@@ -21866,33 +21147,6 @@
 ##  	conj => "xxari",
 ##  	stem => "filtr",
 ##  	boot => "fìltr", ## "fèltr",
-##  	irrg => {
-##  	    inf => "",
-##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    pai => { quad = ""},
-##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
-##  	    fti => { stem => ""},
-##  	    coi => { stem => ""},
-##  	    pap => "",
-##  	    adj => "",
-##  	},
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  filïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"filïari"} } = (
-##      dieli => ["filïari",],
-##      dieli_en => ["make circles (as a hawk)","air",],
-##      dieli_it => ["far ruota","asolare",],
-##      notex => ["","",],
-##      part_speech => "verb",
-##      verb => {
-##  	conj => "xxari",
-##  	stem => "filï",
-##  	boot => "fìlï", ## "fèlï",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -23232,17 +22486,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  gattïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"gattïari"} } = (
-##      dieli => ["gattïari",],
+##  ##  gattiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"gattiari"} } = (
+##      dieli => ["gattiari",],
 ##      dieli_en => ["cats in heat","men going to a cathouse",],
 ##      dieli_it => ["gatti in amore","uomini andare in gattesco",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xxari",
-##  	stem => "gattï",
-##  	boot => "gàttï",
+##  	conj => "xiari",
+##  	stem => "gatti",
+##  	boot => "gattì", ## "gattè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -26487,7 +25741,7 @@
 ##  ##  insapuriri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"insapuriri"} } = (
 ##      dieli => ["insapuriri",],
-##      dieli_en => ["flavor ",],
+##      dieli_en => ["flavor",],
 ##      dieli_it => [],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -29677,6 +28931,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mbiscari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mbiscari"} } = (
+##      dieli => ["mbiscari",],
+##      dieli_en => ["inveigle",],
+##      dieli_it => ["invischiare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xcari",
+##  	stem => "mbisc",
+##  	boot => "mbìsc", ## "mbèsc",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mbizzari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mbizzari"} } = (
 ##      dieli => ["mbizzari",],
@@ -30266,6 +29547,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mmiscari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmiscari"} } = (
+##      dieli => ["mmiscari",],
+##      dieli_en => ["mix","put together","confuse",],
+##      dieli_it => ["mescolare","mettere insieme","confondere",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xcari",
+##  	stem => "mmisc",
+##  	boot => "mmìsc", ## "mmèsc",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mmitari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mmitari"} } = (
 ##      dieli => ["mmitari",],
@@ -30323,8 +29631,8 @@
 ##  ##  mmurdiri -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mmurdiri"} } = (
 ##      dieli => ["mmurdiri",],
-##      dieli_en => ["harness","tie",],
-##      dieli_it => [],
+##      dieli_en => ["fasten securely","harness","tie",],
+##      dieli_it => ["legar fortemente",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -30344,6 +29652,17 @@
 ##  	    adj => "",
 ##  	},
 ##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mmuscarisi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmuscarisi"} } = (
+##      dieli => ["mmuscarisi"],
+##      dieli_en => ["dodge","skulk",],
+##      dieli_it => ["imboscarsi",],
+##      part_speech => "verb",
+##      reflex => "mmuscari",
+##      );
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -30509,6 +29828,60 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mpasturari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpasturari"} } = (
+##      dieli => ["mpasturari",],
+##      dieli_en => ["hobble","tie",],
+##      dieli_it => ["impastoiare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "mpastur",
+##  	boot => "mpastùr", ## "mpastòr",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mpicari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpicari"} } = (
+##      dieli => ["mpicari",],
+##      dieli_en => ["hang",],
+##      dieli_it => ["impiccare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xcari",
+##  	stem => "mpic",
+##  	boot => "mpìc", ## "mpèc",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mpiccicari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mpiccicari"} } = (
 ##      dieli => ["mpiccicari",],
@@ -30547,6 +29920,60 @@
 ##  	conj => "xxiri",
 ##  	stem => "mpid",
 ##  	boot => "mpìd", ## "mpèd",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mpidugghiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpidugghiari"} } = (
+##      dieli => ["mpidugghiari",],
+##      dieli_en => ["entangle","catch","snag",],
+##      dieli_it => ["impigliare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xiari",
+##  	stem => "mpidugghi",
+##  	boot => "mpidugghì", ## "mpidugghè",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mpignari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpignari"} } = (
+##      dieli => ["mpignari",],
+##      dieli_en => ["pawn","promise",],
+##      dieli_it => ["impegnare","promettere",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "mpign",
+##  	boot => "mpìgn", ## "mpègn",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -30617,6 +30044,60 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mprinari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mprinari"} } = (
+##      dieli => ["mprinari",],
+##      dieli_en => ["impregnate",],
+##      dieli_it => ["lasciare incinta",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "mprin",
+##  	boot => "mprìn", ## "mprèn",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mprintari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mprintari"} } = (
+##      dieli => ["mprintari",],
+##      dieli_en => ["lend",],
+##      dieli_it => ["prestare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "mprint",
+##  	boot => "mprìnt", ## "mprènt",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mpristari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mpristari"} } = (
 ##      dieli => ["mpristari",],
@@ -30628,6 +30109,33 @@
 ##  	conj => "xxari",
 ##  	stem => "mprist",
 ##  	boot => "mprìst", ## "mprèst",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mprucchiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mprucchiari"} } = (
+##      dieli => ["mprucchiari",],
+##      dieli_en => ["grow vigorously",],
+##      dieli_it => ["venir su rigoglioso",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xiari",
+##  	stem => "mprucchi",
+##  	boot => "mprucchì", ## "mprucchè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -31303,6 +30811,44 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  ncagnarisi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ncagnarisi"} } = (
+##      dieli => ["ncagnarisi"],
+##      dieli_en => ["sulk",],
+##      dieli_it => ["imbrunciare",],
+##      part_speech => "verb",
+##      reflex => "ncagnari",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ncarcari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ncarcari"} } = (
+##      dieli => ["ncarcari",],
+##      dieli_en => ["tread","press","aggravate",],
+##      dieli_it => ["calcare","premere","aggravare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xcari",
+##  	stem => "ncarc",
+##  	boot => "ncàrc",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  ncassari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ncassari"} } = (
 ##      dieli => ["ncassari",],
@@ -31379,6 +30925,33 @@
 ##  	conj => "xxiri",
 ##  	stem => "nchiud",
 ##  	boot => "nchiùd", ## "nchiòd",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ncimiddari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ncimiddari"} } = (
+##      dieli => ["ncimiddari",],
+##      dieli_en => ["tie near the top",],
+##      dieli_it => ["legare verso la cima",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ncimidd",
+##  	boot => "ncimìdd", ## "ncimèdd",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -31773,6 +31346,60 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nfittari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nfittari"} } = (
+##      dieli => ["nfittari",],
+##      dieli_en => ["stink out","infect","poison",],
+##      dieli_it => ["ammorbare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "nfitt",
+##  	boot => "nfìtt", ## "nfètt",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ngagghiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ngagghiari"} } = (
+##      dieli => ["ngagghiari",],
+##      dieli_en => ["gather","catch","run up against",],
+##      dieli_it => ["cogliere","acchiappare","incappare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xiari",
+##  	stem => "ngagghi",
+##  	boot => "ngagghì", ## "ngagghè",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  ngarzari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ngarzari"} } = (
 ##      dieli => ["ngarzari",],
@@ -31784,6 +31411,33 @@
 ##  	conj => "xxari",
 ##  	stem => "ngarz",
 ##  	boot => "ngàrz",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nghilari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nghilari"} } = (
+##      dieli => ["nghilari",],
+##      dieli_en => ["freeze",],
+##      dieli_it => ["gelare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "nghil",
+##  	boot => "nghìl", ## "nghèl",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -31865,6 +31519,44 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  ngrizzari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ngrizzari"} } = (
+##      dieli => ["ngrizzari",],
+##      dieli_en => ["direct",],
+##      dieli_it => ["indirizzare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ngrizz",
+##  	boot => "ngrìzz", ## "ngrèzz",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ngrupparisi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ngrupparisi"} } = (
+##      dieli => ["ngrupparisi"],
+##      dieli_en => ["kink","become knotted",],
+##      dieli_it => ["annodarsi",],
+##      part_speech => "verb",
+##      reflex => "ngruppari",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nguaggiari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nguaggiari"} } = (
 ##      dieli => ["nguaggiari",],
@@ -31876,6 +31568,44 @@
 ##  	conj => "giari",
 ##  	stem => "nguaggi",
 ##  	boot => "nguaggì", ## "nguaggè",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nguaggiarisi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nguaggiarisi"} } = (
+##      dieli => ["nguaggiarisi"],
+##      dieli_en => ["marry",],
+##      dieli_it => ["sposarsi",],
+##      part_speech => "verb",
+##      reflex => "nguaggiari",
+##      );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ngurfari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ngurfari"} } = (
+##      dieli => ["ngurfari",],
+##      dieli_en => ["engulf","apply oneself intensely",],
+##      dieli_it => ["ingolfare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ngurf",
+##  	boot => "ngùrf", ## "ngòrf",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -32000,6 +31730,60 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nningari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nningari"} } = (
+##      dieli => ["nningari",],
+##      dieli_en => ["ask a favor","seek","try what others offer",],
+##      dieli_it => ["domandar per favore","ricercare","assagiare che altri offra",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xgari",
+##  	stem => "nning",
+##  	boot => "nnìng", ## "nnèng",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nnirizzari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnirizzari"} } = (
+##      dieli => ["nnirizzari",],
+##      dieli_en => ["direct","orient","address",],
+##      dieli_it => ["indirizzare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "nnirizz",
+##  	boot => "nnirìzz", ## "nnirèzz",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nnustriari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nnustriari"} } = (
 ##      dieli => ["nnustriari",],
@@ -32092,6 +31876,33 @@
 ##  	conj => "xxiri",
 ##  	stem => "nsicch",
 ##  	boot => "nsìcch", ## "nsècch",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nsimmulari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nsimmulari"} } = (
+##      dieli => ["nsimmulari",],
+##      dieli_en => ["put together","gather",],
+##      dieli_it => ["mettere insieme","raccogliere",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "nsimmul",
+##  	boot => "nsimmùl", ## "nsimmòl",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -32216,6 +32027,60 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  ntramojari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntramojari"} } = (
+##      dieli => ["ntramojari",],
+##      dieli_en => ["fill the grain hopper",],
+##      dieli_it => ["riempir la tramoggia di grano",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ntramoj",
+##  	boot => "ntramòj",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ntramujari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntramujari"} } = (
+##      dieli => ["ntramujari",],
+##      dieli_en => ["fill the grain hopper","begin milling","begin speaking","chatter endlessly",],
+##      dieli_it => ["riempir la tramoggia di grano","cominciar a macinare","cominciare a parlare","chiacchierare lungamente",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ntramuj",
+##  	boot => "ntramùj", ## "ntramòj",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  ntrippitari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ntrippitari"} } = (
 ##      dieli => ["ntrippitari",],
@@ -32254,6 +32119,33 @@
 ##  	conj => "xxari",
 ##  	stem => "ntrubbul",
 ##  	boot => "ntrubbùl", ## "ntrubbòl",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ntuppari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntuppari"} } = (
+##      dieli => ["ntuppari",],
+##      dieli_en => ["happen",],
+##      dieli_it => ["capitare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxari",
+##  	stem => "ntupp",
+##  	boot => "ntùpp", ## "ntòpp",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -32378,6 +32270,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nvicchiri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nvicchiri"} } = (
+##      dieli => ["nvicchiri",],
+##      dieli_en => ["become old",],
+##      dieli_it => ["invecchiare",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxiri",
+##  	stem => "nvicch",
+##  	boot => "nvìcch", ## "nvècch",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nviitari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nviitari"} } = (
 ##      dieli => ["nviitari",],
@@ -32462,8 +32381,8 @@
 ##  ##  nzirtari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nzirtari"} } = (
 ##      dieli => ["nzirtari",],
-##      dieli_en => ["find the answer","succeed",],
-##      dieli_it => ["trovare la soluzione","imbroccare",],
+##      dieli_en => ["find the answer","succeed","guess","graft (agr)",],
+##      dieli_it => ["trovare la soluzione","imbroccare","indovinare","innestare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -41578,6 +41497,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  rrinèsciri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"rrinèsciri"} } = (
+##      dieli => ["rrinèsciri",],
+##      dieli_en => ["be able","get ahead","manage","succeed",],
+##      dieli_it => ["riuscire",],
+##      notex => ["","",],
+##      part_speech => "verb",
+##      verb => {
+##  	conj => "xxiri",
+##  	stem => "rrinesc", ## "rrinisc",
+##  	boot => "rrinèsc",
+##  	irrg => {
+##  	    inf => "",
+##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pim => { ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    pai => { quad = ""},
+##  	    imi => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    ims => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
+##  	    fti => { stem => ""},
+##  	    coi => { stem => ""},
+##  	    pap => "",
+##  	    adj => "",
+##  	},
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  rubbari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"rubbari"} } = (
 ##      dieli => ["rubbari",],
@@ -41662,7 +41608,7 @@
 ##  ##  ruinari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ruinari"} } = (
 ##      dieli => ["ruinari",],
-##      dieli_en => ["ruin","spoil",],
+##      dieli_en => ["ruin","spoil","destroy","plunder","raid","sack",],
 ##      dieli_it => ["rovinare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -42037,17 +41983,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  santificari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"santificari"} } = (
-##      dieli => ["santificari",],
-##      dieli_en => ["hallow","sanctify",],
-##      dieli_it => [],
+##  ##  santiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"santiari"} } = (
+##      dieli => ["santiari",],
+##      dieli_en => ["blaspheme","swear",],
+##      dieli_it => ["bestemmiare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xcari",
-##  	stem => "santific",
-##  	boot => "santifìc", ## "santifèc",
+##  	conj => "xiari",
+##  	stem => "santi",
+##  	boot => "santì", ## "santè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -42064,17 +42010,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  santïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"santïari"} } = (
-##      dieli => ["santïari",],
-##      dieli_en => ["blaspheme","swear",],
-##      dieli_it => ["bestemmiare",],
+##  ##  santificari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"santificari"} } = (
+##      dieli => ["santificari",],
+##      dieli_en => ["hallow","sanctify",],
+##      dieli_it => [],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xxari",
-##  	stem => "santï",
-##  	boot => "sàntï",
+##  	conj => "xcari",
+##  	stem => "santific",
+##  	boot => "santifìc", ## "santifèc",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -42521,7 +42467,7 @@
 ##  ##  sbrazzari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"sbrazzari"} } = (
 ##      dieli => ["sbrazzari",],
-##      dieli_en => ["bare one's arms","roll up one's sleeve",],
+##      dieli_en => ["bare one_SQUOTE_s arms","roll up one_SQUOTE_s sleeve",],
 ##      dieli_it => [],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -42826,17 +42772,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  scalïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"scalïari"} } = (
-##      dieli => ["scalïari",],
+##  ##  scaliari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"scaliari"} } = (
+##      dieli => ["scaliari",],
 ##      dieli_en => ["hen scratching",],
 ##      dieli_it => ["razzolare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xxari",
-##  	stem => "scalï",
-##  	boot => "scàlï",
+##  	conj => "xiari",
+##  	stem => "scali",
+##  	boot => "scalì", ## "scalè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -43640,7 +43586,7 @@
 ##  %{ $vnotes{"sciamprari"} } = (
 ##      dieli => ["sciamprari",],
 ##      dieli_en => ["slip (said of horses, mules)",],
-##      dieli_it => ["scivolare ",],
+##      dieli_it => ["scivolare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -45303,7 +45249,7 @@
 ##  ##  sdivacari -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"sdivacari"} } = (
 ##      dieli => ["sdivacari",],
-##      dieli_en => ["capsize","tip over","empty","empty ","pour out","turn upside down",],
+##      dieli_en => ["capsize","tip over","empty","pour out","turn upside down",],
 ##      dieli_it => ["ribaltare","versare","vuotare","svuotare","rovesciare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
@@ -48075,7 +48021,7 @@
 ##  ##  spinniciarisi -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"spinniciarisi"} } = (
 ##      dieli => ["spinniciarisi"],
-##      dieli_en => ["rack one's brain",],
+##      dieli_en => ["rack one_SQUOTE_s brain",],
 ##      dieli_it => ["scervellarsi",],
 ##      part_speech => "verb",
 ##      reflex => "spinniciari",
@@ -48245,17 +48191,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  spirunïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"spirunïari"} } = (
-##      dieli => ["spirunïari",],
+##  ##  spiruniari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"spiruniari"} } = (
+##      dieli => ["spiruniari",],
 ##      dieli_en => ["spur","spur on","goad","resistance","be arrogant","choose not to work",],
 ##      dieli_it => ["dar di sproni","spronare","resistenza","essere arrogante","non lavorare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xxari",
-##  	stem => "spirunï",
-##  	boot => "spirùnï", ## "spirònï",
+##  	conj => "xiari",
+##  	stem => "spiruni",
+##  	boot => "spirunì", ## "spirunè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -49535,7 +49481,7 @@
 ##  %{ $vnotes{"stricari"} } = (
 ##      dieli => ["stricari",],
 ##      dieli_en => ["rub","scrub","crumple","scuff","rolling around in the dirt",],
-##      dieli_it => ["sfregare","stropicciare","voltolarsi nella polvere ",],
+##      dieli_it => ["sfregare","stropicciare","voltolarsi nella polvere",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
@@ -51805,17 +51751,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  t'aut'a mangiari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"t'aut'a mangiari"} } = (
-##      dieli => ["t'aut'a mangiari",],
+##  ##  t_SQUOTE_aut_SQUOTE_a mangiari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"t_SQUOTE_aut_SQUOTE_a mangiari"} } = (
+##      dieli => ["t_SQUOTE_aut_SQUOTE_a mangiari",],
 ##      dieli_en => ["you need to eat",],
 ##      dieli_it => ["ti dovevi mangiare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
 ##  	conj => "giari",
-##  	stem => "t'aut'a mangi",
-##  	boot => "t'aut'a mangì", ## "t'aut'a mangè",
+##  	stem => "t_SQUOTE_aut_SQUOTE_a mangi",
+##  	boot => "t_SQUOTE_aut_SQUOTE_a mangì", ## "t_SQUOTE_aut_SQUOTE_a mangè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},
@@ -55823,17 +55769,17 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  zappulïari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"zappulïari"} } = (
-##      dieli => ["zappulïari",],
+##  ##  zappuliari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"zappuliari"} } = (
+##      dieli => ["zappuliari",],
 ##      dieli_en => ["hoe",],
 ##      dieli_it => ["zappare",],
 ##      notex => ["","",],
 ##      part_speech => "verb",
 ##      verb => {
-##  	conj => "xxari",
-##  	stem => "zappulï",
-##  	boot => "zappùlï", ## "zappòlï",
+##  	conj => "xiari",
+##  	stem => "zappuli",
+##  	boot => "zappulì", ## "zappulè",
 ##  	irrg => {
 ##  	    inf => "",
 ##  	    pri => { us => "", ds => "", ts => "", up => "", dp => "", tp => ""},

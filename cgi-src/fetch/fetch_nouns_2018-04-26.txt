@@ -795,7 +795,7 @@
 ##      display_as => "Italia",
 ##      dieli => ["Italia",],
 ##      dieli_en => ["Italy",],
-##      dieli_it => ["italia    ",],
+##      dieli_it => ["italia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -838,10 +838,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  Marocco  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"Marocco _noun"} } = (
-##      display_as => "Marocco ",
-##      dieli => ["Marocco ",],
+##  ##  Marocco -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"Marocco_noun"} } = (
+##      display_as => "Marocco",
+##      dieli => ["Marocco",],
 ##      dieli_en => ["Morocco",],
 ##      dieli_it => ["marocco",],
 ##      ## notex => ["","",],
@@ -1590,214 +1590,6 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  _SQUOTE_llammicu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_llammicu_noun"} } = (
-##      display_as => "_SQUOTE_llammicu",
-##      dieli => ["_SQUOTE_llammicu",],
-##      dieli_en => ["slow poke",],
-##      dieli_it => ["languorino",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mbrugghiuni -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mbrugghiuni_noun"} } = (
-##      display_as => "_SQUOTE_mbrugghiuni",
-##      dieli => ["_SQUOTE_mbrugghiuni",],
-##      dieli_en => ["cheat","swindler",],
-##      dieli_it => ["imbroglione",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "uni",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmarra-vadduni -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmarra-vadduni_noun"} } = (
-##      display_as => "_SQUOTE_mmarra-vadduni",
-##      dieli => ["_SQUOTE_mmarra-vadduni",],
-##      dieli_en => ["good for nothing man",],
-##      dieli_it => ["uomo da nulla",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "uni",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mmucca -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mmucca_noun"} } = (
-##      display_as => "_SQUOTE_mmucca",
-##      dieli => ["_SQUOTE_mmucca",],
-##      dieli_en => ["tasting","mouth",],
-##      dieli_it => ["in bocca","bocca",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_mpastata -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_mpastata_noun"} } = (
-##      display_as => "_SQUOTE_mpastata",
-##      dieli => ["_SQUOTE_mpastata",],
-##      dieli_en => ["soaked bran feed",],
-##      dieli_it => ["intrisa",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ncegnu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ncegnu_noun"} } = (
-##      display_as => "_SQUOTE_ncegnu",
-##      dieli => ["_SQUOTE_ncegnu",],
-##      dieli_en => ["intelligence",],
-##      dieli_it => ["ingegno",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nciacatu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nciacatu_noun"} } = (
-##      display_as => "_SQUOTE_nciacatu",
-##      dieli => ["_SQUOTE_nciacatu",],
-##      dieli_en => ["pavement","paved",],
-##      dieli_it => ["selciato",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nnuliggenzia -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nnuliggenzia_noun"} } = (
-##      display_as => "_SQUOTE_nnuliggenzia",
-##      dieli => ["_SQUOTE_nnuliggenzia",],
-##      dieli_en => ["forgiveness","indulgence",],
-##      dieli_it => ["indulgenza",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntentu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntentu_noun"} } = (
-##      display_as => "_SQUOTE_ntentu",
-##      dieli => ["_SQUOTE_ntentu",],
-##      dieli_en => ["goal","by the end",],
-##      dieli_it => ["intento","secondo fine",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_ntinnituri -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_ntinnituri_noun"} } = (
-##      display_as => "_SQUOTE_ntinnituri",
-##      dieli => ["_SQUOTE_ntinnituri",],
-##      dieli_en => ["connoisseur","expert",],
-##      dieli_it => ["intenditore","esperto",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "uri",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nzalataru -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nzalataru_noun"} } = (
-##      display_as => "_SQUOTE_nzalataru",
-##      dieli => ["_SQUOTE_nzalataru",],
-##      dieli_en => ["salad maker",],
-##      dieli_it => ["insalataio",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "aru",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_nzunza -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_nzunza_noun"} } = (
-##      display_as => "_SQUOTE_nzunza",
-##      dieli => ["_SQUOTE_nzunza",],
-##      dieli_en => ["pork fat",],
-##      dieli_it => ["grasso del porco","sugna",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  _SQUOTE_sterna -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"_SQUOTE_sterna_noun"} } = (
-##      display_as => "_SQUOTE_sterna",
-##      dieli => ["_SQUOTE_sterna",],
-##      dieli_en => ["cistern",],
-##      dieli_it => ["cisterna",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 ##  ##  a cucchietta -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"a cucchietta_noun"} } = (
 ##      display_as => "a cucchietta",
@@ -2250,8 +2042,8 @@
 ##  %{ $vnotes{"abbunnanza_noun"} } = (
 ##      display_as => "abbunnanza",
 ##      dieli => ["abbunnanza",],
-##      dieli_en => ["abundance ","plenty",],
-##      dieli_it => ["abbondanza ","abbondanza",],
+##      dieli_en => ["abundance","plenty",],
+##      dieli_it => ["abbondanza",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -2715,7 +2507,7 @@
 ##      display_as => "acqua navigabbili",
 ##      dieli => ["acqua navigabbili",],
 ##      dieli_en => ["waterway",],
-##      dieli_it => ["via d'acqua",],
+##      dieli_it => ["via d_SQUOTE_acqua",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -2954,8 +2746,8 @@
 ##  %{ $vnotes{"adriàticu_noun"} } = (
 ##      display_as => "adriàticu",
 ##      dieli => ["adriàticu",],
-##      dieli_en => ["Adriatic ",],
-##      dieli_it => ["adriatico ",],
+##      dieli_en => ["Adriatic",],
+##      dieli_it => ["adriatico",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -2986,7 +2778,7 @@
 ##  %{ $vnotes{"aduri_noun"} } = (
 ##      display_as => "aduri",
 ##      dieli => ["aduri",],
-##      dieli_en => ["odor ","smell",],
+##      dieli_en => ["odor","smell",],
 ##      dieli_it => ["odore",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -4138,8 +3930,8 @@
 ##  %{ $vnotes{"amuri_noun"} } = (
 ##      display_as => "amuri",
 ##      dieli => ["amuri",],
-##      dieli_en => ["blackberry","love ",],
-##      dieli_it => ["mora","amore ",],
+##      dieli_en => ["blackberry","love",],
+##      dieli_it => ["mora","amore",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -4362,7 +4154,7 @@
 ##  %{ $vnotes{"angalarruni_noun"} } = (
 ##      display_as => "angalarruni",
 ##      dieli => ["angalarruni",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -4474,8 +4266,8 @@
 ##  %{ $vnotes{"annessu_noun"} } = (
 ##      display_as => "annessu",
 ##      dieli => ["annessu",],
-##      dieli_en => ["annex ",],
-##      dieli_it => ["annesso ",],
+##      dieli_en => ["annex",],
+##      dieli_it => ["annesso",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -4618,7 +4410,7 @@
 ##  %{ $vnotes{"antipastu_noun"} } = (
 ##      display_as => "antipastu",
 ##      dieli => ["antipastu",],
-##      dieli_en => ["hors-d'oeuvre",],
+##      dieli_en => ["hors-d_SQUOTE_oeuvre",],
 ##      dieli_it => ["antipasto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -5702,10 +5494,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  arrizzacapiddi  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"arrizzacapiddi _noun"} } = (
-##      display_as => "arrizzacapiddi ",
-##      dieli => ["arrizzacapiddi ",],
+##  ##  arrizzacapiddi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"arrizzacapiddi_noun"} } = (
+##      display_as => "arrizzacapiddi",
+##      dieli => ["arrizzacapiddi",],
 ##      dieli_en => ["curling iron",],
 ##      dieli_it => ["arricciacapelli",],
 ##      ## notex => ["","",],
@@ -6346,7 +6138,7 @@
 ##  %{ $vnotes{"assenza_noun"} } = (
 ##      display_as => "assenza",
 ##      dieli => ["assenza",],
-##      dieli_en => ["absence ",],
+##      dieli_en => ["absence",],
 ##      dieli_it => ["assenza",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -7382,10 +7174,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  autosirvizziu  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"autosirvizziu _noun"} } = (
-##      display_as => "autosirvizziu ",
-##      dieli => ["autosirvizziu ",],
+##  ##  autosirvizziu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"autosirvizziu_noun"} } = (
+##      display_as => "autosirvizziu",
+##      dieli => ["autosirvizziu",],
 ##      dieli_en => ["self-service",],
 ##      dieli_it => ["self-service",],
 ##      ## notex => ["","",],
@@ -9194,7 +8986,7 @@
 ##  %{ $vnotes{"bestia_noun"} } = (
 ##      display_as => "bestia",
 ##      dieli => ["bestia",],
-##      dieli_en => ["animal ","beast","beasts",],
+##      dieli_en => ["animal","beast","beasts",],
 ##      dieli_it => ["bestia","bestie",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -9531,7 +9323,7 @@
 ##      display_as => "bighiettu d_SQUOTE_ingressu",
 ##      dieli => ["bighiettu d_SQUOTE_ingressu",],
 ##      dieli_en => ["platform ticket",],
-##      dieli_it => ["biglietto d'ingresso",],
+##      dieli_it => ["biglietto d_SQUOTE_ingresso",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -10022,12 +9814,12 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  bobina d'accensioni -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"bobina d'accensioni_noun"} } = (
-##      display_as => "bobina d'accensioni",
-##      dieli => ["bobina d'accensioni",],
+##  ##  bobina d_SQUOTE_accensioni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"bobina d_SQUOTE_accensioni_noun"} } = (
+##      display_as => "bobina d_SQUOTE_accensioni",
+##      dieli => ["bobina d_SQUOTE_accensioni",],
 ##      dieli_en => ["ignition coil",],
-##      dieli_it => ["bobina d'accensione",],
+##      dieli_it => ["bobina d_SQUOTE_accensione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -11834,7 +11626,7 @@
 ##  %{ $vnotes{"calarruni_noun"} } = (
 ##      display_as => "calarruni",
 ##      dieli => ["calarruni",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -12219,7 +12011,7 @@
 ##      display_as => "cammara d_SQUOTE_aria",
 ##      dieli => ["cammara d_SQUOTE_aria",],
 ##      dieli_en => ["inner tube",],
-##      dieli_it => ["camera d'aria",],
+##      dieli_it => ["camera d_SQUOTE_aria",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -12458,7 +12250,7 @@
 ##  %{ $vnotes{"campagnola_noun"} } = (
 ##      display_as => "campagnola",
 ##      dieli => ["campagnola",],
-##      dieli_en => ["farmer's wife",],
+##      dieli_en => ["farmer_SQUOTE_s wife",],
 ##      dieli_it => ["contadina",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -12939,7 +12731,7 @@
 ##      display_as => "canna d_SQUOTE_Innia",
 ##      dieli => ["canna d_SQUOTE_Innia",],
 ##      dieli_en => ["rattan",],
-##      dieli_it => ["canna d'india",],
+##      dieli_it => ["canna d_SQUOTE_india",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -13067,7 +12859,7 @@
 ##      display_as => "cannila d_SQUOTE_accensioni",
 ##      dieli => ["cannila d_SQUOTE_accensioni",],
 ##      dieli_en => ["spark plug",],
-##      dieli_it => ["candela d'accensione",],
+##      dieli_it => ["candela d_SQUOTE_accensione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -13883,7 +13675,7 @@
 ##      display_as => "capu",
 ##      dieli => ["capu",],
 ##      dieli_en => ["boss","cape (geog)","chief","chieftain","head",],
-##      dieli_it => ["capo ","capo",],
+##      dieli_it => ["capo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -15078,12 +14870,12 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  carta d'identità -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"carta d'identità_noun"} } = (
-##      display_as => "carta d'identità",
-##      dieli => ["carta d'identità",],
+##  ##  carta d_SQUOTE_identità -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"carta d_SQUOTE_identità_noun"} } = (
+##      display_as => "carta d_SQUOTE_identità",
+##      dieli => ["carta d_SQUOTE_identità",],
 ##      dieli_en => ["identity card",],
-##      dieli_it => ["carta d'identitÃ ",],
+##      dieli_it => ["carta d_SQUOTE_identitÃ ",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -15163,7 +14955,7 @@
 ##      display_as => "carta di mmarcata",
 ##      dieli => ["carta di mmarcata",],
 ##      dieli_en => ["boarding card",],
-##      dieli_it => ["carta d'imbarco",],
+##      dieli_it => ["carta d_SQUOTE_imbarco",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -15402,7 +15194,7 @@
 ##  %{ $vnotes{"cartularu_noun"} } = (
 ##      display_as => "cartularu",
 ##      dieli => ["cartularu",],
-##      dieli_en => ["stationer's",],
+##      dieli_en => ["stationer_SQUOTE_s",],
 ##      dieli_it => ["cartoleria",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -15738,7 +15530,7 @@
 ##  %{ $vnotes{"cascavaddu_noun"} } = (
 ##      display_as => "cascavaddu",
 ##      dieli => ["cascavaddu",],
-##      dieli_en => ["pear ",],
+##      dieli_en => ["pear",],
 ##      dieli_it => ["caciocavallo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -15866,7 +15658,7 @@
 ##  %{ $vnotes{"casedda_noun"} } = (
 ##      display_as => "casedda",
 ##      dieli => ["casedda",],
-##      dieli_en => ["box","garden plot ",],
+##      dieli_en => ["box","garden plot",],
 ##      dieli_it => ["casella",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -16683,7 +16475,7 @@
 ##      display_as => "cavia",
 ##      dieli => ["cavia",],
 ##      dieli_en => ["guinea pig",],
-##      dieli_it => ["porcellino d'india",],
+##      dieli_it => ["porcellino d_SQUOTE_india",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -18902,10 +18694,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  cinquant'anni -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"cinquant'anni_noun"} } = (
-##      display_as => "cinquant'anni",
-##      dieli => ["cinquant'anni",],
+##  ##  cinquant_SQUOTE_anni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"cinquant_SQUOTE_anni_noun"} } = (
+##      display_as => "cinquant_SQUOTE_anni",
+##      dieli => ["cinquant_SQUOTE_anni",],
 ##      dieli_en => ["fifty years",],
 ##      dieli_it => ["cinquanta anni",],
 ##      ## notex => ["","",],
@@ -20379,7 +20171,7 @@
 ##      display_as => "collezioni d_SQUOTE_arti",
 ##      dieli => ["collezioni d_SQUOTE_arti",],
 ##      dieli_en => ["art collection",],
-##      dieli_it => ["collezione d'arte",],
+##      dieli_it => ["collezione d_SQUOTE_arte",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -21466,7 +21258,7 @@
 ##  %{ $vnotes{"contrulluri_noun"} } = (
 ##      display_as => "contrulluri",
 ##      dieli => ["contrulluri",],
-##      dieli_en => ["inspirator ",],
+##      dieli_en => ["inspirator",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -22586,7 +22378,7 @@
 ##  %{ $vnotes{"cricchia_noun"} } = (
 ##      display_as => "cricchia",
 ##      dieli => ["cricchia",],
-##      dieli_en => ["cleric","priest","crest ",],
+##      dieli_en => ["cleric","priest","crest",],
 ##      dieli_it => ["chierica","sacerdote","cresta",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -24650,8 +24442,8 @@
 ##  %{ $vnotes{"cumprimentu_noun"} } = (
 ##      display_as => "cumprimentu",
 ##      dieli => ["cumprimentu",],
-##      dieli_en => ["compliment ",],
-##      dieli_it => ["complimento ",],
+##      dieli_en => ["compliment",],
+##      dieli_it => ["complimento",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -24938,8 +24730,8 @@
 ##  %{ $vnotes{"cuncurrenza_noun"} } = (
 ##      display_as => "cuncurrenza",
 ##      dieli => ["cuncurrenza",],
-##      dieli_en => ["concurrence","concurrence ","rivalry",],
-##      dieli_it => ["coincidenza","concorrenza ","concorrenza",],
+##      dieli_en => ["concurrence","rivalry",],
+##      dieli_it => ["coincidenza","concorrenza",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -26171,7 +25963,7 @@
 ##      display_as => "currenti d_SQUOTE_aria",
 ##      dieli => ["currenti d_SQUOTE_aria",],
 ##      dieli_en => ["draft",],
-##      dieli_it => ["corrente d'aria",],
+##      dieli_it => ["corrente d_SQUOTE_aria",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -27290,23 +27082,7 @@
 ##  %{ $vnotes{"dannu_noun"} } = (
 ##      display_as => "dannu",
 ##      dieli => ["dannu",],
-##      dieli_en => ["damage","harm","injury","mischief",],
-##      dieli_it => ["danno",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  dannu  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"dannu _noun"} } = (
-##      display_as => "dannu ",
-##      dieli => ["dannu ",],
-##      dieli_en => ["wrong",],
+##      dieli_en => ["damage","harm","injury","mischief","wrong",],
 ##      dieli_it => ["danno",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -28987,7 +28763,7 @@
 ##      display_as => "diretturi d_SQUOTE_orchestra",
 ##      dieli => ["diretturi d_SQUOTE_orchestra",],
 ##      dieli_en => ["conductor",],
-##      dieli_it => ["direttore d'orchestra",],
+##      dieli_it => ["direttore d_SQUOTE_orchestra",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -29130,8 +28906,8 @@
 ##  %{ $vnotes{"dirittùri_noun"} } = (
 ##      display_as => "dirittùri",
 ##      dieli => ["dirittùri",],
-##      dieli_en => ["director ",],
-##      dieli_it => ["direttore ",],
+##      dieli_en => ["director",],
+##      dieli_it => ["direttore",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -30635,7 +30411,7 @@
 ##      display_as => "duluri d_SQUOTE_oricchia",
 ##      dieli => ["duluri d_SQUOTE_oricchia",],
 ##      dieli_en => ["earache",],
-##      dieli_it => ["mal d'orecchi",],
+##      dieli_it => ["mal d_SQUOTE_orecchi",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -30683,7 +30459,7 @@
 ##      display_as => "dumanna d_SQUOTE_impiegu",
 ##      dieli => ["dumanna d_SQUOTE_impiegu",],
 ##      dieli_en => ["application",],
-##      dieli_it => ["domanda d'impiego",],
+##      dieli_it => ["domanda d_SQUOTE_impiego",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -32491,7 +32267,7 @@
 ##      display_as => "esibbizioni d_SQUOTE_arti",
 ##      dieli => ["esibbizioni d_SQUOTE_arti",],
 ##      dieli_en => ["art exhibition",],
-##      dieli_it => ["mostra d'arte",],
+##      dieli_it => ["mostra d_SQUOTE_arte",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -33195,7 +32971,7 @@
 ##      display_as => "facchinu",
 ##      dieli => ["facchinu",],
 ##      dieli_en => ["bellboy","porter",],
-##      dieli_it => ["fattorino d'albergo","facchino",],
+##      dieli_it => ["fattorino d_SQUOTE_albergo","facchino",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -33210,28 +32986,12 @@
 ##  %{ $vnotes{"facci_noun"} } = (
 ##      display_as => "facci",
 ##      dieli => ["facci",],
-##      dieli_en => ["images","do",],
-##      dieli_it => ["immagine","fagli",],
+##      dieli_en => ["images","face","do",],
+##      dieli_it => ["immagine","faccia","fagli",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  facci  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"facci _noun"} } = (
-##      display_as => "facci ",
-##      dieli => ["facci ",],
-##      dieli_en => ["face",],
-##      dieli_it => ["faccia",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
 ##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
@@ -33706,7 +33466,7 @@
 ##  %{ $vnotes{"fannali antinegghia_noun"} } = (
 ##      display_as => "fannali antinegghia",
 ##      dieli => ["fannali antinegghia",],
-##      dieli_en => ["fog light ",],
+##      dieli_en => ["fog light",],
 ##      dieli_it => ["faro antinebbia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -34571,7 +34331,7 @@
 ##      display_as => "fermata d_SQUOTE_autobus",
 ##      dieli => ["fermata d_SQUOTE_autobus",],
 ##      dieli_en => ["bus stop",],
-##      dieli_it => ["fermata dell'autobus",],
+##      dieli_it => ["fermata dell_SQUOTE_autobus",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -35275,7 +35035,7 @@
 ##      display_as => "filtru d_SQUOTE_ogghiu",
 ##      dieli => ["filtru d_SQUOTE_ogghiu",],
 ##      dieli_en => ["oil filter",],
-##      dieli_it => ["filtro dell'olio",],
+##      dieli_it => ["filtro dell_SQUOTE_olio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -36251,7 +36011,7 @@
 ##      display_as => "fogghiu d_SQUOTE_iscrizioni",
 ##      dieli => ["fogghiu d_SQUOTE_iscrizioni",],
 ##      dieli_en => ["registration form",],
-##      dieli_it => ["foglio d'iscrizione",],
+##      dieli_it => ["foglio d_SQUOTE_iscrizione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -36731,7 +36491,7 @@
 ##      display_as => "fotu d_SQUOTE_identità",
 ##      dieli => ["fotu d_SQUOTE_identità",],
 ##      dieli_en => ["passport photo",],
-##      dieli_it => ["fotografia d'identitÃ ",],
+##      dieli_it => ["fotografia d_SQUOTE_identitÃ ",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -38298,8 +38058,8 @@
 ##  %{ $vnotes{"furnaru_noun"} } = (
 ##      display_as => "furnaru",
 ##      dieli => ["furnaru",],
-##      dieli_en => ["baker","baker ",],
-##      dieli_it => ["panettiere","fornaio ",],
+##      dieli_en => ["baker",],
+##      dieli_it => ["panettiere","fornaio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -38970,7 +38730,7 @@
 ##  %{ $vnotes{"gangalarruni_noun"} } = (
 ##      display_as => "gangalarruni",
 ##      dieli => ["gangalarruni",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -39002,7 +38762,7 @@
 ##  %{ $vnotes{"ganghilarruni_noun"} } = (
 ##      display_as => "ganghilarruni",
 ##      dieli => ["ganghilarruni",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -39402,8 +39162,8 @@
 ##  %{ $vnotes{"generali_noun"} } = (
 ##      display_as => "generali",
 ##      dieli => ["generali",],
-##      dieli_en => ["broad","general","general ","public","universal",],
-##      dieli_it => ["generale","generale ",],
+##      dieli_en => ["broad","general","public","universal",],
+##      dieli_it => ["generale",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -42506,7 +42266,7 @@
 ##  %{ $vnotes{"gustu_noun"} } = (
 ##      display_as => "gustu",
 ##      dieli => ["gustu",],
-##      dieli_en => ["flavor ","pleasure","taste","zest",],
+##      dieli_en => ["flavor","pleasure","taste","zest",],
 ##      dieli_it => ["gusto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -49398,6 +49158,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  llammicu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"llammicu_noun"} } = (
+##      display_as => "llammicu",
+##      dieli => ["llammicu",],
+##      dieli_en => ["slow poke",],
+##      dieli_it => ["languorino",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  locali nutturnu (ital) -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"locali nutturnu (ital)_noun"} } = (
 ##      display_as => "locali nutturnu (ital)",
@@ -49899,7 +49675,7 @@
 ##      display_as => "lunghizza d_SQUOTE_unna",
 ##      dieli => ["lunghizza d_SQUOTE_unna",],
 ##      dieli_en => ["wavelength",],
-##      dieli_it => ["lunghezza d'onda",],
+##      dieli_it => ["lunghezza d_SQUOTE_onda",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -50314,24 +50090,8 @@
 ##  %{ $vnotes{"magasenu_noun"} } = (
 ##      display_as => "magasenu",
 ##      dieli => ["magasenu",],
-##      dieli_en => ["warehouse",],
+##      dieli_en => ["warehouse","depot",],
 ##      dieli_it => ["magazzino",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  magasenu  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"magasenu _noun"} } = (
-##      display_as => "magasenu ",
-##      dieli => ["magasenu ",],
-##      dieli_en => ["depot",],
-##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -51050,8 +50810,8 @@
 ##  %{ $vnotes{"manifestu_noun"} } = (
 ##      display_as => "manifestu",
 ##      dieli => ["manifestu",],
-##      dieli_en => ["manifest ","poster",],
-##      dieli_it => ["manifesto ","poster",],
+##      dieli_en => ["manifest","poster",],
+##      dieli_it => ["manifesto","poster",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -51418,8 +51178,8 @@
 ##  %{ $vnotes{"marinaru_noun"} } = (
 ##      display_as => "marinaru",
 ##      dieli => ["marinaru",],
-##      dieli_en => ["sailor","seafarer ","seaman",],
-##      dieli_it => ["marinaio","marinaio ",],
+##      dieli_en => ["sailor","seafarer","seaman",],
+##      dieli_it => ["marinaio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -51434,7 +51194,7 @@
 ##  %{ $vnotes{"mariolu_noun"} } = (
 ##      display_as => "mariolu",
 ##      dieli => ["mariolu",],
-##      dieli_en => ["crafty","jew's harp","rogue","roguish","shrewd","astute","scoundrel","sly",],
+##      dieli_en => ["crafty","jew_SQUOTE_s harp","rogue","roguish","shrewd","astute","scoundrel","sly",],
 ##      dieli_it => ["scaltro","scacciapensieri","mariuolo","furbo","sagace",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -51450,7 +51210,7 @@
 ##  %{ $vnotes{"mariolu di fera_noun"} } = (
 ##      display_as => "mariolu di fera",
 ##      dieli => ["mariolu di fera",],
-##      dieli_en => ["jew's harp","merchant",],
+##      dieli_en => ["jew_SQUOTE_s harp","merchant",],
 ##      dieli_it => ["scacciapensieri","mercante da fiere",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -51530,7 +51290,7 @@
 ##  %{ $vnotes{"marranzana_noun"} } = (
 ##      display_as => "marranzana",
 ##      dieli => ["marranzana",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -52122,8 +51882,8 @@
 ##  %{ $vnotes{"matrici_noun"} } = (
 ##      display_as => "matrici",
 ##      dieli => ["matrici",],
-##      dieli_en => ["church (chief one)","matrix ",],
-##      dieli_it => ["chiesa","matrice ",],
+##      dieli_en => ["church (chief one)","matrix",],
+##      dieli_it => ["chiesa","matrice",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -52337,6 +52097,22 @@
 ##      noun => {
 ##  	gender => "fem",
 ##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mbrugghiuni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mbrugghiuni_noun"} } = (
+##      display_as => "mbrugghiuni",
+##      dieli => ["mbrugghiuni",],
+##      dieli_en => ["cheat","swindler",],
+##      dieli_it => ["imbroglione",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "uni",
 ##  	## plural => "",
 ##      },);
 
@@ -53595,7 +53371,7 @@
 ##      display_as => "minera d_SQUOTE_oru",
 ##      dieli => ["minera d_SQUOTE_oru",],
 ##      dieli_en => ["gold mine",],
-##      dieli_it => ["miniera d'oro",],
+##      dieli_it => ["miniera d_SQUOTE_oro",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -54454,6 +54230,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mmarra-vadduni -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmarra-vadduni_noun"} } = (
+##      display_as => "mmarra-vadduni",
+##      dieli => ["mmarra-vadduni",],
+##      dieli_en => ["good for nothing man",],
+##      dieli_it => ["uomo da nulla",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "uni",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mmarrata -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mmarrata_noun"} } = (
 ##      display_as => "mmarrata",
@@ -54496,6 +54288,22 @@
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "mas",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  mmucca -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mmucca_noun"} } = (
+##      display_as => "mmucca",
+##      dieli => ["mmucca",],
+##      dieli_en => ["tasting","mouth",],
+##      dieli_it => ["in bocca","bocca",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
 ##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
@@ -55238,6 +55046,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  mpastata -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"mpastata_noun"} } = (
+##      display_as => "mpastata",
+##      dieli => ["mpastata",],
+##      dieli_en => ["soaked bran feed",],
+##      dieli_it => ["intrisa",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  mpiegu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"mpiegu_noun"} } = (
 ##      display_as => "mpiegu",
@@ -55706,8 +55530,8 @@
 ##  %{ $vnotes{"munnizza_noun"} } = (
 ##      display_as => "munnizza",
 ##      dieli => ["munnizza",],
-##      dieli_en => ["dirtiness ","dust","garbage","refuse","trash",],
-##      dieli_it => ["immondezza ","immondizia",],
+##      dieli_en => ["dirtiness","dust","garbage","refuse","trash",],
+##      dieli_it => ["immondezza","immondizia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -55722,8 +55546,8 @@
 ##  %{ $vnotes{"munnizzaru_noun"} } = (
 ##      display_as => "munnizzaru",
 ##      dieli => ["munnizzaru",],
-##      dieli_en => ["dustbin ","garbage can ","rubbish","trash can ",],
-##      dieli_it => ["immondizzaio ","immondizia",],
+##      dieli_en => ["dustbin","garbage can","rubbish","trash can",],
+##      dieli_it => ["immondizzaio","immondizia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -56091,7 +55915,7 @@
 ##      display_as => "muscagghiuni",
 ##      dieli => ["muscagghiuni",],
 ##      dieli_en => ["little fly","fly",],
-##      dieli_it => ["piccola mosca ","mosca in generale",],
+##      dieli_it => ["piccola mosca","mosca in generale",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -57370,12 +57194,28 @@
 ##  %{ $vnotes{"ncegnu_noun"} } = (
 ##      display_as => "ncegnu",
 ##      dieli => ["ncegnu",],
-##      dieli_en => ["appliance",],
-##      dieli_it => ["apparecchio",],
+##      dieli_en => ["appliance","intelligence",],
+##      dieli_it => ["apparecchio","ingegno",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "mas",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nciacatu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nciacatu_noun"} } = (
+##      display_as => "nciacatu",
+##      dieli => ["nciacatu",],
+##      dieli_en => ["pavement","paved",],
+##      dieli_it => ["selciato",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "",
 ##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
@@ -57690,7 +57530,7 @@
 ##  %{ $vnotes{"ngannalarruni_noun"} } = (
 ##      display_as => "ngannalarruni",
 ##      dieli => ["ngannalarruni",],
-##      dieli_en => ["jew's harp",],
+##      dieli_en => ["jew_SQUOTE_s harp",],
 ##      dieli_it => ["scacciapensieri",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -57706,8 +57546,8 @@
 ##  %{ $vnotes{"ngrisi_noun"} } = (
 ##      display_as => "ngrisi",
 ##      dieli => ["ngrisi",],
-##      dieli_en => ["English ",],
-##      dieli_it => ["inglese ",],
+##      dieli_en => ["English",],
+##      dieli_it => ["inglese",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -58326,6 +58166,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nnuliggenzia -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nnuliggenzia_noun"} } = (
+##      display_as => "nnuliggenzia",
+##      dieli => ["nnuliggenzia",],
+##      dieli_en => ["forgiveness","indulgence",],
+##      dieli_it => ["indulgenza",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nnustria -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nnustria_noun"} } = (
 ##      display_as => "nnustria",
@@ -58838,6 +58694,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  ntentu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntentu_noun"} } = (
+##      display_as => "ntentu",
+##      dieli => ["ntentu",],
+##      dieli_en => ["goal","by the end",],
+##      dieli_it => ["intento","secondo fine",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  ntilliggenza -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"ntilliggenza_noun"} } = (
 ##      display_as => "ntilliggenza",
@@ -58849,6 +58721,22 @@
 ##      noun => {
 ##  	gender => "fem",
 ##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  ntinnituri -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"ntinnituri_noun"} } = (
+##      display_as => "ntinnituri",
+##      dieli => ["ntinnituri",],
+##      dieli_en => ["connoisseur","expert",],
+##      dieli_it => ["intenditore","esperto",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "uri",
 ##  	## plural => "",
 ##      },);
 
@@ -59242,8 +59130,8 @@
 ##  %{ $vnotes{"nutizzia_noun"} } = (
 ##      display_as => "nutizzia",
 ##      dieli => ["nutizzia",],
-##      dieli_en => ["communication","news ","notice",],
-##      dieli_it => ["comunicazione","notizia ","notizia",],
+##      dieli_en => ["communication","news","notice",],
+##      dieli_it => ["comunicazione","notizia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -59430,6 +59318,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  nzalataru -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nzalataru_noun"} } = (
+##      display_as => "nzalataru",
+##      dieli => ["nzalataru",],
+##      dieli_en => ["salad maker",],
+##      dieli_it => ["insalataio",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "mas",
+##  	plend => "aru",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  nzerta -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"nzerta_noun"} } = (
 ##      display_as => "nzerta",
@@ -59468,6 +59372,22 @@
 ##      dieli => ["nzullenti",],
 ##      dieli_en => ["insolent",],
 ##      dieli_it => ["insolente",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  nzunza -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"nzunza_noun"} } = (
+##      display_as => "nzunza",
+##      dieli => ["nzunza",],
+##      dieli_en => ["pork fat",],
+##      dieli_it => ["grasso del porco","sugna",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -59962,7 +59882,7 @@
 ##  %{ $vnotes{"oduri_noun"} } = (
 ##      display_as => "oduri",
 ##      dieli => ["oduri",],
-##      dieli_en => ["odor ","scent","smell",],
+##      dieli_en => ["odor","scent","smell",],
 ##      dieli_it => ["odore","profumo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -60235,7 +60155,7 @@
 ##      display_as => "ogghiu d_SQUOTE_aliva",
 ##      dieli => ["ogghiu d_SQUOTE_aliva",],
 ##      dieli_en => ["olive oil",],
-##      dieli_it => ["olio d'oliva",],
+##      dieli_it => ["olio d_SQUOTE_oliva",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -60390,12 +60310,12 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  omu d'affari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"omu d'affari_noun"} } = (
-##      display_as => "omu d'affari",
-##      dieli => ["omu d'affari",],
+##  ##  omu d_SQUOTE_affari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"omu d_SQUOTE_affari_noun"} } = (
+##      display_as => "omu d_SQUOTE_affari",
+##      dieli => ["omu d_SQUOTE_affari",],
 ##      dieli_en => ["businessman",],
-##      dieli_it => ["uomo d'affari",],
+##      dieli_it => ["uomo d_SQUOTE_affari",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -60491,7 +60411,7 @@
 ##      display_as => "opera d_SQUOTE_arti",
 ##      dieli => ["opera d_SQUOTE_arti",],
 ##      dieli_en => ["work of art",],
-##      dieli_it => ["opera d'arte",],
+##      dieli_it => ["opera d_SQUOTE_arte",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -63419,7 +63339,7 @@
 ##      display_as => "parola d_SQUOTE_ordini",
 ##      dieli => ["parola d_SQUOTE_ordini",],
 ##      dieli_en => ["password",],
-##      dieli_it => ["parola d'ordine",],
+##      dieli_it => ["parola d_SQUOTE_ordine",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -63483,7 +63403,7 @@
 ##      display_as => "parramentu",
 ##      dieli => ["parramentu",],
 ##      dieli_en => ["discussion",],
-##      dieli_it => ["ragionamento ",],
+##      dieli_it => ["ragionamento",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -63706,8 +63626,8 @@
 ##  %{ $vnotes{"particulari_noun"} } = (
 ##      display_as => "particulari",
 ##      dieli => ["particulari",],
-##      dieli_en => ["own","particular","particular ","peculiar","respect","special",],
-##      dieli_it => ["particolare","particolare ",],
+##      dieli_en => ["own","particular","peculiar","respect","special",],
+##      dieli_it => ["particolare",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -64362,7 +64282,7 @@
 ##  %{ $vnotes{"patenti di guida_noun"} } = (
 ##      display_as => "patenti di guida",
 ##      dieli => ["patenti di guida",],
-##      dieli_en => ["driver's license ",],
+##      dieli_en => ["driver_SQUOTE_s license",],
 ##      dieli_it => ["patente","permesso",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -64843,7 +64763,7 @@
 ##      display_as => "peddi d_SQUOTE_oca",
 ##      dieli => ["peddi d_SQUOTE_oca",],
 ##      dieli_en => ["goose flesh",],
-##      dieli_it => ["pelle d'oca",],
+##      dieli_it => ["pelle d_SQUOTE_oca",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -66394,7 +66314,7 @@
 ##  %{ $vnotes{"picurinu_noun"} } = (
 ##      display_as => "picurinu",
 ##      dieli => ["picurinu",],
-##      dieli_en => ["sheep's wool sky",],
+##      dieli_en => ["sheep_SQUOTE_s wool sky",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -66779,7 +66699,7 @@
 ##      display_as => "pinacoteca",
 ##      dieli => ["pinacoteca",],
 ##      dieli_en => ["art gallery",],
-##      dieli_it => ["galleria d'arte",],
+##      dieli_it => ["galleria d_SQUOTE_arte",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -67978,7 +67898,7 @@
 ##  %{ $vnotes{"pizziddu (dim di pizzu)_noun"} } = (
 ##      display_as => "pizziddu (dim di pizzu)",
 ##      dieli => ["pizziddu (dim di pizzu)",],
-##      dieli_en => ["chicken's beak",],
+##      dieli_en => ["chicken_SQUOTE_s beak",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -68235,7 +68155,7 @@
 ##      display_as => "polisa d_SQUOTE_ assicurazioni",
 ##      dieli => ["polisa d_SQUOTE_ assicurazioni",],
 ##      dieli_en => ["insurance policy",],
-##      dieli_it => ["polizza d'assicurazione",],
+##      dieli_it => ["polizza d_SQUOTE_assicurazione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -68810,8 +68730,8 @@
 ##  %{ $vnotes{"posizzioni_noun"} } = (
 ##      display_as => "posizzioni",
 ##      dieli => ["posizzioni",],
-##      dieli_en => ["position","situation ",],
-##      dieli_it => ["posizione","situazione ",],
+##      dieli_en => ["position","situation",],
+##      dieli_it => ["posizione","situazione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -69114,7 +69034,7 @@
 ##  %{ $vnotes{"preggiu_noun"} } = (
 ##      display_as => "preggiu",
 ##      dieli => ["preggiu",],
-##      dieli_en => ["appreciation","honor ",],
+##      dieli_en => ["appreciation","honor",],
 ##      dieli_it => ["apprezzamento","onore",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -69323,7 +69243,7 @@
 ##      display_as => "pressioni d_SQUOTE_ogghiu",
 ##      dieli => ["pressioni d_SQUOTE_ogghiu",],
 ##      dieli_en => ["oil pressure",],
-##      dieli_it => ["pressione d'olio",],
+##      dieli_it => ["pressione d_SQUOTE_olio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -69403,7 +69323,7 @@
 ##      display_as => "prezzu d_SQUOTE_ingressu",
 ##      dieli => ["prezzu d_SQUOTE_ingressu",],
 ##      dieli_en => ["entrance fee",],
-##      dieli_it => ["prezzo d'ingresso",],
+##      dieli_it => ["prezzo d_SQUOTE_ingresso",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -70602,8 +70522,8 @@
 ##  %{ $vnotes{"prugressu_noun"} } = (
 ##      display_as => "prugressu",
 ##      dieli => ["prugressu",],
-##      dieli_en => ["progress ",],
-##      dieli_it => ["progresso ",],
+##      dieli_en => ["progress",],
+##      dieli_it => ["progresso",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -71642,7 +71562,7 @@
 ##  %{ $vnotes{"puntata_noun"} } = (
 ##      display_as => "puntata",
 ##      dieli => ["puntata",],
-##      dieli_en => ["bet","installment ",],
+##      dieli_en => ["bet","installment",],
 ##      dieli_it => ["posta","puntata",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -71803,7 +71723,7 @@
 ##      display_as => "punturata",
 ##      dieli => ["punturata",],
 ##      dieli_en => ["insect bite",],
-##      dieli_it => ["puntura d'insetto",],
+##      dieli_it => ["puntura d_SQUOTE_insetto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -72410,8 +72330,8 @@
 ##  %{ $vnotes{"pussissuri_noun"} } = (
 ##      display_as => "pussissuri",
 ##      dieli => ["pussissuri",],
-##      dieli_en => ["possessor ",],
-##      dieli_it => ["possessore ",],
+##      dieli_en => ["possessor",],
+##      dieli_it => ["possessore",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -72587,7 +72507,7 @@
 ##      display_as => "putruna d_SQUOTE_orchestra",
 ##      dieli => ["putruna d_SQUOTE_orchestra",],
 ##      dieli_en => ["stall (brit)",],
-##      dieli_it => ["poltrona d'orchestra",],
+##      dieli_it => ["poltrona d_SQUOTE_orchestra",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -73035,7 +72955,7 @@
 ##      display_as => "quartara",
 ##      dieli => ["quartara",],
 ##      dieli_en => ["jug","large vase for carrying water",],
-##      dieli_it => ["brocca","vaso portatile per l'acqua",],
+##      dieli_it => ["brocca","vaso portatile per l_SQUOTE_acqua",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -73878,10 +73798,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  rapidi  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"rapidi _noun"} } = (
-##      display_as => "rapidi ",
-##      dieli => ["rapidi ",],
+##  ##  rapidi -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"rapidi_noun"} } = (
+##      display_as => "rapidi",
+##      dieli => ["rapidi",],
 ##      dieli_en => ["rapids",],
 ##      dieli_it => ["rapide",],
 ##      ## notex => ["","",],
@@ -74202,7 +74122,7 @@
 ##  %{ $vnotes{"rata_noun"} } = (
 ##      display_as => "rata",
 ##      dieli => ["rata",],
-##      dieli_en => ["installment ",],
+##      dieli_en => ["installment",],
 ##      dieli_it => ["rata",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -77082,8 +77002,8 @@
 ##  %{ $vnotes{"rispettu_noun"} } = (
 ##      display_as => "rispettu",
 ##      dieli => ["rispettu",],
-##      dieli_en => ["esteem","manners","respect ","reverence",],
-##      dieli_it => ["rispetto","rispetto ",],
+##      dieli_en => ["esteem","manners","respect","reverence",],
+##      dieli_it => ["rispetto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -77210,8 +77130,8 @@
 ##  %{ $vnotes{"risucuntu_noun"} } = (
 ##      display_as => "risucuntu",
 ##      dieli => ["risucuntu",],
-##      dieli_en => ["recital","report ","story",],
-##      dieli_it => ["recital","rapporto ",],
+##      dieli_en => ["recital","report","story",],
+##      dieli_it => ["recital","rapporto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -77707,7 +77627,7 @@
 ##      display_as => "rizzu (herinaceus echinus)",
 ##      dieli => ["rizzu (herinaceus echinus)",],
 ##      dieli_en => ["hedgehog",],
-##      dieli_it => ["riccio ",],
+##      dieli_it => ["riccio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -78870,33 +78790,33 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  sala d'esposizioni (ital) -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"sala d'esposizioni (ital)_noun"} } = (
-##      display_as => "sala d'esposizioni (ital)",
-##      dieli => ["sala d'esposizioni (ital)",],
-##      dieli_en => ["showroom",],
-##      dieli_it => ["sala d'esposizione",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 ##  ##  sala d_SQUOTE_aspettu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"sala d_SQUOTE_aspettu_noun"} } = (
 ##      display_as => "sala d_SQUOTE_aspettu",
 ##      dieli => ["sala d_SQUOTE_aspettu",],
 ##      dieli_en => ["waiting room",],
-##      dieli_it => ["sala d'aspetto",],
+##      dieli_it => ["sala d_SQUOTE_aspetto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "fem",
 ##  	plend => "xx",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sala d_SQUOTE_esposizioni (ital) -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sala d_SQUOTE_esposizioni (ital)_noun"} } = (
+##      display_as => "sala d_SQUOTE_esposizioni (ital)",
+##      dieli => ["sala d_SQUOTE_esposizioni (ital)",],
+##      dieli_en => ["showroom",],
+##      dieli_it => ["sala d_SQUOTE_esposizione",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
+##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
 
@@ -81318,10 +81238,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  schirpïuni tignusu -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"schirpïuni tignusu_noun"} } = (
-##      display_as => "schirpïuni tignusu",
-##      dieli => ["schirpïuni tignusu",],
+##  ##  schirpiuni tignusu -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"schirpiuni tignusu_noun"} } = (
+##      display_as => "schirpiuni tignusu",
+##      dieli => ["schirpiuni tignusu",],
 ##      dieli_en => ["gecko",],
 ##      dieli_it => ["geco",],
 ##      ## notex => ["","",],
@@ -83130,8 +83050,8 @@
 ##  %{ $vnotes{"secunnu_noun"} } = (
 ##      display_as => "secunnu",
 ##      dieli => ["secunnu",],
-##      dieli_en => ["according to ","as","second",],
-##      dieli_it => ["secondo ","siccome","secondo",],
+##      dieli_en => ["according to","as","second",],
+##      dieli_it => ["secondo","siccome",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -84747,7 +84667,7 @@
 ##      display_as => "signali di succursu",
 ##      dieli => ["signali di succursu",],
 ##      dieli_en => ["distress signal",],
-##      dieli_it => ["segnale d'allarme","segnale di pericolo",],
+##      dieli_it => ["segnale d_SQUOTE_allarme","segnale di pericolo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -85146,8 +85066,8 @@
 ##  %{ $vnotes{"sintenza_noun"} } = (
 ##      display_as => "sintenza",
 ##      dieli => ["sintenza",],
-##      dieli_en => ["sentence","sentence ","verdict",],
-##      dieli_it => ["sentenza","sentenza ",],
+##      dieli_en => ["sentence","verdict",],
+##      dieli_it => ["sentenza",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -87882,23 +87802,7 @@
 ##  %{ $vnotes{"stazioni_noun"} } = (
 ##      display_as => "stazioni",
 ##      dieli => ["stazioni",],
-##      dieli_en => ["station",],
-##      dieli_it => ["stazione",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  stazioni  -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"stazioni _noun"} } = (
-##      display_as => "stazioni ",
-##      dieli => ["stazioni ",],
-##      dieli_en => ["depot",],
+##      dieli_en => ["station","depot",],
 ##      dieli_it => ["stazione",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -88032,6 +87936,22 @@
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "mas",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  ##  sterna -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"sterna_noun"} } = (
+##      display_as => "sterna",
+##      dieli => ["sterna",],
+##      dieli_en => ["cistern",],
+##      dieli_it => ["cisterna",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
 ##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
@@ -88459,7 +88379,7 @@
 ##      display_as => "storia d_SQUOTE_arti",
 ##      dieli => ["storia d_SQUOTE_arti",],
 ##      dieli_en => ["art history",],
-##      dieli_it => ["storia dell'arte",],
+##      dieli_it => ["storia dell_SQUOTE_arte",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -88970,7 +88890,7 @@
 ##  %{ $vnotes{"studiusa_noun"} } = (
 ##      display_as => "studiusa",
 ##      dieli => ["studiusa",],
-##      dieli_en => ["student ",],
+##      dieli_en => ["student",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -89146,8 +89066,8 @@
 ##  %{ $vnotes{"successu_noun"} } = (
 ##      display_as => "successu",
 ##      dieli => ["successu",],
-##      dieli_en => ["hit","success ",],
-##      dieli_it => ["successo","successo ",],
+##      dieli_en => ["hit","success",],
+##      dieli_it => ["successo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -89210,8 +89130,8 @@
 ##  %{ $vnotes{"sucialismu_noun"} } = (
 ##      display_as => "sucialismu",
 ##      dieli => ["sucialismu",],
-##      dieli_en => ["socialism ",],
-##      dieli_it => ["socialismo ",],
+##      dieli_en => ["socialism",],
+##      dieli_it => ["socialismo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -89226,8 +89146,8 @@
 ##  %{ $vnotes{"sucialìsimu_noun"} } = (
 ##      display_as => "sucialìsimu",
 ##      dieli => ["sucialìsimu",],
-##      dieli_en => ["socialism ",],
-##      dieli_it => ["socialismo ",],
+##      dieli_en => ["socialism",],
+##      dieli_it => ["socialismo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -89259,7 +89179,7 @@
 ##      display_as => "sucu d_SQUOTE_aranciu",
 ##      dieli => ["sucu d_SQUOTE_aranciu",],
 ##      dieli_en => ["orange juice",],
-##      dieli_it => ["succo d'arancia",],
+##      dieli_it => ["succo d_SQUOTE_arancia",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -91803,7 +91723,7 @@
 ##      display_as => "teatru d_SQUOTE_opera",
 ##      dieli => ["teatru d_SQUOTE_opera",],
 ##      dieli_en => ["opera house",],
-##      dieli_it => ["teatro dell'opera",],
+##      dieli_it => ["teatro dell_SQUOTE_opera",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -92826,8 +92746,8 @@
 ##  %{ $vnotes{"tingituri_noun"} } = (
 ##      display_as => "tingituri",
 ##      dieli => ["tingituri",],
-##      dieli_en => ["dry-cleaner ","dry-cleaner's",],
-##      dieli_it => ["tintore ","tintoria",],
+##      dieli_en => ["dry-cleaner","dry-cleaner_SQUOTE_s",],
+##      dieli_it => ["tintore","tintoria",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -93914,8 +93834,8 @@
 ##  %{ $vnotes{"trasportu_noun"} } = (
 ##      display_as => "trasportu",
 ##      dieli => ["trasportu",],
-##      dieli_en => ["freight","transport ",],
-##      dieli_it => ["trasporto ",],
+##      dieli_en => ["freight","transport",],
+##      dieli_it => ["trasporto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -94683,7 +94603,7 @@
 ##      display_as => "tubbu",
 ##      dieli => ["tubbu",],
 ##      dieli_en => ["inner tube","pipe","spout",],
-##      dieli_it => ["camera d'aria","tubo",],
+##      dieli_it => ["camera d_SQUOTE_aria","tubo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -94826,7 +94746,7 @@
 ##  %{ $vnotes{"tunnina_noun"} } = (
 ##      display_as => "tunnina",
 ##      dieli => ["tunnina",],
-##      dieli_en => ["tuna ",],
+##      dieli_en => ["tuna",],
 ##      dieli_it => ["tonnina (la carne del tonno)",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -95450,8 +95370,8 @@
 ##  %{ $vnotes{"uggettu_noun"} } = (
 ##      display_as => "uggettu",
 ##      dieli => ["uggettu",],
-##      dieli_en => ["object ",],
-##      dieli_it => ["oggetto ",],
+##      dieli_en => ["object",],
+##      dieli_it => ["oggetto",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -95610,8 +95530,8 @@
 ##  %{ $vnotes{"umanèsimu_noun"} } = (
 ##      display_as => "umanèsimu",
 ##      dieli => ["umanèsimu",],
-##      dieli_en => ["humanism ",],
-##      dieli_it => ["umanesimo ",],
+##      dieli_en => ["humanism",],
+##      dieli_it => ["umanesimo",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -96038,12 +95958,12 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  uri d'apertura -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"uri d'apertura_noun"} } = (
-##      display_as => "uri d'apertura",
-##      dieli => ["uri d'apertura",],
+##  ##  uri d_SQUOTE_apertura -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"uri d_SQUOTE_apertura_noun"} } = (
+##      display_as => "uri d_SQUOTE_apertura",
+##      dieli => ["uri d_SQUOTE_apertura",],
 ##      dieli_en => ["business hours",],
-##      dieli_it => ["ore d'apertura",],
+##      dieli_it => ["ore d_SQUOTE_apertura",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -96059,7 +95979,7 @@
 ##      display_as => "uri d_SQUOTE_officiu",
 ##      dieli => ["uri d_SQUOTE_officiu",],
 ##      dieli_en => ["business hours","office hours",],
-##      dieli_it => ["ore d'ufficio",],
+##      dieli_it => ["ore d_SQUOTE_ufficio",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -96731,7 +96651,7 @@
 ##      display_as => "valvula d_SQUOTE_aria",
 ##      dieli => ["valvula d_SQUOTE_aria",],
 ##      dieli_en => ["choke",],
-##      dieli_it => ["valvola dell'aria",],
+##      dieli_it => ["valvola dell_SQUOTE_aria",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -97722,7 +97642,7 @@
 ##  %{ $vnotes{"verificaturi_noun"} } = (
 ##      display_as => "verificaturi",
 ##      dieli => ["verificaturi",],
-##      dieli_en => ["inspirator ",],
+##      dieli_en => ["inspirator",],
 ##      dieli_it => [],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -97990,12 +97910,12 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  viaggiu d'affari -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"viaggiu d'affari_noun"} } = (
-##      display_as => "viaggiu d'affari",
-##      dieli => ["viaggiu d'affari",],
+##  ##  viaggiu d_SQUOTE_affari -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"viaggiu d_SQUOTE_affari_noun"} } = (
+##      display_as => "viaggiu d_SQUOTE_affari",
+##      dieli => ["viaggiu d_SQUOTE_affari",],
 ##      dieli_en => ["business trip",],
-##      dieli_it => ["viaggio d'affari",],
+##      dieli_it => ["viaggio d_SQUOTE_affari",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
 ##      noun => {
@@ -98202,7 +98122,7 @@
 ##  %{ $vnotes{"viddana_noun"} } = (
 ##      display_as => "viddana",
 ##      dieli => ["viddana",],
-##      dieli_en => ["farmer's wife",],
+##      dieli_en => ["farmer_SQUOTE_s wife",],
 ##      dieli_it => ["contadina",],
 ##      ## notex => ["","",],
 ##      part_speech => "noun",
@@ -100134,6 +100054,22 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  ##  vriogna -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"vriogna_noun"} } = (
+##      display_as => "vriogna",
+##      dieli => ["vriogna",],
+##      dieli_en => ["shame","disonoor","disgrace",],
+##      dieli_it => ["onta","disonore","vergogna",],
+##      ## notex => ["","",],
+##      part_speech => "noun",
+##      noun => {
+##  	gender => "fem",
+##  	plend => "xi",
+##  	## plural => "",
+##      },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 ##  ##  vrodu -- proto hash -- MUST check for accuracy
 ##  %{ $vnotes{"vrodu_noun"} } = (
 ##      display_as => "vrodu",
@@ -100192,22 +100128,6 @@
 ##      part_speech => "noun",
 ##      noun => {
 ##  	gender => "mas",
-##  	plend => "xi",
-##  	## plural => "",
-##      },);
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  ##  vrïogna -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"vrïogna_noun"} } = (
-##      display_as => "vrïogna",
-##      dieli => ["vrïogna",],
-##      dieli_en => ["shame","disonoor","disgrace",],
-##      dieli_it => ["onta","disonore","vergogna",],
-##      ## notex => ["","",],
-##      part_speech => "noun",
-##      noun => {
-##  	gender => "fem",
 ##  	plend => "xi",
 ##  	## plural => "",
 ##      },);
