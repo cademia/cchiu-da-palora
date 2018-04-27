@@ -48,7 +48,7 @@ Some people learn a language by creating an index card for each word that they l
     dieli => ["dintra"],
     dieli_en => ["inside","into","within",],
     dieli_it => ["dentro","dentro a","in",],
-    notex => ["Dintra nu biccheri d'acqua t'anniasti. (pruverbiu sicilianu)",],
+    proverb => ["Dintra nu biccheri d'acqua t'anniasti.",],
     part_speech => "prep",
     );
 ```
