@@ -368,16 +368,32 @@ my %coixxr = ( us => "rìa"   , ds => "rivi"  , ts => "rìa"   ,
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  remove all accents
+##  remove unicode accented vowels
 sub rid_accents {
-    my $boot = $_[0] ;
-    $boot =~ s/à/a/g ; $boot =~ s/À/A/g ;
-    $boot =~ s/è/e/g ; $boot =~ s/È/E/g ;
-    $boot =~ s/ì/i/g ; $boot =~ s/Ì/I/g ;
-    $boot =~ s/ò/o/g ; $boot =~ s/Ò/O/g ;
-    $boot =~ s/ù/u/g ; $boot =~ s/Ù/U/g ;
-    return $boot; 
+    my $str = $_[0] ;
+    $str =~ s/\303\240/a/g; $str =~ s/\303\241/a/g; $str =~ s/\303\242/a/g; $str =~ s/\303\244/a/g;
+    $str =~ s/\303\250/e/g; $str =~ s/\303\251/e/g; $str =~ s/\303\252/e/g; $str =~ s/\303\253/e/g;
+    $str =~ s/\303\254/i/g; $str =~ s/\303\255/i/g; $str =~ s/\303\256/i/g; $str =~ s/\303\257/i/g;
+    $str =~ s/\303\262/o/g; $str =~ s/\303\263/o/g; $str =~ s/\303\264/o/g; $str =~ s/\303\266/o/g;
+    $str =~ s/\303\271/u/g; $str =~ s/\303\272/u/g; $str =~ s/\303\273/u/g; $str =~ s/\303\274/u/g;
+    $str =~ s/\303\200/A/g; $str =~ s/\303\201/A/g; $str =~ s/\303\202/A/g; $str =~ s/\303\204/A/g;
+    $str =~ s/\303\210/E/g; $str =~ s/\303\211/E/g; $str =~ s/\303\212/E/g; $str =~ s/\303\213/E/g;
+    $str =~ s/\303\214/I/g; $str =~ s/\303\215/I/g; $str =~ s/\303\216/I/g; $str =~ s/\303\217/I/g;
+    $str =~ s/\303\222/O/g; $str =~ s/\303\223/O/g; $str =~ s/\303\224/O/g; $str =~ s/\303\226/O/g;
+    $str =~ s/\303\231/U/g; $str =~ s/\303\232/U/g; $str =~ s/\303\233/U/g; $str =~ s/\303\234/U/g;
+    return $str ;
 }
+
+##  remove all accents
+#sub rid_accents {
+#    my $boot = $_[0] ;
+#    $boot =~ s/à/a/g ; $boot =~ s/À/A/g ;
+#    $boot =~ s/è/e/g ; $boot =~ s/È/E/g ;
+#    $boot =~ s/ì/i/g ; $boot =~ s/Ì/I/g ;
+#    $boot =~ s/ò/o/g ; $boot =~ s/Ò/O/g ;
+#    $boot =~ s/ù/u/g ; $boot =~ s/Ù/U/g ;
+#    return $boot; 
+#}
 
 ##  only remove accent from the "boot" if on penultimate
 ##  but ultimate is already removed from "boot"

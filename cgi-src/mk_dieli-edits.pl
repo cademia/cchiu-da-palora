@@ -32,6 +32,19 @@ my $dieli_it_dict = '../cgi-lib/dieli-it-dict' ;
 ##  retrieve SiCilian
 my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
+##  ERRORS
+##  ======
+
+##  $ ./query-dieli.pl sc largu Stti 
+##  	0  ==  Stti Uniti {mpl} --> stati uniti {mpl} --> United States {pl}
+$dieli_sc{"Stati Uniti"} = $dieli_sc{"Stti Uniti"} ; 
+${$dieli_sc{"Stati Uniti"}[0]}{"sc_word"} = 'Stati Uniti';
+delete( $dieli_sc{"Stti Uniti"} ) ; 
+
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
@@ -45,7 +58,6 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 ##  
 ${$dieli_sc{"viviri"}[0]}{"linkto"} = "viviri_drink";
 ${$dieli_sc{"viviri"}[1]}{"linkto"} = "viviri_live";
-
 
 ##  $ ./query-dieli.pl sc strittu corpu 
 ##  

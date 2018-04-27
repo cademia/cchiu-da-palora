@@ -124,7 +124,7 @@ sub mk_showall {
     
     ##  let's split the print over four columns
     ##  keep words together by first letter
-    my @vnkeys = sort( {$vbsubs{rid_accents}($a) cmp $vbsubs{rid_accents}($b)} keys(%vnotes) );
+    my @vnkeys = sort( {lc($vbsubs{rid_accents}($a)) cmp lc($vbsubs{rid_accents}($b))} keys(%vnotes) );
     my $vnkqtr = int( $#vnkeys / 4 ) ; 
         
     ##  first column
@@ -133,8 +133,8 @@ sub mk_showall {
     my @vnkone = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
-	my $newletter = substr(lc($vbsubs{rid_accents}($palora)),0,1) ; 
-	my $oldletter = substr(lc($vbsubs{rid_accents}($vnkeys[$vnkidx])),0,1) ; 	
+	my $newletter = lc(substr($vbsubs{rid_accents}($palora),0,1)) ; 
+	my $oldletter = lc(substr($vbsubs{rid_accents}($vnkeys[$vnkidx]),0,1)) ;
 	if ( $newletter eq $oldletter ) { 
 	    push( @vnkone , $palora ) ;
 	    $vnkidx += 1 ; 
@@ -147,8 +147,8 @@ sub mk_showall {
     my @vnktwo = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
-	my $newletter = substr(lc($vbsubs{rid_accents}($palora)),0,1) ; 
-	my $oldletter = substr(lc($vbsubs{rid_accents}($vnkeys[$vnkidx])),0,1) ; 
+	my $newletter = lc(substr($vbsubs{rid_accents}($palora),0,1)) ; 
+	my $oldletter = lc(substr($vbsubs{rid_accents}($vnkeys[$vnkidx]),0,1)) ;
 	if ( $newletter eq $oldletter ) { 
 	    push( @vnktwo , $palora ) ;
 	    $vnkidx += 1 ; 
@@ -161,8 +161,8 @@ sub mk_showall {
     my @vnktre = @vnkeys[$vnstart..$vnkidx] ; 
     foreach my $palora (@vnkeys[$vnkidx+1..$#vnkeys] ) {
 	##  if same letter, add to column and increment the index
-	my $newletter = substr(lc($vbsubs{rid_accents}($palora)),0,1) ; 
-	my $oldletter = substr(lc($vbsubs{rid_accents}($vnkeys[$vnkidx])),0,1) ; 
+	my $newletter = lc(substr($vbsubs{rid_accents}($palora),0,1)) ; 
+	my $oldletter = lc(substr($vbsubs{rid_accents}($vnkeys[$vnkidx]),0,1)) ;
 	if ( $newletter eq $oldletter ) { 
 	    push( @vnktre , $palora ) ;
 	    $vnkidx += 1 ; 
@@ -225,7 +225,7 @@ sub mk_vnkcontent {
 	    ##  if not hiding a (theoretical) non-reflexive form 
 	    
 	    ##  print initial letter if necessary
-	    my $initial_letter = substr( $vbsubs{rid_accents}($palora) , 0 , 1 ) ; 
+	    my $initial_letter = lc(substr($vbsubs{rid_accents}($palora),0,1)) ; 
 	    if ( $initial_letter ne $hold_letter ) {
 		$hold_letter = $initial_letter ; 
 		$othtml .= '<p style="margin-left: 10px"><b><i>' . uc($hold_letter) . '</i></b></p>' . "\n" ;
@@ -276,22 +276,24 @@ sub fetch_othash {
     my %othash ;
 
     ##  which are defined?
-    my $reflex  = $vnotes{$palora}{reflex}  ;
-
+    my $reflex  = $vnotes{$palora}{reflex} ;
     my $prepend = ( ! defined $vnotes{$reflex}{prepend} ) ? $vnotes{$palora}{prepend} : $vnotes{$reflex}{prepend} ;
     my $prep  = ( ! defined ${$prepend}{prep} ) ? ""      : ${$prepend}{prep} ;
     my $verb  = ( ! defined ${$prepend}{verb} ) ? $palora : ${$prepend}{verb} ;  
     
-
-    ##  first see if reflexive
-    if ( defined $reflex ) {
+    ##  if not reflexive, then conjugate non-reflexively; 
+    ##  otherwise reflexive
+    if ( ! defined $reflex ) {
+	%othash = $vbsubs{conjnonreflex}( $vnotes{$verb} , $vbcref , $vbsubs , $prep );
+    } else {
+	##  it's reflexive, so ...
+	##  if "$reflex" (the non-reflexive verb) is not a prepend, then reflexively conjugate "$reflex"  
+	##  otherwise it's a prepend, so reflexively conjugate "$verb" (the verb to be prepended)
 	if ( ! defined 	$vnotes{$reflex}{prepend} ) {
 	    %othash = $vbsubs{conjreflex}( $vnotes{$reflex} , $vbcref , $vbsubs , $prep );
 	} else {
 	    %othash = $vbsubs{conjreflex}( $vnotes{$verb} , $vbcref , $vbsubs , $prep );
 	}
-    } else {
-	%othash = $vbsubs{conjnonreflex}( $vnotes{$verb} , $vbcref , $vbsubs , $prep );
     }
 
     return %othash ;
@@ -376,22 +378,57 @@ sub mk_notex {
     
     my $othtml ;
     
-    ##  get the notes and examples
-    if ( ! defined $vnotes{$palora}{notex} ) {
-	my $blah = "no examples here."
+    if ( ! defined $vnotes{$palora}{poetry} ) {
+	my $blah = "nothing to do here." ;
     } else {
+	my $typeof = 'puisìa:';
+	my @poetry  = @{ $vnotes{$palora}{poetry} };
+	$othtml .= mk_notex_list( $typeof , \@poetry ) ; 
+    }
+    
+    if ( ! defined $vnotes{$palora}{proverb} ) {
+	my $blah = "nothing to do here." ;
+    } else {
+	my @proverbs  = @{ $vnotes{$palora}{proverb} };	
+	my $typeof = ($#proverbs > 0) ? 'pruverbi:' : 'pruverbiu:' ;
+	$othtml .= mk_notex_list( $typeof , \@proverbs ) ; 
+    }
 
+    if ( ! defined $vnotes{$palora}{usage} ) {
+	my $blah = "nothing to do here." ;
+    } else {
+	my $typeof = 'usu dâ palora:';
+	my @usage  = @{ $vnotes{$palora}{usage} };
+	$othtml .= mk_notex_list( $typeof , \@usage ) ; 
+    }
+
+    if ( ! defined $vnotes{$palora}{notex} ) {
+	my $blah = "nothing to do here." ;
+    } else {
+	my $typeof = 'pi esempiu:';
 	my @notex  = @{ $vnotes{$palora}{notex} };
+	$othtml .= mk_notex_list( $typeof , \@notex ) ; 
+    }
+    
+    return $othtml ;
+}
 
-	$othtml .= '<div class="transconj">' . "\n" ; 
-	$othtml .= '<p style="margin-bottom: 0.25em;"><i>pi esempiu:</i></p>' . "\n" ;
-	$othtml .= '<ul style="margin-top: 0.25em;">' . "\n" ;
-	foreach my $line (@notex) {
-	    $othtml .= "<li>" . $line . "</li>" . "\n" ;
-	}
-	$othtml .= "</ul>" . "\n" ;
-	$othtml .= "</div>" . "\n" ;
-    } 
+sub mk_notex_list {
+
+    my $typeof =     $_[0] ;
+    my @inarray = @{ $_[1] } ;
+
+    my $othtml ;
+
+    $othtml .= '<div class="transconj">' . "\n" ; 
+    $othtml .= '<p style="margin-bottom: 0.25em;"><i>' . $typeof . '</i></p>' . "\n" ;
+    $othtml .= '<ul style="margin-top: 0.25em;">' . "\n" ;
+    foreach my $line (@inarray) {
+	$othtml .= "<li>" . $line . "</li>" . "\n" ;
+    }
+    $othtml .= "</ul>" . "\n" ;
+    $othtml .= "</div>" . "\n" ;
+    
     return $othtml ;
 }
 
@@ -424,20 +461,40 @@ sub mk_nounhtml {
     ##  the sub is written in such a way that it should be able to handle "both"
     my $gender = $vnotes{$palora}{noun}{gender} ; 
     my $plend = $vnotes{$palora}{noun}{plend} ; 
-    my $plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
-	$vbsubs{mk_noun_plural}( $display , $gender , $plend  , \%nounpls ) : $vnotes{$palora}{noun}{plural} ;
 
-    ##  singular and plural forms
+    ##  leave "$plural" undefined if no plural
+    my $plural ;
+    if ( $plend eq "nopl" ) {
+	my $blah = "no plural.";
+    } elsif ( $plend eq "ispl" ) {
+	$plural = $display ; 
+    } else {
+	##  if an irregular plural is not defined, then make it
+	##  otherwise, return the irregular plural form
+	$plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
+	    $vbsubs{mk_noun_plural}( $display , $gender , $plend  , \%nounpls ) : 
+	    $vnotes{$palora}{noun}{plural} ;
+    }    
+
+    ##  singular forms
     if ( $gender eq "mas" || $gender eq "both" ) {
-	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeou]/i ) ? "l' " : "lu " ; 
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeouAEIOU]/ ) ? "l' " : "lu " ; 
 	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
     if ( $gender eq "fem" || $gender eq "both" ) {
-	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeou]/i ) ? "l' " : "la " ; 
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeouAEIOU]/ ) ? "l' " : "la " ; 
 	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
-    { my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeou]/i ) ? "l' " : "li " ; 
-      $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>pl.:</i> &nbsp; &nbsp; ' . $defart . $plural . "</p>" . "\n";
+
+    ##  plural form
+    if ( ! defined $plural ) {
+	my $blah = "no plural.";
+    } else {
+	my $abbrev = 'pl.' ; 
+	$abbrev = ( $gender eq "mpl" ) ? "mpl." : $abbrev ;
+	$abbrev = ( $gender eq "fpl" ) ? "fpl." : $abbrev ;
+	my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeouAEIOU]/ ) ? "l' " : "li " ; 
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>'. $abbrev .':</i> &nbsp; &nbsp; ' . $defart . $plural . "</p>" . "\n";
     }
     
     ##  close DIV that limits width
@@ -781,6 +838,7 @@ sub mk_foothtm {
     $ot .=     '<a href="/cgi-bin/sicilian.pl?search=' . "COLL_have"     . '">' . "to have"  . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_essiri"   . '">' . "essiri"   . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_fari"     . '">' . "fari"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_places"   . '">' . "lu munnu" . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_timerel"  . '">' . "lu tempu" . '</a></li>'  . "\n" ; 
     $ot .= '</ul>' . "\n" ;
     $ot .= '</div>' . "\n" ;

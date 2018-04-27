@@ -51,7 +51,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["altro",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -83,7 +85,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["avvenente","bello","di bell' aspetto",],
     notex => ["Chista è na bedda cosa!",],
     part_speech => "adj", 
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -91,9 +95,12 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["bonu"],
     dieli_en => ["fair","good","nice",],
     dieli_it => ["buono",],
-    ## notex => ["",],
+    notex => ["lu bon senzu","la bona cosa",],
     part_speech => "adj", 
-    );
+    adj => {
+	may_precede => 1,
+	massi_precede => "bon",
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -104,7 +111,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["brutto","deforme","sgradevole",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -139,6 +148,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "adj",
     adj => {
 	femsi => "giùvina",
+	may_precede => 1,
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -148,9 +158,12 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["granni",],
     dieli_en => ["adult","grand","great","heavy","large","older","very",],
     dieli_it => ["adulto","grande","grave",],
-    ## notex => ["","",],
+    notex => ["lu gran omu","na granni vittoria",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+	massi_precede => "gran",
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -172,7 +185,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["brutto",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -183,7 +198,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["male","cattivo","malvagio",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -195,7 +212,8 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     notex => ["La megghiu cosa è di lassari tuttu com'è.",],
     part_speech => "adj",
     adj => { 
-	invariant => 1 ,
+	invariant => 1,
+	may_precede => 1,
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -207,7 +225,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["giovane","piccolo","giovanotto",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -230,7 +250,8 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     notex => ["Ora si truva nni na peggiu situazzioni.",],
     part_speech => "adj",
     adj => { 
-	invariant => 1 ,
+	invariant => 1,
+	may_precede => 1,
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -242,7 +263,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["piccolo",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -253,7 +276,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["povero","sfortunato",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -286,7 +311,22 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["proprio","stesso",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"tintu_adj"} } = (
+    display_as => "tintu",
+    dieli => ["tintu",],
+    dieli_en => ["bad","corrupt","dyed","evil","inept","not good","wicked","needy",],
+    dieli_it => ["tinto","cattivo","misero",],
+    ## notex => ["","",],
+    part_speech => "adj",
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -297,7 +337,9 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_it => ["vecchio",],
     ## notex => ["","",],
     part_speech => "adj",
-    );
+    adj => {
+	may_precede => 1,
+    },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
 

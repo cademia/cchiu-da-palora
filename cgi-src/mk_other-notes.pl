@@ -89,7 +89,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["dintra"],
     dieli_en => ["inside","into","within",],
     dieli_it => ["dentro","dentro a","in",],
-    notex => ["Dintra nu biccheri d'acqua t'anniasti. (pruverbiu sicilianu)",],
+    proverb => ["Dintra nu biccheri d'acqua t'anniasti.",],
     part_speech => "prep", 
     );
 

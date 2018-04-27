@@ -1414,10 +1414,10 @@
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  ##  Stti Uniti -- proto hash -- MUST check for accuracy
-##  %{ $vnotes{"Stti Uniti_noun"} } = (
-##      display_as => "Stti Uniti",
-##      dieli => ["Stti Uniti",],
+##  ##  Stati Uniti -- proto hash -- MUST check for accuracy
+##  %{ $vnotes{"Stati Uniti_noun"} } = (
+##      display_as => "Stati Uniti",
+##      dieli => ["Stati Uniti",],
 ##      dieli_en => ["United States",],
 ##      dieli_it => ["stati uniti",],
 ##      ## notex => ["","",],

@@ -136,7 +136,10 @@ dieli_en  -- array  -- Dr. Dieli's translations into English
 dieli_it  -- array  -- Dr. Dieli's translations into Italian
 display_as  -- scalar  -- text to display when not using hash key 
 hide  -- scalar  -- indicator to not display the word in the main list
-notex  -- array  -- notes and examples
+poetry  -- array  -- examples from Sicilian poetry
+proverb  -- array  -- examples from Sicilian proverbs
+usage  -- array  -- usage notes for learners
+notex  -- array  -- examples for learners
 part_speech  -- scalar  -- part of speech
 noun  -- hash  -- information to decline the noun, see below
 adj  -- hash  -- information to decline the adjective, see below
@@ -205,9 +208,9 @@ plend  -- scalar  -- noun pattern
 plural  -- scalar  -- irregular plural form
 ```
 
-gender of the noun:  `mas`, `fem`, `both`
+gender of the noun:  `mas`, `fem`, `both`, `mpl`, `fpl`
 
-Most Sicilian nouns are either masculine or feminine, but some nouns (e.g. "atleta" and "dentista") are both masculine and feminine.  Use the noun patterns below to form the plural.
+Most Sicilian nouns are either masculine or feminine, but some nouns (e.g. "atleta" and "dentista") are both masculine and feminine.  Some nouns have no plural (e.g. "l'Italia"), others are only plural (e.g. "li Stati Uniti").  Use the noun patterns below.
 
 #### noun patterns
 
@@ -221,6 +224,8 @@ eddu  -- "-eddu" to "-edda"
 aru  -- "-aru" to "-ara"
 uni  -- "-uni" to "-una"
 uri  -- "-uri" to "-ura"
+nopl -- no plural form, only singular
+ispl -- is plural, no singular form
 ```
 
 For example:
@@ -238,16 +243,44 @@ For example:
     },);
 ```
 
+```perl
+%{ $vnotes{"genituri_noun"} } = (
+    display_as => "genituri",
+    dieli => ["genituri",],
+    dieli_en => ["parents",],
+    dieli_it => ["genitori",],
+    part_speech => "noun",
+    noun => {
+	gender => "mpl",
+	plend => "ispl",
+    },);
+```
+
 #### adjective hashes 
 
 ```
 invariant  -- scalar  -- indicator that the adjective is invariant
 femsi  -- scalar  -- feminine singular form
+may_precede  -- scalar  -- indicator that the adjective may precede the noun
+massi_precede  -- scalar  -- masculine singular form when preceding the noun
 ```
 
-Most Sicilian adjectives must agree in gender and number with the noun that they are modifying, but some are invariant (e.g. "megghiu"). Others only change in the feminine singular form (e.g. "giùvini").
+Most Sicilian adjectives must agree in gender and number with the noun that they are modifying, but some are invariant (e.g. "megghiu"). Others only change in the feminine singular form (e.g. "giùvini").  Most Sicilian adjectives follow the noun that they are modifying, but some may precede the noun.
 
 For example:
+
+```perl
+%{ $vnotes{"bonu"} } = (
+    dieli => ["bonu"],
+    dieli_en => ["fair","good","nice",],
+    dieli_it => ["buono",],
+    notex => ["lu bon senzu","la bona cosa",],
+    part_speech => "adj", 
+    adj => {
+	may_precede => 1,
+	massi_precede => "bon",
+    },);
+```
 
 ```perl
 %{ $vnotes{"megghiu_adj"} } = (
@@ -258,7 +291,8 @@ For example:
     notex => ["La megghiu cosa è di lassari tuttu com'è.",],
     part_speech => "adj",
     adj => {
-        invariant => 1 ,
+        invariant => 1,
+        may_precede => 1,
     },);
 ```
 
@@ -271,5 +305,6 @@ For example:
     part_speech => "adj",
     adj => {
         femsi => "giùvina",
+        may_precede => 1,
     },);
 ```

@@ -688,7 +688,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
 %{ $vnotes{"gattu_noun"} } = (
     display_as => "gattu",
-    dieli => ["gattu",],
+    dieli => ["gattu","iattu",],
     dieli_en => ["cat",],
     dieli_it => ["gatto",],
     ## notex => ["","",],
@@ -696,6 +696,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"genituri_noun"} } = (
+    display_as => "genituri",
+    dieli => ["genituri",],
+    dieli_en => ["parents",],
+    dieli_it => ["genitori",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mpl",
+	plend => "ispl",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -724,6 +738,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xa",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"Italia_noun"} } = (
+    display_as => "Italia",
+    dieli => ["Italia",],
+    dieli_en => ["Italy",],
+    dieli_it => ["italia",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "nopl",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1435,6 +1463,21 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"Sicilia_noun"} } = (
+    display_as => "Sicilia",
+    dieli => ["Sicilia",],
+    dieli_en => ["Sicily",],
+    dieli_it => [],
+    notex => ["Lu Regnu di Sicilia","Lu Regnu dî Dui Sicili","Lu Regnu d'Italia",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+	plural => "Sicili",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"socialista_noun"} } = (
     display_as => "socialista",
     dieli => ["socialista"],
@@ -1487,6 +1530,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xixa",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"Stati Uniti_noun"} } = (
+    display_as => "Stati Uniti",
+    dieli => ["Stati Uniti",],
+    dieli_en => ["United States",],
+    dieli_it => ["stati uniti",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mpl",
+	plend => "ispl",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##

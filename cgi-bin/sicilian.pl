@@ -421,10 +421,11 @@ sub mk_foothtm {
     $ot .= '<p style="margin-bottom: 0.25em;"><b><i>ricota di palori:</i></b></p>' . "\n" ; 
     $ot .= '<div class="col-m-6 col-6">' . "\n" ; 
     $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_aviri"    . '">' . "aviri"    . '</a> &amp; ' . "\n" ; 
-    $ot .=     '<a href="/cgi-bin/sicilian.pl?search=' . "COLL_have"     . '">' . "to have"  . '</a></li>'   . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_aviri"    . '">' . "aviri"    . '</a> &amp; ' . "\n"; 
+    $ot .=     '<a href="/cgi-bin/sicilian.pl?search=' . "COLL_have"     . '">' . "to have"  . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_essiri"   . '">' . "essiri"   . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_fari"     . '">' . "fari"     . '</a></li>'  . "\n" ; 
+    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_places"   . '">' . "lu munnu" . '</a></li>'  . "\n" ; 
     $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_timerel"  . '">' . "lu tempu" . '</a></li>'  . "\n" ; 
     $ot .= '</ul>' . "\n" ;
     $ot .= '</div>' . "\n" ;
@@ -721,6 +722,33 @@ sub mk_collections {
 	["stati","statia"],
 	## ["colonia di vacanze (ital)"],
 	);
+    
+    ## COLL_places
+    @{ $othash{"COLL_places"} } = ( 
+	["SCEN"],
+	["Sicilia",],
+	["Cartagiruni","Castedduvitranu","Partinicu","Patti","Siracusa",], ## "Siragusa",],
+	["munnu",],
+	["Arabbia Saudita","Australia","Austria","Belgiu","Bolivia","Brasili","Bulgaria",
+	 "Cecoslovacchia","Cile","Cina","Colombia","Cuba","Danimarca","Ecuaturi","Egittu",
+	 "Li Filipini","Francia","Galles","Girmania","Gran Britagna","Grecia","India",
+	 "Indonisia","Inghilterra","Iran","Iraq","Irlanda","Islanda","Israeli","Italia",
+	 "Iugoslavia","Marocco","Messicu","Nepal","Nicaragua","Nigeria","Norveggia",
+	 "Nova Zilanna","Olanda","Pakistan","Persia","Perù","Polonia","Portugallu",
+	 "Regnu Unitu","Rumanìa","Russia","Sardegna","Scandinavia","Scozzia","Siria","Spagna",
+	 "Stati Uniti","Sud Àfrica","Svezzia","Svizzira","Ungheria","Unioni suvietica","Uruguai",],
+	["Ceca","Cilenu","Cinisi","Danesi","Egizianu","Indianu","Indonisianu","Inglisi","Irachenu",
+	 "Iranianu","Irlandesi","Islandisi","Israelanu","Missicanu","Olandisi","Pakistanu",
+	 "Scandinavu","Scuzzisi","Tedescu","Ungheresi",],
+	["Atlanticu","Europa","Sud America",],
+    );
 
     return %othash ;
 }
+
+
+##  people
+##  ["Cristu","Franciscu","Salamuni","Sammartinu","Omèru","Pirinnellu","Umèru",],
+##   
+##  random
+##  ["Imprisa","Re Filippu",],
