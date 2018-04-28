@@ -33,3 +33,6 @@
 ##  make notes on other parts of speech
 ##  English and Italian dictionaries generated here, so must do this last
 ./mk_other-notes.pl
+
+##  make tools for web interface
+./mk_cchiu-tools.pl

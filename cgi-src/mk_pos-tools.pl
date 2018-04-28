@@ -366,104 +366,6 @@ my %coixxr = ( us => "rìa"   , ds => "rivi"  , ts => "rìa"   ,
 ##  CONJUGATION  SUBROUTINES
 ##  ===========  ===========
 
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  remove unicode accents from vowels
-sub rid_accents {
-    my $str = $_[0] ;
-    
-    ##  rid grave accents
-    $str =~ s/\303\240/a/g; 
-    $str =~ s/\303\250/e/g; 
-    $str =~ s/\303\254/i/g; 
-    $str =~ s/\303\262/o/g; 
-    $str =~ s/\303\271/u/g; 
-    $str =~ s/\303\200/A/g; 
-    $str =~ s/\303\210/E/g; 
-    $str =~ s/\303\214/I/g; 
-    $str =~ s/\303\222/O/g; 
-    $str =~ s/\303\231/U/g; 
-    
-    ##  rid acute accents
-    $str =~ s/\303\241/a/g; 
-    $str =~ s/\303\251/e/g; 
-    $str =~ s/\303\255/i/g; 
-    $str =~ s/\303\263/o/g; 
-    $str =~ s/\303\272/u/g; 
-    $str =~ s/\303\201/A/g; 
-    $str =~ s/\303\211/E/g; 
-    $str =~ s/\303\215/I/g; 
-    $str =~ s/\303\223/O/g; 
-    $str =~ s/\303\232/U/g; 
-    
-    ##  rid circumflex accents -- keep these
-    ## $str =~ s/\303\242/a/g; 
-    ## $str =~ s/\303\252/e/g; 
-    ## $str =~ s/\303\256/i/g; 
-    ## $str =~ s/\303\264/o/g; 
-    ## $str =~ s/\303\273/u/g; 
-    ## $str =~ s/\303\202/A/g; 
-    ## $str =~ s/\303\212/E/g; 
-    ## $str =~ s/\303\216/I/g; 
-    ## $str =~ s/\303\224/O/g; 
-    ## $str =~ s/\303\233/U/g; 
-
-    ##  rid diaeresis accents -- already gone
-    ## $str =~ s/\303\244/a/g;
-    ## $str =~ s/\303\253/e/g;
-    ## $str =~ s/\303\257/i/g;
-    ## $str =~ s/\303\266/o/g;
-    ## $str =~ s/\303\274/u/g;
-    ## $str =~ s/\303\204/A/g;
-    ## $str =~ s/\303\213/E/g;
-    ## $str =~ s/\303\217/I/g;
-    ## $str =~ s/\303\226/O/g;
-    ## $str =~ s/\303\234/U/g;
-
-    return $str ;
-}
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  only remove accent from the "boot" if on penultimate
-##  but ultimate is already removed from "boot"
-##  so in this sub want to remove the ultimate accent
-##  
-##  EXPERIMENTAL -- do not use this sub in production
-##  
-sub rid_penult_accent {
-    my $boot = $_[0] ;
-    
-    ##  strip consonants, then strip vowels before accent
-    ( my $vowels = $boot ) =~ s/[bcdfghjklmnpqrstvwxyz]//g ;
-    $vowels =~ s/^[aeiou]*// ;
-
-    ##  count remaining vowels
-    ##  if more than one vowel, keep accent, otherwise rid accent
-    if ( length( $vowels ) > 2 ) { 
-	my $blah = "keep accent" ;
-    } else {
-	##  rid grave accents
-	$boot =~ s/\303\240/a/g; 
-	$boot =~ s/\303\250/e/g; 
-	$boot =~ s/\303\254/i/g; 
-	$boot =~ s/\303\262/o/g; 
-	$boot =~ s/\303\271/u/g; 
-	$boot =~ s/\303\200/A/g; 
-	$boot =~ s/\303\210/E/g; 
-	$boot =~ s/\303\214/I/g; 
-	$boot =~ s/\303\222/O/g; 
-	$boot =~ s/\303\231/U/g; 
-    }    
-    ##  NOTE:  the length function counts an accent vowel as "2"
-    ##  and it counts an unaccented vowel as "1"
-    ##  so we want to test if length greater than two
-    
-    return $boot ; 
-}
-
-##  ##  ##  ##  ##  ##  ##  ##  ##
-
 sub mk_forms {
 
     my %forms = (
@@ -484,7 +386,43 @@ sub mk_forms {
     return %forms ; 
 }
 
-##  ##  ##  ##  ##  ##  ##  ##  ##
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+sub conjugate {
+
+    my $palora =    $_[0]   ;
+    my %vnotes = %{ $_[1] } ;
+    my $vbcref =    $_[2]   ;  ##  hash reference
+    my %vbsubs = %{ $_[3] } ;  
+
+    ##  which word do we display?
+    my %othash ;
+
+    ##  which are defined?
+    my $reflex  = $vnotes{$palora}{reflex} ;
+    my $prepend = ( ! defined $vnotes{$reflex}{prepend} ) ? $vnotes{$palora}{prepend} : $vnotes{$reflex}{prepend} ;
+    my $prep  = ( ! defined ${$prepend}{prep} ) ? ""      : ${$prepend}{prep} ;
+    my $verb  = ( ! defined ${$prepend}{verb} ) ? $palora : ${$prepend}{verb} ;  
+    
+    ##  if not reflexive, then conjugate non-reflexively; 
+    ##  otherwise reflexive
+    if ( ! defined $reflex ) {
+	%othash = $vbsubs{conjnonreflex}( $vnotes{$verb} , $vbcref , \%vbsubs , $prep );
+    } else {
+	##  it's reflexive, so ...
+	##  if "$reflex" (the non-reflexive verb) is not a prepend, then reflexively conjugate "$reflex"  
+	##  otherwise it's a prepend, so reflexively conjugate "$verb" (the verb to be prepended)
+	if ( ! defined 	$vnotes{$reflex}{prepend} ) {
+	    %othash = $vbsubs{conjreflex}( $vnotes{$reflex} , $vbcref , \%vbsubs , $prep );
+	} else {
+	    %othash = $vbsubs{conjreflex}( $vnotes{$verb} , $vbcref , \%vbsubs , $prep );
+	}
+    }
+
+    return %othash ;
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 ##  conjugate reflexive verb
 sub conjreflex {
@@ -540,6 +478,8 @@ sub conjreflex {
 
     return %conjug ;
 }
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 ##  conjugate nonreflexive verb
 sub conjnonreflex {
@@ -682,6 +622,102 @@ sub conjnonreflex {
     return %conjug ; 
 }
 
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  remove unicode accents from vowels
+sub rid_accents {
+    my $str = $_[0] ;
+    
+    ##  rid grave accents
+    $str =~ s/\303\240/a/g; 
+    $str =~ s/\303\250/e/g; 
+    $str =~ s/\303\254/i/g; 
+    $str =~ s/\303\262/o/g; 
+    $str =~ s/\303\271/u/g; 
+    $str =~ s/\303\200/A/g; 
+    $str =~ s/\303\210/E/g; 
+    $str =~ s/\303\214/I/g; 
+    $str =~ s/\303\222/O/g; 
+    $str =~ s/\303\231/U/g; 
+    
+    ##  rid acute accents
+    $str =~ s/\303\241/a/g; 
+    $str =~ s/\303\251/e/g; 
+    $str =~ s/\303\255/i/g; 
+    $str =~ s/\303\263/o/g; 
+    $str =~ s/\303\272/u/g; 
+    $str =~ s/\303\201/A/g; 
+    $str =~ s/\303\211/E/g; 
+    $str =~ s/\303\215/I/g; 
+    $str =~ s/\303\223/O/g; 
+    $str =~ s/\303\232/U/g; 
+    
+    ##  rid circumflex accents -- keep these
+    ## $str =~ s/\303\242/a/g; 
+    ## $str =~ s/\303\252/e/g; 
+    ## $str =~ s/\303\256/i/g; 
+    ## $str =~ s/\303\264/o/g; 
+    ## $str =~ s/\303\273/u/g; 
+    ## $str =~ s/\303\202/A/g; 
+    ## $str =~ s/\303\212/E/g; 
+    ## $str =~ s/\303\216/I/g; 
+    ## $str =~ s/\303\224/O/g; 
+    ## $str =~ s/\303\233/U/g; 
+
+    ##  rid diaeresis accents -- already gone
+    ## $str =~ s/\303\244/a/g;
+    ## $str =~ s/\303\253/e/g;
+    ## $str =~ s/\303\257/i/g;
+    ## $str =~ s/\303\266/o/g;
+    ## $str =~ s/\303\274/u/g;
+    ## $str =~ s/\303\204/A/g;
+    ## $str =~ s/\303\213/E/g;
+    ## $str =~ s/\303\217/I/g;
+    ## $str =~ s/\303\226/O/g;
+    ## $str =~ s/\303\234/U/g;
+
+    return $str ;
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  only remove accent from the "boot" if on penultimate
+##  but ultimate is already removed from "boot"
+##  so in this sub want to remove the ultimate accent
+##  
+##  EXPERIMENTAL -- do not use this sub in production
+##  
+sub rid_penult_accent {
+    my $boot = $_[0] ;
+    
+    ##  strip consonants, then strip vowels before accent
+    ( my $vowels = $boot ) =~ s/[bcdfghjklmnpqrstvwxyz]//g ;
+    $vowels =~ s/^[aeiou]*// ;
+
+    ##  count remaining vowels
+    ##  if more than one vowel, keep accent, otherwise rid accent
+    if ( length( $vowels ) > 2 ) { 
+	my $blah = "keep accent" ;
+    } else {
+	##  rid grave accents
+	$boot =~ s/\303\240/a/g; 
+	$boot =~ s/\303\250/e/g; 
+	$boot =~ s/\303\254/i/g; 
+	$boot =~ s/\303\262/o/g; 
+	$boot =~ s/\303\271/u/g; 
+	$boot =~ s/\303\200/A/g; 
+	$boot =~ s/\303\210/E/g; 
+	$boot =~ s/\303\214/I/g; 
+	$boot =~ s/\303\222/O/g; 
+	$boot =~ s/\303\231/U/g; 
+    }    
+    ##  NOTE:  the length function counts an accent vowel as "2"
+    ##  and it counts an unaccented vowel as "1"
+    ##  so we want to test if length greater than two
+    
+    return $boot ; 
+}
+
     
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -691,11 +727,13 @@ sub conjnonreflex {
 my %vbsubs ; 
 
 ##  conjugation subroutines
+$vbsubs{mk_forms}           = \&mk_forms ;
+$vbsubs{conjugate}          = \&conjugate ;
+$vbsubs{conjreflex}         = \&conjreflex ;
+$vbsubs{conjnonreflex}      = \&conjnonreflex ;
 $vbsubs{rid_accents}        = \&rid_accents ;
 ## $vbsubs{rid_penult_accent}  = \&rid_penult_accent ;
-$vbsubs{mk_forms}           = \&mk_forms ;
-$vbsubs{conjnonreflex}      = \&conjnonreflex ;
-$vbsubs{conjreflex}         = \&conjreflex ;
+
 
 ##  noun and adjective subroutines
 $vbsubs{mk_adjectives}  = \&mk_adjectives ;
