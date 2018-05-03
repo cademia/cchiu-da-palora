@@ -977,6 +977,11 @@ sub mk_foothtml {
     $ot .= '<li><a href="/archive/sicilian/index.shtml">specificazioni dû dizziunariu</a></li>' . "\n" ; 
     $ot .= '<li><a href="/archive/sicilian/sicilian-verbs.shtml">boot and stem theory</a></li>' . "\n" ; 
     $ot .= '</ul>' . "\n" ;
+    $ot .= '<p style="margin-bottom: 0.25em;"><b><i>cchiù prujetti siciliani:</i></b></p>' . "\n" ; 
+    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
+    $ot .= '<li><a href="http://www.arbasicula.org/" target="_blank">Arba Sicula</a></li>' . "\n" ; 
+    $ot .= '<li><a href="http://www.cademiasiciliana.org/" target="_blank">Cadèmia Siciliana</a></li>' . "\n" ; 
+    $ot .= '</ul>' . "\n" ;
     $ot .= '</div>' . "\n" ;
     $ot .= '<div class="minicol"></div>' . "\n" ; 
     
