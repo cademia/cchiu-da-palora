@@ -399,7 +399,7 @@ sub conjugate {
     my %othash ;
 
     ##  which are defined?
-    my $reflex  = $vnotes{$palora}{reflex} ;
+    my $reflex  = ( ! defined $vnotes{$palora}{reflex} ) ? undef : $vnotes{$palora}{reflex} ; 
     my $prepend = ( ! defined $vnotes{$reflex}{prepend} ) ? $vnotes{$palora}{prepend} : $vnotes{$reflex}{prepend} ;
     my $prep  = ( ! defined ${$prepend}{prep} ) ? ""      : ${$prepend}{prep} ;
     my $verb  = ( ! defined ${$prepend}{verb} ) ? $palora : ${$prepend}{verb} ;  

@@ -100,10 +100,25 @@ sub make_alfa_index {
     my $nupages    =    $_[3]   ; ## NUmber of pages -- divisible by four
 
     ##  get sorted list of keys
-    my @amkeys = sort { $vbsubs{rid_accents}($a) cmp $vbsubs{rid_accents}($b) } keys %amlist ;
+    my $rid_all_accents = sub {	
+	my $rid = $vbsubs{rid_accents}( $_[0] ) ; 
+	$rid =~ s/\303\242/a/g; 
+	$rid =~ s/\303\252/e/g; 
+	$rid =~ s/\303\256/i/g; 
+	$rid =~ s/\303\264/o/g; 
+	$rid =~ s/\303\273/u/g; 
+	$rid =~ s/\303\202/A/g; 
+	$rid =~ s/\303\212/E/g; 
+	$rid =~ s/\303\216/I/g; 
+	$rid =~ s/\303\224/O/g; 
+	$rid =~ s/\303\233/U/g; 
+	return $rid ;
+    };
+    
+    my @amkeys = sort { lc(&{$rid_all_accents}($a)) cmp lc(&{$rid_all_accents}($b)) } keys %amlist ;
 
     ##  calculate keys per page
-    my $keysperpage = int( $#amkeys / $nupages ) ; 
+    my $keysperpage = int( $#amkeys / $nupages ) + 1 ; 
 
     ##  output to a hash with array of keys and with scalar of html
     my %othash ;
@@ -116,7 +131,7 @@ sub make_alfa_index {
 	if ( $end > $#amkeys ) { 
 	    $end = $#amkeys ; 
 	}
-
+	
 	##  get the first and last hash keys on this page
 	my $first = lc( $vbsubs{rid_accents}($amkeys[$bgn]) );
 	my $last = lc( $vbsubs{rid_accents}($amkeys[$end]) );
@@ -232,10 +247,25 @@ sub make_alfa_coll {
     ##  make the lists
     my %lists = $amsubs{make_alfa_index}( $amlsrf , \%amsubs , \%vbsubs , $nupages ) ;
     
+    ##  get sorted list of keys
+    my $rid_all_accents = sub {	
+	my $rid = $vbsubs{rid_accents}( $_[0] ) ; 
+	$rid =~ s/\303\242/a/g; 
+	$rid =~ s/\303\252/e/g; 
+	$rid =~ s/\303\256/i/g; 
+	$rid =~ s/\303\264/o/g; 
+	$rid =~ s/\303\273/u/g; 
+	$rid =~ s/\303\202/A/g; 
+	$rid =~ s/\303\212/E/g; 
+	$rid =~ s/\303\216/I/g; 
+	$rid =~ s/\303\224/O/g; 
+	$rid =~ s/\303\233/U/g; 
+	return $rid ;
+    };
 
     ##  let's split the print over four columns
     ##  keep words together by first two letters
-    my @amkeys = sort( {lc($vbsubs{rid_accents}($a)) cmp lc($vbsubs{rid_accents}($b))} @{$lists{$coll}{listkeys}});
+    my @amkeys = sort( {lc(&{$rid_all_accents}($a)) cmp lc(&{$rid_all_accents}($b))} @{$lists{$coll}{listkeys}});
     my $amkqtr = int( $#amkeys / 4 ) ; 
     
     ##  first column
@@ -257,13 +287,53 @@ sub make_alfa_coll {
     $amstart = $amkidx+1 ; 
     my @amkqtt = @amkeys[$amstart..$#amkeys] ; 
       
+    ##  create navigation tools
+    ( my $prev_page  =  $coll ) =~ s/alfa_p//  ;                     ##  subtract nothing
+    ( my $next_page  =  $coll ) =~ s/alfa_p//  ;  $next_page +=  1 ; ##  add one 
+    $prev_page = ( $prev_page eq "00" ) ? undef : 'alfa_p' . sprintf( "%02d" , $prev_page - 1 ); ##  subtract one
+    $next_page = ( $next_page eq $nupages ) ? undef : 'alfa_p' . sprintf( "%02d" , $next_page ); ##  add nothing
+
+    ##  create navigation
+    my $navigation ;
+    $navigation .= '  <!-- begin row div -->' . "\n";
+    $navigation .= '  <div class="row">' . "\n";
+    $navigation .= "\n";
+    $navigation .= '    <div class="col-4 col-m-4 vanish">' . "\n";
+    if ( ! defined $prev_page ) { my $blah = "do nothing"; } else { 
+	my $prev_title = $lists{$prev_page}{title} ;
+	$navigation .= '<p class="zero" style="text-align: left;">&lt;&lt;&nbsp;' ;
+	$navigation .= '<a href="/cgi-bin/aiutami.pl?coll=' . $prev_page . '">' . $prev_title . '</a>'; 
+	$navigation .= '</p>' . "\n";
+    }
+    $navigation .= '    </div>' . "\n";
+    $navigation .= "\n";
+    $navigation .= '    <div class="col-4 col-m-4 vanish">' . "\n";
+    $navigation .= '      <p class="zero" style="text-align: center;">' . "\n";
+    $navigation .= '	    <a href="/cgi-bin/aiutami.pl">ìnnici</a>' . "\n";
+    $navigation .= '      </p>' . "\n";
+    $navigation .= '    </div>' . "\n";
+    $navigation .= "\n";
+    $navigation .= '    <div class="col-4 col-m-4 vanish">' . "\n";
+    if ( ! defined $next_page ) { my $blah = "do nothing"; } else { 
+	my $next_title = $lists{$next_page}{title} ;
+	$navigation .= '<p class="zero" style="text-align: right;">' . "\n";
+	$navigation .= '<a href="/cgi-bin/aiutami.pl?coll=' . $next_page . '">' . $next_title . '</a>';
+	$navigation .= '&nbsp;&gt;&gt;</p>' . "\n";
+    }
+    $navigation .= '    </div>' . "\n";
+    $navigation .= '    ' . "\n";
+    $navigation .= '  </div>' . "\n";
+    $navigation .= '  <!-- end row div -->' . "\n";
+
     
-    ##  open the div
+    ##  create the HTML output
     my $othtml ;
+    ##  start with navigation
+    $othtml .= $navigation ; 
+    ##  open the div
     $othtml .= '<div class="listall">' . "\n" ; 
     $othtml .= '<div class="row">' . "\n" ; 
-
-    ##  now print
+    ##  open columns
     $othtml .= '<div class="rolltb">' . "\n" ; 
     $othtml .= '<div class="rolldk">' . "\n" ; 
     $othtml .= $amsubs{mk_amkcontent}( \@amkone , $amlsrf , \%amsubs , $lastauto );
@@ -272,7 +342,6 @@ sub make_alfa_coll {
     $othtml .= $amsubs{mk_amkcontent}( \@amktwo , $amlsrf , \%amsubs , $lastauto );
     $othtml .= '</div>' . "\n" ;
     $othtml .= '</div>' . "\n" ;
-
     $othtml .= '<div class="rolltb">' . "\n" ; 
     $othtml .= '<div class="rolldk">' . "\n" ; 
     $othtml .= $amsubs{mk_amkcontent}( \@amktre , $amlsrf , \%amsubs , $lastauto );
@@ -281,10 +350,12 @@ sub make_alfa_coll {
     $othtml .= $amsubs{mk_amkcontent}( \@amkqtt , $amlsrf , \%amsubs , $lastauto );
     $othtml .= '</div>' . "\n" ;
     $othtml .= '</div>' . "\n" ;
-
+    ##  close columns
+    $othtml .= '</div>' . "\n" ; 
+    $othtml .= '</div>' . "\n" ; 
     ##  close the div
-    $othtml .= '</div>' . "\n" ; 
-    $othtml .= '</div>' . "\n" ; 
+    $othtml .= $navigation ; 
+    ##  end with navigation
 
     return $othtml ; 
 }
@@ -635,33 +706,13 @@ sub mk_amtophtml {
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-sub ask_help {
-    my $ot ;
-    ##  outer DIV to limit width
-    $ot .= '<div class="row btop">' . "\n" ; 
-    $ot .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
-    $ot .= '<span class="lightcolor">Mi dici cchiù di sta palora?</i></p>' . "\n" ; 
-    ##  NB:  the DIV is NOT closed !! 
-    ##  I am assuming that we will close it in "offer_translation"
-    return $ot ;
-}
-sub thank_you {
-    my $ot ;
-    ##  outer DIV to limit width
-    $ot .= '<div class="row btop">' . "\n" ; 
-    $ot .= '<p style="margin-top: 0.2em; margin-bottom: 0.25em; text-align: center;">' ;
-    $ot .= '<b><i><span class="lightcolor">Grazzii a pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
-    $ot .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
-    $ot .= '<span class="lightcolor">Mi dici cchiù di sta palora puru?</span></i></p>' . "\n" ; 
-    ##  NB:  the DIV is NOT closed !! 
-    ##  I am assuming that we will close it in "offer_translation"
-    return $ot ;
-}
 sub offer_translation {
 
-    my $inword =    $_[0]   ;
-    my %amlist = %{ $_[1] } ;
-    my %amsubs = %{ $_[2] } ;
+    my $inword  =    $_[0]   ;
+    my %amlist  = %{ $_[1] } ;
+    my %amsubs  = %{ $_[2] } ;
+    my $askORthank = $_[3]   ;  
+    $askORthank = ( ! defined $askORthank || $askORthank ne "thankyou" ) ? "askhelp" : "thankyou" ; 
 
     ##  form of the word to display
     my $display = $amlist{ $inword }{palora};
@@ -682,8 +733,18 @@ sub offer_translation {
     ##  prepare output
     my $othtml ;
 
-    ##  NB:  there should be NO outer DIV to limit width !! 
-    ##  I'm assuming that we're ALREADY getting it from either "ask_help" or "thank_you"
+    ##  outer DIV to limit width
+    $othtml .= '<div class="row btop">' . "\n" ; 
+    if ( $askORthank eq "askhelp" ) {
+	$othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
+	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora?</i></p>' . "\n" ; 
+    } else {
+	$othtml .= '<p style="margin-top: 0.2em; margin-bottom: 0.25em; text-align: center;">' ;
+	$othtml .= '<b><i><span class="lightcolor">Grazzii a pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
+	$othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
+	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora puru?</span></i></p>' . "\n" ; 
+    }
+    ##  inner DIV
     $othtml .= '<div class="transleft">' . "\n" ;
     $othtml .= '<p class="half formtext"><b><span style="font-size: 1.1em">' . $display . '</span></b>' ;    
     $othtml .= '&nbsp;&nbsp;{' . $part_speech . '}</p>' . "\n" ;
@@ -691,10 +752,9 @@ sub offer_translation {
     $othtml .= '<p class="zero formtext"><b>EN:</b> &nbsp; ' . $dieli_en  . '</p>' . "\n";
     $othtml .= '<p class="zero formtext"><b>IT:</b> &nbsp; ' . $dieli_it  . '</p>' . "\n";
     $othtml .= '</div>' . "\n" ;
-
-    ##  closing DIV to limit width
-    ##  it should have been started in either "ask_help" or "thank_you"
+    ##  closing inner DIV
     $othtml .= '</div>' . "\n" ;
+    ##  closing DIV to limit width
 
     return $othtml ; 
 }
@@ -744,8 +804,8 @@ sub make_lightdiff {
 	$ldiff1 =~ s/^($prefix1)/$1<span class="lightcolor">/;
 	$ldiff2 =~ s/^($prefix2)/$1<span class="lightcolor">/;
 	
-	$ldiff1 =~ s/($suffix1)$/<\/span>$1/;
-	$ldiff2 =~ s/($suffix2)$/<\/span>$1/;
+	$ldiff1 =~ s/($suffix1)?$/<\/span>$1/;
+	$ldiff2 =~ s/($suffix2)?$/<\/span>$1/;
     }
 	
     ##  return the pair
@@ -1094,6 +1154,175 @@ sub test_verb {
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+sub test_noun { 
+
+    my $palora       =    $_[0] ;
+    my %amlist       = %{ $_[1] } ;
+    my $nounpls_ref  =    $_[2] ; 
+    my %vbsubs       = %{ $_[3] } ;
+    ##my %amsubs       = %{ $_[x] } ;
+
+    ##  collect the hash keys
+    my $hashkey      = $amlist{$palora}{hashkey};
+    my $noteson      = $amlist{$palora}{notes_on};
+    my $display      = $amlist{$palora}{palora};
+    my $part_speech  = $amlist{$palora}{part_speech};
+    my $gender       = $amlist{$palora}{noun}{gender};  
+    my $plend_alfa   = $amlist{$palora}{noun}{plend};  
+    my $dieli_en     = $amlist{$palora}{dieli_en};
+    my $dieli_it     = $amlist{$palora}{dieli_it};
+
+    ##  things to look for:
+    ##    *  hash keys should be equivalent:  ($palora eq $hashkey)
+    ##    *  should not have entered this subroutine if:  ($noteson eq "1")
+    
+    ##  get the plural definite article
+    my $pldefart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/ ) ? "l'" : "li" ; 
+
+    ##  get the plural
+    my $plural_alfa = $vbsubs{mk_noun_plural}( $display , $gender , $plend_alfa , $nounpls_ref );
+    $plural_alfa = $pldefart . " " . $plural_alfa ; 
+
+    ##  make options for the plural form
+    my $plural_beta ;  
+    my $plural_gmma ;
+    my $plend_beta = "xixa" ; 
+    my $plend_gmma = "xura" ; 
+    if ( $gender eq "mas" && $plend_alfa eq "xi" &&  $display =~ /u$/ ) {
+	$plural_beta = $vbsubs{mk_noun_plural}( $display , $gender , $plend_beta , $nounpls_ref );
+	$plural_gmma = $vbsubs{mk_noun_plural}( $display , $gender , $plend_gmma , $nounpls_ref );
+
+	$plural_beta = $pldefart . " " . $plural_beta ; 
+	$plural_gmma = $pldefart . " " . $plural_gmma ; 
+    }  
+
+    ##  make output html
+    my $othtml ;
+    $othtml .= '<div class="row btop">' . "\n" ; 
+    $othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.5em; text-align: center;">' ;
+    $othtml .= '<i><span class="lightcolor">' . "\n" ; 
+    $othtml .= 'Comu si dici lu <b>plurali</b>?</span></i></p>' . "\n" ; 
+    $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
+
+    ##  radio options 
+    $othtml .= '<label class="container">"' . $plural_alfa . '"' . "\n";
+    my $plend_val_alfa = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_alfa ; 
+    $othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_alfa . '">' . "\n";
+    $othtml .= '  <span class="checkmark"></span>' . "\n";
+    $othtml .= '</label>' . "\n";
+    
+    if ( ! defined $plural_beta && ! defined $plural_gmma ) {
+	##  irregular 
+	$othtml .= '<label class="container">Nun accussì. &nbsp; Nun è rigulari.' . "\n";
+	$othtml .= '  <input type="radio" name="noun_PLEND" value="PLEND_NunRigulari">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+    } else {
+	##  radio options 
+	$othtml .= '<label class="container">"' . $plural_alfa . '"&nbsp;&nbsp;o&nbsp;&nbsp;"' . $plural_beta . '"' . "\n";
+	my $plend_val_beta = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_beta ; 
+	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_beta . '">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+	##  radio options 
+	$othtml .= '<label class="container">"' . $plural_alfa . '"&nbsp;&nbsp;o&nbsp;&nbsp;"' . $plural_gmma . '"' . "\n";
+	my $plend_val_gmma = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_gmma ; 
+	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_gmma . '">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+	##  irregular 
+	$othtml .= '<label class="container">Nudda di chisti.' . "\n";
+	$othtml .= '  <input type="radio" name="noun_PLEND" value="PLEND_Nudda">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+    }
+    ##  nun sacciu 
+    $othtml .= '<label class="container">Nun sacciu.' . "\n";
+    $othtml .= '  <input type="radio" name="noun_PLEND" value="PLEND_NunSacciu">' . "\n";
+    $othtml .= '  <span class="checkmark"></span>' . "\n";
+    $othtml .= '</label>' . "\n";
+    ##  close radio
+    $othtml .= '</div>' . "\n" ; 
+    $othtml .= '</div>' . "\n" ; 
+    ##  done with present tense
+    
+    return $othtml ; 
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+sub test_adj {
+
+    my $palora       =    $_[0] ;
+    my %amlist       = %{ $_[1] } ;
+    my %vbsubs       = %{ $_[2] } ;
+    my %amsubs       = %{ $_[3] } ;
+
+    ##  collect the hash keys
+    my $hashkey      = $amlist{$palora}{hashkey};
+    my $noteson      = $amlist{$palora}{notes_on};
+    my $display      = $amlist{$palora}{palora};
+    my $part_speech  = $amlist{$palora}{part_speech};
+    my $massi        = $amlist{$palora}{adj}{massi};  
+    my $dieli_en     = $amlist{$palora}{dieli_en};
+    my $dieli_it     = $amlist{$palora}{dieli_it};
+
+    ##  things to look for:
+    ##    *  hash keys should be equivalent:  ($palora eq $hashkey)
+    ##    *  should not have entered this subroutine if:  ($noteson eq "1")
+    
+    ##  get the forms
+    my ( $massi_alfa , $femsi_alfa , $maspl , $fempl ) = $vbsubs{mk_adjectives}( $display );
+    
+    ##  make alternative if "femsi" ends in "-i"
+    ( my $femsi_beta = $femsi_alfa ) =~ s/i$/a/ ;
+    my $femsi_alfa_disp = $femsi_alfa ; 
+    my $femsi_beta_disp = $femsi_beta ; 
+    if ( $femsi_alfa ne $femsi_beta ) {
+	( $femsi_alfa_disp , $femsi_beta_disp ) = $amsubs{make_lightdiff}( $femsi_alfa , $femsi_beta ); 
+    }
+
+    ##  make output html
+    my $othtml ;
+    $othtml .= '<div class="row btop">' . "\n" ; 
+    $othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.5em; text-align: center;">' ;
+    $othtml .= '<i><span class="lightcolor">' . "\n" ; 
+    $othtml .= 'Comu si dici la forma <b>fimminili</b> di l' . "'" . ' aggitivu?</span></i></p>' . "\n" ; 
+    $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
+    ##  radio options 
+    $othtml .= '<label class="container">"' . $femsi_alfa_disp . '"' . "\n";
+    my $val_femsi_alfa = 'FEMSI' . '_' . $femsi_alfa ; 
+    $othtml .= '  <input type="radio" name="adj_FEMSI" value="' . $val_femsi_alfa . '">' . "\n";
+    $othtml .= '  <span class="checkmark"></span>' . "\n";
+    $othtml .= '</label>' . "\n";
+    if ( $femsi_alfa ne $femsi_beta ) {
+	##  radio options 
+	$othtml .= '<label class="container">"' . $femsi_beta_disp . '"' . "\n";
+	my $val_femsi_beta = 'FEMSI' . '_' . $femsi_beta ; 
+	$othtml .= '  <input type="radio" name="adj_FEMSI" value="' . $val_femsi_beta . '">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+    }
+    ##  irregular 
+    $othtml .= '<label class="container">Nun accussì. &nbsp; Nun è rigulari.' . "\n";
+    $othtml .= '  <input type="radio" name="adj_FEMSI" value="FEMSI_NunRigulari">' . "\n";
+    $othtml .= '  <span class="checkmark"></span>' . "\n";
+    $othtml .= '</label>' . "\n";
+    ##  nun sacciu 
+    $othtml .= '<label class="container">Nun sacciu.' . "\n";
+    $othtml .= '  <input type="radio" name="adj_FEMSI" value="FEMSI_NunSacciu">' . "\n";
+    $othtml .= '  <span class="checkmark"></span>' . "\n";
+    $othtml .= '</label>' . "\n";
+    ##  close radio
+    $othtml .= '</div>' . "\n" ; 
+    $othtml .= '</div>' . "\n" ; 
+    ##  done with present tense
+    
+    return $othtml ; 
+}
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1122,8 +1351,6 @@ $amsubs{decode_carta}      = \&decode_carta;
 
 $amsubs{mk_amtophtml}      = \&mk_amtophtml;
 
-$amsubs{ask_help}          = \&ask_help;
-$amsubs{thank_you}         = \&thank_you;
 $amsubs{offer_translation} = \&offer_translation;
 
 $amsubs{fix_accents}       = \&fix_accents;
@@ -1135,7 +1362,8 @@ $amsubs{make_form_top}     = \&make_form_top;
 $amsubs{make_form_bottom}  = \&make_form_bottom;
 
 $amsubs{test_verb}         = \&test_verb;
-
+$amsubs{test_noun}         = \&test_noun;
+$amsubs{test_adj}          = \&test_adj;
 
 ##  store it all
 nstore( { amsubs  => \%amsubs } , $otfile );  

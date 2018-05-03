@@ -86,10 +86,12 @@ sub mk_wants {
     foreach my $key (sort keys %vnotes) {
 
 	##  hash key (less marker)
-	my $palora = $key ;  $palora =~ s/_verb$// ;  $palora =~ s/_noun$// ;  $palora =~ s/_adj$// ;
-
+	my $palora = $key ;  
+	$palora =~ s/_verb$|_noun$|_adj$|_adv$|_prep$|_pron$|_conj$//; 
+	
 	##  first choice is "display_as",  second choice is hash key (less marker)
 	my $display = ( ! defined $vnotes{$key}{display_as} ) ? $palora : $vnotes{$key}{display_as} ; 
+	$display =~ s/_SQUOTE_/'/ ; 
 	
 	##  part of speech
 	my $pos = $vnotes{$key}{part_speech} ; 
@@ -100,17 +102,21 @@ sub mk_wants {
 	##  we do not need the arrays for this project
 	my $trans_dieli_en  =  join( ', ' , @dieli_en );
 	my $trans_dieli_it  =  join( ', ' , @dieli_it );
+	$trans_dieli_en  =~ s/_SQUOTE_/'/ ; 
+	$trans_dieli_it  =~ s/_SQUOTE_/'/ ; 
 
-	##  pass it to %othash, but limit parts of speech 
+	##  pass it to %othash, 
+	$othash{ $key }{palora} = $display ; 
+	$othash{ $key }{part_speech} = $pos ; 
+	$othash{ $key }{hashkey} = $key ; 
+	$othash{ $key }{notes_on} = 1 ;
+	$othash{ $key }{dieli_en} = $trans_dieli_en ;
+	$othash{ $key }{dieli_it} = $trans_dieli_it ;
+
+	##  could also limit parts of speech
 	##  single words only -- no phrases, no capital letters
-	if ( $display =~ /^[a-z]+$/ && $pos !~ /^adv$|^prep$|^pron$|^conj$/ ) {
-	    $othash{ $key }{palora} = $display ; 
-	    $othash{ $key }{part_speech} = $pos ; 
-	    $othash{ $key }{hashkey} = $key ; 
-	    $othash{ $key }{notes_on} = 1 ;
-	    $othash{ $key }{dieli_en} = $trans_dieli_en ;
-	    $othash{ $key }{dieli_it} = $trans_dieli_it ;
-	}
+	##  ##  if ( $display =~ /^[a-z]+$/ && $pos !~ /^adv$|^prep$|^pron$|^conj$/ ) {}
+
     } 
 
     ##  now collect the rest of the Dieli dictionary
@@ -133,7 +139,9 @@ sub mk_wants {
 	##  we do not need the arrays for this project
 	my $trans_dieli_en  =  join( ', ' , @dieli_en );
 	my $trans_dieli_it  =  join( ', ' , @dieli_it );
-
+	$trans_dieli_en  =~ s/_SQUOTE_/'/ ; 
+	$trans_dieli_it  =~ s/_SQUOTE_/'/ ; 
+	
 
 	##  now loop through it all again
 	foreach my $i (0..$#{$dieli_sc{$key}}){
@@ -143,33 +151,50 @@ sub mk_wants {
 	    my $linkto  = ${$dieli_sc{$key}[$i]}{"linkto"} ; 
 	    
 	    
-	    ##  for now, single words only -- no phrases, no capital letters
-	    if ( $vbsubs{rid_accents}($sc_word) =~ /^[a-z]+$/ ) {
+	    ##  ##  for now, single words only -- no phrases, no capital letters
+	    ##  if ( $vbsubs{rid_accents}($sc_word) =~ /^[a-z]+$/ ) {}
 		
-		my $is_verb = ( $sc_part eq '{v}' && $sc_word =~ /ari$|iri$|arisi$|irisi$/ ) ? "true" : "false" ;
-		my $is_noun = ( $sc_part eq '{m}'   || $sc_part eq '{f}'   || $sc_part eq '{m/f}' || 
-				$sc_part eq '{mpl}' || $sc_part eq '{fpl}') ? "true" : "false" ;
-		my $is_adj  = ( $sc_part eq '{adj}' ) ? "true" : "false" ;
+	    my $is_verb = ( $sc_part eq '{v}' && $sc_word =~ /ari$|iri$|arisi$|irisi$/ ) ? "true" : "false" ;
+	    my $is_noun = ( $sc_part eq '{m}'   || $sc_part eq '{f}'   || $sc_part eq '{m/f}' || 
+			    $sc_part eq '{mpl}' || $sc_part eq '{fpl}') ? "true" : "false" ;
+	    my $is_adj  = ( $sc_part eq '{adj}' ) ? "true" : "false" ;
+	    
+	    ##  if linkto not defined
+	    if ( $is_noun eq "true" &&  ! defined $linkto ) {
+		my ( $othref , $pos_tag ) = want_about_noun( $sc_word , $sc_part ); 
+		$othash{ $pos_tag } = ( $othref ) ; 
+		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
+		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		
+	    } elsif ( $is_adj eq "true" && ! defined $linkto ) {
+		my ( $othref , $pos_tag ) = want_about_adj( $sc_word ); 
+		$othash{ $pos_tag } = ( $othref ) ; 
+		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
+		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		
+	    } elsif ( $is_verb eq "true" && ! defined $linkto ) {
+		my ( $othref , $pos_tag ) = want_about_verb( $sc_word , \%vbsubs ); 
+		$othash{ $pos_tag } = ( $othref ) ; 
+		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
+		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+	    } elsif  ( ! defined $linkto &&  $sc_word !~ /- - -/ ) {
+		my $pos_tag ; 
+		$pos_tag = ( $is_verb eq "true" ) ? "verb" : $pos_tag ;
+		$pos_tag = ( $is_noun eq "true" ) ? "noun" : $pos_tag ;
+		$pos_tag = ( $is_adj  eq "true" ) ? "adj"  : $pos_tag ;
+		$pos_tag = ( $sc_part =~ /^{adv}$|^{prep}$|^{pron}$|^{conj}$/ ) ? $sc_part : 'aùtru' ;
+		$pos_tag =~ s/^{// ; $pos_tag =~ s/}$// ; 
 
-		##  if verb, noun or adj  &&  if linkto not defined
-		if ( $is_noun eq "true" &&  ! defined $linkto ) {
-		    my ( $othref , $pos_tag ) = want_about_noun( $sc_word , $sc_part ); 
-		    $othash{ $pos_tag } = ( $othref ) ; 
-		    $othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		    $othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		( my $display = $sc_word ) =~ s/_SQUOTE_/'/ ; 
+		my $hkey = $sc_word . "_" . $pos_tag ; 
 
-		} elsif ( $is_adj eq "true" && ! defined $linkto ) {
-		    my ( $othref , $pos_tag ) = want_about_adj( $sc_word ); 
-		    $othash{ $pos_tag } = ( $othref ) ; 
-		    $othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		    $othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
-
-		} elsif ( $is_verb eq "true" && ! defined $linkto ) {
-		    my ( $othref , $pos_tag ) = want_about_verb( $sc_word , \%vbsubs ); 
-		    $othash{ $pos_tag } = ( $othref ) ; 
-		    $othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		    $othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
-		} 
+		%{ $othash{ $hkey } } = ( 
+		    palora => $display ,
+		    part_speech => $pos_tag , 
+		    hashkey => $hkey ,
+		    dieli_en => $trans_dieli_en ,
+		    dieli_it => $trans_dieli_it ,
+		    );
 	    }
 	}
     }
@@ -247,9 +272,10 @@ sub want_about_verb {
     }	
 
     ##  collect everything into a hash
+    ( my $display = $verb ) =~ s/_SQUOTE_/'/ ; 
     my $hkey = $verb . "_verb" ; 
     my %othash = ( 
-	palora => $verb ,
+	palora => $display ,
 	part_speech => "verb" , 
 	hashkey => $hkey ,
 	verb => {
@@ -297,9 +323,10 @@ sub want_about_noun {
     }
 
     ##  collect everything into a hash
+    ( my $display = $noun ) =~ s/_SQUOTE_/'/ ; 
     my $hkey = $noun . "_noun" ; 
     my %othash = ( 
-	palora => $noun ,
+	palora => $display ,
 	part_speech => "noun" , 
 	hashkey => $hkey ,
 	noun => {
@@ -317,9 +344,10 @@ sub want_about_adj {
     my $adj = $_[0] ;
 
     ##  collect everything into a hash
+    ( my $display = $adj ) =~ s/_SQUOTE_/'/ ; 
     my $hkey = $adj . "_adj" ; 
     my %othash = ( 
-	palora => $adj ,
+	palora => $display ,
 	part_speech => "adj" , 
 	hashkey => $hkey ,
 	adj => {

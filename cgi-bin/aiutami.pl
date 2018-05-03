@@ -1,4 +1,4 @@
-#!/usr/bin/env perl
+#!/usr/bin/perl -T
 
 ##  "aiutami.pl" -- solicits information for "Cchiù dâ Palora"
 ##  Copyright (C) 2018 Eryk Wdowiak
@@ -35,7 +35,7 @@ use Storable qw( retrieve ) ;
 
 ##  number of pages for vocabulary list
 ##  should be divisible by four
-my $nupages = 48 ; 
+my $nupages = 76 ; 
 
 ##  number of pages for each part of speech
 #my $pages_nouns = 24 ; 
@@ -65,7 +65,7 @@ my $amhash = retrieve('../cgi-lib/aiutu-tools' );
 my %amsubs = %{ $amhash->{amsubs} } ;
 
 my $amlsrf = retrieve('../cgi-lib/aiutu-list' );
-#my %amlist = %{ $amlsrf } ;
+my %amlist = %{ $amlsrf } ;
 
 ##  output file
 my $otfile = '../cgi-log/aiutami_emw_' . $amsubs{datestamp}() ;
@@ -147,8 +147,6 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     ##  
     ##  note:  either arriving from the home page or from previous word
 
-    print '<p>welcome to the collection</p>' . "\n";
-
     ##  browsing words one page of collection     
     print $amsubs{make_alfa_coll}( $coll , $amlsrf , \%amsubs , $vbsubs , $lastauto , $nupages );
 
@@ -162,16 +160,23 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
 
     ##  make new form
     print $amsubs{make_form_top}();
+    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "askhelp");
 
-    ##  MUST keep "ask_help" and "offer_translation" together!!
-    print $amsubs{ask_help}();
-    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs );
-    ##  MUST keep "ask_help" and "offer_translation" together!!
+    ##  collect information about grammar 
+    ##  single words only
+    if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
+	my $blah = "no grammar to ask about" ;
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
 
-    ##  collect information about the word
-    print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
-    print $amsubs{make_poetry}() ;
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
 
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
+    }
+    ##  collect poetry and close
+    print $amsubs{make_poetry}() ;    
     print $amsubs{make_namefield}();
     print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
     print $amsubs{make_form_bottom}();
@@ -193,20 +198,27 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
 
     ##  return them to the word that they were annotating
     print $amsubs{make_form_top}();
-
-    ##  MUST keep "ask_help" and "offer_translation" together!!
-    print $amsubs{ask_help}();
-    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs );
-    ##  MUST keep "ask_help" and "offer_translation" together!!
+    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "askhelp");
 
     ##  must REPOPULATE the form !!
-    print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
-    print $amsubs{make_poetry}() ;
+    ##  collect information about grammar 
+    ##  single words only
+    if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
+	my $blah = "no grammar to ask about" ;
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
 
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
+
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
+    }
+    ##  collect poetry and close
+    print $amsubs{make_poetry}() ;
     print $amsubs{make_namefield}();
     print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
     print $amsubs{make_form_bottom}();
-
 
 
 } elsif ( defined $palora && defined $cagna && defined $chista && $amsubs{decode_carta}($cagna) eq $chista ) {
@@ -233,16 +245,23 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
 
 	##  send them new word -- AUTO MODE
 	print $amsubs{make_form_top}();
+	print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "thankyou");
 	
-	##  MUST keep "thank_you" and "offer_translation" together!!
-	print $amsubs{thank_you}();
-	print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs );
-	##  MUST keep "thank_you" and "offer_translation" together!!
-	
-	##  collect information about the word
-	print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
-	print $amsubs{make_poetry}() ;
-	
+	##  collect information about grammar 
+	##  single words only
+	if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
+	    my $blah = "no grammar to ask about" ;
+	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	    print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
+
+	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	    print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
+	    
+	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	    print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
+	}	
+	##  collect poetry and close
+	print $amsubs{make_poetry}() ;	
 	print $amsubs{make_namefield}();
 	print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
 	print $amsubs{make_form_bottom}();
@@ -250,7 +269,7 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     } else {
 	##  send them back to the list where they came from
 	
-	print '<p>welcome back to the collection</p>' . "\n";
+	## print '<p>welcome back to the collection</p>' . "\n";
 
 	##  browsing words one page of collection     
 	print $amsubs{make_alfa_coll}( $coll , $amlsrf , \%amsubs , $vbsubs , $lastauto , $nupages );
@@ -260,7 +279,7 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     ##  reaching this point should not be possible
     ##  send them back home
 
-    print '<p>welcome back my friends<br>to the show that never ends,<br>step inside, step inside</p>' . "\n";
+    ## print '<p>welcome back my friends<br>to the show that never ends,<br>step inside, step inside</p>' . "\n";
 
     ##  landing page with alphabetical list of lists
     print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
@@ -272,165 +291,6 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
 ##  close webpage
 print $ddsubs{mk_foothtml}("../config/navbar-footer.html");
 
-##  WEBPAGE  CREATED !!
-##  =======  ======= ==
-
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  SUBROUTINES
-##  ===========
-
-
-
-
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-
-
-
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  READY TO GO
-##  ===== == ==
-
-
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-
-##  SCRAPS FOR LATER
-##  ====== === =====
-
-sub pos_tests {
-
-    my $othtml ; 
-    
-    ##  print translations and notes
-    #print $ccsubs{mk_dielitrans}( $palora , $lgparm , \%vnotes , $vbconj , $vbsubs ) ;
-    #print $ccsubs{mk_notex}( $palora , \%vnotes , \%ccsubs ) ;
-
-    ##  are we working with a verb, noun or adjective?
-    my $isverb = ( ! defined $vnotes{ $palora }{verb}     && 
-		   ! defined $vnotes{ $palora }{reflex}   && 
-		   ! defined $vnotes{ $palora }{prepend}            ) ? "false" : "true" ;
-    my $isnoun = ( ! defined $vnotes{ $palora }{noun}               ) ? "false" : "true" ;
-    my $isadj  = ( $vnotes{ $palora }{part_speech} ne "adj" ) ? "false" : "true" ;
-    
-    ##  "other" parts of speech currently include:  {adv} {prep} {pron}
-     my $isother  = ( ! defined $vnotes{ $palora }{part_speech} ) ? "false" : "true" ;
-    
-    if ( $isverb eq "true" ) {
-	#print $ccsubs{mk_conjhtml}( $palora , $lgparm , \%vnotes , $vbconj , $vbsubs ) ;
-	
-    } elsif ( $isnoun eq "true" ) {
-	#print $ccsubs{mk_nounhtml}( $palora , $lgparm , \%vnotes , $nounpls , $vbsubs ) ;
-	
-    } elsif ( $isadj  eq "true" ) {
-	#print $ccsubs{mk_adjhtml}( $palora , $lgparm , \%vnotes , $vbsubs ) ;
-	
-    } elsif ( $isother  eq "true" ) {
-	my $blah = "do nothing here.  we just want to avoid error message below." ; 
-	
-    } else {
-	##  outer DIV to limit width
-	my $othtml ; 
-	$othtml .= '<div class="transconj">' . "\n" ; 
-	$othtml .= '<div class="row">' . "\n" ; 
-	$othtml .= '<p>' . "nun c'è" . ' na annotazzioni dâ palora: &nbsp; <b>' . $palora . '</b></p>' . "\n" ;
-	$othtml .= '</div>' . "\n" ; 
-	$othtml .= '</div>' . "\n" ; 
-	#print $othtml ; 
-	#print $ccsubs{mk_showall}(  \%vnotes , $vbconj , $vbsubs , $adjustone , $adjusttwo , $adjusttre ) ;
-     }
-
-    return $othtml ;
-}
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
-
-
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ## #  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ## 
-
-##  ##  aiutami tools
-##  my $amhash = retrieve('../cgi-lib/aiutu-tools' );
-##  my %amsubs = %{ $amhash->{amsubs} } ;
-##  
-##  $amsubs{datestamp}         ;
-##  $amsubs{timestamp}         ;
-##  
-##  $amsubs{play_cards}        ;
-##  $amsubs{deal_cards}        ;
-##  $amsubs{encode_carta}      ;
-##  $amsubs{decode_carta}      ;
-##  
-##  $amsubs{mk_amtophtml}      ;
-##  $amsubs{thank_you}         ;
-##  $amsubs{make_namefield}    ;
-##  $amsubs{make_form_top}     ;
-##  $amsubs{make_form_bottom}  ;
-##  
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-##  
-##  ##  vocabulary tools
-##  my $vthash  = retrieve('../cgi-lib/verb-tools' );
-##  my $vbconj  = $vthash->{vbconj} ;
-##  my $vbsubs  = $vthash->{vbsubs} ;
-##  my $nounpls = $vthash->{nounpls} ;
-##  
-##  ##  vocabulary notes
-##  my $vnhash = retrieve('../cgi-lib/vocab-notes' );
-##  my %vnotes = %{ $vnhash } ;
-##  
-##  ##  verb conjugation subroutines
-##  $vbsubs{mk_forms}       ;
-##  $vbsubs{conjugate}      ;
-##  $vbsubs{conjreflex}     ;
-##  $vbsubs{conjnonreflex}  ;
-##  $vbsubs{rid_accents}    ;
-##  ##$vbsubs{rid_penult_accent}; ## experimental
-##  
-##  ##  noun and adjective subroutines
-##  $vbsubs{mk_adjectives}  ;
-##  $vbsubs{mk_noun_plural} ;
-##  
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-##  
-##  ##  "cchiu-da-palora" and "dieli dictionary"
-##  my $cchash = retrieve('../cgi-lib/cchiu-tools' );
-##  my %ccsubs = %{ $cchash->{ccsubs} } ;
-##  my %ddsubs = %{ $cchash->{ddsubs} } ;
-##  
-##  $ccsubs{mk_nounhtml}    ;	   ##  $ddsubs{uniq}         ;	 
-##  $ccsubs{mk_adjhtml}     ;	   ##  $ddsubs{mk_search}    ;	 
-##  $ccsubs{mk_conjhtml}    ;	   ##  $ddsubs{translate}    ;	 
-##  				   ##  				 
-##  $ccsubs{mk_dielitrans}  ; 	   ##  $ddsubs{mk_ddtophtml} ;	 
-##  $ccsubs{mk_notex}       ;	   ##  $ddsubs{mk_newform}   ;	 
-##  $ccsubs{mk_notex_list}  ;	   ##  				 
-##  				   ##  $ddsubs{thank_dieli}  ;	 
-##  $ccsubs{mk_showall}     ; 	   ##  $ddsubs{mk_foothtml}  ;      
-##  $ccsubs{mk_vnkcontent}  ;
-##  
-##  $ccsubs{mk_cctophtml}   ;
-##  
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
-
-##  À à  Â â
-##  È è  Ê ê
-##  Ì ì  Î î
-##  Ò ò  Ô ô
-##  Ù ù  Û û
-
-##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
