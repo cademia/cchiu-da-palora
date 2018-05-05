@@ -619,17 +619,6 @@ sub mk_cctophtml {
     ##  zero paragraph spacing
     $ottxt .= '      p.zero { margin-top: 0em; margin-bottom: 0em; }' . "\n" ;
 
-    ##  DIV -- listall
-    $ottxt .= '      div.listall { position: relative; margin: auto; width: 90%;}' . "\n" ;
-
-    ##  DIV -- rolldk and rolltb
-    $ottxt .= '      @media only screen and (min-width: 836px) { ' . "\n" ;
-    $ottxt .= '          div.rolldk {float: left; width: 49%; padding: 0.5%; }' . "\n" ;
-    $ottxt .= '      }' . "\n" ;
-    $ottxt .= '      @media only screen and (min-width: 500px) { ' . "\n" ;
-    $ottxt .= '          div.rolltb {float: left;  width: 49%; padding: 0.5%; }' . "\n" ;
-    $ottxt .= '      }' . "\n" ;
-    
     ##  DIV -- translations and conjugations
     $ottxt .= '      div.transconj { position: relative; margin: auto; width: 50%;}' . "\n" ;
     $ottxt .= '      @media only screen and (max-width: 835px) { ' . "\n" ;
@@ -938,70 +927,69 @@ sub mk_foothtml {
 
     my $footnav = $_[0] ; 
 
-    my $ot ;
+    ##  prepare output
+    my $othtml ;
 
-    ##  open inner DIV 
-    $ot .= '<div class="row">' . "\n" ; 
- 
-    $ot .= '<div class="minicol"></div>' . "\n" ; 
-    $ot .= '<div class="col-m-12 col-6">' . "\n" ; 
-    $ot .= '<p style="margin-bottom: 0.25em;"><b><i>ricota di palori:</i></b></p>' . "\n" ; 
-    $ot .= '<div class="col-m-6 col-6">' . "\n" ; 
-    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_aviri"    . '">' . "aviri"    . '</a> &amp; ' . "\n"; 
-    $ot .=     '<a href="/cgi-bin/sicilian.pl?search=' . "COLL_have"     . '">' . "to have"  . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_essiri"   . '">' . "essiri"   . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_fari"     . '">' . "fari"     . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_places"   . '">' . "lu munnu" . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_timerel"  . '">' . "lu tempu" . '</a></li>'  . "\n" ; 
-    $ot .= '</ul>' . "\n" ;
-    $ot .= '</div>' . "\n" ;
-    $ot .= '<div class="col-m-6 col-6">' . "\n" ; 
-    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_daysweek" . '">' . "li jorna"     . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_months"   . '">' . "li misi"      . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_holidays" . '">' . "li festi"     . '</a></li>'  . "\n" ; 
-    $ot .= '<li><a href="/cgi-bin/sicilian.pl?search=' . "COLL_seasons"  . '">' . "li staggiuni" . '</a></li>'  . "\n" ; 
-    $ot .= '</ul>' . "\n" ;
-    $ot .= '</div>' . "\n" ;
-    $ot .= '</div>' . "\n" ;
-
-    $ot .= '<div class="col-m-12 col-5">' . "\n" ; 
-    $ot .= '<p style="margin-bottom: 0.25em;"><b><i>pàggini principali:</i></b></p>' . "\n" ; 
-    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><i><a href="/cgi-bin/sicilian.pl">Dizziunariu di Dieli</a></i></li>' . "\n" ; 
-    $ot .= '<li><i><a href="/cgi-bin/cchiu-da-palora.pl">Cchiù dâ Palora</a></i></li>' . "\n" ; 
-    $ot .= '</ul>' . "\n" ;
-    $ot .= '<p style="margin-bottom: 0.25em;"><b><i>cchiù di stu prujettu:</i></b></p>' . "\n" ; 
-    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="/archive/sicilian/index.shtml">specificazioni dû dizziunariu</a></li>' . "\n" ; 
-    $ot .= '<li><a href="/archive/sicilian/sicilian-verbs.shtml">boot and stem theory</a></li>' . "\n" ; 
-    $ot .= '</ul>' . "\n" ;
-    $ot .= '<p style="margin-bottom: 0.25em;"><b><i>cchiù prujetti siciliani:</i></b></p>' . "\n" ; 
-    $ot .= '<ul style="margin-top: 0em; margin-bottom: 0em;">' . "\n" ;
-    $ot .= '<li><a href="http://www.arbasicula.org/" target="_blank">Arba Sicula</a></li>' . "\n" ; 
-    $ot .= '<li><a href="http://www.cademiasiciliana.org/" target="_blank">Cadèmia Siciliana</a></li>' . "\n" ; 
-    $ot .= '</ul>' . "\n" ;
-    $ot .= '</div>' . "\n" ;
-    $ot .= '<div class="minicol"></div>' . "\n" ; 
+    ##  open project DIV
+    $othtml .= '<div class="row">'."\n";
+    $othtml .= '  <div class="minicol"></div>'."\n";
+    $othtml .= '  <div class="minicol"></div>'."\n";
+    $othtml .= '  <div class="col-m-5 col-4">'."\n";
+    $othtml .= '    <p style="margin-bottom: 0.25em; padding-left: 0px;"><b><i>ricota di palori:</i></b></p>'."\n";
+    $othtml .= '    <ul style="margin-top: 0em; margin-bottom: 0em; padding-left: 25px;">'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_aviri">aviri</a> &amp; '."\n";
+    $othtml .= '	<a href="/cgi-bin/sicilian.pl?search=COLL_have">to have</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_essiri">essiri</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_fari">fari</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_places">lu munnu</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_timerel">lu tempu</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_daysweek">li jorna</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_months">li misi</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_holidays">li festi</a></li>'."\n";
+    $othtml .= '      <li><a href="/cgi-bin/sicilian.pl?search=COLL_seasons">li staggiuni</a></li>'."\n";
+    $othtml .= '    </ul>'."\n";
+    $othtml .= '  </div>'."\n";
+    $othtml .= '  <div class="col-m-7 col-7">'."\n";
+    $othtml .= '    <div class="row">'."\n";
+    $othtml .= '      <div class="col-m-12 col-7">'."\n";
+    $othtml .= '	<p style="margin-bottom: 0.25em;"><b><i>stu prujettu:</i></b></p>'."\n";
+    $othtml .= '	<ul style="margin-top: 0em; margin-bottom: 0em; padding-left: 25px;">'."\n";
+    $othtml .= '	  <li><i><a href="/cgi-bin/sicilian.pl">Dizziunariu di Dieli</a></i></li>'."\n";
+    $othtml .= '	  <li><i><a href="/cgi-bin/cchiu-da-palora.pl">Cchiù dâ Palora</a></i></li>'."\n";
+    $othtml .= '	  <li style="margin-bottom: 0.5em;"><i><a href="/cgi-bin/aiutami.pl">Aiùtami!</a></i></li>'."\n";
+    $othtml .= '	  <li><a href="/archive/sicilian/index.shtml">specificazioni dû dizziunariu</a></li>'."\n";
+    $othtml .= '	  <li style="margin-bottom: 0.5em;"><a href="/archive/sicilian/sicilian-verbs.shtml">boot and stem theory</a></li>'."\n";
+    $othtml .= '	  <li><a href="https://github.com/cademia/cchiu-da-palora" target="_blank">source code</a> <small>(GitHub)</small></li>'."\n";
+    $othtml .= '	</ul>'."\n";
+    $othtml .= '      </div>'."\n";
+    $othtml .= '      <div class="col-m-12 col-5">'."\n";
+    $othtml .= '	<p style="margin-bottom: 0.25em;"><b><i>lingua siciliana:</i></b></p>'."\n";
+    $othtml .= '	<ul style="margin-top: 0em; margin-bottom: 0em; padding-left: 25px;">'."\n";
+    $othtml .= '	  <li><a href="http://www.arbasicula.org/" target="_blank">Arba Sicula</a></li>'."\n";
+    $othtml .= '	  <li><a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a></li>'."\n";
+    $othtml .= '	  <li><a href="http://www.cademiasiciliana.org/" target="_blank">Cadèmia Siciliana</a></li>'."\n";
+    $othtml .= '	  <li><a href="https://scn.wiktionary.org/" target="_blank">Wikizziunariu</a></li>'."\n";
+    $othtml .= '	</ul>'."\n";
+    $othtml .= '      </div>'."\n";
+    $othtml .= '    </div>'."\n";
+    $othtml .= '  </div>'."\n";
+    $othtml .= '</div>'."\n";
+    ##  close project DIV
     
-    $ot .= '</div>' . "\n" ;
-    ##  close inner div
-
     ##  let's keep this thing wide on large screens
-    $ot .= '<div class="widenme"></div>' . "\n" ; 
+    $othtml .= '<div class="widenme"></div>' . "\n" ; 
 
     ##  add some space on the bottom
-    $ot .= '<br>' . "\n" ;
+    $othtml .= '<br>' . "\n" ;
 
-    $ot .= '  </div>' . "\n" ;
-    $ot .= '  <!-- end row div -->' . "\n" ;
+    $othtml .= '  </div>' . "\n" ;
+    $othtml .= '  <!-- end row div -->' . "\n" ;
     
     open( FOOTNAV , $footnav ) || die "could not read:  $footnav";
-    while(<FOOTNAV>){ chomp;  $ot .= $_ . "\n" ; };
+    while(<FOOTNAV>){ chomp;  $othtml .= $_ . "\n" ; };
     close FOOTNAV ;
     
-    return $ot ;
+    return $othtml ;
 }
 
 

@@ -68,7 +68,7 @@ my $amlsrf = retrieve('../cgi-lib/aiutu-list' );
 my %amlist = %{ $amlsrf } ;
 
 ##  output file
-my $otfile = '../cgi-log/aiutami_emw_' . $amsubs{datestamp}() ;
+#my $otfile = '../cgi-log/aiutami_emw_' . $amsubs{datestamp}() ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
@@ -77,31 +77,15 @@ my $otfile = '../cgi-log/aiutami_emw_' . $amsubs{datestamp}() ;
 ##  VARIABLES
 ##  =========
 
-##  what information have we collected?
-my $poetry = param('poetry'); 
-
 ##  what word do we wish to annotate?
 my $palora = param('palora'); 
-my $lgparm = "SCEN" ;
 
 ##  which collection are we looking for?
 my $coll =  param('coll');
 
 ##  annotating -- auto mode vs. word by word
-##  possible values -- "home","auto","alfa_p02"
+##  possible values -- "auto","alfa_p02"
 my $lastauto = param('lastauto') ;
-$lastauto = ( ! defined $lastauto && ! defined $coll ) ? "home" : $lastauto ;
-
-#if ( ! defined $lastauto && ! defined $coll ) { 
-#    $lastauto = "home" ;
-#} elsif ( ! defined $coll ) { 
-#    ##  case where "lastauto" is defined
-#    ##  so leave it alone
-#} else {
-#    ##  "lastauto" is not defined, but "coll" is
-#    $lastauto = $coll ;
-#}
-
 
 ##  capture card values
 my $cagna  = param('cagna'); 
@@ -127,22 +111,24 @@ print $amsubs{mk_amtophtml}("../config/topnav.html");
 ##    *  annotating -- auto mode vs. word by word
 ##
 
-if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $coll) {
+if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $lastauto && ! defined $coll ) {
     ##  case where user first arrives
     ##     * no "cagna" or "chista", therefore no form submitted
     ##     * no "palora" defined, so not annotating (and no form submitted)
+    ##     * not in auto-mode
     ##     * no "collection" defined
 
-    print '<p>welcome</p>' . "\n";
 
     ##  landing page with alphabetical list of lists
+    print $amsubs{make_welcome_msg}();
     print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
+   
 
-
-} elsif (  ! defined $cagna && ! defined $chista && ! defined $palora && defined $coll ) {
+} elsif (  ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $lastauto && defined $coll ) {
     ##  case where user wants to browse a collection
     ##     * no "cagna" or "chista", therefore no form submitted
     ##     * no "palora" defined, so not annotating (and no form submitted)
+    ##     * not in auto-mode
     ##     * "collection" is defined
     ##  
     ##  note:  either arriving from the home page or from previous word
@@ -151,35 +137,19 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     print $amsubs{make_alfa_coll}( $coll , $amlsrf , \%amsubs , $vbsubs , $lastauto , $nupages );
 
 
-} elsif (  ! defined $cagna && ! defined $chista && defined $palora ) {
+} elsif (  ! defined $cagna && ! defined $chista && ( defined $palora || $lastauto eq "auto" ) ) {
     ##  case where user wants to annotate "palora"
     ##     * no "cagna" or "chista", therefore no form submitted
     ##     * "collection" is ambiguous, but already handled above
-    ##     * "palora" is defined
-    ##  therefore must want to annotate "palora"
+    ##     * "palora" is defined or in "auto-mode"
+    ##  therefore must want to annotate "palora" or in "auto-mode"
 
-    ##  make new form
-    print $amsubs{make_form_top}();
-    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "askhelp");
-
-    ##  collect information about grammar 
-    ##  single words only
-    if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
-	my $blah = "no grammar to ask about" ;
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
-
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
-
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
-    }
-    ##  collect poetry and close
-    print $amsubs{make_poetry}() ;    
-    print $amsubs{make_namefield}();
-    print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
-    print $amsubs{make_form_bottom}();
+    
+    ##  if in auto-mode, then generate $palora at random
+    ##  NB:  making $palora local here !!
+    my $palora = ( $lastauto eq "auto" ) ? $amsubs{get_random_word}($amlsrf) : $palora ;
+    my $askORthank = "askhelp" ;
+    print make_tests( $palora , $askORthank , $lastauto ) ;
 
 
 } elsif ( defined $chista && ( ! defined $palora || ($amsubs{decode_carta}($cagna) ne $chista) ) ) {
@@ -190,35 +160,70 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     ##            >   "palora" not defined  (we need "palora" to annotate)
     ##     *  "collection" is ambiguous, but already handled above
 
-    $cagna = $amsubs{decode_carta}($cagna); 
+    ## $cagna = $amsubs{decode_carta}($cagna);     
+    ## print '<p>test failed</p>' . "\n";
+    ## print '<p>cagna: '. $cagna .' --  chista: '. $chista .'</p>' . "\n";
     
-    print '<p>test failed</p>' . "\n";
-    print '<p>cagna: '. $cagna .' --  chista: '. $chista .'</p>' . "\n";
+    ##  the question now is:  did they just hit "spidiscimi", meaning "go to next"
+    ##  or did they submit garbage?  or worse, did they submit malicious code?
 
+    ##  what information have we collected?
+    my $adj_FEMSI  = param('adj_FEMSI');
+    my $noun_PLEND = param('noun_PLEND');
+    my $vb_PRI     = param('vb_PRI');
+    my $vb_PAI     = param('vb_PAI');
+    my $vb_PAP     = param('vb_PAP');
+    my $vb_ADJ     = param('vb_ADJ');
 
-    ##  return them to the word that they were annotating
-    print $amsubs{make_form_top}();
-    print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "askhelp");
+    my $poetry     = param('poetry');
+    $poetry  = ( ! defined $poetry || $poetry eq 'Raccuntami puisia!' ) ? undef : $poetry ;
 
-    ##  must REPOPULATE the form !!
-    ##  collect information about grammar 
-    ##  single words only
-    if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
-	my $blah = "no grammar to ask about" ;
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
+    ##  if they are all undefined, then assume that user wishes to skip
+    ##    1.   if ( ! defined $lastauto ) send them back home -- should not occur!
+    ##    2.  if ($lastauto eq "auto") select new word
+    ##    3.  if "lastauto" is a collection name, then send them back to that collection
+    ##    4.  if "lastauto" is not a collection name, send them home
+    ##  otherwise send them back to the word they were annotating
 
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
+    if ( ! defined $adj_FEMSI  && 
+	 ! defined $noun_PLEND && 
+	 ! defined $vb_PRI && ! defined $vb_PAI && ! defined $vb_PAP && ! defined $vb_ADJ && 
+	 ! defined $poetry ) {
 
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
+	##  SKIP  CASES	
+	if ( ! defined $lastauto && ! defined $palora ) { 
+	    ##  SKIP  #1  -- "lastauto" not defined
+	    ##  send them back home -- should not occur!
+	    print $amsubs{make_welcome_msg}();
+	    print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
+
+	} elsif ( $lastauto eq "auto" ) {
+	    ##  SKIP  #2  -- automode
+	    my $palora = $amsubs{get_random_word}($amlsrf) ;	    
+	    my $askORthank = "askhelp" ;
+	    print make_tests( $palora , $askORthank , $lastauto ) ;
+
+	} elsif ( $lastauto =~ /^alfa_p[0-9][0-9]$/ ) {
+	    ##  SKIP  #3  -- go back to collection 
+	    ##  note first and fifth arguments passed are "lastauto"
+	    print $amsubs{make_alfa_coll}( $lastauto , $amlsrf , \%amsubs , $vbsubs , $lastauto , $nupages );
+	    
+	} else {
+	    ##  SKIP  #4  -- "lastauto" is not a collection name
+	    ##  send them back home -- should not occur!
+	    print $amsubs{make_welcome_msg}();
+	    print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
+	}
+
+    } else {
+	##  RETURN    -- return to word annotating
+	##  send them back to the word that they were annotating
+	## 
+	##  just in case "palora" is not defined, select word at random -- should not occur
+	my $palora = ( ! defined  $palora ) ? $amsubs{get_random_word}($amlsrf) : $palora ;
+	my $askORthank = "askhelp" ;
+	print make_tests( $palora , $askORthank , $lastauto ) ;
     }
-    ##  collect poetry and close
-    print $amsubs{make_poetry}() ;
-    print $amsubs{make_namefield}();
-    print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
-    print $amsubs{make_form_bottom}();
 
 
 } elsif ( defined $palora && defined $cagna && defined $chista && $amsubs{decode_carta}($cagna) eq $chista ) {
@@ -233,57 +238,49 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $co
     ##  if the user is returned to the lists or to a randomly chosen next word
 
     ##  first validate input -- only check is the card game
-    ##     *  just like the "wing-T" formation:  "Let 'em through!"
-    ##     *  we can delete bad submissions later
-    ##     *  but this is going to be messy!
-    ##  store data in storable
+    ##     *  maybe we can play a "wing-T" formation?  
+    ##     *  just let 'em through and delete the bad submissions later?
+    ##     *  either way, this is going to be messy
+
+    ##  
+    ##  ##   CODE  TO  STORE  DATA  HERE
+    ##  
+    
 
     ##  where to now?  back to list or to next word?
     ##     *  if arrived from browsing a collection, then send them back to that list
     ##     *  if arrived from the home page, then send them a random next word ("auto mode")
-    if ( ! defined $coll ) {
+    
+    if ( ! defined $coll && ( ! defined $lastauto || $lastauto eq "auto" || $lastauto !~ /^alfa_p[0-9][0-9]$/ ) ) {
 
 	##  send them new word -- AUTO MODE
-	print $amsubs{make_form_top}();
-	print $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , "thankyou");
-	
-	##  collect information about grammar 
-	##  single words only
-	if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
-	    my $blah = "no grammar to ask about" ;
-	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	    print $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
+	my $palora = $amsubs{get_random_word}($amlsrf) ;	    
+	my $askORthank = "thankyou" ;
+	print make_tests( $palora , $askORthank , $lastauto ) ;
 
-	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	    print $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
-	    
-	} elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
-	    print $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
-	}	
-	##  collect poetry and close
-	print $amsubs{make_poetry}() ;	
-	print $amsubs{make_namefield}();
-	print $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
-	print $amsubs{make_form_bottom}();
+    } else {	
+	##  we can do this because of the way the IF-ELSE command is defined 
+	my $coll = ( ! defined $coll ) ? $lastauto : $coll ;
 	
-    } else {
-	##  send them back to the list where they came from
-	
-	## print '<p>welcome back to the collection</p>' . "\n";
+	##  say thank you
+	my $thanks ;
+	$thanks .= '<p style="margin-top: 0em; margin-bottom: 1em; text-align: center;">' ;
+	$thanks .= '<b><i><span class="lightcolor">Grazzii a pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
+	print $thanks ; 
 
-	##  browsing words one page of collection     
+	##  send them back to the list where they came from	
+	##  browsing words one page of collection
 	print $amsubs{make_alfa_coll}( $coll , $amlsrf , \%amsubs , $vbsubs , $lastauto , $nupages );
     }
 
 } else {
     ##  reaching this point should not be possible
+    ##  print '<p>welcome back my friends<br>to the show that never ends,<br>step inside, step inside</p>' . "\n";
+
     ##  send them back home
-
-    ## print '<p>welcome back my friends<br>to the show that never ends,<br>step inside, step inside</p>' . "\n";
-
     ##  landing page with alphabetical list of lists
+    print $amsubs{make_welcome_msg}();
     print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
-
 }
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -294,3 +291,42 @@ print $ddsubs{mk_foothtml}("../config/navbar-footer.html");
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ## #  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ## 
+
+##  SUBROUTINES
+##  ===========
+
+sub make_tests {
+
+    ##  only arguments, everything else is globals
+    my $palora     = $_[0] ;
+    my $askORthank = $_[1] ;
+    my $lastauto   = $_[2] ;
+   
+    ##  prepare html
+    my $othtml ;
+    
+    $othtml .= $amsubs{make_form_top}();
+    $othtml .= $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , $askORthank );
+    
+    ##  collect information about grammar 
+    ##  single words only
+    if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
+	my $blah = "no grammar to ask about" ;
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	$othtml .= $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
+	
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	$othtml .= $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
+	
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+	$othtml .= $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
+    }	
+    ##  collect poetry and close
+    $othtml .= $amsubs{make_poetry}() ;	
+    $othtml .= $amsubs{make_namefield}();
+    $othtml .= $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
+    $othtml .= $amsubs{make_form_bottom}();
+ 
+    ##  return the html
+    return $othtml ;
+}

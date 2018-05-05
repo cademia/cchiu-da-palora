@@ -18,8 +18,8 @@
 /*                                                                            */
 /*  ========================================================================  */  
 
-/*  last updated:  14 March 2018   */
-/*  =============================  */
+/*  last updated:  05 May 2018   */
+/*  ===========================  */
 
 /*  backgrounds  */
 body{background-image: url(../config/bricks.jpg)}
@@ -260,3 +260,21 @@ img {
     .col-11 {width: 90.66%; padding: 0.5%;}
     .col-12 {width: 100%; padding: 0px;}
 }
+
+
+/*  ====================  */
+
+/*  rolling columns */
+
+div.listall { position: relative; margin: auto; width: 90%;}
+@media only screen and (min-width: 480px) { 
+    div.tbright { text-align: right; }
+}
+@media only screen and (min-width: 836px) { 
+    div.rolldk {float: left; width: 49%; padding: 0.5%; }
+}
+@media only screen and (min-width: 500px) { 
+    div.rolltb {float: left;  width: 49%; padding: 0.5%; }
+}
+
+/*  ====================  */

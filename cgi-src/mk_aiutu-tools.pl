@@ -101,7 +101,9 @@ sub make_alfa_index {
 
     ##  get sorted list of keys
     my $rid_all_accents = sub {	
+	##  grave accents
 	my $rid = $vbsubs{rid_accents}( $_[0] ) ; 
+	##  circumflex_accents
 	$rid =~ s/\303\242/a/g; 
 	$rid =~ s/\303\252/e/g; 
 	$rid =~ s/\303\256/i/g; 
@@ -133,8 +135,8 @@ sub make_alfa_index {
 	}
 	
 	##  get the first and last hash keys on this page
-	my $first = lc( $vbsubs{rid_accents}($amkeys[$bgn]) );
-	my $last = lc( $vbsubs{rid_accents}($amkeys[$end]) );
+	my $first = lc( &{$rid_all_accents}($amkeys[$bgn]) );
+	my $last  = lc( &{$rid_all_accents}($amkeys[$end]) );
 	
 	##  just give me the first four characters
 	$first = substr( $first , 0 , 4 ) ; 
@@ -180,6 +182,8 @@ sub make_alfa_welcome {
     
     ## output to html
     my $othtml ;
+    $othtml .= '<div><h3 style="margin-top: 0em;">Dizziunariu di Dieli</h3></div>' . "\n" ; 
+
     $othtml .= '<div class="listall">' . "\n" ; 
     $othtml .= '<div class="row">' . "\n" ; 
 
@@ -228,6 +232,10 @@ sub make_alfa_welcome {
     $othtml .= '</div>' . "\n" ; 
     $othtml .= '</div>' . "\n" ; 
     
+    $othtml .= '<p style="margin-bottom: 0.5em; text-align: center;">Grazii a'."\n";
+    $othtml .= '  <a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a>'."\n";
+    $othtml .= '  pi cumpilari stu dizziunariu.</p>'."\n";
+
     return $othtml ;
 }
 
@@ -328,6 +336,7 @@ sub make_alfa_coll {
     
     ##  create the HTML output
     my $othtml ;
+    $othtml .= '<div><h3 style="margin-top: 0em;">Dizziunariu di Dieli</h3></div>' . "\n" ; 
     ##  start with navigation
     $othtml .= $navigation ; 
     ##  open the div
@@ -356,6 +365,10 @@ sub make_alfa_coll {
     ##  close the div
     $othtml .= $navigation ; 
     ##  end with navigation
+
+    $othtml .= '<p style="margin-bottom: 0.5em; text-align: center;">Grazii a'."\n";
+    $othtml .= '  <a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a>'."\n";
+    $othtml .= '  pi cumpilari stu dizziunariu.</p>'."\n";
 
     return $othtml ; 
 }
@@ -644,9 +657,6 @@ sub mk_amtophtml {
     ##  form text -- larger, different font
     $ottxt .= '      p.formtext { font-size: 1.05em; font-family: Arial, "Liberation Sans", sans-serif; }' . "\n" ;
 
-    ##  DIV -- listall
-    $ottxt .= '      div.listall { position: relative; margin: auto; width: 90%;}' . "\n" ;
-
     ##  DIV -- "tbleft", "tbright" and center them on small screens
     $ottxt .= '      @media only screen and (min-width: 480px) { ' . "\n" ;
     $ottxt .= '          div.tbright { text-align: right; }' . "\n" ;
@@ -657,17 +667,6 @@ sub mk_amtophtml {
     $ottxt .= '      @media only screen and (max-width: 479px) { ' . "\n" ;
     $ottxt .= '          div.tbright, div.tbleft { text-align: center; }' . "\n" ;
     $ottxt .= '      }' . "\n" ;
-
-    ##  DIV -- rolldk and rolltb
-    $ottxt .= '      @media only screen and (min-width: 836px) { ' . "\n" ;
-    $ottxt .= '          div.rolldk {float: left; width: 49%; padding: 0.5%; }' . "\n" ;
-    $ottxt .= '      }' . "\n" ;
-    $ottxt .= '      @media only screen and (min-width: 500px) { ' . "\n" ;
-    $ottxt .= '          div.rolltb {float: left;  width: 49%; padding: 0.5%; }' . "\n" ;
-    $ottxt .= '      }' . "\n" ;
-    
-    ##  DIV -- only a little margin on the left for translations
-    $ottxt .= '      div.transleft { position: relative; margin-left: 20px; margin-right: auto;}' . "\n" ;
 
     ##  DIV -- translations and conjugations
     $ottxt .= '      div.transconj { position: relative; margin: auto; width: 50%;}' . "\n" ;
@@ -1323,6 +1322,73 @@ sub test_adj {
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+##  randomly select a word needing annotations
+sub get_random_word {
+
+    ##  fetch list of all hash keys
+    my %amlist = %{ $_[0] } ; 
+    my @allkeys = keys %amlist ;
+    
+    ##  randomly select a hash key 
+    my $rand_draw = int( rand( $#allkeys + 1 ));
+    my $palora = $allkeys[$rand_draw];	
+
+    ##  keep selecting new hash keys  UNTIL
+    ##  "notes_on" is undefined  &&  "part_speech" is verb, noun or adjective
+    until ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} =~ /^verb$|^noun$|^adj$/ ) {
+	$rand_draw = int( rand( $#allkeys + 1 ));
+	$palora = $allkeys[$rand_draw];	    
+    }
+    ##  return the hash key
+    return $palora ;	    
+}
+
+
+##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  Binvinuti!
+sub make_welcome_msg {
+    my $othtml;
+    $othtml .= "\n";
+    $othtml .= '<!-- begin row div -->'."\n";
+    $othtml .= '<div class="row">'."\n";
+    $othtml .= '  <div class="col-m-1 col-1"></div>'."\n";
+    $othtml .= '  <div class="col-m-10 col-10">'."\n";
+    $othtml .= "\n";
+    $othtml .= '<h3>Binvinuti!</h3>'."\n";
+    $othtml .= "\n";    
+    $othtml .= '<p>This page demonstrates a method of soliciting annotations to a Sicilian dictionary in a structured fashion.'."\n";
+    $othtml .= '  <span style="color: rgb(204, 7, 39); font-weight: bold;">This page is under construction.</span>'."\n";
+    $othtml .= '  During the construction phase, <span style="color: rgb(204, 7, 39); font-weight: bold;">no data</span>'."\n";
+    $othtml .= '  is being recorded.</p>'."\n";
+    $othtml .= "\n";
+    $othtml .= '<p>When this page is ready, we will use it to annotate the Sicilian words in'."\n";
+    $othtml .= '  <a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a>'."'".'s'."\n"; 
+    $othtml .= '  dictionary.  Below is an index of his work.</p>'."\n";
+    $othtml .= "\n";
+    $othtml .= '<p>Two modes will be available: &nbsp; "<a href="/cgi-bin/aiutami.pl?lastauto=auto">auto-mode</a>" and "browse-mode." '."\n";
+    $othtml .= '  Auto-mode will solicit contributions to randomly selected words -- one word automatically following another.'."\n";
+    $othtml .= '  Browse-mode will return you to the contents page after you annotate a word.'."\n";
+    $othtml .= '  To start browsing, click on one of the index links below.'."\n";
+    $othtml .= '  Or click here for: &nbsp; <a href="/cgi-bin/aiutami.pl?lastauto=auto">auto-mode</a>.</p>'."\n";
+    $othtml .= "\n";
+    ##  $othtml .= '<p></p>' . "\n"; 
+    ##  $othtml .= "\n";
+    ##  $othtml .= '<div style="margin-bottom: 0.5em; margin-top: 0.5em;">'."\n";
+    ##  $othtml .= '<form enctype="multipart/form-data" action="/cgi-bin/aiutami.pl?lastauto=auto" method="post">'."\n";
+    ##  $othtml .= '<div style="text-align: center;">'."\n";
+    ##  $othtml .= '<input type="submit" value="Annutamu!">'."\n";
+    ##  $othtml .= '</div>'."\n";
+    ##  $othtml .= '</form>'."\n";
+    ##  $othtml .= '</div>'."\n";
+    ##  $othtml .= "\n";  
+    $othtml .= '  </div>'."\n";   
+    $othtml .= '  <div class="col-m-1 col-1"></div>'."\n";
+    $othtml .= '</div>'."\n";
+    $othtml .= '<!-- end row div -->'."\n";
+    $othtml .= "\n";
+    return $othtml;
+}
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1364,6 +1430,10 @@ $amsubs{make_form_bottom}  = \&make_form_bottom;
 $amsubs{test_verb}         = \&test_verb;
 $amsubs{test_noun}         = \&test_noun;
 $amsubs{test_adj}          = \&test_adj;
+
+$amsubs{get_random_word}   = \&get_random_word;
+
+$amsubs{make_welcome_msg}  = \&make_welcome_msg;
 
 ##  store it all
 nstore( { amsubs  => \%amsubs } , $otfile );  

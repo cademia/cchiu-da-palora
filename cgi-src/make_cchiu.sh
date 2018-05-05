@@ -36,3 +36,7 @@
 
 ##  make tools for web interface
 ./mk_cchiu-tools.pl
+
+##  make tools to solicit annotations
+./mk_aiutu-list.pl
+./mk_aiutu-tools.pl
