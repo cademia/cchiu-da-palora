@@ -221,7 +221,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xixa",
-	plural => "cannoli",  ##  CANNOLI  !!!
+	##  plural => "cannoli",  ##  CANNOLI  !!!
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##

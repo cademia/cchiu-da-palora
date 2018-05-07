@@ -65,20 +65,30 @@ sub mk_nounhtml {
     my $gender = $vnotes{$palora}{noun}{gender} ; 
     my $plend = $vnotes{$palora}{noun}{plend} ; 
 
-    ##  leave "$plural" undefined if no plural
-    my $plural ;
+    ##  set up plural as array -- for the plends: "xixa" and "xura"
+    ##  leave "@plurals" undefined if no plural
+    my @plurals ;
     if ( $plend eq "nopl" ) {
 	my $blah = "no plural.";
     } elsif ( $plend eq "ispl" ) {
-	$plural = $display ; 
-    } else {
-	##  if an irregular plural is not defined, then make it
-	##  otherwise, return the irregular plural form
-	$plural = ( ! defined $vnotes{$palora}{noun}{plural} ) ? 
-	    $vbsubs{mk_noun_plural}( $display , $gender , $plend  , $nounpls ) : 
-	    $vnotes{$palora}{noun}{plural} ;
-    }    
+	##  already plural
+	push( @plurals , $display ) ; 
 
+    } elsif ( ! defined $vnotes{$palora}{noun}{plural} && ( $plend eq "xixa" || $plend eq "xura" ) ) {
+	##  if an irregular plural is not defined AND plend is either "xixa" or "xura"
+	push( @plurals , $vbsubs{mk_noun_plural}( $display , $gender , $plend  , $nounpls ) );
+	push( @plurals , $vbsubs{mk_noun_plural}( $display , $gender , "xi"  , $nounpls ) );
+
+    } elsif ( ! defined $vnotes{$palora}{noun}{plural} ) {
+	##  if an irregular plural is not defined
+	push( @plurals , $vbsubs{mk_noun_plural}( $display , $gender , $plend  , $nounpls ) );
+
+    } else {
+	##  if an irregular plural is defined
+	push( @plurals , $vnotes{$palora}{noun}{plural} );
+    }
+    
+    
     ##  singular forms
     if ( $gender eq "mas" || $gender eq "both" ) {
 	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeouAEIOU]/ ) ? "l' " : "lu " ; 
@@ -90,18 +100,30 @@ sub mk_nounhtml {
     }
 
     ##  plural form
-    if ( ! defined $plural ) {
+    if ( $#plurals < 0 ) {
 	my $blah = "no plural.";
     } else {
 	my $abbrev = 'pl.' ; 
 	$abbrev = ( $gender eq "mpl" ) ? "mpl." : $abbrev ;
 	$abbrev = ( $gender eq "fpl" ) ? "fpl." : $abbrev ;
-	my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeouAEIOU]/ ) ? "l' " : "li " ; 
-	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>'. $abbrev .':</i> &nbsp; &nbsp; ' . $defart . $plural . "</p>" . "\n";
-    }
-    
+	
+	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>'. $abbrev .':</i> &nbsp; &nbsp; ' ;
+	
+	##  array because of the plends: "xixa" and "xura"
+	my @otplurals ;
+	foreach my $plural (@plurals) {
+	    my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeouAEIOU]/ ) ? "l' " : "li " ; 
+	    my $otplural = $defart . $plural ; 
+	    push( @otplurals , $otplural );
+	}
+	##  join them together
+	$ot .= join( ' &nbsp;o&nbsp; ' , @otplurals ) ; 
+	$ot .= '</p>' . "\n";
+    }   
     ##  close DIV that limits width
     $ot .= '</div>' . "\n" ; 
+
+    ##  send it out!
     return $ot ; 
 }
 
@@ -138,6 +160,10 @@ sub mk_adjhtml {
 	$maspl = $display  ;  
 	$fempl = $display  ;
     }
+
+    ##  make note of masculine singular forms that precedes the noun (if any)
+    $massi = ( ! defined $vnotes{$palora}{adj}{massi_precede} ) ? $massi : 
+	$vnotes{$palora}{adj}{massi_precede} . '&nbsp;&#47;&nbsp;' . $massi ;
 
     ##  singular and plural forms
     $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $massi . "</p>" . "\n";
