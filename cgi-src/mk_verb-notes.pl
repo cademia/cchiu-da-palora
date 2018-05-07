@@ -403,7 +403,7 @@ my %vnotes ;
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"jiri"} } = (
-    dieli => ["iri"],
+    dieli => ["iri","jiri","jiri (jirisìnni)",],
     dieli_en => ["go",],
     dieli_it => ["andare",],
     notex => ["Vaju a accattu li scarpi.","Jemu a accattari li scarpi.",],
@@ -589,7 +589,7 @@ my %vnotes ;
     dieli_en => ["describe","relate","trace",],
     dieli_it => ["descrivere",],
     part_speech => "verb",
-    prepend => { prep => "dis", verb => "scrìviri", },
+    prepend => { prep => "di", verb => "scrìviri", },
     );
 
 %{ $vnotes{"iscriviri"} } = (

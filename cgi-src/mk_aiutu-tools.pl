@@ -74,6 +74,9 @@ sub make_link {
     $partsp =~ s/^prep$/prip./ ;
     $partsp =~ s/^pron$/prun./ ;
 
+    ##  replace squote
+    $display =~ s/_SQUOTE_/'/g;
+    
     ##  link with part of speech
     my $othtml ;
     $othtml .= '<a href="/cgi-bin/aiutami.pl?';
@@ -114,6 +117,8 @@ sub make_alfa_index {
 	$rid =~ s/\303\216/I/g; 
 	$rid =~ s/\303\224/O/g; 
 	$rid =~ s/\303\233/U/g; 
+	##  replace squote
+	$rid =~ s/_SQUOTE_/'/g;
 	return $rid ;
     };
     
@@ -268,6 +273,8 @@ sub make_alfa_coll {
 	$rid =~ s/\303\216/I/g; 
 	$rid =~ s/\303\224/O/g; 
 	$rid =~ s/\303\233/U/g; 
+	##  replace squote
+	$rid =~ s/_SQUOTE_/'/g;
 	return $rid ;
     };
 
@@ -715,7 +722,9 @@ sub offer_translation {
 
     ##  form of the word to display
     my $display = $amlist{ $inword }{palora};
-
+    ##  replace squote
+    $display =~ s/_SQUOTE_/'/g;
+     
     ##  parti di discursu 
     my $part_speech = $amlist{ $inword }{part_speech} ;
     $part_speech =~ s/^verb$/verbu/ ;
@@ -728,6 +737,9 @@ sub offer_translation {
     ##  translations
     my $dieli_en = $amlist{$inword}{dieli_en};
     my $dieli_it = $amlist{$inword}{dieli_it};
+    ##  replace squote
+    $dieli_en =~ s/_SQUOTE_/'/g;
+    $dieli_it =~ s/_SQUOTE_/'/g;
 
     ##  prepare output
     my $othtml ;
@@ -1346,7 +1358,7 @@ sub get_random_word {
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
 
-##  Binvinuti!
+##  Bimminuti!
 sub make_welcome_msg {
     my $othtml;
     $othtml .= "\n";
@@ -1355,7 +1367,7 @@ sub make_welcome_msg {
     $othtml .= '  <div class="col-m-1 col-1"></div>'."\n";
     $othtml .= '  <div class="col-m-10 col-10">'."\n";
     $othtml .= "\n";
-    $othtml .= '<h3>Binvinuti!</h3>'."\n";
+    $othtml .= '<h3>Bimminuti!</h3>'."\n";
     $othtml .= "\n";    
     $othtml .= '<p>This page demonstrates a method of soliciting annotations to a Sicilian dictionary in a structured fashion.'."\n";
     $othtml .= '  <span style="color: rgb(204, 7, 39); font-weight: bold;">This page is under construction.</span>'."\n";
