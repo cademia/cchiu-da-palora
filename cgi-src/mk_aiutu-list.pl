@@ -123,24 +123,49 @@ sub mk_wants {
     foreach my $key (sort keys %dieli_sc) {
 
 	##  collect translations
-	my @dieli_en ;
-	my @dieli_it ;
+	my %dieli_en ;
+	my %dieli_it ;
 
+	##  loop through the word to capture translations by part of speech
 	foreach my $i (0..$#{$dieli_sc{$key}}){
+
+	    my $sc_part = ${$dieli_sc{$key}[$i]}{"sc_part"} ; 
+	    my $sc_word = ${$dieli_sc{$key}[$i]}{"sc_word"} ; 
+	    my $linkto  = ${$dieli_sc{$key}[$i]}{"linkto"} ; 
+	    
+	    my $is_verb = ( $sc_part eq '{v}' && $sc_word =~ /ari$|iri$|arisi$|irisi$/ ) ? "true" : "false" ;
+	    my $is_noun = ( $sc_part eq '{m}'   || $sc_part eq '{f}'   || $sc_part eq '{m/f}' || 
+			    $sc_part eq '{mpl}' || $sc_part eq '{fpl}') ? "true" : "false" ;
+	    my $is_adj  = ( $sc_part eq '{adj}' ) ? "true" : "false" ;
+
+	    my $pos_tag ;
+	    $pos_tag = ( $is_verb eq "true"  ) ?  'verb'  : undef    ;
+	    $pos_tag = ( $is_noun eq "true"  ) ?  'noun'  : $pos_tag ;
+	    $pos_tag = ( $is_adj  eq "true"  ) ?  'adj'   : $pos_tag ;
+	    $pos_tag = ( $sc_part eq '{adv}' ) ?  'adv'   : $pos_tag ;
+	    $pos_tag = ( $sc_part eq '{prep}') ?  'prep'  : $pos_tag ;
+	    $pos_tag = ( $sc_part eq '{pron}') ?  'pron'  : $pos_tag ;
+	    $pos_tag = ( $sc_part eq '{conj}') ?  'conj'  : $pos_tag ;
+	    $pos_tag = ( ! defined $pos_tag  ) ?  'other' : $pos_tag ;
+
 	    ## translation hash
 	    my %th = %{ ${$dieli_sc{$key}}[$i] } ; 
-	    if ( $th{"en_word"} ne '<br>' ) { push( @dieli_en , $th{"en_word"} );};
-	    if ( $th{"it_word"} ne '<br>' ) { push( @dieli_it , $th{"it_word"} );};
+	    if ( $th{"en_word"} ne '<br>' ) { push( @{$dieli_en{$pos_tag}} , $th{"en_word"} );};
+	    if ( $th{"it_word"} ne '<br>' ) { push( @{$dieli_it{$pos_tag}} , $th{"it_word"} );};
 	}
-	##  make translations unique
-	@dieli_en = sort( $ddsubs{uniq}( @dieli_en )) ; 
-	@dieli_it = sort( $ddsubs{uniq}( @dieli_it )) ; 
 
-	##  we do not need the arrays for this project
-	my $trans_dieli_en  =  join( ', ' , @dieli_en );
-	my $trans_dieli_it  =  join( ', ' , @dieli_it );
-	$trans_dieli_en  =~ s/_SQUOTE_/'/ ; 
-	$trans_dieli_it  =~ s/_SQUOTE_/'/ ; 
+	##  make translations unique and join them
+	my %trans_en ;  
+	my %trans_it ;  
+	foreach my $pos ("verb","noun","adj","adv","prep","pron","conj","other") {
+	    @{$dieli_en{$pos}} = sort( $ddsubs{uniq}( @{$dieli_en{$pos}} )) ; 
+	    @{$dieli_it{$pos}} = sort( $ddsubs{uniq}( @{$dieli_it{$pos}} )) ; 
+	    $trans_en{$pos} = join( ', ' , @{$dieli_en{$pos}} );
+	    $trans_it{$pos} = join( ', ' , @{$dieli_it{$pos}} );
+	    $trans_en{$pos}  =~ s/_SQUOTE_/'/ ; 
+	    $trans_it{$pos}  =~ s/_SQUOTE_/'/ ; 
+	}
+
 	
 
 	##  now loop through it all again
@@ -163,37 +188,43 @@ sub mk_wants {
 	    if ( $is_noun eq "true" &&  ! defined $linkto ) {
 		my ( $othref , $pos_tag ) = want_about_noun( $sc_word , $sc_part ); 
 		$othash{ $pos_tag } = ( $othref ) ; 
-		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		$othash{ $pos_tag }{dieli_en} = $trans_en{"noun"} ;
+		$othash{ $pos_tag }{dieli_it} = $trans_it{"noun"} ;
 		
 	    } elsif ( $is_adj eq "true" && ! defined $linkto ) {
 		my ( $othref , $pos_tag ) = want_about_adj( $sc_word ); 
 		$othash{ $pos_tag } = ( $othref ) ; 
-		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		$othash{ $pos_tag }{dieli_en} = $trans_en{"adj"} ;
+		$othash{ $pos_tag }{dieli_it} = $trans_it{"adj"} ;
 		
 	    } elsif ( $is_verb eq "true" && ! defined $linkto ) {
 		my ( $othref , $pos_tag ) = want_about_verb( $sc_word , \%vbsubs ); 
 		$othash{ $pos_tag } = ( $othref ) ; 
-		$othash{ $pos_tag }{dieli_en} = $trans_dieli_en ;
-		$othash{ $pos_tag }{dieli_it} = $trans_dieli_it ;
+		$othash{ $pos_tag }{dieli_en} = $trans_en{"verb"} ;
+		$othash{ $pos_tag }{dieli_it} = $trans_it{"verb"} ;
 	    } elsif  ( ! defined $linkto &&  $sc_word !~ /- - -/ ) {
 		my $pos_tag ; 
-		$pos_tag = ( $is_verb eq "true" ) ? "verb" : $pos_tag ;
-		$pos_tag = ( $is_noun eq "true" ) ? "noun" : $pos_tag ;
-		$pos_tag = ( $is_adj  eq "true" ) ? "adj"  : $pos_tag ;
-		$pos_tag = ( $sc_part =~ /^{adv}$|^{prep}$|^{pron}$|^{conj}$/ ) ? $sc_part : 'aùtru' ;
-		$pos_tag =~ s/^{// ; $pos_tag =~ s/}$// ; 
+		$pos_tag = ( $is_verb eq "true" )  ?  'verb'  : $pos_tag ;
+		$pos_tag = ( $is_noun eq "true" )  ?  'noun'  : $pos_tag ;
+		$pos_tag = ( $is_adj  eq "true" )  ?  'adj'   : $pos_tag ;
+		$pos_tag = ( $sc_part eq '{adv}' ) ?  'adv'   : $pos_tag ;
+		$pos_tag = ( $sc_part eq '{prep}') ?  'prep'  : $pos_tag ;
+		$pos_tag = ( $sc_part eq '{pron}') ?  'pron'  : $pos_tag ;
+		$pos_tag = ( $sc_part eq '{conj}') ?  'conj'  : $pos_tag ;
+		$pos_tag = ( ! defined $pos_tag  ) ?  'other' : $pos_tag ;
+
+		my $pos_disp ;
+		$pos_disp = ( $pos_tag eq "other" ) ? 'àutru' : $pos_tag ;
 
 		( my $display = $sc_word ) =~ s/_SQUOTE_/'/ ; 
 		my $hkey = $sc_word . "_" . $pos_tag ; 
 
 		%{ $othash{ $hkey } } = ( 
 		    palora => $display ,
-		    part_speech => $pos_tag , 
+		    part_speech => $pos_disp , 
 		    hashkey => $hkey ,
-		    dieli_en => $trans_dieli_en ,
-		    dieli_it => $trans_dieli_it ,
+		    dieli_en => $trans_en{$pos_tag} ,
+		    dieli_it => $trans_it{$pos_tag} ,
 		    );
 	    }
 	}

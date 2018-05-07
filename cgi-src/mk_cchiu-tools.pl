@@ -117,7 +117,7 @@ sub mk_nounhtml {
 	    push( @otplurals , $otplural );
 	}
 	##  join them together
-	$ot .= join( ' &nbsp;o&nbsp; ' , @otplurals ) ; 
+	$ot .= join( ' &nbsp;<i>o</i>&nbsp; ' , @otplurals ) ; 
 	$ot .= '</p>' . "\n";
     }   
     ##  close DIV that limits width
@@ -359,10 +359,11 @@ sub mk_dielitrans {
     ##  translate to Sicilian
     $part_speech =~ s/^verb$/verbu/ ;
     $part_speech =~ s/^noun$/sust./ ;
-    $part_speech =~ s/^adj$/agg./ ;
-    $part_speech =~ s/^adv$/avv./ ;
+    $part_speech =~ s/^adj$/agg./   ;
+    $part_speech =~ s/^adv$/avv./   ;
     $part_speech =~ s/^prep$/prip./ ;
     $part_speech =~ s/^pron$/prun./ ;
+    $part_speech =~ s/^conj$/cunj./ ;
     
     $ot .= '&nbsp;&nbsp;{' . $part_speech . '}</p>' . "\n" ;
     
@@ -600,11 +601,24 @@ sub mk_vnkcontent {
 		$display = ( ! defined $vnotes{$palora}{display_as} ) ? $display : $vnotes{$palora}{display_as} ;
 	    }
 
-	    ##  create link
-	    my $link = '<a href="/cgi-bin/cchiu-da-palora.pl?palora=' . $palora . '">' . $display . '</a>' ;
+	    ##  create link and part of speech
+
+	    ##  part of speech ... in Sicilian
+	    my $partsp = $vnotes{ $palora }{part_speech} ;
+	    $partsp =~ s/^verb$/verbu/ ;
+	    $partsp =~ s/^noun$/sust./ ;
+	    $partsp =~ s/^adj$/agg./   ;
+	    $partsp =~ s/^adv$/avv./   ;
+	    $partsp =~ s/^prep$/prip./ ;
+	    $partsp =~ s/^pron$/prun./ ;
+	    $partsp =~ s/^conj$/cunj./ ;
+	    $partsp =~ s/^other$/àutru./ ;
 	    
+	    my $link    = '<a href="/cgi-bin/cchiu-da-palora.pl?palora=' . $palora . '">' . $display . '</a>' ;
+	    my $partsp_disp  = '<small>{' . $partsp  . '}</small>' ;
+
 	    ##  prepare output
-	    $othtml .= '<p class="zero">' . $link . '</p>' . "\n" ; 
+	    $othtml .= '<p class="zero">' . $link . " " . $partsp_disp  . '</p>' . "\n" ; 
 	}
     }
     

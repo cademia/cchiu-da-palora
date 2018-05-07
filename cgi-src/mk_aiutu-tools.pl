@@ -73,6 +73,7 @@ sub make_link {
     $partsp =~ s/^adv$/avv./ ;
     $partsp =~ s/^prep$/prip./ ;
     $partsp =~ s/^pron$/prun./ ;
+    $partsp =~ s/^conj$/cunj./ ;
 
     ##  replace squote
     $display =~ s/_SQUOTE_/'/g;
@@ -322,7 +323,7 @@ sub make_alfa_coll {
     }
     $navigation .= '    </div>' . "\n";
     $navigation .= "\n";
-    $navigation .= '    <div class="col-4 col-m-4 vanish">' . "\n";
+    $navigation .= '    <div class="col-4 col-m-4">' . "\n";
     $navigation .= '      <p class="zero" style="text-align: center;">' . "\n";
     $navigation .= '	    <a href="/cgi-bin/aiutami.pl">ìnnici</a>' . "\n";
     $navigation .= '      </p>' . "\n";
@@ -729,10 +730,11 @@ sub offer_translation {
     my $part_speech = $amlist{ $inword }{part_speech} ;
     $part_speech =~ s/^verb$/verbu/ ;
     $part_speech =~ s/^noun$/sust./ ;
-    $part_speech =~ s/^adj$/agg./ ;
-    $part_speech =~ s/^adv$/avv./ ;
+    $part_speech =~ s/^adj$/agg./   ;
+    $part_speech =~ s/^adv$/avv./   ;
     $part_speech =~ s/^prep$/prip./ ;
     $part_speech =~ s/^pron$/prun./ ;
+    $part_speech =~ s/^conj$/cunj./ ;
 
     ##  translations
     my $dieli_en = $amlist{$inword}{dieli_en};
