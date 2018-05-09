@@ -1,4 +1,4 @@
-#!/usr/bin/perl -T
+#!/usr/bin/env perl
 
 ##  "aiutami.pl" -- solicits information for "Cchiù dâ Palora"
 ##  Copyright (C) 2018 Eryk Wdowiak
@@ -265,7 +265,7 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $la
 	##  say thank you
 	my $thanks ;
 	$thanks .= '<p style="margin-top: 0em; margin-bottom: 1em; text-align: center;">' ;
-	$thanks .= '<b><i><span class="lightcolor">Grazzii a pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
+	$thanks .= '<b><i><span class="lightcolor">Grazzii pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
 	print $thanks ; 
 
 	##  send them back to the list where they came from	
@@ -306,7 +306,7 @@ sub make_tests {
     my $othtml ;
     
     $othtml .= $amsubs{make_form_top}();
-    $othtml .= $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , $askORthank );
+    $othtml .= $amsubs{offer_translation}( $palora , $amlsrf , \%amsubs , $vbsubs , $askORthank );
     
     ##  collect information about grammar 
     ##  single words only

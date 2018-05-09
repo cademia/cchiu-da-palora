@@ -1,4 +1,4 @@
-#!/usr/bin/perl -T
+#!/usr/bin/env perl
 
 ##  "cchiu-da-palora.pl" -- annotates the Dieli dictionary
 ##  Copyright (C) 2018 Eryk Wdowiak

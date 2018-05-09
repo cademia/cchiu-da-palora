@@ -718,7 +718,8 @@ sub offer_translation {
     my $inword  =    $_[0]   ;
     my %amlist  = %{ $_[1] } ;
     my %amsubs  = %{ $_[2] } ;
-    my $askORthank = $_[3]   ;  
+    my %vbsubs  = %{ $_[3] } ; 
+    my $askORthank = $_[4]   ;  
     $askORthank = ( ! defined $askORthank || $askORthank ne "thankyou" ) ? "askhelp" : "thankyou" ; 
 
     ##  form of the word to display
@@ -735,6 +736,37 @@ sub offer_translation {
     $part_speech =~ s/^prep$/prip./ ;
     $part_speech =~ s/^pron$/prun./ ;
     $part_speech =~ s/^conj$/cunj./ ;
+
+    ##  add gender and definite article to nouns
+    if ( ! defined $amlist{ $inword }{noun}{gender} ) {
+	my $blah = "not a noun, so no definite article to add"
+
+    } elsif ( $amlist{ $inword }{noun}{gender} =~ /^mas$/  ) {
+	$part_speech .= " mas.";
+	my $defart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/i ) ? "l'" : "lu" ;
+	$display = $defart . ' ' . $display ;
+
+    } elsif ( $amlist{ $inword }{noun}{gender} =~ /^fem$/  ) {
+	$part_speech .= " fim.";
+	my $defart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/i ) ? "l'" : "la" ;
+	$display = $defart . ' ' . $display ;
+
+    } elsif ( $amlist{ $inword }{noun}{gender} =~ /^both$/  ) {
+	$part_speech .= " m./f.";
+	my $defart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/i ) ? "l'" : "lu/la" ;
+	$display = $defart . ' ' . $display ;
+
+    } elsif ( $amlist{ $inword }{noun}{gender} =~ /^mpl$/  ) {
+	$part_speech .= " mpl.";
+	my $defart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/i ) ? "l'" : "li" ;
+	$display = $defart . ' ' . $display ;
+
+    } elsif ( $amlist{ $inword }{noun}{gender} =~ /^fpl$/  ) {
+	$part_speech .= " fpl.";
+	my $defart = ( $vbsubs{rid_accents}($display) =~ /^[aeou]/i ) ? "l'" : "li" ;
+	$display = $defart . ' ' . $display ;
+    }
+
 
     ##  translations
     my $dieli_en = $amlist{$inword}{dieli_en};
@@ -753,12 +785,12 @@ sub offer_translation {
 	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora?</i></p>' . "\n" ; 
     } else {
 	$othtml .= '<p style="margin-top: 0.2em; margin-bottom: 0.25em; text-align: center;">' ;
-	$othtml .= '<b><i><span class="lightcolor">Grazzii a pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
+	$othtml .= '<b><i><span class="lightcolor">Grazzii pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
 	$othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
 	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora puru?</span></i></p>' . "\n" ; 
     }
     ##  inner DIV
-    $othtml .= '<div class="transleft">' . "\n" ;
+    $othtml .= '<div class="transleft" style="padding-left: 10px;">' . "\n" ;
     $othtml .= '<p class="half formtext"><b><span style="font-size: 1.1em">' . $display . '</span></b>' ;    
     $othtml .= '&nbsp;&nbsp;{' . $part_speech . '}</p>' . "\n" ;
 
@@ -985,7 +1017,7 @@ sub test_verb {
     $othtml .= 'Ntô <b>prisenti</b>, comu si dici?</span></i></p>' . "\n" ; 
     $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
     ##  radio options (PRI)
-    $othtml .= '<label class="container">"Iu ' . $conj_alfa{pri}{us} . '." &nbsp; "Nuatri ' . $conj_alfa{pri}{up} . '."' . "\n";
+    $othtml .= '<label class="container">Iu ' . $conj_alfa{pri}{us} . '. &nbsp; Nuatri ' . $conj_alfa{pri}{up} . '.' . "\n";
     my $value_pri_alfa = 'PRI' . '_conj_' . $conjA . '_stem_'. $stemA .'_boot_'. $bootA  ;
     $othtml .= '  <input type="radio" name="vb_PRI" value="' . $value_pri_alfa . '">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -994,7 +1026,7 @@ sub test_verb {
     ##  then ask for comparison, otherwise ask if irregular
     if ( ($stemA ne $stemB) || ($bootA ne $bootB) || ($conjA ne $conjB) ) {
 	##  radio options (PRI)
-	$othtml .= '<label class="container">"Iu ' . $conj_beta{pri}{us} . '." &nbsp; "Nuatri ' . $conj_beta{pri}{up} . '."' . "\n";
+	$othtml .= '<label class="container">Iu ' . $conj_beta{pri}{us} . '. &nbsp; Nuatri ' . $conj_beta{pri}{up} . '.' . "\n";
 	my $value_pri_beta = 'PRI' . '_conj_' . $conjB . '_stem_'. $stemB .'_boot_'. $bootB  ;
 	$othtml .= '  <input type="radio" name="vb_PRI" value="' . $value_pri_beta .'">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1031,7 +1063,7 @@ sub test_verb {
     $othtml .= 'Ntô <b>passatu</b>, comu si dici?</span></i></p>' . "\n" ; 
     $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
     ##  radio options (PAI)
-    $othtml .= '<label class="container">"Iu ' . $conj_alfa{pai}{us} . '." &nbsp; "Tu ' . $conj_alfa{pai}{ds} . '."' . "\n";
+    $othtml .= '<label class="container">Iu ' . $conj_alfa{pai}{us} . '. &nbsp; Tu ' . $conj_alfa{pai}{ds} . '.' . "\n";
     my $value_pai_alfa = 'PAI' . '_conj_' . $conjA . '_stem_'. $stemA ;
     $othtml .= '  <input type="radio" name="vb_PAI" value="'. $value_pai_alfa  .'">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1040,7 +1072,7 @@ sub test_verb {
     ##  then ask for comparison, otherwise ask if irregular
     if ( ( $conj_alfa{pai}{us} ne $conj_beta{pai}{us} ) || ( $conj_alfa{pai}{ds} ne $conj_beta{pai}{ds} ) ) {
 	##  radio options (PAI)
-	$othtml .= '<label class="container">"Iu ' . $conj_beta{pai}{us} . '." &nbsp; "Tu ' . $conj_beta{pai}{ds} . '."' . "\n";
+	$othtml .= '<label class="container">Iu ' . $conj_beta{pai}{us} . '. &nbsp; Tu ' . $conj_beta{pai}{ds} . '.' . "\n";
 	my $value_pai_beta = 'PAI' . '_conj_' . $conjB . '_stem_'. $stemB ;	
 	$othtml .= '  <input type="radio" name="vb_PAI" value="'. $value_pai_beta  .'">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1075,7 +1107,7 @@ sub test_verb {
     $othtml .= 'Comu si dici lu <b>participiu</b>?</span></i></p>' . "\n" ; 
     $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
     ##  radio options (PAP)
-    $othtml .= '<label class="container">"aviri ' . $conj_alfa{pap} . '"' . "\n";
+    $othtml .= '<label class="container">aviri ' . $conj_alfa{pap} . "\n";
     my $value_pap_alfa = 'PAP' . '_conj_' . $conjA . '_stem_'. $stemA ;
     $othtml .= '  <input type="radio" name="vb_PAP" value="' . $value_pap_alfa .'">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1084,7 +1116,7 @@ sub test_verb {
     ##  then ask for comparison, otherwise ask if irregular
     if ( $conj_alfa{pap} ne $conj_beta{pap} ) {
 	##  radio options (PAP)
-	$othtml .= '<label class="container">"aviri ' . $conj_beta{pap} . '"' . "\n";
+	$othtml .= '<label class="container">aviri ' . $conj_beta{pap} . "\n";
 	my $value_pap_beta = 'PAP' . '_conj_' . $conjB . '_stem_'. $stemB ;
 	$othtml .= '  <input type="radio" name="vb_PAP" value="' . $value_pap_beta .'">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1122,7 +1154,7 @@ sub test_verb {
     my $adjA = $conj_alfa{adj} ; 
     ##  switch to (ADJ)(FEM)
     $adjA =~ s/u$/a/ ;
-    $othtml .= '<label class="container">"È na cosa ' . $adjA . '."' . "\n";
+    $othtml .= '<label class="container">È na cosa ' . $adjA . '.' . "\n";
     my $value_adj_alfa = 'ADJ' . '_conj_' . $conjA . '_stem_'. $stemA ;
     $othtml .= '  <input type="radio" name="vb_ADJ" value="'. $value_adj_alfa .'">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1134,7 +1166,7 @@ sub test_verb {
 	my $adjB = $conj_beta{adj} ; 
 	##  switch to (ADJ)(FEM)
 	$adjB =~ s/u$/a/ ;
-	$othtml .= '<label class="container">"È na cosa ' . $adjB . '."' . "\n";
+	$othtml .= '<label class="container">È na cosa ' . $adjB . '.' . "\n";
 	my $value_adj_beta = 'ADJ' . '_conj_' . $conjB . '_stem_'. $stemB ;
 	$othtml .= '  <input type="radio" name="vb_ADJ" value="'. $value_adj_beta .'">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1218,7 +1250,7 @@ sub test_noun {
     $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
 
     ##  radio options 
-    $othtml .= '<label class="container">"' . $plural_alfa . '"' . "\n";
+    $othtml .= '<label class="container">' . $plural_alfa . "\n";
     my $plend_val_alfa = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_alfa ; 
     $othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_alfa . '">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1232,13 +1264,13 @@ sub test_noun {
 	$othtml .= '</label>' . "\n";
     } else {
 	##  radio options 
-	$othtml .= '<label class="container">"' . $plural_alfa . '"&nbsp;&nbsp;o&nbsp;&nbsp;"' . $plural_beta . '"' . "\n";
+	$othtml .= '<label class="container">' . $plural_alfa . '&nbsp;&nbsp;o&nbsp;&nbsp;' . $plural_beta . "\n";
 	my $plend_val_beta = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_beta ; 
 	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_beta . '">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
 	$othtml .= '</label>' . "\n";
 	##  radio options 
-	$othtml .= '<label class="container">"' . $plural_alfa . '"&nbsp;&nbsp;o&nbsp;&nbsp;"' . $plural_gmma . '"' . "\n";
+	$othtml .= '<label class="container">' . $plural_alfa . '&nbsp;&nbsp;o&nbsp;&nbsp;' . $plural_gmma . "\n";
 	my $plend_val_gmma = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_gmma ; 
 	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_gmma . '">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1303,14 +1335,14 @@ sub test_adj {
     $othtml .= 'Comu si dici la forma <b>fimminili</b> di l' . "'" . ' aggitivu?</span></i></p>' . "\n" ; 
     $othtml .= '<div style="margin-left: 20px;">' . "\n" ; 
     ##  radio options 
-    $othtml .= '<label class="container">"' . $femsi_alfa_disp . '"' . "\n";
+    $othtml .= '<label class="container">' . $femsi_alfa_disp . "\n";
     my $val_femsi_alfa = 'FEMSI' . '_' . $femsi_alfa ; 
     $othtml .= '  <input type="radio" name="adj_FEMSI" value="' . $val_femsi_alfa . '">' . "\n";
     $othtml .= '  <span class="checkmark"></span>' . "\n";
     $othtml .= '</label>' . "\n";
     if ( $femsi_alfa ne $femsi_beta ) {
 	##  radio options 
-	$othtml .= '<label class="container">"' . $femsi_beta_disp . '"' . "\n";
+	$othtml .= '<label class="container">' . $femsi_beta_disp . "\n";
 	my $val_femsi_beta = 'FEMSI' . '_' . $femsi_beta ; 
 	$othtml .= '  <input type="radio" name="adj_FEMSI" value="' . $val_femsi_beta . '">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
