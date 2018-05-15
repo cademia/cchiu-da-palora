@@ -312,13 +312,13 @@ sub make_tests {
     ##  single words only
     if ( ! defined $amlist{$palora}{part_speech} || ! defined $amlist{$palora}{palora} ) {
 	my $blah = "no grammar to ask about" ;
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "verb" && $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i) {
 	$othtml .= $amsubs{test_verb}( $palora , $amlsrf , \%amsubs , $vbsubs , $vbconj );
 	
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "noun" && $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i) {
 	$othtml .= $amsubs{test_noun}( $palora , $amlsrf , $nounpls , $vbsubs );
 	
-    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-z]+$/) {
+    } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i) {
 	$othtml .= $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
     }	
     ##  collect poetry and close

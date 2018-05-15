@@ -782,7 +782,7 @@ sub offer_translation {
     $othtml .= '<div class="row btop">' . "\n" ; 
     if ( $askORthank eq "askhelp" ) {
 	$othtml .= '<p style="margin-top: 0.5em; margin-bottom: 0.25em; text-align: center;"><i>' ;
-	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora?</i></p>' . "\n" ; 
+	$othtml .= '<span class="lightcolor">Mi dici cchiù di sta palora?</span></i></p>' . "\n" ; 
     } else {
 	$othtml .= '<p style="margin-top: 0.2em; margin-bottom: 0.25em; text-align: center;">' ;
 	$othtml .= '<b><i><span class="lightcolor">Grazzii pi l' . "'" . 'aiutu!</span></i></b></p>' . "\n" ; 
