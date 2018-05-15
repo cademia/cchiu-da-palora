@@ -1229,16 +1229,17 @@ sub test_noun {
     $plural_alfa = $pldefart . " " . $plural_alfa ; 
 
     ##  make options for the plural form
-    my $plural_beta ;  
-    my $plural_gmma ;
-    my $plend_beta = "xixa" ; 
-    my $plend_gmma = "xura" ; 
-    if ( $gender eq "mas" && $plend_alfa eq "xi" &&  $display =~ /u$/ ) {
+    my $plural_beta ;  my $plend_beta = "xa" ; 
+    my $plural_gmma ;  my $plend_gmma = "xixa" ; 
+    my $plural_dlta ;  my $plend_dlta = "xura" ; 
+    if ( $gender eq "mas" && $plend_alfa eq "xi" && $display =~ /u$/ ) {
 	$plural_beta = $vbsubs{mk_noun_plural}( $display , $gender , $plend_beta , $nounpls_ref );
 	$plural_gmma = $vbsubs{mk_noun_plural}( $display , $gender , $plend_gmma , $nounpls_ref );
+	$plural_dlta = $vbsubs{mk_noun_plural}( $display , $gender , $plend_dlta , $nounpls_ref );
 
 	$plural_beta = $pldefart . " " . $plural_beta ; 
 	$plural_gmma = $pldefart . " " . $plural_gmma ; 
+	$plural_dlta = $pldefart . " " . $plural_dlta ; 
     }  
 
     ##  make output html
@@ -1256,7 +1257,7 @@ sub test_noun {
     $othtml .= '  <span class="checkmark"></span>' . "\n";
     $othtml .= '</label>' . "\n";
     
-    if ( ! defined $plural_beta && ! defined $plural_gmma ) {
+    if ( ! defined $plural_beta && ! defined $plural_gmma && ! defined $plural_dlta ) {
 	##  irregular 
 	$othtml .= '<label class="container">Nun accussì. &nbsp; Nun è rigulari.' . "\n";
 	$othtml .= '  <input type="radio" name="noun_PLEND" value="PLEND_NunRigulari">' . "\n";
@@ -1264,7 +1265,7 @@ sub test_noun {
 	$othtml .= '</label>' . "\n";
     } else {
 	##  radio options 
-	$othtml .= '<label class="container">' . $plural_alfa . '&nbsp;&nbsp;o&nbsp;&nbsp;' . $plural_beta . "\n";
+	$othtml .= '<label class="container">' . $plural_beta . "\n";
 	my $plend_val_beta = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_beta ; 
 	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_beta . '">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
@@ -1273,6 +1274,12 @@ sub test_noun {
 	$othtml .= '<label class="container">' . $plural_alfa . '&nbsp;&nbsp;o&nbsp;&nbsp;' . $plural_gmma . "\n";
 	my $plend_val_gmma = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_gmma ; 
 	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_gmma . '">' . "\n";
+	$othtml .= '  <span class="checkmark"></span>' . "\n";
+	$othtml .= '</label>' . "\n";
+	##  radio options 
+	$othtml .= '<label class="container">' . $plural_alfa . '&nbsp;&nbsp;o&nbsp;&nbsp;' . $plural_dlta . "\n";
+	my $plend_val_dlta = 'PLEND' . '_gender_' . $gender . '_plend_'. $plend_dlta ; 
+	$othtml .= '  <input type="radio" name="noun_PLEND" value="' . $plend_val_dlta . '">' . "\n";
 	$othtml .= '  <span class="checkmark"></span>' . "\n";
 	$othtml .= '</label>' . "\n";
 	##  irregular 
@@ -1380,8 +1387,11 @@ sub get_random_word {
     my $palora = $allkeys[$rand_draw];	
 
     ##  keep selecting new hash keys  UNTIL
-    ##  "notes_on" is undefined  &&  "part_speech" is verb, noun or adjective
-    until ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} =~ /^verb$|^noun$|^adj$/ ) {
+    ##  "notes_on" is undefined  &&  "part_speech" is verb, noun or adjective  &&  single word
+    until ( ! defined $amlist{$palora}{notes_on} && 
+	    $amlist{$palora}{part_speech} =~ /^verb$|^noun$|^adj$/ && 
+	    $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i  
+	) {
 	$rand_draw = int( rand( $#allkeys + 1 ));
 	$palora = $allkeys[$rand_draw];	    
     }
@@ -1398,24 +1408,36 @@ sub make_welcome_msg {
     $othtml .= "\n";
     $othtml .= '<!-- begin row div -->'."\n";
     $othtml .= '<div class="row">'."\n";
-    $othtml .= '  <div class="col-m-1 col-1"></div>'."\n";
-    $othtml .= '  <div class="col-m-10 col-10">'."\n";
+    $othtml .= '  <div class="col-1"></div>'."\n";
+    $othtml .= '  <div class="col-m-12 col-5" style="padding: 0px 20px;">'."\n";
     $othtml .= "\n";
     $othtml .= '<h3>Bimminuti!</h3>'."\n";
     $othtml .= "\n";    
-    $othtml .= '<p>This page demonstrates a method of soliciting annotations to a Sicilian dictionary in a structured fashion.'."\n";
-    $othtml .= '  <span style="color: rgb(204, 7, 39); font-weight: bold;">This page is under construction.</span>'."\n";
-    $othtml .= '  During the construction phase, <span style="color: rgb(204, 7, 39); font-weight: bold;">no data</span>'."\n";
-    $othtml .= '  is being recorded.</p>'."\n";
+    $othtml .= '<p>Sta pàggina cerca &ndash; nnôn modu strutturatu &ndash; annotazzioni ê palori nnû dizzionariu sicilianu di'."\n";
+    $othtml .= '  <a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a>.'."\n";  
+    $othtml .= "  Di sutta c'è un ìnnici dâ so opera.</p>"."\n" ; 
     $othtml .= "\n";
-    $othtml .= '<p>When this page is ready, we will use it to annotate the Sicilian words in'."\n";
+    $othtml .= '<p>Ci sunnu dui modi disponibbili:  "<a href="/cgi-bin/aiutami.pl?lastauto=auto">modu automaticu</a>" e "modu navigatu."'."\n";  
+    $othtml .= '  Modu automaticu dumanna informazioni a palori scègghiuti aliatoriamenti -- una doppa l'."'".' àutra.'."\n";  
+    $othtml .= '  Modu navigatu ti torna â pàggina di cuntinuti doppa ca avisti annutatu na palora.</p>'."\n" ; 
+    $othtml .= "\n";
+    $othtml .= '<p>Pi cuminzari, clicca supra una dî link di sutta.'."\n";
+    $othtml .= '  O clicca ccà pi: &nbsp; <a href="/cgi-bin/aiutami.pl?lastauto=auto">modu automaticu</a>.</p>'."\n" ; 
+    $othtml .= "\n";
+    $othtml .= '  </div>'."\n";   
+    $othtml .= '  <div class="col-m-12 col-5" style="padding: 0px 20px;">'."\n";
+    $othtml .= "\n";
+    $othtml .= '<h3>Welcome!</h3>'."\n";
+    $othtml .= "\n";    
+    $othtml .= '<p>This page solicits annotations to '."\n" ; 
     $othtml .= '  <a href="http://www.dieli.net/" target="_blank">Arthur Dieli</a>'."'".'s'."\n"; 
-    $othtml .= '  dictionary.  Below is an index of his work.</p>'."\n";
+    $othtml .= '  Sicilian dictionary in a structured fashion.  Below is an index of his work.</p>'."\n";
     $othtml .= "\n";
-    $othtml .= '<p>Two modes will be available: &nbsp; "<a href="/cgi-bin/aiutami.pl?lastauto=auto">auto-mode</a>" and "browse-mode." '."\n";
-    $othtml .= '  Auto-mode will solicit contributions to randomly selected words -- one word automatically following another.'."\n";
-    $othtml .= '  Browse-mode will return you to the contents page after you annotate a word.'."\n";
-    $othtml .= '  To start browsing, click on one of the index links below.'."\n";
+    $othtml .= '<p>Two modes are available: &nbsp; "<a href="/cgi-bin/aiutami.pl?lastauto=auto">auto-mode</a>" and "browse-mode."'."\n";
+    $othtml .= '  Auto-mode solicits contributions to randomly selected words -- one word automatically following another.'."\n";
+    $othtml .= '  Browse-mode returns you to the contents page after you annotate a word.</p>'."\n";
+    $othtml .= "\n";
+    $othtml .= '<p>To start browsing, click on one of the index links below.'."\n";
     $othtml .= '  Or click here for: &nbsp; <a href="/cgi-bin/aiutami.pl?lastauto=auto">auto-mode</a>.</p>'."\n";
     $othtml .= "\n";
     ##  $othtml .= '<p></p>' . "\n"; 
@@ -1429,7 +1451,7 @@ sub make_welcome_msg {
     ##  $othtml .= '</div>'."\n";
     ##  $othtml .= "\n";  
     $othtml .= '  </div>'."\n";   
-    $othtml .= '  <div class="col-m-1 col-1"></div>'."\n";
+    $othtml .= '  <div class="col-1"></div>'."\n";
     $othtml .= '</div>'."\n";
     $othtml .= '<!-- end row div -->'."\n";
     $othtml .= "\n";
