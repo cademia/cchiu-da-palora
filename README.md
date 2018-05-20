@@ -1,46 +1,50 @@
 # Cchiù dâ Palora
 
-[_Cchiù dâ Palora_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl) uses a set of Perl hashes to annotate a Sicilian dictionary with examples, usage notes, verb conjugations and noun and adjective declensions.  In the future, we also plan to present a comparison of words across Sicilian dialects.
+[_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl) uses a set of Perl hashes to annotate a Sicilian dictionary with examples, usage notes, verb conjugations and noun and adjective declensions.  In the future, we also plan to present a comparison of words across Sicilian dialects.
 
-We also hope you will contribute to the project.  The specification is available below.
+We also hope you will contribute to the project.  The [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl) provides a simple way to contribute grammatical information, poetry and proverbs for each word.
 
-To make it easy for you to contribute, prototypes are available in the `cchiu-da-palora/cgi-src/fetch/` directory.  You can copy-paste those prototypes into the source files, edit them appropriately and then run `make_cchiu.sh` to recreate the storables.
+If you would like to help edit the dictionary, please read the specification below.  We have tried to make it easy for you to contribute by making prototypes available in the `cchiu-da-palora/cgi-src/fetch/` directory.  You can copy-paste those prototypes into the source files, edit them appropriately and then run `make_cchiu.sh` to recreate the storables.
 
 If you do, please provide the _minimum_ amount of information necessary.  Please provide the minimum amount of information necessary to conjugate verb or to decline a noun or adjective.
 
 In the case of verbs, we want the computer to automatically conjugate each verb.  To the greatest extent possible, we must avoid telling the computer what the conjugation is.  We want the computer to create the conjugations for us, so that then (one day in the future) we can ask the computer to provide a conjugation for each dialect of the Sicilian language.
 
-The Perl scripts are able to conjugate a verb properly with a minimal amount of information because -- after accounting for "[boot and stem](http://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)" patterns -- there are very few irregular verbs in the Sicilian language and the irregularities that do exist are few.  
+The Perl scripts are able to conjugate a verb properly with a minimal amount of information because -- after accounting for "[boot and stem](https://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)" patterns -- there are very few irregular verbs in the Sicilian language and the irregularities that do exist are few.  
 
-We encourage you to read that work and contribute to our project, so that we can all share a great Sicilian dictionary.
+We hope that you will contribute to our project, so that we can all share a great Sicilian dictionary.
 
 Grazzii pi l'aiutu! 
 
 ## Sicilian dictionary specification
 
-* [dictionary specification](http://www.wdowiak.me/archive/sicilian/index.shtml)
-* [boot and stem theory](http://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)
-* [_Dizziunariu di Dieli_](http://www.wdowiak.me/cgi-bin/sicilian.pl)
-* [_Cchiù dâ Palora_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl)
+* [Manifestu dûn Giùvini Sicilianu](https://www.wdowiak.me/archive/sicilian/giuvini-sicilianu.shtml)
+* [Young Sicilian Manifesto](https://www.wdowiak.me/archive/sicilian/young-sicilian.shtml)
 
-One goal of this project is to develop a Sicilian dictionary. Along the way, I also hope to develop some software tools for processing [natural language](http://www.wdowiak.me/archive/natlang/index.shtml).
+* [dictionary specification](https://www.wdowiak.me/archive/sicilian/index.shtml)
+* [boot and stem theory](https://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)
 
-To seed the project, I used [Arthur Dieli](http://www.dieli.net/)'s vocabulary lists to create a [basic dictionary](http://www.wdowiak.me/cgi-bin/sicilian.pl).  Dr. Dieli's work was one of the first Sicilian vocabulary lists on the internet.  It contains over 12,000 Sicilian words and phrases, part of speech and translations into English and Italian.
+* [_Dizziunariu di Dieli_](https://www.wdowiak.me/cgi-bin/sicilian.pl)
+* [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl)
+* [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl)
 
-To [build upon his work](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl), I am creating a set of Perl hashes to store information about each word.  Information that we might include are: part of speech, related words, examples, usage notes and dialectical differences.
+To develop a rule-based machine translator for the Sicilian language, we need a dictionary that writes the Sicilian language and we need a dictionary that translates the Sicilian language.
 
-Differences between Sicilian dialects are particularly important.  Documenting those differences should enable us to (in future work) teach a computer how to recognize a speaker's origin by the words, conjugations and grammar that they use.
+To seed the project, I used [Arthur Dieli](https://www.dieli.net/)'s vocabulary lists to create a [basic dictionary](https://www.wdowiak.me/cgi-bin/sicilian.pl).  Dr. Dieli's work was one of the first Sicilian vocabulary lists on the internet.  It contains over 12,000 Sicilian words and phrases, part of speech and translations into English and Italian.
 
-And, of course, if we can teach a computer the Sicilian language, we can teach the computer any language, so this project should also be useful to people with a general interest in linguistics.
+To write the Sicilian language, I created the set of Perl hashes described below. The [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl) tool uses those hashes to conjugate Sicilian verbs and to create the singular and plural forms of nouns and adjectives. The tool is based on the grammar rules listed in Kirk Bonner's _Introduction_.
 
-This project is in its early stages, but I have already created a tool -- [Cchiù dâ Palora](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl) -- that automatically conjugates Sicilian verbs and creates the singular and plural forms of nouns and adjectives. The tool is based on the grammar rules listed in Kirk Bonner's _Introduction_.
+The structure is flexible, so if there is interest, we could include other information too, for example:  related words, learner examples, usage notes and/or dialectical differences.
 
-Below is a description of the information that I am collecting on each word and how I am storing that information. Following the description is a slightly more formal specification of the information collected.
+To write a Perl hash for each Sicilian word, the [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl) tool asks visitors for grammatical information about each word and to contribute poetry or proverbs for each word.
 
+Finally, if we can teach a computer the Sicilian language, we can teach the computer any language, so I hope that this project will also be useful to people outside of the Sicilian community.
+
+Below is a description of the information that I am collecting on each Sicilian word and how I am storing that information. Following the description is a slightly more formal specification of the information collected.
 
 ### Perl hashes
 
-Some people learn a language by creating an index card for each word that they learn. The Perl hashes that we're creating here are similar to that index card. For the preposition [_dintra_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=dintra_prep>), I created this "index card:"
+Some people learn a language by creating an index card for each word that they learn. The Perl hashes that we're creating here are similar to that index card. For the preposition [_dintra_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=dintra_prep>), I created this "index card:"
 
 ```perl
 %{ $vnotes{"dintra_prep"} } = (
@@ -61,7 +65,7 @@ For that task, we want to give the computer the _least_ amount of information ne
 
 Specifically, we do not want to tell the computer what the conjugation is. We want the computer to create the conjugations for us, so that (one day in the future) we can ask the computer to provide a conjugation for each dialect of the Sicilian language.
 
-Fortunately, there are very few irregular verbs in the Sicilian language and the irregularities that do exist are few.  For example, after accounting for [boot and stem](http://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml) patterns, the verb [_jiri_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=jiri) only has four irregular forms -- the infinitive and three in the present tense (the first-person singular, third-person singular and third-person plural), so we might create the following hash:
+Fortunately, there are very few irregular verbs in the Sicilian language and the irregularities that do exist are few.  For example, after accounting for [boot and stem](https://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml) patterns, the verb [_jiri_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=jiri) only has four irregular forms -- the infinitive and three in the present tense (the first-person singular, third-person singular and third-person plural), so we might create the following hash:
 
 ```perl
 %{ $vnotes{"jiri"} } = (
@@ -82,7 +86,7 @@ Fortunately, there are very few irregular verbs in the Sicilian language and the
     },);
 ```
 
-Similarly, the verb [_mèttiri_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=m%C3%A8ttiri) only has a few irregular forms -- the past participle and four in the past tense:
+Similarly, the verb [_mèttiri_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=m%C3%A8ttiri) only has a few irregular forms -- the past participle and four in the past tense:
 
 ```perl
 %{ $vnotes{"mèttiri"} } = (
@@ -102,7 +106,7 @@ Similarly, the verb [_mèttiri_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.p
     },);
 ```
 
-But many verbs are built by adding a prefix to the verb _mèttiri_, so we can conjugate the reflexive verb [_intromèttirisi_](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=introm%C3%A8ttirisi) by creating a hidden hash of _intromèttiri_:
+But many verbs are built by adding a prefix to the verb _mèttiri_, so we can conjugate the reflexive verb [_intromèttirisi_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=introm%C3%A8ttirisi) by creating a hidden hash of _intromèttiri_:
 
 ```perl
 %{ $vnotes{"intromèttiri"} } = (
@@ -150,7 +154,7 @@ reflex  -- scalar  -- hash key of the non-reflexive verb
 
 parts of speech:  `verb`, `noun`, `adj`, `adv`, `prep`, `pron`, `conj`
 
-The verbs  [vìviri](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_drink) and [vìviri](http://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_live) need different hash keys.  But they both `display_as` "vìviri".
+The verbs  [vìviri](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_drink) and [vìviri](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl?palora=viviri_live) need different hash keys.  But they both `display_as` "vìviri".
 
 The additional information to include for verbs, nouns and adjectives is described in the tables below.
 

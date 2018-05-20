@@ -245,6 +245,12 @@ img {
     .col-m-12 {width: 100%; padding: 0px;}
 }
 
+/* for when you need a little extra padding on medium size screens */
+div.col-t-2 {width: 0%; padding: 0%;}
+@media only screen and (min-width: 480px) and (max-width: 599px) {
+    div.col-t-2 {width: 15.66%; padding: 0.5%;}
+}
+
 /*  for desktops  */
 @media only screen and (min-width: 600px) {
     .col-1 {width: 7.33%; padding: 0.5%;}
@@ -260,7 +266,6 @@ img {
     .col-11 {width: 90.66%; padding: 0.5%;}
     .col-12 {width: 100%; padding: 0px;}
 }
-
 
 /*  ====================  */
 
