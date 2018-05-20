@@ -2,7 +2,7 @@
 
 [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl) uses a set of Perl hashes to annotate a Sicilian dictionary with examples, usage notes, verb conjugations and noun and adjective declensions.  In the future, we also plan to present a comparison of words across Sicilian dialects.
 
-We also hope you will contribute to the project.  The [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl) provides a simple way to contribute grammatical information, poetry and proverbs for each word.
+We also hope you will contribute to the project.  The [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl) tool provides a simple way to contribute grammatical information, poetry and proverbs for each word.
 
 If you would like to help edit the dictionary, please read the specification below.  We have tried to make it easy for you to contribute by making prototypes available in the `cchiu-da-palora/cgi-src/fetch/` directory.  You can copy-paste those prototypes into the source files, edit them appropriately and then run `make_cchiu.sh` to recreate the storables.
 
@@ -18,12 +18,10 @@ Grazzii pi l'aiutu!
 
 ## Sicilian dictionary specification
 
-* [Manifestu dûn Giùvini Sicilianu](https://www.wdowiak.me/archive/sicilian/giuvini-sicilianu.shtml)
-* [Young Sicilian Manifesto](https://www.wdowiak.me/archive/sicilian/young-sicilian.shtml)
-
+* [_Manifestu dûn Giùvini Sicilianu_](https://www.wdowiak.me/archive/sicilian/giuvini-sicilianu.shtml)
+* [_Young Sicilian Manifesto_](https://www.wdowiak.me/archive/sicilian/young-sicilian.shtml)
 * [dictionary specification](https://www.wdowiak.me/archive/sicilian/index.shtml)
 * [boot and stem theory](https://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)
-
 * [_Dizziunariu di Dieli_](https://www.wdowiak.me/cgi-bin/sicilian.pl)
 * [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl)
 * [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl)
