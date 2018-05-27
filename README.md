@@ -16,7 +16,7 @@ We hope that you will contribute to our project, so that we can all share a grea
 
 Grazzii pi l'aiutu! 
 
-## Sicilian dictionary specification
+## project pages
 
 * [_Manifestu dûn Giùvini Sicilianu_](https://www.wdowiak.me/archive/sicilian/giuvini-sicilianu.shtml)
 * [_Young Sicilian Manifesto_](https://www.wdowiak.me/archive/sicilian/young-sicilian.shtml)
@@ -25,6 +25,20 @@ Grazzii pi l'aiutu!
 * [_Dizziunariu di Dieli_](https://www.wdowiak.me/cgi-bin/sicilian.pl)
 * [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl)
 * [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl)
+
+## to do, immediate needs
+
+* create an administrator tool that converts _Aiutami!_ data into Perl hashes
+* make sure that the 1000 most common words are in _Cchiù dâ Palora_
+* convert Eryk's CSS into Cademia's CSS
+
+## to do, long-term needs
+
+* create a proper Perl module for verb conjugations and noun-adjective inflections
+* convert to a Modern Perl web application framework (e.g. Mojolicious)
+* transition between simple orthography and Cademia's orthography
+
+## Sicilian dictionary specification
 
 To develop a rule-based machine translator for the Sicilian language, we need a dictionary that writes the Sicilian language and we need a dictionary that translates the Sicilian language.
 
