@@ -269,6 +269,8 @@ sub make_alfa_welcome {
     $othtml .= '<p style="font-size: 0.95em;">L'."'".'&nbsp;unica cosa ca vogghiu è informazioni di palori siciliani.'."\n";
     $othtml .= ' Mi dici cchiù di sti palori?</p>'."\n";
     $othtml .= "\n";
+    $othtml .= '<p style="font-size: 0.95em;"><i>&ndash; Eryk Wdowiak (29 maju 2018)</i></p>'."\n";
+    $othtml .= "\n";
     $othtml .= '  </div>'."\n";   
     $othtml .= '  <div class="col-m-12 col-6" style="padding: 0px 20px 0px 25px;">'."\n";
     $othtml .= "\n";
@@ -292,6 +294,8 @@ sub make_alfa_welcome {
     $othtml .= "\n";
     $othtml .= '<p style="font-size: 0.95em;">All I want is information about Sicilian words.'."\n";
     $othtml .= ' Could you tell me more about these words?</p>'."\n";
+    $othtml .= "\n";
+    $othtml .= '<p style="font-size: 0.95em;"><i>&ndash; Eryk Wdowiak (29 May 2018)</i></p>'."\n";
     $othtml .= "\n";
     $othtml .= '  </div>'."\n";   
     ## $othtml .= '  <div class="col-1"></div>'."\n";

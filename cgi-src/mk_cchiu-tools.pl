@@ -637,7 +637,7 @@ sub mk_cctophtml {
     $ottxt .= '<html>' . "\n" ;
     $ottxt .= '  <head>' . "\n" ;
     $ottxt .= '    <title>Cchiù dâ Palora :: Eryk Wdowiak</title>' . "\n" ;
-    $ottxt .= '    <meta name="DESCRIPTION" content="annotazzioni a nu dizzionariu sicilianu, annotations to a Sicilian dictionary">' . "\n" ;
+    $ottxt .= '    <meta name="DESCRIPTION" content="Annotazzioni a un dizziunariu sicilianu. Annotations to a Sicilian dictionary.">'."\n";
     $ottxt .= '    <meta name="KEYWORDS" content="Sicilian, language, dictionary">' . "\n" ;
     $ottxt .= '    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">' . "\n" ;
     $ottxt .= '    <meta name="Author" content="Eryk Wdowiak">' . "\n" ;
