@@ -1483,7 +1483,7 @@ sub make_welcome_msg {
     $othtml .= '  Modu automaticu dumanna informazioni a palori scègghiuti aliatoriamenti &ndash; una doppa l'."'".' àutra.'."\n";  
     $othtml .= '  Modu navigatu ti torna a la pàggina di cuntinuti doppa ca avisti annutatu na palora.</p>'."\n" ; 
     $othtml .= "\n";
-    $othtml .= '<p>Pi cuminzari, clicca supra una di li link di sutta.'."\n";
+    $othtml .= '<p>Pi cuminciari, clicca supra una di li link di sutta.'."\n";
     $othtml .= '  O clicca ccà pi: &nbsp; <a href="/cgi-bin/aiutami.pl?lastauto=auto">modu automaticu</a>.</p>'."\n" ; 
     $othtml .= "\n";
     $othtml .= '  </div>'."\n";   

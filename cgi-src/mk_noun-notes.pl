@@ -726,18 +726,46 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "xi",
     },);
 
-##  ##  ##  ##  ##  ##  ##  ##
+##  ##  ##  ##  ##  ##  ##  ##  ##
 
-%{ $vnotes{"ìditu_noun"} } = (
-    display_as => "ìditu",
-    dieli => ["iditu",],
-    dieli_en => ["digit","finger",],
-    dieli_it => ["dito",],
+%{ $vnotes{"isula_noun"} } = (
+    display_as => "isula",
+    dieli => ["isula",],
+    dieli_en => ["island",],
+    dieli_it => ["isola",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"isulamentu_noun"} } = (
+    display_as => "isulamentu",
+    dieli => ["isulamentu",],
+    dieli_en => ["isolation",],
+    dieli_it => ["isolamento",],
     ## notex => ["","",],
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plend => "xa",
+	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"isulaturi_noun"} } = (
+    display_as => "isulaturi",
+    dieli => ["isulaturi",],
+    dieli_en => ["insulator",],
+    dieli_it => ["isolatore",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "uri",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -766,6 +794,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xixa",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"jìditu_noun"} } = (
+    display_as => "jìditu",
+    dieli => ["iditu","iritu","jiditu"],
+    dieli_en => ["digit","finger",],
+    dieli_it => ["dito",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1544,6 +1586,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mpl",
 	plend => "ispl",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"strumentu_noun"} } = (
+    display_as => "strumentu",
+    dieli => ["strumentu",],
+    dieli_en => ["appliance","implement","instrument","medium",],
+    dieli_it => ["arnese","strumento",],
+    ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##

@@ -22,17 +22,20 @@ Grazzii pi l'aiutu!
 * [_Young Sicilian Manifesto_](https://www.wdowiak.me/archive/sicilian/young-sicilian.shtml)
 * [dictionary specification](https://www.wdowiak.me/archive/sicilian/index.shtml)
 * [boot and stem theory](https://www.wdowiak.me/archive/sicilian/sicilian-verbs.shtml)
+* [bibliography](https://www.wdowiak.me/archive/sicilian/bibliography.shtml)
 * [_Dizziunariu di Dieli_](https://www.wdowiak.me/cgi-bin/sicilian.pl)
 * [_Cchiù dâ Palora_](https://www.wdowiak.me/cgi-bin/cchiu-da-palora.pl)
 * [_Aiùtami!_](https://www.wdowiak.me/cgi-bin/aiutami.pl)
 
-## to do, immediate needs
+## to do
+
+### immediate agenda
 
 * create an administrator tool that converts _Aiutami!_ data into Perl hashes
 * make sure that the 1000 most common words are in _Cchiù dâ Palora_
 * convert Eryk's CSS into Cademia's CSS
 
-## to do, long-term needs
+### long-term agenda
 
 * create a proper Perl module for verb conjugations and noun-adjective inflections
 * convert to a Modern Perl web application framework (e.g. Mojolicious)

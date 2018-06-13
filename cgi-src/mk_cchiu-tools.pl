@@ -91,11 +91,11 @@ sub mk_nounhtml {
     
     ##  singular forms
     if ( $gender eq "mas" || $gender eq "both" ) {
-	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeouAEIOU]/ ) ? "l' " : "lu " ; 
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeiouAEIOU]/ ) ? "l' " : "lu " ; 
 	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>ms.:</i> &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
     if ( $gender eq "fem" || $gender eq "both" ) {
-	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeouAEIOU]/ ) ? "l' " : "la " ; 
+	my $defart = ( $vbsubs{rid_accents}( $display ) =~ /^[aeiouAEIOU]/ ) ? "l' " : "la " ; 
 	$ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><i>fs.:</i> &nbsp; &nbsp; ' . $defart . $display . "</p>" . "\n";
     }
 
@@ -112,7 +112,7 @@ sub mk_nounhtml {
 	##  array because of the plends: "xixa" and "xura"
 	my @otplurals ;
 	foreach my $plural (@plurals) {
-	    my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeouAEIOU]/ ) ? "l' " : "li " ; 
+	    my $defart = ( $vbsubs{rid_accents}( $plural ) =~ /^[aeiouAEIOU]/ ) ? "l' " : "li " ; 
 	    my $otplural = $defart . $plural ; 
 	    push( @otplurals , $otplural );
 	}
@@ -998,9 +998,10 @@ sub mk_foothtml {
     $othtml .= '      <li><i><a href="/cgi-bin/cchiu-da-palora.pl">Cchiù dâ Palora</a></i></li>'."\n";
     $othtml .= '      <li style="margin-bottom: 0.5em;"><i><a href="/cgi-bin/aiutami.pl">Aiùtami!</a></i></li>'."\n";
     $othtml .= '      <li><a href="/archive/sicilian/index.shtml">dictionary specification</a></li>'."\n";
-    $othtml .= '      <li style="margin-bottom: 0.5em;"><a href="/archive/sicilian/sicilian-verbs.shtml">boot and stem theory</a></li>'."\n";
-    $othtml .= '      <li><i><a href="/archive/sicilian/giuvini-sicilianu.shtml">Manifestu dûn Giùvini Sicilianu</a></i></li>';
-    $othtml .= '      <li style="margin-bottom: 0.5em;"><i><a href="/archive/sicilian/young-sicilian.shtml">Young Sicilian Manifesto</a></i></li>';
+    $othtml .= '      <li><a href="/archive/sicilian/sicilian-verbs.shtml">boot and stem theory</a></li>'."\n";
+    $othtml .= '      <li style="margin-bottom: 0.5em;"><a href="/archive/sicilian/bibliography.shtml">bibliography</a></li>'."\n";
+    $othtml .= '      <li><i><a href="/archive/sicilian/giuvini-sicilianu.shtml">Manifestu dûn Giùvini Sicilianu</a></i></li>'."\n";
+    $othtml .= '      <li style="margin-bottom: 0.5em;"><i><a href="/archive/sicilian/young-sicilian.shtml">Young Sicilian Manifesto</a></i></li>'."\n";
     $othtml .= '      <li><a href="https://github.com/cademia/cchiu-da-palora" target="_blank">source code</a> <small>(GitHub)</small></li>'."\n";
     $othtml .= '    </ul>'."\n";
     $othtml .= '  </div>'."\n";
