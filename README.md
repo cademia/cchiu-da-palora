@@ -31,7 +31,6 @@ Grazzii pi l'aiutu!
 
 ### immediate agenda
 
-* create an administrator tool that converts _Aiutami!_ data into Perl hashes
 * make sure that the 1000 most common words are in _Cchiù dâ Palora_
 * convert Eryk's CSS into Cademia's CSS
 
