@@ -204,10 +204,15 @@ sub mk_conjhtml {
     ##  which word do we redirect to? 
     my $redirect = ( ! defined $vnotes{$palora}{dieli} ) ? $palora : join( "_OR_", @{$vnotes{$palora}{dieli}} ) ;
     
+    ##  which word do we display?
+    my $display ;
+    $display = ( ! defined $othash{inf} ) ? $palora : $othash{inf} ;
+    $display = ( ! defined $vnotes{$palora}{display_as} ) ? $display : $vnotes{$palora}{display_as} ;
+    
     ##  outer DIV to limit width
     $ot .= '<div class="transconj">' . "\n" ;
     $ot .= '<p><b><a href="/cgi-bin/sicilian.pl?' . 'search=' . $redirect . '&langs=' . $lgparm . '">' ; 
-    $ot .= $othash{inf} . '</a></b></p>' . "\n" ;
+    $ot .= $display . '</a></b></p>' . "\n" ;
     
     ##  PRI -- present indicative 
     $ot .= '<div class="row">' . "\n" ; 
@@ -902,12 +907,23 @@ sub mk_ddtophtml {
 
 sub mk_newform {
 
+    ##  language parameter
     my $lgparm = $_[0] ;
 
+    ##  the word searched for, and only if single-item
+    my $insearch = $_[1];
+    my $search = ( $insearch =~ /^COLL_|_OR_/ ) ? "" : $insearch;
+
+    ##  place that word in the correct search box
+    my $sc_search = ($lgparm =~ /SCIT|SCEN/) ? $search : "" ;
+    my $ie_search = ($lgparm =~ /ITSC|ENSC/) ? $search : "" ;
+    
     my $ottxt ;
     $ottxt .= '<form enctype="multipart/form-data" action="/cgi-bin/sicilian.pl" method="post">' . "\n" ;
     $ottxt .= '<table style="max-width:500px;"><tbody>' . "\n" ;
-    $ottxt .= '<tr><td colspan="2">' . '<input type=text name="search" size=36 maxlength=72>' . '</td></tr>' . "\n" ;
+    $ottxt .= '<tr><td colspan="2">' ; 
+    $ottxt .= '<input type=text name="search" value="'. $sc_search .'" size=36 maxlength=72>' ; 
+    $ottxt .= '</td></tr>' . "\n" ;
     $ottxt .= '<tr><td>' . "\n" ; 
 
     $ottxt .= '<select name="langs">' . "\n" ;
@@ -929,7 +945,9 @@ sub mk_newform {
 
     $ottxt .= '<form enctype="multipart/form-data" action="/cgi-bin/sicilian.pl" method="post">' . "\n" ;
     $ottxt .= '<table style="max-width:500px;"><tbody>' . "\n" ;
-    $ottxt .= '<tr><td colspan="2">' . '<input type=text name="search" size=36 maxlength=72>' . '</td></tr>' . "\n" ;
+    $ottxt .= '<tr><td colspan="2">' ;
+    $ottxt .= '<input type=text name="search" value="'. $ie_search .'" size=36 maxlength=72>' ; 
+    $ottxt .= '</td></tr>' . "\n" ;
     $ottxt .= '<tr><td>' . "\n" ; 
 
     $ottxt .= '<select name="langs">' . "\n" ;

@@ -134,6 +134,35 @@ ${$dieli_sc{"u peggiu"}[0]}{"sc_part"} = '{adj}';
 ##  NOUNS
 ##  =====
 
+## $ ./query-dieli.pl sc strittu beccu
+## 	0  ==  beccu {} --> <br> {} --> beak {}
+## 	1  ==  beccu {m} --> becco {m} --> beak {n}
+## 	2  ==  beccu {n} --> corna {n} --> cuckold {n}
+## 	3  ==  beccu {m} --> becco {m} --> nozzle {n}
+## 	4  ==  beccu {m} --> <br> {m} --> spout {n}
+${$dieli_sc{"beccu"}[0]}{"sc_part"} = '{m}';
+${$dieli_sc{"beccu"}[0]}{"en_part"} = '{n}';
+${$dieli_sc{"beccu"}[2]}{"sc_part"} = '{m}';
+
+##  $ ./query-dieli.pl sc strittu criatu
+##  	0  ==  criatu {m} --> creato {m} --> servant {n}
+##  
+##  $ ./query-dieli.pl sc strittu criata
+##  	0  ==  criata {} --> colf (abbr) {} --> maid {}
+##  	1  ==  criata {} --> domestica {} --> maid {}
+${$dieli_sc{"criata"}[0]}{"sc_part"} = '{f}';
+${$dieli_sc{"criata"}[0]}{"it_part"} = '{f}';
+${$dieli_sc{"criata"}[0]}{"en_part"} = '{n}';
+${$dieli_sc{"criata"}[1]}{"sc_part"} = '{f}';
+${$dieli_sc{"criata"}[1]}{"it_part"} = '{f}';
+${$dieli_sc{"criata"}[1]}{"en_part"} = '{n}';
+
+##  $ ./query-dieli.pl sc strittu ginocchiu
+##  	0  ==  ginocchiu {} --> ginocchio {} --> knee {}
+${$dieli_sc{"ginocchiu"}[0]}{"sc_part"} = '{m}';
+${$dieli_sc{"ginocchiu"}[0]}{"it_part"} = '{m}';
+${$dieli_sc{"ginocchiu"}[0]}{"en_part"} = '{n}';
+
 ##  $ ./query-dieli.pl sc strittu jardinu 
 ##  	0  ==  jardinu {} --> giardino {} --> garden {}
 ${$dieli_sc{"jardinu"}[0]}{"sc_part"} = '{m}';
@@ -145,16 +174,6 @@ ${$dieli_sc{"jardinu"}[0]}{"en_part"} = '{n}';
 ## 	1  ==  pizzu {m} --> bustarella {f} --> bribe {n}
 ## 	2  ==  pizzu {f} --> vetta {f} --> peak {n}
 ${$dieli_sc{"pizzu"}[2]}{"sc_part"} = '{m}';
-
-## $ ./query-dieli.pl sc strittu beccu
-## 	0  ==  beccu {} --> <br> {} --> beak {}
-## 	1  ==  beccu {m} --> becco {m} --> beak {n}
-## 	2  ==  beccu {n} --> corna {n} --> cuckold {n}
-## 	3  ==  beccu {m} --> becco {m} --> nozzle {n}
-## 	4  ==  beccu {m} --> <br> {m} --> spout {n}
-${$dieli_sc{"beccu"}[0]}{"sc_part"} = '{m}';
-${$dieli_sc{"beccu"}[0]}{"en_part"} = '{n}';
-${$dieli_sc{"beccu"}[2]}{"sc_part"} = '{m}';
 
 ## $ ./query-dieli.pl sc strittu tabbaccaru
 ## 	0  ==  tabbaccaru {f} --> tabaccheria {f} --> cigar shop {n}
@@ -178,6 +197,12 @@ ${$dieli_sc{"voscu"}[3]}{"sc_part"} = '{m}';
 
 ##  EXAMPLES of VERBS
 ##  ======== == =====
+
+##  $ ./query-dieli.pl sc strittu natu
+##  	0  ==  natu {adj} --> nato {adj} --> born {adj}
+##  	1  ==  natu {v} --> <br> {} --> is born {v}
+${$dieli_sc{"natu"}[0]}{"linkto"} = "nasciri" ;
+${$dieli_sc{"natu"}[1]}{"linkto"} = "nasciri" ;
 
 ##  $ ./query-dieli.pl sc pari
 ##  	0  ==  pari {} --> manifesta {} --> be revealed {}

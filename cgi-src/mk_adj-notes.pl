@@ -44,6 +44,17 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 ##  ADD ADJECTIVES to VOCABULARY HASH
 ##  === ========== == ========== ====
 
+%{ $vnotes{"aspittatu_adj"} } = (
+    display_as => "aspittatu",
+    dieli => ["aspittatu",],
+    dieli_en => ["due",],
+    dieli_it => ["in arrivo",],
+    ##  notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"àutru_adj"} } = (
     display_as => "àutru",
     dieli => ["autru",],
@@ -133,7 +144,37 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli => ["cuntenti",],
     dieli_en => ["content","happy","satisfied",],
     dieli_it => ["contento",],
-    ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"friscu_adj"} } = (
+    display_as => "friscu",
+    dieli => ["friscu",],
+    dieli_en => ["cold","cool","fresh","fresh (cool)",],
+    dieli_it => ["fresco",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"immeritatu_adj"} } = (
+    display_as => "immeritatu",
+    dieli => ["immeritatu",],
+    dieli_en => ["unearned",],
+    dieli_it => ["non meritato",],
+    ##  notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"iustu_adj"} } = (
+    display_as => "iustu",
+    dieli => ["iustu",],
+    dieli_en => ["fair","right",],
+    dieli_it => ["giusto",],
     part_speech => "adj",
     );
 
@@ -288,6 +329,28 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_en => ["exact","precise",],
     dieli_it => [],
     ## notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"primu_adj"} } = (
+    display_as => "primu",
+    dieli => ["primu",],
+    dieli_en => ["chief","early","first","foremost","head",],
+    dieli_it => ["primo",],
+    ##  notex => ["","",],
+    part_speech => "adj",
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"recenti_adj"} } = (
+    display_as => "recenti",
+    dieli => ["recenti",],
+    dieli_en => ["recent",],
+    dieli_it => ["recente",],
+    ##  notex => ["","",],
     part_speech => "adj",
     );
 

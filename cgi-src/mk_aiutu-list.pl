@@ -248,22 +248,26 @@ sub want_about_verb {
     
     ##  infer conjugation
     my $conj ;
-    if ( $nonreflex =~ /iri$/ ) {
+    if ( $nonreflex =~ /ciri$/ ) {
+	$conj = "xciri";
+    } elsif ( $nonreflex =~ /giri$/ ) {
+	$conj = "xgiri";
+    } elsif ( $nonreflex =~ /siri$/ ) {
+	$conj = "xsiri";
+    } elsif ( $nonreflex =~ /iri$/ ) {
 	##  cannot know if "xxiri" or "sciri"
-	##  guess "xxiri"
+	##  so guess "xxiri"
 	$conj = "xxiri";
     } elsif ( $nonreflex =~ /cari$/ ) {
 	$conj = "xcari";
     } elsif ( $nonreflex =~ /gari$/ ) {
 	$conj = "xgari";
+    } elsif ( $nonreflex =~ /ciari$/ ) {
+	$conj = "ciari";	
+    } elsif ( $nonreflex =~ /giari$/ ) {
+	$conj = "giari";
     } elsif ( $nonreflex =~ /iari$/ ) {
-	if ( $nonreflex =~ /ciari$/ ) {
-	    $conj = "ciari";
-	} elsif ( $nonreflex =~ /giari$/ ) {
-	    $conj = "giari";
-	} else {
-	    $conj = "xiari";
-	}
+	$conj = "xiari";
     } else {
 	$conj = "xxari";
     }

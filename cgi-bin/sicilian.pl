@@ -60,7 +60,7 @@ s/'/_SQUOTE_/g for @searches ;
 
 ##  we need to make a webpage, so let's get some HTML
 my $tophtml  = $ddsubs{mk_ddtophtml}( "../config/topnav.html");
-my $newform  = $ddsubs{mk_newform}( $lgparm );
+my $newform  = $ddsubs{mk_newform}( $lgparm , $insearch );
 my $thanks   = $ddsubs{thank_dieli}();
 my $foothtml = $ddsubs{mk_foothtml}("../config/navbar-footer.html");
 

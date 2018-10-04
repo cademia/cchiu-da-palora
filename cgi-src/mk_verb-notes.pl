@@ -44,6 +44,36 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"accattari"} } = (
+    ##  display_as => "accattari",
+    dieli => ["accattari",],
+    dieli_en => ["buy","purchase",],
+    dieli_it => ["comprare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "accatt",
+ 	boot => "accàtt",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"aiutari"} } = (
+    ##  display_as => "aiutari",
+    dieli => ["aiutari",],
+    dieli_en => ["assist","help","rescue",],
+    dieli_it => ["aiutare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "aiut",
+ 	boot => "aiùt",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"allungari"} } = (
     dieli => ["allungari"],
     dieli_en => ["defer","dilute","lengthen","prolong","stretch",],
@@ -80,6 +110,36 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"arranciari"} } = (
+    display_as => "arranciari",
+    dieli => ["arranciari",],
+    dieli_en => ["arrange",],
+    dieli_it => ["mettere in ordine",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "ciari",
+ 	stem => "arranci",
+ 	boot => "arrancì",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"arrivari"} } = (
+    ##  display_as => "arrivari",
+    dieli => ["arrivari",],
+    dieli_en => ["arrive",],
+    dieli_it => ["arrivare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "arriv",
+ 	boot => "arrìv",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"aspittari"} } = (
     dieli => ["aspittari"],
     dieli_en => ["await","expect","hold on","wait",],
@@ -110,6 +170,20 @@ my %vnotes ;
 	    fti => { stem => "avir" },
 	    coi => { stem => "avir" },
 	},
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"cacciari"} } = (
+    ##  display_as => "cacciari",
+    dieli => ["cacciari",],
+    dieli_en => ["chase","hunt","urge",],
+    dieli_it => ["cacciare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "ciari",
+ 	stem => "cacci",
+ 	boot => "caccì",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -156,7 +230,7 @@ my %vnotes ;
     dieli_it => ["conoscere",],
     part_speech => "verb",
     verb => {
-	conj => "xxiri",
+	conj => "xciri",
 	stem => "canusc",
 	boot => "canùsc", 
     },);
@@ -225,6 +299,34 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"còciri"} } = (
+    display_as => "còciri",
+    dieli => ["còciri",],
+    dieli_en => ["bake","cook (something)",],
+    dieli_it => ["cuocere","cuocere al forno",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xciri",
+ 	stem => "cuc",
+ 	boot => "còc",
+     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"criari"} } = (
+    ##  display_as => "criari",
+    dieli => ["criari",],
+    dieli_en => ["compose","create",],
+    dieli_it => ["creare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xiari",
+ 	stem => "cri",
+ 	boot => "crì",
+     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"crìdiri"} } = (
     dieli => ["cridiri"],
     dieli_en => ["believe","guess","reckon","think",],
@@ -245,7 +347,6 @@ my %vnotes ;
     dieli => ["cummattiri",],
     dieli_en => ["annoy","assault","battle","be busy","combat","compete","deal","fight","struggle",],
     dieli_it => ["combattere","avere a che fare","competere",],
-    ## notex => ["","",],
     part_speech => "verb",
     verb => {
 	conj => "xxiri",
@@ -275,6 +376,20 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"cuntari"} } = (
+    ##  display_as => "cuntari",
+    dieli => ["cuntari",],
+    dieli_en => ["count","recount","tell",],
+    dieli_it => ["contare","raccontare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "cunt",
+ 	boot => "cònt",
+     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"cunzigghiari"} } = (
     dieli => ["cunzigghiari",],
     dieli_en => ["advise","counsel",],
@@ -300,6 +415,21 @@ my %vnotes ;
 	conj => "xxiri",
 	stem => "cus",
 	boot => "cùs",
+    },);
+
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"custari"} } = (
+    ##  display_as => "custari",
+    dieli => ["custari",],
+    dieli_en => ["consist","consist of","cost",],
+    dieli_it => ["consistere","constare","costare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "cust",
+ 	boot => "cùst",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -339,6 +469,20 @@ my %vnotes ;
 	    adj => "dittu",
 	},		
     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"economizzari"} } = (
+    ##  display_as => "economizzari",
+    dieli => ["economizzari",],
+    dieli_en => ["conserve","save","scrape",],
+    dieli_it => ["economizzare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "economizz",
+ 	boot => "economìzz",
+     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -430,6 +574,20 @@ my %vnotes ;
 	stem => "juc",
 	boot => "jòc",
     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"mancari"} } = (
+    ##  display_as => "mancari",
+    dieli => ["mancari",],
+    dieli_en => ["be found wanting","fail","lack","miss",],
+    dieli_it => ["mancare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xcari",
+ 	stem => "manc",
+ 	boot => "mànc",
+     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -570,6 +728,77 @@ my %vnotes ;
     part_speech => "verb",
     prepend => { prep => "ri", verb => "mèttiri", },
     );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"nasciri"} } = (
+    ##  display_as => "nasciri",
+    dieli => ["nasciri",],
+    dieli_en => ["be born","born",],
+    dieli_it => [],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xciri",
+ 	stem => "nasc",
+ 	boot => "nàsc",
+	irrg => {
+	    pap => "natu",
+	    adj => "natu",
+	},
+     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"nesciri"} } = (
+    ##  display_as => "nesciri",
+    dieli => ["nesciri",],
+    dieli_en => ["pull out",],
+    dieli_it => ["partire",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xciri",
+ 	stem => "nesc",
+ 	boot => "nèsc",
+    },);
+
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+##  $ ./query-dieli.pl it strittu porgere
+##  	0  ==  porgere {v} --> hand {v} --> porgiri {v}
+##  	1  ==  porgere {v} --> give {v} --> proiri {v}
+##  	2  ==  porgere {v} --> hand {v} --> pròiri {v}
+##  	3  ==  porgere {v} --> offer {v} --> pròiri {v}
+##  	4  ==  porgere {v} --> hand {v} --> pròjiri {v}
+##  	5  ==  porgere {v} --> hold out {v} --> pròjiri {v}
+##  	6  ==  porgere {v} --> offer {v} --> pròjiri {v}
+
+%{ $vnotes{"porgiri"} } = (
+    ##  display_as => "porgiri",
+    dieli => ["porgiri","proiri","pròiri","pròjiri",],
+    dieli_en => ["hand",],
+    dieli_it => ["porgere",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xgiri",
+ 	stem => "porg",
+ 	boot => "pòrg",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"racumannari"} } = (
+    ##  display_as => "racumannari",
+    dieli => ["racumannari",],
+    dieli_en => ["recommend","register",],
+    dieli_it => ["raccomandare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "racumann",
+ 	boot => "racumànn",
+     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
@@ -1163,6 +1392,75 @@ my %vnotes ;
 	boot => "tòrn",
     },);
 
+%{ $vnotes{"riturnari"} } = (
+    ##  display_as => "riturnari",
+    dieli => ["riturnari",],
+    dieli_en => ["come back","get back","go back","return",],
+    dieli_it => ["ritornare","tornare",],
+    part_speech => "verb",
+    prepend => { prep => "ri", verb => "turnari"},
+    );
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"scappari"} } = (
+    ##  display_as => "scappari",
+    dieli => ["scappari",],
+    dieli_en => ["flee","run away","slip",],
+    dieli_it => ["fuggire","scappare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "scapp",
+ 	boot => "scàpp",
+     },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"schirzari"} } = (
+    ##  display_as => "schirzari",
+    dieli => ["schirzari",],
+    dieli_en => ["jest","joke","make fun (of)","tease",],
+    dieli_it => ["scherzare",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "schirz",
+ 	boot => "schèrz",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"scunfiggiri"} } = (
+    ##  display_as => "scunfiggiri",
+    dieli => ["scunfiggiri",],
+    dieli_en => ["defeat",],
+    dieli_it => ["sconfiggere",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xgiri",
+ 	stem => "scunfigg",
+ 	boot => "scunfìgg",
+ 	irrg => {
+	    pap => "scunfittu",
+	    adj => "scunfittu",
+ 	},
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"specializzari"} } = (
+    ##  display_as => "specializzari",
+    dieli => ["specializzari",],
+    dieli_en => ["specialize",],
+    dieli_it => ["specializzarsi",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "specializz",
+ 	boot => "specialìzz",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"travagghiari"} } = (
@@ -1178,6 +1476,21 @@ my %vnotes ;
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"usari"} } = (
+    ##  display_as => "usari",
+    dieli => ["usari",],
+    dieli_en => ["apply","employ","use",],
+    dieli_it => ["usare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "us",
+ 	boot => "ùs",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"vardari"} } = (
     dieli => ["vardari"],
     dieli_en => ["look at","look out for","notice",],
@@ -1187,6 +1500,21 @@ my %vnotes ;
 	conj => "xxari", 
 	stem => "vard" ,
 	boot => "vàrd",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"venerari"} } = (
+    ##  display_as => "venerari",
+    dieli => ["venerari",],
+    dieli_en => ["worship",],
+    dieli_it => ["venerare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "vener",
+ 	boot => "venèr",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1224,6 +1552,21 @@ my %vnotes ;
 	    pai => { quad => "vìtt" },
 	    adj => "vistu",
 	},		
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"visitari"} } = (
+    ## display_as => "visitari",
+    dieli => ["visitari",],
+    dieli_en => ["call on","visit",],
+    dieli_it => ["visitare",],
+    ##  notex => ["","",],
+    part_speech => "verb",
+    verb => {
+ 	conj => "xxari",
+ 	stem => "visit",
+ 	boot => "visìt",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1273,11 +1616,11 @@ my %vnotes ;
 ##      ${$dieli_sc{"viviri"}[1]}{"linkto"} = "viviri_live";
 
 %{ $vnotes{"viviri_drink"} } = (
+    display_as => "vìviri",
     dieli => ["viviri","biviri","vivi"],
     dieli_en => ["drink",],
     dieli_it => ["bere",],
     part_speech => "verb", 
-    display_as => "vìviri",
     verb => {
 	conj => "xxiri", 
 	stem => "viv",
@@ -1287,11 +1630,11 @@ my %vnotes ;
 	},		
     },);
 %{ $vnotes{"viviri_live"} } = (
+    display_as => "vìviri",
     dieli => ["viviri"],
     dieli_en => ["live",],
     dieli_it => ["vivere",],
     part_speech => "verb", 
-    display_as => "vìviri",
     verb => {
 	conj => "xxiri", 
 	stem => "viv",

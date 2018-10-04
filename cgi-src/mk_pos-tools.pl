@@ -276,15 +276,23 @@ my %alliri = (
     ims => { us => "issi"   , ds => "issi"   , ts => "issi"    ,
 	     up => "ìssimu" , dp => "ìssivu" , tp => "ìssiru" },
     ger => "ennu" ,
-    pap => "utu"  ,
-
+    
     ##  imperative -- for use with reflexive pronouns
     pimr => {                 ds => "i"      , ts => "issi"    ,
 	     up => "èmu"    , dp => "ìti"    }, ## tp => "ìssiru" },
     );
 %{ $vbconj{xxiri} } = %alliri ;
+%{ $vbconj{xciri} } = %alliri ;
+%{ $vbconj{xgiri} } = %alliri ;
+%{ $vbconj{xsiri} } = %alliri ;
 %{ $vbconj{sciri} } = %alliri ;
 
+##  PAP -- past participle
+$vbconj{xxiri}{pap} = "utu";
+$vbconj{xciri}{pap} = "iutu";
+$vbconj{xgiri}{pap} = "iutu";
+$vbconj{xsiri}{pap} = "iutu";
+$vbconj{sciri}{pap} = "utu";
 
 ##  PRI -- present indicative
 my %prixxxi = ( us => "u"   , ds => "i"   , ts => "a"   ,
@@ -306,8 +314,14 @@ my %pricigi = ( us => "u"   , ds => ""    , ts => "a"   ,
 
 %{ $vbconj{xxiri}{pri} } = ( us => "u"   , ds => "i"   , ts => "i"   ,
 			     up => "emu" , dp => "iti" , tp => "inu" );
+%{ $vbconj{xciri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
+			     up => "emu" , dp => "iti" , tp => "inu" );
+%{ $vbconj{xgiri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
+			     up => "emu" , dp => "iti" , tp => "inu" );
+%{ $vbconj{xsiri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
+			     up => "emu" , dp => "iti" , tp => "inu" );
 %{ $vbconj{sciri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
-			     up => "emu" , dp => "iti" , tp => "inu" ) ; 
+			     up => "emu" , dp => "iti" , tp => "inu" ); 
 
 
 ##  FTI -- future
@@ -315,6 +329,9 @@ my %ftixir = ( us => "irò"    , ds => "irai"   , ts => "irà"     ,
 	       up => "iremu"  , dp => "iriti"  , tp => "irannu" );
 %{ $vbconj{xxari}{fti} } = %ftixir ;
 %{ $vbconj{xxiri}{fti} } = %ftixir ;
+%{ $vbconj{xciri}{fti} } = %ftixir ;
+%{ $vbconj{xgiri}{fti} } = %ftixir ;
+%{ $vbconj{xsiri}{fti} } = %ftixir ;
 %{ $vbconj{sciri}{fti} } = %ftixir ;
 
 
@@ -336,6 +353,9 @@ my %coixir = ( us => "irìa"   , ds => "irivi"  , ts => "irìa"   ,
 	       up => "irìamu" , dp => "irìavu" , tp => "irìanu");
 %{ $vbconj{xxari}{coi} } = %coixir ;
 %{ $vbconj{xxiri}{coi} } = %coixir ;
+%{ $vbconj{xciri}{coi} } = %coixir ;
+%{ $vbconj{xgiri}{coi} } = %coixir ;
+%{ $vbconj{xsiri}{coi} } = %coixir ;
 %{ $vbconj{sciri}{coi} } = %coixir ;
 
 my %coihir = ( us => "hirìa"   , ds => "hirivi"  , ts => "hirìa"   ,
@@ -400,7 +420,12 @@ sub conjugate {
 
     ##  which are defined?
     my $reflex  = ( ! defined $vnotes{$palora}{reflex} ) ? undef : $vnotes{$palora}{reflex} ; 
-    my $prepend = ( ! defined $vnotes{$reflex}{prepend} ) ? $vnotes{$palora}{prepend} : $vnotes{$reflex}{prepend} ;
+    my $prepend ; 
+    if ( ! defined $reflex ) {
+	$prepend = $vnotes{$palora}{prepend} ;
+    } else {	
+	$prepend = ( ! defined $vnotes{$reflex}{prepend} ) ? $vnotes{$palora}{prepend} : $vnotes{$reflex}{prepend} ;
+    }
     my $prep  = ( ! defined ${$prepend}{prep} ) ? ""      : ${$prepend}{prep} ;
     my $verb  = ( ! defined ${$prepend}{verb} ) ? $palora : ${$prepend}{verb} ;  
     

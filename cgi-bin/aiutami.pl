@@ -22,6 +22,7 @@ use strict;
 use warnings;
 no warnings qw( uninitialized );
 use CGI qw(:standard);
+use DBI; 
 use Storable qw( retrieve ) ;
 {   no warnings;             
     ## $Storable::Deparse = 1;  
@@ -36,11 +37,6 @@ use Storable qw( retrieve ) ;
 ##  number of pages for vocabulary list
 ##  should be divisible by four
 my $nupages = 76 ; 
-
-##  number of pages for each part of speech
-#my $pages_nouns = 24 ; 
-#my $pages_adjs  =  8 ; 
-#my $pages_verbs =  8 ; 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
@@ -67,8 +63,10 @@ my %amsubs = %{ $amhash->{amsubs} } ;
 my $amlsrf = retrieve('../cgi-lib/aiutu-list' );
 my %amlist = %{ $amlsrf } ;
 
-##  output file
-#my $otfile = '../cgi-log/aiutami_emw_' . $amsubs{datestamp}() ;
+## prepare connection to the database
+my $dbuser = "USERNAME" ; 
+my $dbpass = "PASSWORD" ; 
+my $connection = 'CONNECTION' ; 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
@@ -78,18 +76,124 @@ my %amlist = %{ $amlsrf } ;
 ##  =========
 
 ##  what word do we wish to annotate?
-my $palora = param('palora'); 
+my $palora = rm_malice(param('palora')); 
 
 ##  which collection are we looking for?
-my $coll =  param('coll');
+my $coll =  rm_malice(param('coll'));
 
 ##  annotating -- auto mode vs. word by word
 ##  possible values -- "auto","alfa_p02"
-my $lastauto = param('lastauto') ;
+my $lastauto = rm_malice(param('lastauto'));
 
 ##  capture card values
-my $cagna  = param('cagna'); 
-my $chista = param('chista_carta_e');
+my $cagna  = rm_malice(param('cagna')); 
+my $chista = rm_malice(param('chista_carta_e'));
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+##  what information have we collected?
+
+my $ip_addr = remote_addr(); 
+if ( ! defined $ip_addr ) {  
+    $ip_addr = "" ;
+} else {
+    $ip_addr = substr( $ip_addr , 0 , 20 ) ; 
+    $ip_addr = rm_malice($ip_addr);
+}
+
+my $usr_agt = user_agent(); 
+if ( ! defined $usr_agt ) {
+    $usr_agt = "" ;
+} else {
+    $usr_agt = substr( $usr_agt , 0 , 200 ) ; 
+    $usr_agt = rm_malice($usr_agt); 
+}
+
+my $usr_nme = param("Name"); 
+if ( ! defined $usr_nme ) { 
+    my $blah = "do nothing"; 
+} else { 
+    $usr_nme = substr( $usr_nme , 0 , 25 ); 
+    $usr_nme = rm_malice($usr_nme); 
+}
+
+my $poetry = param('poetry');
+if ( ! defined $poetry ) { 
+    my $blah = "do nothing";
+} elsif ( $poetry eq 'Raccuntami puisia!' ) {
+    $poetry = undef ;
+} else {
+    $poetry = substr($poetry,0,1000) ;
+    $poetry = rm_malice($poetry); 
+}
+
+my $adj_FEMSI = param('adj_FEMSI'); 
+if ( ! defined $adj_FEMSI ) { 
+    my $blah = "do nothing";
+} else { 
+    ## $adj_FEMSI  = ( $adj_FEMSI !~ /^FEMSI_|^FEMSI_Nudda$|^FEMSI_NunRigulari$|^FEMSI_NunSacciu$/ ) ? "invalid" : $adj_FEMSI ; 
+    $adj_FEMSI  = ( $adj_FEMSI !~ /^FEMSI_/ ) ? "invalid" : $adj_FEMSI ; 
+    $adj_FEMSI  = substr( $adj_FEMSI , 0 , 25 ); 
+    $adj_FEMSI  = rm_malice($adj_FEMSI);
+}
+
+my $noun_PLEND = param('noun_PLEND'); 
+if ( ! defined $noun_PLEND ) { 
+    my $blah = "do nothing";
+} else { 
+    $noun_PLEND = ( $noun_PLEND !~ /^PLEND_gender|^PLEND_Nudda$|^PLEND_NunRigulari$|^PLEND_NunSacciu$/ ) ? "invalid" : $noun_PLEND ; 
+    $noun_PLEND = substr( $noun_PLEND , 0 , 30 ); 
+    $noun_PLEND = rm_malice($noun_PLEND);
+}
+
+my $vb_PRI = param('vb_PRI'); 
+if ( ! defined $vb_PRI ) { 
+    my $blah = "do nothing";
+} else { 
+    $vb_PRI     = ( $vb_PRI  !~ /^PRI_conj|^PRI_Nudda$|^PRI_NunRigulari$|^PRI_NunSacciu$/ ) ? "invalid" : $vb_PRI ; 
+    $vb_PRI     = substr( $vb_PRI , 0 , 65 ); 
+    $vb_PRI     = rm_malice($vb_PRI);
+}
+
+my $vb_PAI = param('vb_PAI'); 
+if ( ! defined $vb_PAI ) { 
+    my $blah = "do nothing"; 
+} else { 
+    $vb_PAI     = ( $vb_PAI  !~ /^PAI_conj|^PAI_Nudda$|^PAI_NunRigulari$|^PAI_NunSacciu$/ ) ? "invalid" : $vb_PAI ; 
+    $vb_PAI     = substr( $vb_PAI , 0 , 40 ); 
+    $vb_PAI     = rm_malice($vb_PAI);
+}
+
+my $vb_PAP = param('vb_PAP'); 
+if ( ! defined $vb_PAP ) { 
+    my $blah = "do nothing";
+} else { 
+    $vb_PAP     = ( $vb_PAP  !~ /^PAP_conj|^PAP_Nudda$|^PAP_NunRigulari$|^PAP_NunSacciu$/ ) ? "invalid" : $vb_PAP ; 
+    $vb_PAP     = substr( $vb_PAP , 0 , 40 ); 
+    $vb_PAP     = rm_malice($vb_PAP);
+}
+
+my $vb_ADJ = param('vb_ADJ'); 
+if ( ! defined $vb_ADJ ) { 
+    my $blah = "do nothing"; 
+} else { 
+    $vb_ADJ     = ( $vb_ADJ  !~ /^ADJ_conj|^ADJ_Nudda$|^ADJ_NunRigulari$|^ADJ_NunSacciu$/ ) ? "invalid" : $vb_ADJ ; 
+    $vb_ADJ     = substr( $vb_ADJ , 0 , 40 ); 
+    $vb_ADJ     = rm_malice($vb_ADJ);
+}
+
+
+##  keep count of invalid input
+my $invalid = 0;
+foreach my $entry ($ip_addr, $usr_agt, $usr_nme, $poetry, 
+		   $adj_FEMSI, $noun_PLEND, 
+		   $vb_PRI, $vb_PAI, $vb_PAP, $vb_ADJ ) {
+    if ( ! defined $entry ) {
+	my $blah = "do nothing";
+    } elsif ( $entry eq "invalid" ) {
+	$invalid += 1 ;
+    }
+}
 
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -152,31 +256,20 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $la
     print make_tests( $palora , $askORthank , $lastauto ) ;
 
 
-} elsif ( defined $chista && ( ! defined $palora || ($amsubs{decode_carta}($cagna) ne $chista) ) ) {
+} elsif ( $invalid > 0 || ( defined $chista && ( ! defined $palora || ($amsubs{decode_carta}($cagna) ne $chista) ) ) ) {
     ##  case where user submitted an annotation
     ##  input NOT VALID --> fail
+    ##     *  input flagged as invalid  OR
     ##     *  "chista" defined, but either:
     ##            >   "cagna" and "chista" do not match  OR
     ##            >   "palora" not defined  (we need "palora" to annotate)
-    ##     *  "collection" is ambiguous, but already handled above
+    ##   Note:  "collection" is ambiguous, but already handled above
 
-    ## $cagna = $amsubs{decode_carta}($cagna);     
-    ## print '<p>test failed</p>' . "\n";
-    ## print '<p>cagna: '. $cagna .' --  chista: '. $chista .'</p>' . "\n";
-    
     ##  the question now is:  did they just hit "spidiscimi", meaning "go to next"
     ##  or did they submit garbage?  or worse, did they submit malicious code?
 
-    ##  what information have we collected?
-    my $adj_FEMSI  = param('adj_FEMSI');
-    my $noun_PLEND = param('noun_PLEND');
-    my $vb_PRI     = param('vb_PRI');
-    my $vb_PAI     = param('vb_PAI');
-    my $vb_PAP     = param('vb_PAP');
-    my $vb_ADJ     = param('vb_ADJ');
 
-    my $poetry     = param('poetry');
-    $poetry  = ( ! defined $poetry || $poetry eq 'Raccuntami puisia!' ) ? undef : $poetry ;
+    ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
     ##  if they are all undefined, then assume that user wishes to skip
     ##    1.   if ( ! defined $lastauto ) send them back home -- should not occur!
@@ -184,6 +277,10 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $la
     ##    3.  if "lastauto" is a collection name, then send them back to that collection
     ##    4.  if "lastauto" is not a collection name, send them home
     ##  otherwise send them back to the word they were annotating
+    ##  and record the "lost card game"
+
+    ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+
 
     if ( ! defined $adj_FEMSI  && 
 	 ! defined $noun_PLEND && 
@@ -217,6 +314,48 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $la
 
     } else {
 	##  RETURN    -- return to word annotating
+	##  after recording the "lost card game"
+
+	##  prepare connection to the database
+	my $db = DBI->connect($connection,$dbuser,$dbpass) || ConnectFails() ; 
+
+	##  prepare SQL command to record the "lost card game"
+	my $insertion ; 
+	$insertion .= 'INSERT into sicilian (' ; 
+	$insertion .= ( ! defined  $ip_addr    ) ? "" : 'ip_address, ' ;
+	$insertion .= ( ! defined  $usr_agt    ) ? "" : 'user_agent, ' ;
+	$insertion .= 'lost_cardgame, ';
+	$insertion .= ( ! defined  $palora     ) ? "" : 'palora, '     ;
+	$insertion .= ( ! defined  $usr_nme    ) ? "" : 'name, '       ;
+	$insertion .= ( ! defined  $vb_PRI     ) ? "" : 'vb_pri, '     ; 
+	$insertion .= ( ! defined  $vb_PAI     ) ? "" : 'vb_pai, '     ; 
+	$insertion .= ( ! defined  $vb_PAP     ) ? "" : 'vb_pap, '     ; 
+	$insertion .= ( ! defined  $vb_ADJ     ) ? "" : 'vb_adj, '     ; 
+	$insertion .= ( ! defined  $noun_PLEND ) ? "" : 'noun_plend, ' ; 
+	$insertion .= ( ! defined  $adj_FEMSI  ) ? "" : 'adj_femsi, '  ; 
+	$insertion .= ( ! defined  $poetry     ) ? "" : 'poetry, '     ; 
+	$insertion =~ s/, $//;
+	$insertion .= ') values (' ; 
+	$insertion .= ( ! defined  $ip_addr    ) ? "" : $db->quote( $ip_addr )    . ', ' ;
+	$insertion .= ( ! defined  $usr_agt    ) ? "" : $db->quote( $usr_agt )    . ', ' ;
+	$insertion .= '1, ';
+	$insertion .= ( ! defined  $palora     ) ? "" : $db->quote( $palora  )    . ', ' ;
+	$insertion .= ( ! defined  $usr_nme    ) ? "" : $db->quote( $usr_nme )    . ', ' ;
+	$insertion .= ( ! defined  $vb_PRI     ) ? "" : $db->quote( $vb_PRI )     . ', ' ; 
+	$insertion .= ( ! defined  $vb_PAI     ) ? "" : $db->quote( $vb_PAI )     . ', ' ; 
+	$insertion .= ( ! defined  $vb_PAP     ) ? "" : $db->quote( $vb_PAP )     . ', ' ; 
+	$insertion .= ( ! defined  $vb_ADJ     ) ? "" : $db->quote( $vb_ADJ )     . ', ' ; 
+	$insertion .= ( ! defined  $noun_PLEND ) ? "" : $db->quote( $noun_PLEND ) . ', ' ; 
+	$insertion .= ( ! defined  $adj_FEMSI  ) ? "" : $db->quote( $adj_FEMSI )  . ', ' ; 
+	$insertion .= ( ! defined  $poetry     ) ? "" : $db->quote( $poetry )     . ', ' ; 
+	$insertion =~ s/, $//;
+	$insertion .= ')' . "\n" ; 
+	
+	##  execute the SQL command
+	my $cmd = $db->prepare( $insertion ) ;
+	$cmd->execute;
+	
+	##  RETURN    -- return to word annotating
 	##  send them back to the word that they were annotating
 	## 
 	##  just in case "palora" is not defined, select word at random -- should not occur
@@ -242,11 +381,47 @@ if ( ! defined $cagna && ! defined $chista && ! defined $palora && ! defined $la
     ##     *  just let 'em through and delete the bad submissions later?
     ##     *  either way, this is going to be messy
 
-    ##  
-    ##  ##   CODE  TO  STORE  DATA  HERE
-    ##  
-    
+    ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
 
+    ##  prepare connection to the database
+    my $db = DBI->connect($connection,$dbuser,$dbpass) || ConnectFails() ; 
+
+    ##  write the SQL command
+    my $insertion ; 
+    $insertion .= 'INSERT into sicilian (' ; 
+    $insertion .= ( ! defined  $ip_addr    ) ? "" : 'ip_address, ' ;
+    $insertion .= ( ! defined  $usr_agt    ) ? "" : 'user_agent, ' ;
+    $insertion .= ( ! defined  $palora     ) ? "" : 'palora, '     ;
+    $insertion .= ( ! defined  $usr_nme    ) ? "" : 'name, '       ;
+    $insertion .= ( ! defined  $vb_PRI     ) ? "" : 'vb_pri, '     ; 
+    $insertion .= ( ! defined  $vb_PAI     ) ? "" : 'vb_pai, '     ; 
+    $insertion .= ( ! defined  $vb_PAP     ) ? "" : 'vb_pap, '     ; 
+    $insertion .= ( ! defined  $vb_ADJ     ) ? "" : 'vb_adj, '     ; 
+    $insertion .= ( ! defined  $noun_PLEND ) ? "" : 'noun_plend, ' ; 
+    $insertion .= ( ! defined  $adj_FEMSI  ) ? "" : 'adj_femsi, '  ; 
+    $insertion .= ( ! defined  $poetry     ) ? "" : 'poetry, '     ; 
+    $insertion =~ s/, $//;
+    $insertion .= ') values (' ; 
+    $insertion .= ( ! defined  $ip_addr    ) ? "" : $db->quote( $ip_addr )    . ', ' ;
+    $insertion .= ( ! defined  $usr_agt    ) ? "" : $db->quote( $usr_agt )    . ', ' ;
+    $insertion .= ( ! defined  $palora     ) ? "" : $db->quote( $palora )     . ', ' ;
+    $insertion .= ( ! defined  $usr_nme    ) ? "" : $db->quote( $usr_nme )    . ', ' ;
+    $insertion .= ( ! defined  $vb_PRI     ) ? "" : $db->quote( $vb_PRI )     . ', ' ; 
+    $insertion .= ( ! defined  $vb_PAI     ) ? "" : $db->quote( $vb_PAI )     . ', ' ; 
+    $insertion .= ( ! defined  $vb_PAP     ) ? "" : $db->quote( $vb_PAP )     . ', ' ; 
+    $insertion .= ( ! defined  $vb_ADJ     ) ? "" : $db->quote( $vb_ADJ )     . ', ' ; 
+    $insertion .= ( ! defined  $noun_PLEND ) ? "" : $db->quote( $noun_PLEND ) . ', ' ; 
+    $insertion .= ( ! defined  $adj_FEMSI  ) ? "" : $db->quote( $adj_FEMSI )  . ', ' ; 
+    $insertion .= ( ! defined  $poetry     ) ? "" : $db->quote( $poetry )     . ', ' ; 
+    $insertion =~ s/, $//;
+    $insertion .= ')' . "\n" ; 
+
+    ##  execute the SQL command
+    my $cmd = $db->prepare( $insertion ) ;
+    $cmd->execute;
+    
+    ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  ##  
+    
     ##  where to now?  back to list or to next word?
     ##     *  if arrived from browsing a collection, then send them back to that list
     ##     *  if arrived from the home page, then send them a random next word ("auto mode")
@@ -295,6 +470,27 @@ print $ddsubs{mk_foothtml}("../config/navbar-footer.html");
 ##  SUBROUTINES
 ##  ===========
 
+##  remove efforts to run Perl code with this script
+sub rm_malice {
+    my $str = $_[0] ;
+    $str =~ s/[\$\@\%\&]/X/g;
+    $str =~ s/\`/'/g ;
+    $str =~ s/eval/eXal/g;    
+    return $str ;
+}
+
+##  what to say if we cannot connect to the database
+sub ConnectFails {
+    ##  prepare an error message in case connection fails 
+    print '<h2>Sorry. An error has occurred.</h2>' . "\n" ;
+    print '<p>I could not connect to the database. Please try again later.</p>' . "\n" ; 
+    ## print $amsubs{make_welcome_msg}();
+    ## print $amsubs{make_alfa_welcome}( $amlsrf , \%amsubs , $vbsubs, $nupages );
+    print $ddsubs{mk_foothtml}("../config/navbar-footer.html");
+    exit ;
+}
+
+##  set of annotations to request for each word
 sub make_tests {
 
     ##  only arguments, everything else is globals
@@ -321,8 +517,9 @@ sub make_tests {
     } elsif ( ! defined $amlist{$palora}{notes_on} && $amlist{$palora}{part_speech} eq "adj"  && $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i) {
 	$othtml .= $amsubs{test_adj}( $palora ,  $amlsrf , $vbsubs , \%amsubs ) ; 
     }	
+
     ##  collect poetry and close
-    $othtml .= $amsubs{make_poetry}() ;	
+    $othtml .= $amsubs{make_poetry}() ;  
     $othtml .= $amsubs{make_namefield}();
     $othtml .= $amsubs{deal_cards}( \%amsubs , $palora , $lastauto );
     $othtml .= $amsubs{make_form_bottom}();
@@ -330,3 +527,4 @@ sub make_tests {
     ##  return the html
     return $othtml ;
 }
+

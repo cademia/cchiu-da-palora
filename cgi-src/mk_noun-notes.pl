@@ -125,6 +125,34 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "eddu",
     },);
 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"antincènniu_noun"} } = (
+    display_as => "antincènniu",
+    dieli => ["antincènniu",],
+    dieli_en => ["fire alarm",],
+    dieli_it => ["antincendio",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "xixa",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"aringa_noun"} } = (
+    display_as => "aringa",
+    dieli => ["aringa",],
+    dieli_en => ["herring",],
+    dieli_it => ["aringa",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xi",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"artista_noun"} } = (
@@ -137,6 +165,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "both",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"attigiamentu_noun"} } = (
+    display_as => "attigiamentu",
+    dieli => ["attigiamentu",],
+    dieli_en => ["position",],
+    dieli_it => ["atteggiamento",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "xixa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -165,6 +207,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"bracciu_noun"} } = (
+    display_as => "bracciu",
+    dieli => ["bracciu",],
+    dieli_en => ["arm",],
+    dieli_it => ["braccio",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -280,6 +336,32 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "xixa",
     },);
 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"ciavareddu_noun"} } = (
+    display_as => "ciavareddu",
+    dieli => ["ciavareddu","ciaureddu","ciaraveddu"],
+    dieli_en => ["kid goat",],
+    dieli_it => ["capretto",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "eddu",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"cimiteriu_noun"} } = (
+    display_as => "cimiteriu",
+    dieli => ["cimiteriu",],
+    dieli_en => ["cemetery","graveyard",],
+    dieli_it => ["camposanto","cimitero",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "xi",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"cìnima_noun"} } = (
@@ -291,8 +373,7 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     part_speech => "noun",
     noun => {
 	gender => "mas",
-	plend => "xa",
-	plural => "cìnima",
+	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -365,6 +446,30 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"criata_noun"} } = (
+    display_as => "criata",
+    dieli => ["criata",],
+    dieli_en => ["maid",],
+    dieli_it => ["colf (abbr)","domestica",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+    },);
+
+%{ $vnotes{"criatu_noun"} } = (
+    display_as => "criatu",
+    dieli => ["criatu",],
+    dieli_en => ["servant",],
+    dieli_it => ["creato",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"cumpusituri_noun"} } = (
     display_as => "cumpusituri",
     dieli => ["composituri",],
@@ -389,6 +494,33 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "both",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"diliggenza_noun"} } = (
+    display_as => "diliggenza",
+    dieli => ["diliggenza",],
+    dieli_en => ["diligence",],
+    dieli_it => ["diligenza",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"dinòcchiu_noun"} } = (
+    display_as => "dinòcchiu",
+    dieli => ["dinòcchiu","ginocchiu"],
+    dieli_en => ["knee",],
+    dieli_it => ["ginocchio",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "xa",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -427,6 +559,19 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     dieli_en => ["donation","gift",],
     dieli_it => ["donazione","dono",],
     ## notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "mas",
+	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"dubbiu_noun"} } = (
+    display_as => "dubbiu",
+    dieli => ["dubbiu",],
+    dieli_en => ["doubt","uncertainty",],
+    dieli_it => ["dubbio",],
     part_speech => "noun",
     noun => {
 	gender => "mas",
@@ -838,6 +983,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "xa",
     },);
 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"juta_noun"} } = (
+    display_as => "juta",
+    dieli => ["juta",],
+    dieli_en => ["trip",],
+    dieli_it => ["andata","gita",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xi",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"libbru_noun"} } = (
@@ -1067,6 +1226,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 
 ##  ##  ##  ##  ##  ##  ##  ##
 
+%{ $vnotes{"ommissioni_noun"} } = (
+    display_as => "ommissioni",
+    dieli => ["ommissioni",],
+    dieli_en => ["errand",],
+    dieli_it => ["commissione",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##
+
 %{ $vnotes{"omu_noun"} } = (
     display_as => "omu",
     dieli => ["omu",],
@@ -1178,6 +1351,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "mas",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"parità_noun"} } = (
+    display_as => "parità",
+    dieli => ["parità",],
+    dieli_en => ["equality",],
+    dieli_it => [],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xx",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
@@ -1320,6 +1507,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "xixa",
     },);
 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"placca_noun"} } = (
+    display_as => "placca",
+    dieli => ["placca",],
+    dieli_en => ["plaque","plate",],
+    dieli_it => [],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"porcu_noun"} } = (
@@ -1347,6 +1548,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "fem",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"presidenti_noun"} } = (
+    display_as => "presidenti",
+    dieli => ["presidenti",],
+    dieli_en => ["chairman",],
+    dieli_it => ["presidente",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "mas",
+ 	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -1574,6 +1789,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
 	plend => "xixa",
     },);
 
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"spiegazioni_noun"} } = (
+    display_as => "spiegazioni",
+    dieli => ["spiegazioni",],
+    dieli_en => ["explanation",],
+    dieli_it => ["spiegazione",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+	gender => "fem",
+	plend => "xi",
+    },);
+
 ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"Stati Uniti_noun"} } = (
@@ -1698,6 +1927,20 @@ my %dieli_sc = %{ retrieve( $dieli_sc_dict ) } ;
     noun => {
 	gender => "fem",
 	plend => "xi",
+    },);
+
+##  ##  ##  ##  ##  ##  ##  ##  ##
+
+%{ $vnotes{"valiggia_noun"} } = (
+    display_as => "valiggia",
+    dieli => ["valiggia",],
+    dieli_en => ["bag","suitcase","trunk",],
+    dieli_it => ["valigia",],
+    ##  notex => ["","",],
+    part_speech => "noun",
+    noun => {
+ 	gender => "fem",
+ 	plend => "xi",
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##
