@@ -111,7 +111,6 @@ my %vnotes ;
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"arranciari"} } = (
-    display_as => "arranciari",
     dieli => ["arranciari",],
     dieli_en => ["arrange",],
     dieli_it => ["mettere in ordine",],
@@ -232,7 +231,10 @@ my %vnotes ;
     verb => {
 	conj => "xciri",
 	stem => "canusc",
-	boot => "canùsc", 
+	boot => "canùsc",
+	irrg => {
+	    inf => "canùsciri",
+	}
     },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
@@ -300,7 +302,7 @@ my %vnotes ;
 ##  ##  ##  ##  ##  ##  ##  ##  ##
 
 %{ $vnotes{"còciri"} } = (
-    display_as => "còciri",
+    ##  display_as => "còciri",    
     dieli => ["còciri",],
     dieli_en => ["bake","cook (something)",],
     dieli_it => ["cuocere","cuocere al forno",],
@@ -309,6 +311,9 @@ my %vnotes ;
  	conj => "xciri",
  	stem => "cuc",
  	boot => "còc",
+	irrg => {
+	    inf => "còciri",
+	},
      },);
 
 ##  ##  ##  ##  ##  ##  ##  ##  ##
