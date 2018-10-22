@@ -24,7 +24,7 @@ no warnings qw( uninitialized );
 
 use Text::CSV_XS ; 
 use Storable qw( retrieve ) ;
-{   no warnings;             
+{   no warnings;  
     ## $Storable::Deparse = 1;  
     $Storable::Eval    = 1;  
 }
@@ -32,11 +32,11 @@ use Storable qw( retrieve ) ;
 #  ##  ##  ##  ##  ##  ##  ##  ##
 
 ##  input and output files
-my $infile = "sicilian_2018-10-01_v1.csv";
-my $otfile = "sicilian_2018-10-01_v1.pl";
+my $infile = "sicilian_2018-10-18_v1.csv";
+my $otfile = "sicilian_2018-10-18_v1.pl";
 
 ##  retrieve aiutami list
-my $amlsrf = retrieve('bkp-lib/aiutu-list_2018-10-01' );
+my $amlsrf = retrieve('bkp-lib/aiutu-list_2018-10-18' );
 my %amlist = %{ $amlsrf } ;
 
 ##  retrieve hashes and subroutines
@@ -213,7 +213,7 @@ sub mk_vbhash {
     $ottxt .= "\n";
     ##$ottxt .= '##  ##  ' . $dieli . ' -- Aiùtami hash' . "\n";
     $ottxt .= '%{ $vnotes{"' . $dieli . '"} } = (' . "\n";
-    $ottxt .= '    display_as => "' . $dieli . '",' . "\n";
+    $ottxt .= '    ##  display_as => "' . $dieli . '",' . "\n";
     $ottxt .= '    dieli => ["' . $dieli . '",],' . "\n";
     $ottxt .= '    dieli_en => ['; 
     foreach my $listing (@dieli_en) { $ottxt .= '"' . $listing . '",';};

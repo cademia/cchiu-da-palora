@@ -76,24 +76,28 @@ if ( ! defined $inword ) {
     
     if ( $isverb eq "true" ) {
 	print $ccsubs{mk_conjhtml}( $inword , $lgparm , \%vnotes , $vbconj , $vbsubs ) ;
+	print $ccsubs{ask_help}( $inword , \%vnotes );
 	
     } elsif ( $isnoun eq "true" ) {
 	print $ccsubs{mk_nounhtml}( $inword , $lgparm , \%vnotes , $nounpls , $vbsubs ) ;
+	print $ccsubs{ask_help}( $inword , \%vnotes );
 	
     } elsif ( $isadj  eq "true" ) {
 	print $ccsubs{mk_adjhtml}( $inword , $lgparm , \%vnotes , $vbsubs ) ;
+	print $ccsubs{ask_help}( $inword , \%vnotes );
 
     } elsif ( $isother  eq "true" ) {
-	my $blah = "do nothing here.  we just want to avoid error message below." ; 
+	##  other, so only ask for help 
+	print $ccsubs{ask_help}( $inword , \%vnotes );
 	
     } else {
 	##  outer DIV to limit width
 	my $othtml ; 
 	$othtml .= '<div class="transconj">' . "\n" ; 
 	$othtml .= '<div class="row">' . "\n" ; 
-	$othtml .= '<p>' . "nun c'è" . ' na annotazzioni dâ palora: &nbsp; <b>' . $inword . '</b></p>' . "\n" ;
-	$othtml .= '</div>' . "\n" ; 
-	$othtml .= '</div>' . "\n" ; 
+	$othtml .= '<p>'."nun c'è n'".' annotazzioni dâ palora: &nbsp; <b>'. $inword .'</b></p>'."\n";
+	$othtml .= '</div>'."\n"; 
+	$othtml .= '</div>'."\n"; 
 	print $othtml ; 
 	print $ccsubs{mk_showall}(  \%vnotes , $vbconj , $vbsubs , $adjustone , $adjusttwo , $adjusttre ) ;
     }

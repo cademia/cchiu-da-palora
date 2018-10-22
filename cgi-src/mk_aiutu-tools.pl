@@ -1449,8 +1449,8 @@ sub get_random_word {
 
     ##  keep selecting new hash keys  UNTIL
     ##  "notes_on" is undefined  &&  "part_speech" is verb, noun or adjective  &&  single word
-    until ( ! defined $amlist{$palora}{notes_on} && 
-	    $amlist{$palora}{part_speech} =~ /^verb$|^noun$|^adj$/ && 
+    until ( ## ! defined $amlist{$palora}{notes_on} && 
+	    $amlist{$palora}{part_speech} =~ /^verb$|^noun$|^adj$|^adv$/ && ## |^prep$|^pron$|^conj$/ && 
 	    $amlist{$palora}{palora} =~ /^[a-zàèìòù]+$/i  
 	) {
 	$rand_draw = int( rand( $#allkeys + 1 ));

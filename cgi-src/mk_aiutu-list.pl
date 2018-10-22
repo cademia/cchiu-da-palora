@@ -252,6 +252,8 @@ sub want_about_verb {
 	$conj = "xciri";
     } elsif ( $nonreflex =~ /giri$/ ) {
 	$conj = "xgiri";
+    } elsif ( $nonreflex =~ /hiri$/ ) {
+	$conj = "xhiri";
     } elsif ( $nonreflex =~ /siri$/ ) {
 	$conj = "xsiri";
     } elsif ( $nonreflex =~ /iri$/ ) {

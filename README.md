@@ -193,9 +193,9 @@ adj  -- scalar  -- irregular adjective
 inf  -- scalar  -- irregular infinitive
 ```
 
-conjugations:  `xxari`, `xcari`, `xgari`, `xiari`, `ciari`, `giari`, `xxiri`, `xciri`, `xgiri`, `xsiri`, `sciri`
+conjugations:  `xxari`, `xcari`, `xgari`, `xiari`, `ciari`, `giari`, `xxiri`, `xciri`, `xgiri`, `xhiri`, `xsiri`, `sciri`
 
-Sicilian has two verb conjugations ("-ari" and "-iri"), which I have split into eleven subconjugations, so that the verb stems pair properly with the verb endings.
+Sicilian has two verb conjugations ("-ari" and "-iri"), which I have split into twelve subconjugations, so that the verb stems pair properly with the verb endings.
 
 For example:
 

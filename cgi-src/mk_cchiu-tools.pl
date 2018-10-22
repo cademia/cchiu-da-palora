@@ -37,6 +37,35 @@ my $otfile = '../cgi-lib/cchiu-tools' ;
 ##  SUBROUTINES  for  CCHIU-DA-PALORA
 ##  ===========  ===  ===============
 
+sub ask_help {
+
+    ##  pass in the hash key and vocabulary notes
+    my $palora  =   $_[0];
+    my %vnotes  = %{$_[1]};
+
+    ##  strip part of speech identifier
+    my $strip = $palora;
+    $strip =~ s/_[a-z]*$//;
+
+    ##  what is the display?
+    my $display = ( ! defined $vnotes{$palora}{display_as} ) ? $strip : $vnotes{$palora}{display_as} ; 
+    
+    ##  prepare request text
+    my $request = '<i>Mi dici cchiù dâ palora:</i> '. $display .'<i>? Clicca ccà!</i>';
+
+    ##  prepare output
+    my $ot;
+    
+    ##  DIV to limit width
+    $ot .= '<div class="transconj">' . "\n" ;
+    $ot .= '<p style="margin-bottom: 0.5em;"><a href="/cgi-bin/aiutami.pl?palora='. $palora .'">' ; 
+    $ot .= $request . '</a></p>' . "\n" ;
+    $ot .= '</div>'."\n";
+
+    ##  ask for help!
+    return $ot;
+}
+
 sub mk_nounhtml { 
     my $palora  =    $_[0]   ;  ( my $singular = $palora ) =~ s/_noun$// ; 
     my $lgparm  =    $_[1]   ;
@@ -74,7 +103,7 @@ sub mk_nounhtml {
 	##  already plural
 	push( @plurals , $display ) ; 
 
-    } elsif ( ! defined $vnotes{$palora}{noun}{plural} && ( $plend eq "xixa" || $plend eq "xura" ) ) {
+    } elsif ( ! defined $vnotes{$palora}{noun}{plural} && ( $plend eq "xixa" || $plend eq "xura" || $plend eq "eddu" ) ) {
 	##  if an irregular plural is not defined AND plend is either "xixa" or "xura"
 	push( @plurals , $vbsubs{mk_noun_plural}( $display , $gender , $plend  , $nounpls ) );
 	push( @plurals , $vbsubs{mk_noun_plural}( $display , $gender , "xi"  , $nounpls ) );
@@ -374,20 +403,31 @@ sub mk_dielitrans {
     
     $ot .= '<div class="row">' . "\n" ; 
 
+    ##  what variants of the word did Dr. Dieli identify?
     ##  what does the word translate to?
+    my @dieli_sc_links  ; 
     my @dieli_en_links  ; 
     my @dieli_it_links  ; 
+    foreach my $trans (@{$vnotes{$palora}{dieli}}) {
+	push( @dieli_sc_links , '<a href="/cgi-bin/sicilian.pl?search=' . $trans . '&langs='. $lgparm .'">' . $trans . '</a>' );
+    } 
     foreach my $trans (@{$vnotes{$palora}{dieli_en}}) {
 	push( @dieli_en_links , '<a href="/cgi-bin/sicilian.pl?search=' . $trans . '&langs=ENSC">' . $trans . '</a>' );
     } 
     foreach my $trans (@{$vnotes{$palora}{dieli_it}}) {
 	push( @dieli_it_links , '<a href="/cgi-bin/sicilian.pl?search=' . $trans . '&langs=ITSC">' . $trans . '</a>' );
     } 
+    my $dieli_sc_str = join( ', ' , @dieli_sc_links ); 
     my $dieli_en_str = join( ', ' , @dieli_en_links ); 
     my $dieli_it_str = join( ', ' , @dieli_it_links ); 
     
     $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><b>EN:</b> &nbsp; ' . $dieli_en_str . '</p>' . "\n" ; 
     $ot .= '<p style="margin-top: 0em; margin-bottom: 0em;"><b>IT:</b> &nbsp; ' . $dieli_it_str . '</p>' . "\n" ; 
+
+    ##  only show Dieli list if more than one
+    if ( $#dieli_sc_links > 0 ) {
+	$ot .= '<p style="margin-top: 0.5em; margin-bottom: 0em;"><i>Dieli:</i> &nbsp; ' . $dieli_sc_str . '</p>' . "\n" ;
+    }
     
     $ot .= '</div>' . "\n" ;
     $ot .= '</div>' . "\n" ;
@@ -1064,6 +1104,8 @@ sub mk_foothtml {
 
 ##  hash to store subs for cchiu-da-palora
 my %ccsubs ; 
+
+$ccsubs{ask_help}       = \&ask_help;
 
 $ccsubs{mk_nounhtml}    = \&mk_nounhtml;
 $ccsubs{mk_adjhtml}     = \&mk_adjhtml;

@@ -284,6 +284,7 @@ my %alliri = (
 %{ $vbconj{xxiri} } = %alliri ;
 %{ $vbconj{xciri} } = %alliri ;
 %{ $vbconj{xgiri} } = %alliri ;
+%{ $vbconj{xhiri} } = %alliri ;
 %{ $vbconj{xsiri} } = %alliri ;
 %{ $vbconj{sciri} } = %alliri ;
 
@@ -291,6 +292,7 @@ my %alliri = (
 $vbconj{xxiri}{pap} = "utu";
 $vbconj{xciri}{pap} = "iutu";
 $vbconj{xgiri}{pap} = "iutu";
+$vbconj{xhiri}{pap} = "iutu";
 $vbconj{xsiri}{pap} = "iutu";
 $vbconj{sciri}{pap} = "utu";
 
@@ -318,6 +320,8 @@ my %pricigi = ( us => "u"   , ds => ""    , ts => "a"   ,
 			     up => "emu" , dp => "iti" , tp => "inu" );
 %{ $vbconj{xgiri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
 			     up => "emu" , dp => "iti" , tp => "inu" );
+%{ $vbconj{xhiri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
+			     up => "emu" , dp => "iti" , tp => "inu" );
 %{ $vbconj{xsiri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
 			     up => "emu" , dp => "iti" , tp => "inu" );
 %{ $vbconj{sciri}{pri} } = ( us => "iu"  , ds => "i"   , ts => "i"   ,
@@ -331,6 +335,7 @@ my %ftixir = ( us => "irò"    , ds => "irai"   , ts => "irà"     ,
 %{ $vbconj{xxiri}{fti} } = %ftixir ;
 %{ $vbconj{xciri}{fti} } = %ftixir ;
 %{ $vbconj{xgiri}{fti} } = %ftixir ;
+%{ $vbconj{xhiri}{fti} } = %ftixir ;
 %{ $vbconj{xsiri}{fti} } = %ftixir ;
 %{ $vbconj{sciri}{fti} } = %ftixir ;
 
@@ -355,6 +360,7 @@ my %coixir = ( us => "irìa"   , ds => "irivi"  , ts => "irìa"   ,
 %{ $vbconj{xxiri}{coi} } = %coixir ;
 %{ $vbconj{xciri}{coi} } = %coixir ;
 %{ $vbconj{xgiri}{coi} } = %coixir ;
+%{ $vbconj{xhiri}{coi} } = %coixir ;
 %{ $vbconj{xsiri}{coi} } = %coixir ;
 %{ $vbconj{sciri}{coi} } = %coixir ;
 
